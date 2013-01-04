@@ -18,4 +18,5 @@ DerivedData
 .idea/
 Pods
 Podfile.lock
+*.swp
 

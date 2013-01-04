@@ -19,7 +19,10 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSURLRequest *request = [[RequestManager sharedInstance] authorizationURLRequest];
     [webView setDelegate:self];
+    [webView loadRequest:request];
 }
 
 - (void) dealloc
@@ -28,25 +31,18 @@
 }
 
 #pragma mark -
-#pragma mark actions
-
-- (IBAction)signIn
-{
-    NSURLRequest *request = [[RequestManager sharedInstance] authorizationURLRequest];
-    [webView loadRequest:request];
-}
-
-
-#pragma mark -
 #pragma mark UIWebViewDelegate methods
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSURL *url = [request URL];
     if ([[url host] isEqualToString:kRedirectUri]) {
+        NSLog(@"url = %@",url);
         OAuthResponse *response = [[OAuthResponse alloc] initWithRedirectURL:url];
         if ([[response accessToken] length] != 0) {
-            NSLog(@"authorized");
+            [self saveAuthorizedUser:response];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserSignedIn object:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
         return NO;
     }
@@ -61,5 +57,15 @@
     }    
 }
 
+#pragma mark -
+#pragma mark helpers
+
+- (void) saveAuthorizedUser:(OAuthResponse *) response
+{
+    SettingsManager *settings = [SettingsManager sharedInstance];
+    [settings setAccessToken:[response accessToken]];
+    [settings setAuthorizedUserID:[response userID]];
+    [settings saveSettings];
+}
 
 @end

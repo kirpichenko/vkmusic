@@ -8,25 +8,31 @@
 
 #import "AppDelegate.h"
 #import "SignInViewController.h"
+#import "UsersAudioViewController.h"
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    UsersAudioViewController *controller = [[UsersAudioViewController alloc] init];
+    [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];
     
-    [self showSignInView];
+//    if (![[SettingsManager sharedInstance] isUserAuthorized]) {
+//        [self showSignInViewControllerAnimated:NO];
+//    }
+    
     return YES;
 }
 
-- (void) showSignInView
+- (void) showSignInViewControllerAnimated:(BOOL) animated
 {
     SignInViewController *controller = [[SignInViewController alloc] init];
-    [[self window] setRootViewController:controller];
+    [[[self window] rootViewController] presentViewController:controller
+                                                     animated:animated
+                                                   completion:nil];
 }
 
 @end

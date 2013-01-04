@@ -34,6 +34,8 @@
 		D995385F1696289F00C8B6F4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D995385E1696289F00C8B6F4 /* Default.png */; };
 		D99538611696289F00C8B6F4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D99538601696289F00C8B6F4 /* Default@2x.png */; };
 		D99538631696289F00C8B6F4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D99538621696289F00C8B6F4 /* Default-568h@2x.png */; };
+		D9B5F5BB16976C3B006E77D2 /* UsersAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B5F5B916976C3B006E77D2 /* UsersAudioViewController.m */; };
+		D9B5F5BC16976C3B006E77D2 /* UsersAudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B5F5BA16976C3B006E77D2 /* UsersAudioViewController.xib */; };
 		F0F4C3590C1148909D9A7751 /* libPods-VKMusic-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 280EA9A2240043DB953DAF58 /* libPods-VKMusic-UnitTests.a */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,10 @@
 		D995385E1696289F00C8B6F4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D99538601696289F00C8B6F4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D99538621696289F00C8B6F4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D9B5F5B816976C3B006E77D2 /* UsersAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersAudioViewController.h; sourceTree = "<group>"; };
+		D9B5F5B916976C3B006E77D2 /* UsersAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersAudioViewController.m; sourceTree = "<group>"; };
+		D9B5F5BA16976C3B006E77D2 /* UsersAudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersAudioViewController.xib; sourceTree = "<group>"; };
+		D9B5F5BD16976D75006E77D2 /* ApplicationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,7 @@
 		D995382D1695FFDE00C8B6F4 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				D9B5F5BD16976D75006E77D2 /* ApplicationConstants.h */,
 				D9258C341695F8F70072798B /* AppDelegate.h */,
 				D9258C351695F8F70072798B /* AppDelegate.m */,
 			);
@@ -178,9 +185,8 @@
 		D995382F1695FFEA00C8B6F4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D99538301696003800C8B6F4 /* SignInViewController.h */,
-				D99538311696003800C8B6F4 /* SignInViewController.m */,
-				D99538321696003800C8B6F4 /* SignInViewController.xib */,
+				D9B5F5B716976BF0006E77D2 /* UsersAudioViewController */,
+				D9B5F5B516976BCF006E77D2 /* SignInViewController */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -246,6 +252,26 @@
 				D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */,
 			);
 			name = Specs;
+			sourceTree = "<group>";
+		};
+		D9B5F5B516976BCF006E77D2 /* SignInViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D99538301696003800C8B6F4 /* SignInViewController.h */,
+				D99538311696003800C8B6F4 /* SignInViewController.m */,
+				D99538321696003800C8B6F4 /* SignInViewController.xib */,
+			);
+			name = SignInViewController;
+			sourceTree = "<group>";
+		};
+		D9B5F5B716976BF0006E77D2 /* UsersAudioViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9B5F5B816976C3B006E77D2 /* UsersAudioViewController.h */,
+				D9B5F5B916976C3B006E77D2 /* UsersAudioViewController.m */,
+				D9B5F5BA16976C3B006E77D2 /* UsersAudioViewController.xib */,
+			);
+			name = UsersAudioViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +350,7 @@
 				D9258C3A1695F8F70072798B /* Default@2x.png in Resources */,
 				D9258C3C1695F8F70072798B /* Default-568h@2x.png in Resources */,
 				D99538341696003800C8B6F4 /* SignInViewController.xib in Resources */,
+				D9B5F5BC16976C3B006E77D2 /* UsersAudioViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +411,7 @@
 				D99538411696194A00C8B6F4 /* SettingsManager.m in Sources */,
 				D995384516961A8100C8B6F4 /* SignInResponseParser.m in Sources */,
 				D99538481696214000C8B6F4 /* OAuthResponse.m in Sources */,
+				D9B5F5BB16976C3B006E77D2 /* UsersAudioViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

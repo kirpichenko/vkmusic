@@ -8,8 +8,10 @@
 
 #import "RequestSender.h"
 #import "RequestConstants.h"
+#import "RequestManager.h"
+#import "ResponseParser.h"
 
-#import <AFOAuth2Client/AFOAuth2Client.h>
+#import <AFNetworking/AFNetworking.h>
 
 @implementation RequestSender
 
@@ -23,21 +25,46 @@
     return sharedInstance;
 }
 
-- (void) sendAuthorizationRequest
+- (id) init
 {
-//    NSURL *url = [NSURL URLWithString:kAuthorizationURL];
-//    AFOAuth2Client *oauthClient = [AFOAuth2Client clientWithBaseURL:url clientID:kClientID secret:kClientSecret];
-//    
-//    [oauthClient authenticateUsingOAuthWithPath:@"/oauth/token"
-//                                       username:@"username"
-//                                       password:@"password"
-//                                        success:^(AFOAuthCredential *credential) {
-//                                            NSLog(@"I have a token! %@", credential.accessToken);
-//                                            [AFOAuthCredential storeCredential:credential withIdentifier:oauthClient.serviceProviderIdentifier];
-//                                        }
-//                                        failure:^(NSError *error) {
-//                                            NSLog(@"Error: %@", error);
-//                                        }];
+    if (self = [super init]) {
+        parser = [[ResponseParser alloc] init];
+    }
+    return self;
+}
+
+- (void) sendAudioGetRequestForUser:(NSInteger) userID
+                            success:(void(^)(id response)) success
+                            failure:(void(^)(NSError *error)) failure
+{
+    void(^operationSuccess)(NSURLRequest *,NSHTTPURLResponse *,id) =
+    ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        if (success) {
+            success([parser parseAudioListFromResponse:JSON]);
+        }
+    };
+    
+    
+    id operationFailure = [self defaultOperationFailureWithCallback:failure];
+    NSURLRequest *request = [[RequestManager sharedInstance] audioGetRequestForUser:userID];
+    
+    [[AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                    success:operationSuccess
+                                                    failure:operationFailure] start];
+}
+
+#pragma mark -
+#pragma mark helpers
+
+- (void(^)(NSURLRequest *,NSHTTPURLResponse *, NSError *, id JSON)) defaultOperationFailureWithCallback:(void(^)(NSError *error)) failure
+{
+    void(^operationFailure)(NSURLRequest *,NSHTTPURLResponse *, NSError *, id JSON) =
+    ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        if (failure) {
+            failure(error);
+        }
+    };
+    return operationFailure;
 }
 
 @end

@@ -19,12 +19,32 @@
 		D9258C3C1695F8F70072798B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9258C3B1695F8F70072798B /* Default-568h@2x.png */; };
 		D957D6CF16962BEE001F352B /* OAuthResponseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */; };
 		D957D6D116962FA2001F352B /* OAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538471696214000C8B6F4 /* OAuthResponse.m */; };
+		D98C5DCF169864660084D92A /* RequestManagerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DCE169864660084D92A /* RequestManagerSpec.mm */; };
+		D98C5DD1169866120084D92A /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D995383B16960E7100C8B6F4 /* RequestManager.m */; };
+		D98C5DD4169883510084D92A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD2169883510084D92A /* MobileCoreServices.framework */; };
+		D98C5DD5169883510084D92A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD2169883510084D92A /* MobileCoreServices.framework */; };
+		D98C5DD6169883510084D92A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD3169883510084D92A /* SystemConfiguration.framework */; };
+		D98C5DD7169883510084D92A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD3169883510084D92A /* SystemConfiguration.framework */; };
+		D98C5DDA169885D30084D92A /* ResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DD9169885D30084D92A /* ResponseParser.m */; };
+		D98C5DDB169885D30084D92A /* ResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DD9169885D30084D92A /* ResponseParser.m */; };
+		D98C5DDE169886FA0084D92A /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DDD169886FA0084D92A /* Audio.m */; };
+		D98C5DDF169886FA0084D92A /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DDD169886FA0084D92A /* Audio.m */; };
+		D98C5DE8169888F10084D92A /* Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DE7169888F10084D92A /* Mapping.m */; };
+		D98C5DE9169888F10084D92A /* Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DE7169888F10084D92A /* Mapping.m */; };
+		D98C5E35169892D00084D92A /* MappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E34169892D00084D92A /* MappingManager.m */; };
+		D98C5E36169892D00084D92A /* MappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E34169892D00084D92A /* MappingManager.m */; };
+		D98C5E38169894ED0084D92A /* ResponseParserSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */; };
+		D98C5E421698967C0084D92A /* NSDictionary+LoadFromJsonFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E411698967C0084D92A /* NSDictionary+LoadFromJsonFile.m */; };
+		D98C5E44169896A60084D92A /* GetAudioResponse in Resources */ = {isa = PBXBuildFile; fileRef = D98C5E43169896A60084D92A /* GetAudioResponse */; };
+		D98C5EB91698C9A30084D92A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5EB71698C9A30084D92A /* SettingsViewController.m */; };
+		D98C5EBA1698C9A30084D92A /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C5EB81698C9A30084D92A /* SettingsViewController.xib */; };
+		D98C5EBF1698C9D40084D92A /* PlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */; };
+		D98C5EC01698C9D40084D92A /* PlaylistsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C5EBE1698C9D40084D92A /* PlaylistsViewController.xib */; };
 		D99538331696003800C8B6F4 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538311696003800C8B6F4 /* SignInViewController.m */; };
 		D99538341696003800C8B6F4 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99538321696003800C8B6F4 /* SignInViewController.xib */; };
 		D99538381696013100C8B6F4 /* RequestSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538371696013100C8B6F4 /* RequestSender.m */; };
 		D995383C16960E7100C8B6F4 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D995383B16960E7100C8B6F4 /* RequestManager.m */; };
 		D99538411696194A00C8B6F4 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538401696194A00C8B6F4 /* SettingsManager.m */; };
-		D995384516961A8100C8B6F4 /* SignInResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D995384416961A8100C8B6F4 /* SignInResponseParser.m */; };
 		D99538481696214000C8B6F4 /* OAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538471696214000C8B6F4 /* OAuthResponse.m */; };
 		D995384F1696289F00C8B6F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C251695F8F70072798B /* UIKit.framework */; };
 		D99538501696289F00C8B6F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C271695F8F70072798B /* Foundation.framework */; };
@@ -58,6 +78,27 @@
 		D9258C391695F8F70072798B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D9258C3B1695F8F70072798B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OAuthResponseSpec.mm; sourceTree = "<group>"; };
+		D98C5DCE169864660084D92A /* RequestManagerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RequestManagerSpec.mm; sourceTree = "<group>"; };
+		D98C5DD2169883510084D92A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D98C5DD3169883510084D92A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D98C5DD8169885D30084D92A /* ResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseParser.h; sourceTree = "<group>"; };
+		D98C5DD9169885D30084D92A /* ResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseParser.m; sourceTree = "<group>"; };
+		D98C5DDC169886FA0084D92A /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
+		D98C5DDD169886FA0084D92A /* Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Audio.m; sourceTree = "<group>"; };
+		D98C5DE6169888F10084D92A /* Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mapping.h; sourceTree = "<group>"; };
+		D98C5DE7169888F10084D92A /* Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mapping.m; sourceTree = "<group>"; };
+		D98C5E33169892D00084D92A /* MappingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingManager.h; sourceTree = "<group>"; };
+		D98C5E34169892D00084D92A /* MappingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingManager.m; sourceTree = "<group>"; };
+		D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResponseParserSpec.mm; sourceTree = "<group>"; };
+		D98C5E401698967C0084D92A /* NSDictionary+LoadFromJsonFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LoadFromJsonFile.h"; sourceTree = "<group>"; };
+		D98C5E411698967C0084D92A /* NSDictionary+LoadFromJsonFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LoadFromJsonFile.m"; sourceTree = "<group>"; };
+		D98C5E43169896A60084D92A /* GetAudioResponse */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetAudioResponse; sourceTree = "<group>"; };
+		D98C5EB61698C9A30084D92A /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		D98C5EB71698C9A30084D92A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		D98C5EB81698C9A30084D92A /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		D98C5EBC1698C9D40084D92A /* PlaylistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistsViewController.h; sourceTree = "<group>"; };
+		D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistsViewController.m; sourceTree = "<group>"; };
+		D98C5EBE1698C9D40084D92A /* PlaylistsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaylistsViewController.xib; sourceTree = "<group>"; };
 		D99538301696003800C8B6F4 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		D99538311696003800C8B6F4 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		D99538321696003800C8B6F4 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
@@ -68,8 +109,6 @@
 		D995383B16960E7100C8B6F4 /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
 		D995383F1696194A00C8B6F4 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
 		D99538401696194A00C8B6F4 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
-		D995384316961A8100C8B6F4 /* SignInResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInResponseParser.h; sourceTree = "<group>"; };
-		D995384416961A8100C8B6F4 /* SignInResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInResponseParser.m; sourceTree = "<group>"; };
 		D99538461696214000C8B6F4 /* OAuthResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthResponse.h; sourceTree = "<group>"; };
 		D99538471696214000C8B6F4 /* OAuthResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthResponse.m; sourceTree = "<group>"; };
 		D995384D1696289F00C8B6F4 /* VKMusic-UnitTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VKMusic-UnitTests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +134,8 @@
 				D9258C281695F8F70072798B /* Foundation.framework in Frameworks */,
 				D9258C2A1695F8F70072798B /* CoreGraphics.framework in Frameworks */,
 				07F29BD556D94D2BBFDE0DC7 /* libPods.a in Frameworks */,
+				D98C5DD4169883510084D92A /* MobileCoreServices.framework in Frameworks */,
+				D98C5DD6169883510084D92A /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +147,8 @@
 				D99538501696289F00C8B6F4 /* Foundation.framework in Frameworks */,
 				D99538511696289F00C8B6F4 /* CoreGraphics.framework in Frameworks */,
 				F0F4C3590C1148909D9A7751 /* libPods-VKMusic-UnitTests.a in Frameworks */,
+				D98C5DD5169883510084D92A /* MobileCoreServices.framework in Frameworks */,
+				D98C5DD7169883510084D92A /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +179,8 @@
 		D9258C241695F8F70072798B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D98C5DD2169883510084D92A /* MobileCoreServices.framework */,
+				D98C5DD3169883510084D92A /* SystemConfiguration.framework */,
 				D9258C251695F8F70072798B /* UIKit.framework */,
 				D9258C271695F8F70072798B /* Foundation.framework */,
 				D9258C291695F8F70072798B /* CoreGraphics.framework */,
@@ -172,6 +217,64 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D98C5DEA16988DA60084D92A /* Objects Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				D98C5E33169892D00084D92A /* MappingManager.h */,
+				D98C5E34169892D00084D92A /* MappingManager.m */,
+				D98C5DE6169888F10084D92A /* Mapping.h */,
+				D98C5DE7169888F10084D92A /* Mapping.m */,
+			);
+			name = "Objects Mapping";
+			sourceTree = "<group>";
+		};
+		D98C5DEB16988DBB0084D92A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D995383F1696194A00C8B6F4 /* SettingsManager.h */,
+				D99538401696194A00C8B6F4 /* SettingsManager.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		D98C5DEC16988FE50084D92A /* Response Parser */ = {
+			isa = PBXGroup;
+			children = (
+				D98C5DD8169885D30084D92A /* ResponseParser.h */,
+				D98C5DD9169885D30084D92A /* ResponseParser.m */,
+			);
+			name = "Response Parser";
+			sourceTree = "<group>";
+		};
+		D98C5DED16988FF50084D92A /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				D99538391696046100C8B6F4 /* RequestConstants.h */,
+				D99538361696013100C8B6F4 /* RequestSender.h */,
+				D99538371696013100C8B6F4 /* RequestSender.m */,
+				D995383A16960E7100C8B6F4 /* RequestManager.h */,
+				D995383B16960E7100C8B6F4 /* RequestManager.m */,
+			);
+			name = Requests;
+			sourceTree = "<group>";
+		};
+		D98C5E391698951C0084D92A /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				D98C5E43169896A60084D92A /* GetAudioResponse */,
+			);
+			name = Responses;
+			sourceTree = "<group>";
+		};
+		D98C5E3F1698966D0084D92A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D98C5E401698967C0084D92A /* NSDictionary+LoadFromJsonFile.h */,
+				D98C5E411698967C0084D92A /* NSDictionary+LoadFromJsonFile.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		D995382D1695FFDE00C8B6F4 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +290,12 @@
 			children = (
 				D9B5F5B716976BF0006E77D2 /* UsersAudioViewController */,
 				D9B5F5B516976BCF006E77D2 /* SignInViewController */,
+				D98C5EB61698C9A30084D92A /* SettingsViewController.h */,
+				D98C5EB71698C9A30084D92A /* SettingsViewController.m */,
+				D98C5EB81698C9A30084D92A /* SettingsViewController.xib */,
+				D98C5EBC1698C9D40084D92A /* PlaylistsViewController.h */,
+				D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */,
+				D98C5EBE1698C9D40084D92A /* PlaylistsViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -194,11 +303,8 @@
 		D9953835169600E700C8B6F4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				D99538391696046100C8B6F4 /* RequestConstants.h */,
-				D99538361696013100C8B6F4 /* RequestSender.h */,
-				D99538371696013100C8B6F4 /* RequestSender.m */,
-				D995383A16960E7100C8B6F4 /* RequestManager.h */,
-				D995383B16960E7100C8B6F4 /* RequestManager.m */,
+				D98C5DED16988FF50084D92A /* Requests */,
+				D98C5DEC16988FE50084D92A /* Response Parser */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -206,10 +312,8 @@
 		D995383E1696193100C8B6F4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D995383F1696194A00C8B6F4 /* SettingsManager.h */,
-				D99538401696194A00C8B6F4 /* SettingsManager.m */,
-				D995384316961A8100C8B6F4 /* SignInResponseParser.h */,
-				D995384416961A8100C8B6F4 /* SignInResponseParser.m */,
+				D98C5DEB16988DBB0084D92A /* Settings */,
+				D98C5DEA16988DA60084D92A /* Objects Mapping */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -219,6 +323,8 @@
 			children = (
 				D99538461696214000C8B6F4 /* OAuthResponse.h */,
 				D99538471696214000C8B6F4 /* OAuthResponse.m */,
+				D98C5DDC169886FA0084D92A /* Audio.h */,
+				D98C5DDD169886FA0084D92A /* Audio.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -226,6 +332,8 @@
 		D99538521696289F00C8B6F4 /* VKMusic-UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				D98C5E3F1698966D0084D92A /* Extensions */,
+				D98C5E391698951C0084D92A /* Responses */,
 				D995387016962A2700C8B6F4 /* Specs */,
 				D99538531696289F00C8B6F4 /* Supporting Files */,
 			);
@@ -250,6 +358,8 @@
 			isa = PBXGroup;
 			children = (
 				D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */,
+				D98C5DCE169864660084D92A /* RequestManagerSpec.mm */,
+				D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */,
 			);
 			name = Specs;
 			sourceTree = "<group>";
@@ -351,6 +461,8 @@
 				D9258C3C1695F8F70072798B /* Default-568h@2x.png in Resources */,
 				D99538341696003800C8B6F4 /* SignInViewController.xib in Resources */,
 				D9B5F5BC16976C3B006E77D2 /* UsersAudioViewController.xib in Resources */,
+				D98C5EBA1698C9A30084D92A /* SettingsViewController.xib in Resources */,
+				D98C5EC01698C9D40084D92A /* PlaylistsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +474,7 @@
 				D995385F1696289F00C8B6F4 /* Default.png in Resources */,
 				D99538611696289F00C8B6F4 /* Default@2x.png in Resources */,
 				D99538631696289F00C8B6F4 /* Default-568h@2x.png in Resources */,
+				D98C5E44169896A60084D92A /* GetAudioResponse in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,9 +522,14 @@
 				D99538381696013100C8B6F4 /* RequestSender.m in Sources */,
 				D995383C16960E7100C8B6F4 /* RequestManager.m in Sources */,
 				D99538411696194A00C8B6F4 /* SettingsManager.m in Sources */,
-				D995384516961A8100C8B6F4 /* SignInResponseParser.m in Sources */,
 				D99538481696214000C8B6F4 /* OAuthResponse.m in Sources */,
 				D9B5F5BB16976C3B006E77D2 /* UsersAudioViewController.m in Sources */,
+				D98C5DDA169885D30084D92A /* ResponseParser.m in Sources */,
+				D98C5DDE169886FA0084D92A /* Audio.m in Sources */,
+				D98C5DE8169888F10084D92A /* Mapping.m in Sources */,
+				D98C5E35169892D00084D92A /* MappingManager.m in Sources */,
+				D98C5EB91698C9A30084D92A /* SettingsViewController.m in Sources */,
+				D98C5EBF1698C9D40084D92A /* PlaylistsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +540,14 @@
 				D99538591696289F00C8B6F4 /* main.m in Sources */,
 				D957D6CF16962BEE001F352B /* OAuthResponseSpec.mm in Sources */,
 				D957D6D116962FA2001F352B /* OAuthResponse.m in Sources */,
+				D98C5DCF169864660084D92A /* RequestManagerSpec.mm in Sources */,
+				D98C5DD1169866120084D92A /* RequestManager.m in Sources */,
+				D98C5DDB169885D30084D92A /* ResponseParser.m in Sources */,
+				D98C5DDF169886FA0084D92A /* Audio.m in Sources */,
+				D98C5DE9169888F10084D92A /* Mapping.m in Sources */,
+				D98C5E36169892D00084D92A /* MappingManager.m in Sources */,
+				D98C5E38169894ED0084D92A /* ResponseParserSpec.mm in Sources */,
+				D98C5E421698967C0084D92A /* NSDictionary+LoadFromJsonFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

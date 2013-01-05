@@ -8,12 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-#import <AFOAuth2Client/AFOAuth2Client.h>
+@class ResponseParser;
 
 @interface RequestSender : NSObject
+{
+    ResponseParser *parser;
+}
 
 + (id) sharedInstance;
 
-- (void) sendAuthorizationRequest;
+- (void) sendAudioGetRequestForUser:(NSInteger) userID
+                            success:(void(^)(id response)) success
+                            failure:(void(^)(NSError *error)) failure;
+
 
 @end

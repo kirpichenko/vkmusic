@@ -16,6 +16,17 @@
 
 @implementation SignInViewController
 
+#pragma mark -
+#pragma mark life cycle
+
+- (id) initWithDelegate:(id<SignInViewControllerDelegate>) delegate
+{
+    if (self = [super initWithNibName:nil bundle:nil]) {
+        [self setDelegate:nil];
+    }
+    return self;
+}
+
 - (void) viewDidLoad
 {
     [super viewDidLoad];
@@ -27,6 +38,7 @@
 
 - (void) dealloc
 {
+    [self setDelegate:nil];
     [webView setDelegate:nil];
 }
 
@@ -37,11 +49,10 @@
 {
     NSURL *url = [request URL];
     if ([[url host] isEqualToString:kRedirectUri]) {
-        NSLog(@"url = %@",url);
         OAuthResponse *response = [[OAuthResponse alloc] initWithRedirectURL:url];
         if ([[response accessToken] length] != 0) {
-            [self saveAuthorizedUser:response];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUserSignedIn object:nil];
+            [[self delegate] userSignedIn:[response userID]
+                              accessToken:[response accessToken]];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         return NO;
@@ -53,19 +64,8 @@
 {
     NSURL *openingURL = [[error userInfo] objectForKey:NSURLErrorFailingURLErrorKey];
     if (![[openingURL host] isEqualToString:kRedirectUri]) {
-        NSLog(@"fail = %@",NSStringFromClass([openingURL class]));
+        [[self delegate] userSignInFailed:error];
     }    
-}
-
-#pragma mark -
-#pragma mark helpers
-
-- (void) saveAuthorizedUser:(OAuthResponse *) response
-{
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    [settings setAccessToken:[response accessToken]];
-    [settings setAuthorizedUserID:[response userID]];
-    [settings saveSettings];
 }
 
 @end

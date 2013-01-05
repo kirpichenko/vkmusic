@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SignInViewControllerDelegate <NSObject>
+- (void) userSignedIn:(NSInteger) userID accessToken:(NSString *) token;
+- (void) userSignInFailed:(NSError *) error;
+@end
+
 @interface SignInViewController : UIViewController
 {
     __weak IBOutlet UIWebView *webView;
-    
 }
+
+- (id) initWithDelegate:(id<SignInViewControllerDelegate>) delegate;
+
+@property (nonatomic, weak) id<SignInViewControllerDelegate> delegate;
+
 @end

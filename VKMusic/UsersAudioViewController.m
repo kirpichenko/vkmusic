@@ -7,10 +7,11 @@
 //
 
 #import "UsersAudioViewController.h"
-#import "SignInViewController.h"
 
-@interface UsersAudioViewController ()
+#import "Audio.h"
 
+@interface UsersAudioViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) NSArray *audioRecords;
 @end
 
 @implementation UsersAudioViewController
@@ -38,8 +39,8 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if (![[SettingsManager sharedInstance] isUserAuthorized]) {
-        [self showSignInViewControllerAnimated:NO];
+    if ([[SettingsManager sharedInstance] isUserAuthorized]) {
+        [self loadAudio];
     }
 }
 
@@ -56,47 +57,54 @@
 
 - (void) userSignedIn
 {
-    NSLog(@"signed in");
+    [self loadAudio];
 }
 
 - (void) userSignedOut
 {
-    [self showSignInViewControllerAnimated:YES];
     NSLog(@"signed out");
 }
 
+#pragma mark -
+#pragma mark load audio
+
+- (void) loadAudio
+{
+    NSInteger userID = [[SettingsManager sharedInstance] authorizedUserID];
+    RequestSender *sender = [RequestSender sharedInstance];
+    __weak UsersAudioViewController *selfController = self;
+    [sender sendAudioGetRequestForUser:userID
+                               success:^(id response) {
+                                   [selfController setAudioRecords:response];
+                                   [audioList reloadData];
+                               }
+                               failure:^(NSError *error) {
+                                   NSLog(@"fail = %@",error);
+                               }];
+}
 
 #pragma mark -
-#pragma mark test
+#pragma mark UITableViewDataSource methods
 
-- (IBAction)signOut
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    [settings setAccessToken:nil];
-    [settings setAuthorizedUserID:NSNotFound];
-    [settings saveSettings];
-    
-    [self deleteCookies];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kUserSignedOut object:nil];
+    return [[self audioRecords] count];
 }
 
-- (void) deleteCookies
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSHTTPCookieStorage* cookiesStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    NSArray *cookies = [cookiesStorage cookies];
-    for (NSHTTPCookie* cookie in cookies) {
-        [cookiesStorage deleteCookie:cookie];
+    NSString *identifier = @"AudioCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:identifier];
     }
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    Audio *audio = [[self audioRecords] objectAtIndex:indexPath.row];
+    [[cell textLabel] setText:[audio title]];
+    [[cell detailTextLabel] setText:[audio artist]];
+    
+    return cell;
 }
-
-
-
-- (void) showSignInViewControllerAnimated:(BOOL) animated
-{
-    SignInViewController *controller = [[SignInViewController alloc] init];
-    [self presentViewController:controller animated:animated completion:nil];
-}
-
+    
 @end

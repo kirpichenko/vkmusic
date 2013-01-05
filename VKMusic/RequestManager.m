@@ -8,6 +8,9 @@
 
 #import "RequestManager.h"
 
+@interface RequestManager ()
+@end
+
 @implementation RequestManager
 
 + (id) sharedInstance
@@ -26,6 +29,17 @@
                            @"%@?client_id=%@&scope=audio,offline&redirect_uri=%@&"
                            @"display=mobile&response_type=token",
                            kAuthorizationURL,kApplicationID,kRedirectUri];
+    return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+}
+
+- (NSURLRequest *) audioGetRequestForUser:(NSInteger) userID
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@?uid=%d&access_token=%@",
+                           kApiURL,
+                           kAudioGetApiPath,
+                           userID,
+                           [self accessToken]];
+    NSLog(@"url = %@",urlString);
     return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
 }
 

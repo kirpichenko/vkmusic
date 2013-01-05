@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UsersAudioViewController : UIViewController
+{
+    __weak IBOutlet UITableView *audioList;
+}
 
 @end

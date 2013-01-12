@@ -12,7 +12,7 @@
 
 typedef enum {
     kAudioPlayerStateReady = 0, 
-    kAudioPlayerStatePlaing,
+    kAudioPlayerStatePlaying,
     kAudioPlayerStatePaused,
     kAudioPlayerStateUnconfigured
 } AudioPlayerState;

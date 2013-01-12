@@ -82,17 +82,23 @@ sizeOfItemForViewController:(UIViewController *)viewController
 
 - (IBAction) playPause
 {
-    
+    AudioPlayer *player = [AudioPlayer sharedInstance];
+    if ([player state] == kAudioPlayerStatePaused) {
+        [player resume];
+    }
+    else if ([player state] == kAudioPlayerStatePlaying) {
+        [player pause];
+    }
 }
 
 - (IBAction) playNextAudio
 {
-    
+    [[AudioPlayer sharedInstance] playNextAudio];
 }
 
 - (IBAction) playPreviousAudio
 {
-    
+    [[AudioPlayer sharedInstance] playPreviousAudio];
 }
 
 @end

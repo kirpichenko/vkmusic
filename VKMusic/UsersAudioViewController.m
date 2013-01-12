@@ -114,7 +114,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [[AudioPlayer sharedInstance] playAudioList:[self audioRecords] startWithIndex:indexPath.row];
+    AudioPlayer *player = [AudioPlayer sharedInstance];
+    [player setAudioList:[self audioRecords]];
+    [player playAudioAtIndex:indexPath.row];
 }
     
 @end

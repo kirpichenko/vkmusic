@@ -62,19 +62,24 @@
 
 - (void) play
 {
-    [_currentPlayer pause];
+    if (_state != kAudioPlayerStatePlaying) {
+        [self playAudioAtIndex:0];
+    }
 }
 
 - (void) playAudioAtIndex:(NSInteger) index
 {
     if ([_audioList count] > 0 && index < [_audioList count]) {
+        _state = kAudioPlayerStatePlaying;
         _playingIndex = index;
+        _playingAudio = [[self audioList] objectAtIndex:index];        
         
-        Audio *audio = [[self audioList] objectAtIndex:index];
-        AVPlayer *player = [[AVPlayer alloc] initWithURL:[audio url]];
+#ifndef TEST
+        AVPlayer *player = [[AVPlayer alloc] initWithURL:[_playingAudio url]];
         [self setCurrentPlayer:player];
         [player play];
-    }    
+#endif
+    }
 }
 
 - (void) playNextAudio
@@ -96,19 +101,28 @@
 
 - (void) resume
 {
-    [[self currentPlayer] play];
+    if (_state == kAudioPlayerStatePaused) {
+        _state = kAudioPlayerStatePlaying;
+        [[self currentPlayer] play];
+    }
 }
 
 - (void) pause {
-    [[self currentPlayer] pause];
+    if (_state == kAudioPlayerStatePlaying) {
+        _state = kAudioPlayerStatePaused;
+        [[self currentPlayer] pause];
+    }
 }
 
 - (void) stop
 {
     [_currentPlayer pause];
     _currentPlayer = nil;
+
     _state = kAudioPlayerStateUnconfigured;
     _audioList = nil;
+    _playingIndex = NSNotFound;
+    _playingAudio = nil;
 }
 
 

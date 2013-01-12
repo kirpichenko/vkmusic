@@ -16,6 +16,6 @@
 @property (nonatomic) NSInteger lyricsID;
 @property (nonatomic) NSInteger ownerID;
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSURL *url;
 
 @end

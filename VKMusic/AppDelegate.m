@@ -8,13 +8,9 @@
 
 #import "AppDelegate.h"
 #import "SignInViewController.h"
-#import "UsersAudioViewController.h"
-#import "PlaylistsViewController.h"
-#import "SettingsViewController.h"
+#import "PlayerViewController.h"
 
-#import <NGTabBarController/NGTabBarController.h>
-
-@interface AppDelegate () <SignInViewControllerDelegate, NGTabBarControllerDelegate>
+@interface AppDelegate () <SignInViewControllerDelegate>
 @end
 
 @implementation AppDelegate
@@ -23,9 +19,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-//    UsersAudioViewController *controller = [[UsersAudioViewController alloc] init];
-//    [self.window setRootViewController:controller];
-    [self displayTabBar];
+    PlayerViewController *controller = [[PlayerViewController alloc] init];
+    [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];
     
     [self checkIfUserAuthorized];
@@ -98,29 +93,5 @@
 #pragma mark -
 #pragma mark test
 
-- (void) displayTabBar
-{
-    UsersAudioViewController *audioController = [[UsersAudioViewController alloc] init];
-    PlaylistsViewController *playlistController = [[PlaylistsViewController alloc] init];
-    SettingsViewController *settingsController = [[SettingsViewController alloc] init];
- 
-    audioController.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"Аудиозаписи" image:nil];
-    playlistController.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"Плейлисты" image:nil];
-    settingsController.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"Настр" image:nil];
-    
-    NGTabBarController *tabBarController = [[NGTabBarController alloc] initWithDelegate:self];
-    [tabBarController setViewControllers:@[audioController,playlistController,settingsController]];
-    
-    [[self window] setRootViewController:tabBarController];
-}
-
-
-- (CGSize)tabBarController:(NGTabBarController *)tabBarController
-sizeOfItemForViewController:(UIViewController *)viewController
-                   atIndex:(NSUInteger)index
-                  position:(NGTabBarPosition)position
-{
-    return CGSizeMake(45, 45);
-}
 
 @end

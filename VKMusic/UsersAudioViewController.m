@@ -39,7 +39,9 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if ([[SettingsManager sharedInstance] isUserAuthorized]) {
+    if ([[SettingsManager sharedInstance] isUserAuthorized] &&
+        [[self audioRecords] count] == 0)
+    {
         [self loadAudio];
     }
 }
@@ -105,6 +107,14 @@
     [[cell detailTextLabel] setText:[audio artist]];
     
     return cell;
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    [[AudioPlayer sharedInstance] playAudioList:[self audioRecords] startWithIndex:indexPath.row];
 }
     
 @end

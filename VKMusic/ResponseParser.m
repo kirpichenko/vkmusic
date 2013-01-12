@@ -20,6 +20,7 @@
     Mapping *audioMapping = [[MappingManager sharedInstance] audioMapping];
     for (NSDictionary *audioProperties in audioList) {
         Audio *audio = [[Audio alloc] init];
+        [audio setUrl:[NSURL URLWithString:[audioProperties objectForKey:@"url"]]];
         [audioMapping applyForObject:audio withResource:audioProperties];
         [parsedAudioList addObject:audio];
     }

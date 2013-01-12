@@ -20,4 +20,6 @@
     #import "RequestManager.h"
     #import "SettingsManager.h"
 
+    #import "AudioPlayer.h"
+    #import "NSObject+NotificationCenter.h"
 #endif

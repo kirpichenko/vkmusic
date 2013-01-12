@@ -23,7 +23,7 @@
 - (Mapping *) audioMapping
 {
     Mapping *mapping = [[Mapping alloc] init];
-    [mapping mapProperties:@[@"artist",@"duration",@"title",@"url"]];
+    [mapping mapProperties:@[@"artist",@"duration",@"title"]];
     [mapping mapProperty:@"audioID" withKey:@"aid"];
     [mapping mapProperty:@"lyricsID" withKey:@"lyrics_id"];
     [mapping mapProperty:@"ownerID" withKey:@"owner_id"];

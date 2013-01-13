@@ -17,6 +17,9 @@ typedef enum {
     kAudioPlayerStateUnconfigured
 } AudioPlayerState;
 
+@protocol AudioPlayerDelegate <NSObject>
+@end
+
 @interface AudioPlayer : NSObject {
 }
 

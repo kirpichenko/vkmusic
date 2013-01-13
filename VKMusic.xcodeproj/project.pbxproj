@@ -40,6 +40,14 @@
 		D98C5EBA1698C9A30084D92A /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C5EB81698C9A30084D92A /* SettingsViewController.xib */; };
 		D98C5EBF1698C9D40084D92A /* PlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */; };
 		D98C5EC01698C9D40084D92A /* PlaylistsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C5EBE1698C9D40084D92A /* PlaylistsViewController.xib */; };
+		D98F931816A2E46100E7DD1B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98F931716A2E46100E7DD1B /* CoreMedia.framework */; };
+		D98F931916A2E46100E7DD1B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98F931716A2E46100E7DD1B /* CoreMedia.framework */; };
+		D98F931D16A3542A00E7DD1B /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F931C16A3542A00E7DD1B /* PlayerView.m */; };
+		D98F931E16A3542A00E7DD1B /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F931C16A3542A00E7DD1B /* PlayerView.m */; };
+		D98F932316A3556D00E7DD1B /* AudioProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F932216A3556D00E7DD1B /* AudioProgressView.m */; };
+		D98F932416A3556D00E7DD1B /* AudioProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F932216A3556D00E7DD1B /* AudioProgressView.m */; };
+		D98F932716A35A7200E7DD1B /* AudioTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F932616A35A7200E7DD1B /* AudioTitleView.m */; };
+		D98F932816A35A7200E7DD1B /* AudioTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F932616A35A7200E7DD1B /* AudioTitleView.m */; };
 		D99538331696003800C8B6F4 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538311696003800C8B6F4 /* SignInViewController.m */; };
 		D99538341696003800C8B6F4 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99538321696003800C8B6F4 /* SignInViewController.xib */; };
 		D99538381696013100C8B6F4 /* RequestSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538371696013100C8B6F4 /* RequestSender.m */; };
@@ -133,6 +141,13 @@
 		D98C5EBC1698C9D40084D92A /* PlaylistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistsViewController.h; sourceTree = "<group>"; };
 		D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistsViewController.m; sourceTree = "<group>"; };
 		D98C5EBE1698C9D40084D92A /* PlaylistsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaylistsViewController.xib; sourceTree = "<group>"; };
+		D98F931716A2E46100E7DD1B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D98F931B16A3542A00E7DD1B /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		D98F931C16A3542A00E7DD1B /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		D98F932116A3556D00E7DD1B /* AudioProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProgressView.h; sourceTree = "<group>"; };
+		D98F932216A3556D00E7DD1B /* AudioProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProgressView.m; sourceTree = "<group>"; };
+		D98F932516A35A7200E7DD1B /* AudioTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioTitleView.h; sourceTree = "<group>"; };
+		D98F932616A35A7200E7DD1B /* AudioTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioTitleView.m; sourceTree = "<group>"; };
 		D99538301696003800C8B6F4 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		D99538311696003800C8B6F4 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		D99538321696003800C8B6F4 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
@@ -200,6 +215,7 @@
 				D98C5DD4169883510084D92A /* MobileCoreServices.framework in Frameworks */,
 				D98C5DD6169883510084D92A /* SystemConfiguration.framework in Frameworks */,
 				D9DC647C1699C0B800E0D34B /* AVFoundation.framework in Frameworks */,
+				D98F931816A2E46100E7DD1B /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +230,7 @@
 				D98C5DD5169883510084D92A /* MobileCoreServices.framework in Frameworks */,
 				D98C5DD7169883510084D92A /* SystemConfiguration.framework in Frameworks */,
 				D9C4181B16A213790011F600 /* AVFoundation.framework in Frameworks */,
+				D98F931916A2E46100E7DD1B /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +261,7 @@
 		D9258C241695F8F70072798B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D98F931716A2E46100E7DD1B /* CoreMedia.framework */,
 				D9DC647B1699C0B800E0D34B /* AVFoundation.framework */,
 				D98C5DD2169883510084D92A /* MobileCoreServices.framework */,
 				D98C5DD3169883510084D92A /* SystemConfiguration.framework */,
@@ -261,6 +279,7 @@
 			children = (
 				D995382D1695FFDE00C8B6F4 /* Application */,
 				D995382F1695FFEA00C8B6F4 /* Controllers */,
+				D98F931F16A3553600E7DD1B /* Views */,
 				D9953835169600E700C8B6F4 /* Network */,
 				D995383E1696193100C8B6F4 /* Helpers */,
 				D9953842169619CB00C8B6F4 /* Models */,
@@ -339,6 +358,27 @@
 				D98C5E411698967C0084D92A /* NSDictionary+LoadFromJsonFile.m */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D98F931F16A3553600E7DD1B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D98F932016A3554B00E7DD1B /* Player */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D98F932016A3554B00E7DD1B /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				D98F931B16A3542A00E7DD1B /* PlayerView.h */,
+				D98F931C16A3542A00E7DD1B /* PlayerView.m */,
+				D98F932116A3556D00E7DD1B /* AudioProgressView.h */,
+				D98F932216A3556D00E7DD1B /* AudioProgressView.m */,
+				D98F932516A35A7200E7DD1B /* AudioTitleView.h */,
+				D98F932616A35A7200E7DD1B /* AudioTitleView.m */,
+			);
+			name = Player;
 			sourceTree = "<group>";
 		};
 		D995382D1695FFDE00C8B6F4 /* Application */ = {
@@ -726,6 +766,9 @@
 				D99F9CB3169A1D7200735A31 /* NSString+Hash.m in Sources */,
 				D99F9CBD169A232800735A31 /* AudioFileLoadingAdapter.m in Sources */,
 				D9C4180916A20EB70011F600 /* NSObject+NotificationCenter.m in Sources */,
+				D98F931D16A3542A00E7DD1B /* PlayerView.m in Sources */,
+				D98F932316A3556D00E7DD1B /* AudioProgressView.m in Sources */,
+				D98F932716A35A7200E7DD1B /* AudioTitleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +805,9 @@
 				D98C5E421698967C0084D92A /* NSDictionary+LoadFromJsonFile.m in Sources */,
 				D9C4180616A20D770011F600 /* AudioPlayerSpec.mm in Sources */,
 				D9C4180A16A212790011F600 /* AudioPlayer.m in Sources */,
+				D98F931E16A3542A00E7DD1B /* PlayerView.m in Sources */,
+				D98F932416A3556D00E7DD1B /* AudioProgressView.m in Sources */,
+				D98F932816A35A7200E7DD1B /* AudioTitleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

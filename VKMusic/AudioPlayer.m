@@ -10,6 +10,9 @@
 
 #import <AVFoundation/AVFoundation.h>
 
+static NSString *kPlayingAudioKey = @"playingAudio";
+static NSString *kPlayingIndexKey = @"playingIndex";
+
 @interface AudioPlayer () <AVAudioPlayerDelegate>
 @property (nonatomic, strong) AVPlayer *currentPlayer;
 @end
@@ -72,10 +75,14 @@
     if ([_audioList count] > 0 && index < [_audioList count]) {
         _state = kAudioPlayerStatePlaying;
         _playingIndex = index;
-        _playingAudio = [[self audioList] objectAtIndex:index];        
+        
+        [self willChangeValueForKey:kPlayingAudioKey];
+        _playingAudio = [[self audioList] objectAtIndex:index];
+        [self didChangeValueForKey:kPlayingAudioKey];
         
 #ifndef TEST
         AVPlayer *player = [[AVPlayer alloc] initWithURL:[_playingAudio url]];
+        [[self currentPlayer] pause];
         [self setCurrentPlayer:player];
         [player play];
 #endif

@@ -14,12 +14,13 @@
 #import "SearchViewController.h"
 #import "SettingsViewController.h"
 
+#import "PlayerView.h"
 #import "AudioPlayer.h"
 
 #import <NGTabBarController/NGTabBarController.h>
 
 @interface PlayerViewController () <NGTabBarControllerDelegate>
-
+@property (nonatomic, strong) AudioPlayer *player;
 @end
 
 @implementation PlayerViewController
@@ -27,9 +28,9 @@
 #pragma mark -
 #pragma mark life cycle
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id) initWithPlayer:(AudioPlayer *) player
 {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+    if (self = [super initWithNibName:nil bundle:nil]) {
         NSArray *controllers = @[
             [self controllerOfClass:[UsersAudioViewController class] itemTitle:@"Аудиозаписи" image:nil],
             [self controllerOfClass:[PlaylistsViewController class] itemTitle:@"Плейлисты" image:nil],
@@ -40,6 +41,8 @@
         
         tabBarController = [[NGTabBarController alloc] initWithDelegate:self];
         [tabBarController setViewControllers:controllers];
+
+        [self setPlayer:player];
     }
     return self;
 }
@@ -47,10 +50,16 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+    [playerView setPlayer:[self player]];
     [contentView addSubview:[tabBarController view]];
     [[tabBarController view] setFrame:[contentView bounds]];
     [[tabBarController view] setAutoresizingMask:(UIViewAutoresizingFlexibleHeight |
                                                   UIViewAutoresizingFlexibleWidth)];
+}
+
+- (void) dealloc
+{
+    [self setPlayer:nil];
 }
 
 #pragma mark -

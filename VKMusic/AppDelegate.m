@@ -19,7 +19,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    PlayerViewController *controller = [[PlayerViewController alloc] init];
+    AudioPlayer *player = [AudioPlayer sharedInstance];
+    PlayerViewController *controller = [[PlayerViewController alloc] initWithPlayer:player];
     [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];
     

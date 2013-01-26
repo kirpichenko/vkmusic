@@ -10,4 +10,6 @@
 
 @interface AudioProgressView : UIView
 
+- (void) setProgress:(CGFloat) progress;
+
 @end

@@ -34,6 +34,8 @@ typedef enum {
 - (void) pause;
 - (void) stop;
 
+- (NSTimeInterval) currentTime;
+
 @property (nonatomic, readonly) AudioPlayerState state;
 @property (nonatomic, copy) NSArray *audioList;
 @property (nonatomic, readonly) NSInteger playingIndex;

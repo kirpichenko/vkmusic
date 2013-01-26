@@ -19,6 +19,9 @@
 		D9258C3C1695F8F70072798B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9258C3B1695F8F70072798B /* Default-568h@2x.png */; };
 		D957D6CF16962BEE001F352B /* OAuthResponseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */; };
 		D957D6D116962FA2001F352B /* OAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538471696214000C8B6F4 /* OAuthResponse.m */; };
+		D98C552216B4112C002536EF /* NSString+TimeFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552116B4112C002536EF /* NSString+TimeFormatting.m */; };
+		D98C552316B4112C002536EF /* NSString+TimeFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552116B4112C002536EF /* NSString+TimeFormatting.m */; };
+		D98C552616B41168002536EF /* NSStringExtensionsSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */; };
 		D98C5DCF169864660084D92A /* RequestManagerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DCE169864660084D92A /* RequestManagerSpec.mm */; };
 		D98C5DD1169866120084D92A /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D995383B16960E7100C8B6F4 /* RequestManager.m */; };
 		D98C5DD4169883510084D92A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD2169883510084D92A /* MobileCoreServices.framework */; };
@@ -120,6 +123,9 @@
 		D9258C391695F8F70072798B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D9258C3B1695F8F70072798B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OAuthResponseSpec.mm; sourceTree = "<group>"; };
+		D98C552016B4112C002536EF /* NSString+TimeFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeFormatting.h"; sourceTree = "<group>"; };
+		D98C552116B4112C002536EF /* NSString+TimeFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeFormatting.m"; sourceTree = "<group>"; };
+		D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSStringExtensionsSpec.mm; sourceTree = "<group>"; };
 		D98C5DCE169864660084D92A /* RequestManagerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RequestManagerSpec.mm; sourceTree = "<group>"; };
 		D98C5DD2169883510084D92A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D98C5DD3169883510084D92A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -472,6 +478,7 @@
 				D98C5DCE169864660084D92A /* RequestManagerSpec.mm */,
 				D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */,
 				D9C4180516A20D770011F600 /* AudioPlayerSpec.mm */,
+				D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */,
 			);
 			name = Specs;
 			sourceTree = "<group>";
@@ -521,6 +528,8 @@
 			children = (
 				D99F9CB1169A1D7200735A31 /* NSString+Hash.h */,
 				D99F9CB2169A1D7200735A31 /* NSString+Hash.m */,
+				D98C552016B4112C002536EF /* NSString+TimeFormatting.h */,
+				D98C552116B4112C002536EF /* NSString+TimeFormatting.m */,
 				D9C4180716A20EB70011F600 /* NSObject+NotificationCenter.h */,
 				D9C4180816A20EB70011F600 /* NSObject+NotificationCenter.m */,
 			);
@@ -769,6 +778,7 @@
 				D98F931D16A3542A00E7DD1B /* PlayerView.m in Sources */,
 				D98F932316A3556D00E7DD1B /* AudioProgressView.m in Sources */,
 				D98F932716A35A7200E7DD1B /* AudioTitleView.m in Sources */,
+				D98C552216B4112C002536EF /* NSString+TimeFormatting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +818,8 @@
 				D98F931E16A3542A00E7DD1B /* PlayerView.m in Sources */,
 				D98F932416A3556D00E7DD1B /* AudioProgressView.m in Sources */,
 				D98F932816A35A7200E7DD1B /* AudioTitleView.m in Sources */,
+				D98C552316B4112C002536EF /* NSString+TimeFormatting.m in Sources */,
+				D98C552616B41168002536EF /* NSStringExtensionsSpec.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -91,7 +91,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
 
 - (IBAction) playPause
 {
-    AudioPlayer *player = [AudioPlayer sharedInstance];
+    AudioPlayer *player = [self player];
     if ([player state] == kAudioPlayerStatePaused) {
         [player resume];
     }
@@ -102,12 +102,12 @@ sizeOfItemForViewController:(UIViewController *)viewController
 
 - (IBAction) playNextAudio
 {
-    [[AudioPlayer sharedInstance] playNextAudio];
+    [[self player] playNextAudio];
 }
 
 - (IBAction) playPreviousAudio
 {
-    [[AudioPlayer sharedInstance] playPreviousAudio];
+    [[self player] playPreviousAudio];
 }
 
 @end

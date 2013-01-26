@@ -8,24 +8,29 @@
 
 #import "AudioProgressView.h"
 
+@interface AudioProgressView ()
+@property (nonatomic) CGFloat progress;
+@end
+
 @implementation AudioProgressView
 
-- (id)initWithFrame:(CGRect)frame
+- (void) setProgress:(CGFloat) progress
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+    if (progress != [self progress]) {
+        _progress = progress;
+        [self setNeedsDisplay];
     }
-    return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void) drawRect:(CGRect)rect
 {
-    // Drawing code
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
+    
+    CGRect progressRect = [self bounds];
+    progressRect.size.width = progressRect.size.width * [self progress];
+    
+    CGContextFillRect(context, progressRect);
 }
-*/
 
 @end

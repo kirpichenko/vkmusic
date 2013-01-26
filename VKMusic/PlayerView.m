@@ -8,8 +8,16 @@
 
 #import "PlayerView.h"
 #import "AudioTitleView.h"
+#import "AudioProgressView.h"
+
+#import "NSString+TimeFormatting.h"
 
 static NSString *kPlayingAudioKey = @"playingAudio";
+static const float horizontalOffset = 7.f;
+
+@interface PlayerView ()
+@property (nonatomic, strong) NSTimer *timer;
+@end
 
 @implementation PlayerView
 
@@ -20,10 +28,13 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 {
     [audioTitle setAudioTitle:nil];
     [audioCurrentTime setText:nil];
+    
+    [self startTimer];
 }
 
 - (void) dealloc
 {
+    [self stopTimer];
     [self setPlayer:nil];
 }
 
@@ -57,5 +68,62 @@ static NSString *kPlayingAudioKey = @"playingAudio";
     [audioTitle setAudioTitle:title];
 }
 
+#pragma mark -
+#pragma mark playing timer updates
+
+- (void) startTimer
+{
+    if ([self timer] != nil) {
+        [self stopTimer];
+    }
+    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1
+                                             target:self
+                                           selector:@selector(updateTimeIndicators)
+                                           userInfo:nil
+                                            repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    [self setTimer:timer];
+    
+}
+
+- (void) stopTimer
+{
+    [[self timer] invalidate];
+    [self setTimer:nil];
+}
+
+- (void) updateTimeIndicators
+{
+    NSTimeInterval elapsedTime = [[self player] currentTime];
+    NSTimeInterval audioDuration = [[[self player] playingAudio] duration];
+    NSTimeInterval remainingTime = audioDuration - elapsedTime;
+
+    NSString *remainingTimeString = [NSString stringWithTimeInterval:remainingTime];
+    
+    //need to test it
+    BOOL needLayout = [[audioCurrentTime text] length] != [remainingTimeString length];
+    if (needLayout) {
+        [self setNeedsLayout];
+    }
+    
+    [audioCurrentTime setText:[NSString stringWithFormat:@"%@",remainingTimeString]];
+    [progressView setProgress:elapsedTime / audioDuration];
+    
+//    if (needLayout) {
+//        [self layoutSubviews];
+//    }
+}
+
+#pragma mark -
+#pragma mark layout
+
+- (void) layoutSubviews
+{
+    [audioCurrentTime sizeToFit];
+    [audioCurrentTime setX:CGRectGetMaxX([progressView frame]) - audioCurrentTime.width];
+    
+    [audioTitle setWidth:audioCurrentTime.x - audioTitle.x - horizontalOffset];
+}
 
 @end

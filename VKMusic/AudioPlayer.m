@@ -81,9 +81,15 @@ static NSString *kPlayingIndexKey = @"playingIndex";
         [self didChangeValueForKey:kPlayingAudioKey];
         
 #ifndef TEST
-        AVPlayer *player = [[AVPlayer alloc] initWithURL:[_playingAudio url]];
-        [[self currentPlayer] pause];
-        [self setCurrentPlayer:player];
+        AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:[_playingAudio url]];
+        
+        AVPlayer *player = [self currentPlayer];
+        if (player == nil) {
+            player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
+            [self setCurrentPlayer:player];
+        }
+        
+        [player replaceCurrentItemWithPlayerItem:playerItem];
         [player play];
 #endif
     }
@@ -132,6 +138,16 @@ static NSString *kPlayingIndexKey = @"playingIndex";
     _playingAudio = nil;
 }
 
+- (NSTimeInterval) currentTime
+{
+    AVPlayer *player = [self currentPlayer];
+    if (player != nil) {
+        CMTime currentTime = [player currentTime];
+        NSTimeInterval seconds = currentTime.value / currentTime.timescale;
+        return seconds;
+    }
+    return 0;
+}
 
 #pragma mark -
 #pragma mark AVPlayer handle notifications

@@ -7,6 +7,7 @@
 //
 
 #import "AudioTitleView.h"
+#import <FrameAccessor/UIView+FrameAccessor.h>
 
 static const float kUpdatingInterval = 0.05;
 static const float kDefaultMovingStep = 0.5;
@@ -30,7 +31,7 @@ static const float kDefaultPauseInteval = 3;
 #pragma mark -
 #pragma mark setters
 
-- (void) setAudioTitle:(NSString *) audioTitle;\
+- (void) setAudioTitle:(NSString *) audioTitle;
 {
     [self changeMovingDirection:kMovingDirectionLeft];
     [title setFrame:CGRectZero];
@@ -78,6 +79,9 @@ static const float kDefaultPauseInteval = 3;
                 [self changeMovingDirection:kMovingDirectionLeft];
             }
         }
+    }
+    else {
+        title.origin = CGPointZero;
     }
 }
 

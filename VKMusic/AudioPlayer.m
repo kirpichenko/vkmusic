@@ -155,7 +155,6 @@ static NSString *kPlayingIndexKey = @"playingIndex";
 - (void) playingFinished
 {
     [self playNextAudio];
-    NSLog(@"finished");
 }
 
 @end

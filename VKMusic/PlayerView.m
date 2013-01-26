@@ -13,7 +13,7 @@
 #import "NSString+TimeFormatting.h"
 
 static NSString *kPlayingAudioKey = @"playingAudio";
-static const float horizontalOffset = 7.f;
+static const float kHorizontalOffset = 7.f;
 
 @interface PlayerView ()
 @property (nonatomic, strong) NSTimer *timer;
@@ -123,7 +123,7 @@ static const float horizontalOffset = 7.f;
     [audioCurrentTime sizeToFit];
     [audioCurrentTime setX:CGRectGetMaxX([progressView frame]) - audioCurrentTime.width];
     
-    [audioTitle setWidth:audioCurrentTime.x - audioTitle.x - horizontalOffset];
+    [audioTitle setWidth:audioCurrentTime.x - audioTitle.x - kHorizontalOffset];
 }
 
 @end

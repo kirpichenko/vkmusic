@@ -9,6 +9,8 @@
 #import "UsersAudioViewController.h"
 
 #import "Audio.h"
+#import "AudioCell.h"
+#import "UITableView+CellCreation.h"
 
 @interface UsersAudioViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *audioRecords;
@@ -95,16 +97,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = @"AudioCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:identifier];
-    }
-    
     Audio *audio = [[self audioRecords] objectAtIndex:indexPath.row];
-    [[cell textLabel] setText:[audio title]];
-    [[cell detailTextLabel] setText:[audio artist]];
+
+    AudioCell *cell = [tableView cellForClass:[AudioCell class]];
+    [cell setAudio:audio];
     
     return cell;
 }
@@ -114,6 +110,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     AudioPlayer *player = [AudioPlayer sharedInstance];
     [player setAudioList:[self audioRecords]];
     [player playAudioAtIndex:indexPath.row];

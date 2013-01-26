@@ -22,6 +22,12 @@
 		D98C552216B4112C002536EF /* NSString+TimeFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552116B4112C002536EF /* NSString+TimeFormatting.m */; };
 		D98C552316B4112C002536EF /* NSString+TimeFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552116B4112C002536EF /* NSString+TimeFormatting.m */; };
 		D98C552616B41168002536EF /* NSStringExtensionsSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */; };
+		D98C552A16B4474B002536EF /* AudioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552916B4474B002536EF /* AudioCell.m */; };
+		D98C552B16B4474B002536EF /* AudioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552916B4474B002536EF /* AudioCell.m */; };
+		D98C552D16B4476D002536EF /* AudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C552C16B4476D002536EF /* AudioCell.xib */; };
+		D98C552E16B4476D002536EF /* AudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C552C16B4476D002536EF /* AudioCell.xib */; };
+		D98C553A16B4519F002536EF /* UITableView+CellCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C553916B4519F002536EF /* UITableView+CellCreation.m */; };
+		D98C553B16B4519F002536EF /* UITableView+CellCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C553916B4519F002536EF /* UITableView+CellCreation.m */; };
 		D98C5DCF169864660084D92A /* RequestManagerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DCE169864660084D92A /* RequestManagerSpec.mm */; };
 		D98C5DD1169866120084D92A /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D995383B16960E7100C8B6F4 /* RequestManager.m */; };
 		D98C5DD4169883510084D92A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD2169883510084D92A /* MobileCoreServices.framework */; };
@@ -126,6 +132,11 @@
 		D98C552016B4112C002536EF /* NSString+TimeFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeFormatting.h"; sourceTree = "<group>"; };
 		D98C552116B4112C002536EF /* NSString+TimeFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeFormatting.m"; sourceTree = "<group>"; };
 		D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSStringExtensionsSpec.mm; sourceTree = "<group>"; };
+		D98C552816B4474B002536EF /* AudioCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioCell.h; sourceTree = "<group>"; };
+		D98C552916B4474B002536EF /* AudioCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioCell.m; sourceTree = "<group>"; };
+		D98C552C16B4476D002536EF /* AudioCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioCell.xib; sourceTree = "<group>"; };
+		D98C553816B4519F002536EF /* UITableView+CellCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CellCreation.h"; sourceTree = "<group>"; };
+		D98C553916B4519F002536EF /* UITableView+CellCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CellCreation.m"; sourceTree = "<group>"; };
 		D98C5DCE169864660084D92A /* RequestManagerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RequestManagerSpec.mm; sourceTree = "<group>"; };
 		D98C5DD2169883510084D92A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D98C5DD3169883510084D92A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -308,6 +319,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D98C552716B445E4002536EF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D98C552816B4474B002536EF /* AudioCell.h */,
+				D98C552916B4474B002536EF /* AudioCell.m */,
+				D98C552C16B4476D002536EF /* AudioCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		D98C5DEA16988DA60084D92A /* Objects Mapping */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +390,7 @@
 		D98F931F16A3553600E7DD1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D98C552716B445E4002536EF /* Cells */,
 				D98F932016A3554B00E7DD1B /* Player */,
 			);
 			name = Views;
@@ -532,6 +554,8 @@
 				D98C552116B4112C002536EF /* NSString+TimeFormatting.m */,
 				D9C4180716A20EB70011F600 /* NSObject+NotificationCenter.h */,
 				D9C4180816A20EB70011F600 /* NSObject+NotificationCenter.m */,
+				D98C553816B4519F002536EF /* UITableView+CellCreation.h */,
+				D98C553916B4519F002536EF /* UITableView+CellCreation.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -697,6 +721,7 @@
 				D9DC646716999D5A00E0D34B /* SearchViewController.xib in Resources */,
 				D9DC646D16999DDC00E0D34B /* SavedViewController.xib in Resources */,
 				D9DC64731699AC5200E0D34B /* PlayerViewController.xib in Resources */,
+				D98C552D16B4476D002536EF /* AudioCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +734,7 @@
 				D99538611696289F00C8B6F4 /* Default@2x.png in Resources */,
 				D99538631696289F00C8B6F4 /* Default-568h@2x.png in Resources */,
 				D98C5E44169896A60084D92A /* GetAudioResponse in Resources */,
+				D98C552E16B4476D002536EF /* AudioCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,6 +805,8 @@
 				D98F932316A3556D00E7DD1B /* AudioProgressView.m in Sources */,
 				D98F932716A35A7200E7DD1B /* AudioTitleView.m in Sources */,
 				D98C552216B4112C002536EF /* NSString+TimeFormatting.m in Sources */,
+				D98C552A16B4474B002536EF /* AudioCell.m in Sources */,
+				D98C553A16B4519F002536EF /* UITableView+CellCreation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +848,8 @@
 				D98F932816A35A7200E7DD1B /* AudioTitleView.m in Sources */,
 				D98C552316B4112C002536EF /* NSString+TimeFormatting.m in Sources */,
 				D98C552616B41168002536EF /* NSStringExtensionsSpec.mm in Sources */,
+				D98C552B16B4474B002536EF /* AudioCell.m in Sources */,
+				D98C553B16B4519F002536EF /* UITableView+CellCreation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

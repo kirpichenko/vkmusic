@@ -16,6 +16,7 @@
 - (void) cacheFileData:(NSData *) fileData forKey:(NSString *) key;
 - (NSData *) cachedFileDataForKey:(NSString *) key;
 - (void) deleteFileForKey:(NSString *) key;
+
 - (void) cleanCache;
 
 @end

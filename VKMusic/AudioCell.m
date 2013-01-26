@@ -40,4 +40,12 @@ static const float kHorizontalOffset = 8;
     [artist setWidth:time.x - artist.x - kHorizontalOffset];
 }
 
+#pragma mark -
+#pragma mark actions
+
+- (IBAction)saveAudio
+{
+    [[self delegate] saveAudio:[self audio]];
+}
+
 @end

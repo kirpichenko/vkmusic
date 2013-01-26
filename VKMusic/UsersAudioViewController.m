@@ -12,7 +12,13 @@
 #import "AudioCell.h"
 #import "UITableView+CellCreation.h"
 
-@interface UsersAudioViewController () <UITableViewDataSource, UITableViewDelegate>
+#import "AudioFilesManager.h"
+
+@interface UsersAudioViewController ()
+    <UITableViewDataSource,
+    UITableViewDelegate,
+    AudioLoaderDelegate,
+    AudioCellDelegate>
 @property (nonatomic, strong) NSArray *audioRecords;
 @end
 
@@ -101,6 +107,7 @@
 
     AudioCell *cell = [tableView cellForClass:[AudioCell class]];
     [cell setAudio:audio];
+    [cell setDelegate:self];
     
     return cell;
 }
@@ -116,5 +123,30 @@
     [player setAudioList:[self audioRecords]];
     [player playAudioAtIndex:indexPath.row];
 }
+
+#pragma mark -
+#pragma mark AudioLoaderDelegate
+
+- (void) saveAudio:(Audio *) audio
+{
+    [[AudioFilesManager sharedInstance] audioFileFromURL:[audio url]
+                                                delegate:self];
+}
+
+- (void) audioFileLoaded:(NSData *) data fromURL:(NSURL *) url
+{
+    NSLog(@"loaded");
+}
+
+- (void) audioFileLoadingProgress:(float) progress fromURL:(NSURL *) url
+{
+    NSLog(@"progress = %f",progress);
+}
+
+- (void) audioFileLoadingFailed:(NSError *) error fromURL:(NSURL *) url
+{
+    NSLog(@"error = %@",error);
+}
+
     
 @end

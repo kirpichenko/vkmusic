@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EKFileManager.h"
+#import "AudioFileLoadingAdapter.h"
 
 @class EKFilesOnDiskCache;
-@protocol AudioLoaderDelegate;
 
 @interface AudioFilesManager : NSObject {
     EKFilesOnDiskCache *filesCache;
+    EKFileManager *filesManager;
 }
 
 + (id) sharedInstance;

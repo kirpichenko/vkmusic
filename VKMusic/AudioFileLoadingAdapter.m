@@ -9,7 +9,7 @@
 #import "AudioFileLoadingAdapter.h"
 
 @interface AudioFileLoadingAdapter () 
-@property (nonatomic, strong) id<AudioLoaderDelegate> delegate;
+@property (nonatomic, strong, readwrite) id<AudioLoaderDelegate> delegate;
 @end
 
 @implementation AudioFileLoadingAdapter
@@ -52,6 +52,17 @@
     if ([[self delegate] respondsToSelector:@selector(audioFileLoadingProgress:fromURL:)]) {
         [[self delegate] audioFileLoadingProgress:[progress floatValue] fromURL:url];
     }
+}
+
+#pragma mark -
+#pragma mark equal
+
+- (BOOL) isEqual:(id)object
+{
+    if ([object isKindOfClass:[self class]]) {
+        return [[object delegate] isEqual:[self delegate]];
+    }
+    return NO;
 }
 
 @end

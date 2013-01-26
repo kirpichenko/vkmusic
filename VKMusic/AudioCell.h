@@ -10,6 +10,10 @@
 
 @class Audio;
 
+@protocol AudioCellDelegate <NSObject>
+- (void) saveAudio:(Audio *) audio;
+@end
+
 @interface AudioCell : UITableViewCell
 {
     __weak IBOutlet UILabel *artist;
@@ -19,5 +23,6 @@
 }
 
 @property (nonatomic, strong) Audio *audio;
+@property (nonatomic, weak) id<AudioCellDelegate> delegate;
 
 @end

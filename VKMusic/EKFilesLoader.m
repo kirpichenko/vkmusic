@@ -131,7 +131,7 @@
 {
     if (![self cancelled]) {
         [receivedData appendData:data];
-        float progress = expectedDataSize / (float)[receivedData length];
+        float progress = [receivedData length] / (float)expectedDataSize;
         
         [self notifyObserversWithSelector:@selector(fileLoadingProgress:fromURL:)
                                withObject:[NSNumber numberWithFloat:progress]

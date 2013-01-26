@@ -20,4 +20,6 @@
 
 - (id) initWithDelegate:(id<AudioLoaderDelegate>) delegate;
 
+@property (nonatomic, strong, readonly) id<AudioLoaderDelegate> delegate;
+
 @end

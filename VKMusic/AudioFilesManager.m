@@ -19,17 +19,30 @@
 
 + (id) sharedInstance
 {
-    static AudioFilesManager *filesManager;
+    static AudioFilesManager *audioFilesManager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        filesManager = [[AudioFilesManager alloc] init];
+        audioFilesManager = [[AudioFilesManager alloc] init];
     });
-    return filesManager;
+    return audioFilesManager;
 }
+
+- (id) init
+{
+    if (self = [super init]) {
+        filesCache = [[EKFilesOnDiskCache alloc] initWithCacheSubpath:@"Music"];
+        filesManager = [[EKFileManager alloc] initWithCache:filesCache];
+    }
+    return self;
+}
+
+#pragma mark -
+#pragma mark adaptee method
 
 - (void) audioFileFromURL:(NSURL *) url delegate:(id<AudioLoaderDelegate>) delegate
 {
-    
+    AudioFileLoadingAdapter *adapter = [[AudioFileLoadingAdapter alloc] initWithDelegate:delegate];
+    [filesManager getFileFromURL:url delegate:adapter];
 }
 
 

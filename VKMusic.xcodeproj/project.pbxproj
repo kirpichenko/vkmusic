@@ -28,6 +28,8 @@
 		D98C552E16B4476D002536EF /* AudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C552C16B4476D002536EF /* AudioCell.xib */; };
 		D98C553A16B4519F002536EF /* UITableView+CellCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C553916B4519F002536EF /* UITableView+CellCreation.m */; };
 		D98C553B16B4519F002536EF /* UITableView+CellCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C553916B4519F002536EF /* UITableView+CellCreation.m */; };
+		D98C554616B45CB2002536EF /* EKFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C554516B45CB2002536EF /* EKFileManager.m */; };
+		D98C554716B45CB2002536EF /* EKFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C554516B45CB2002536EF /* EKFileManager.m */; };
 		D98C5DCF169864660084D92A /* RequestManagerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DCE169864660084D92A /* RequestManagerSpec.mm */; };
 		D98C5DD1169866120084D92A /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D995383B16960E7100C8B6F4 /* RequestManager.m */; };
 		D98C5DD4169883510084D92A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD2169883510084D92A /* MobileCoreServices.framework */; };
@@ -137,6 +139,8 @@
 		D98C552C16B4476D002536EF /* AudioCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioCell.xib; sourceTree = "<group>"; };
 		D98C553816B4519F002536EF /* UITableView+CellCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CellCreation.h"; sourceTree = "<group>"; };
 		D98C553916B4519F002536EF /* UITableView+CellCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CellCreation.m"; sourceTree = "<group>"; };
+		D98C554416B45CB2002536EF /* EKFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKFileManager.h; sourceTree = "<group>"; };
+		D98C554516B45CB2002536EF /* EKFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKFileManager.m; sourceTree = "<group>"; };
 		D98C5DCE169864660084D92A /* RequestManagerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RequestManagerSpec.mm; sourceTree = "<group>"; };
 		D98C5DD2169883510084D92A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D98C5DD3169883510084D92A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -449,7 +453,6 @@
 				D99F9CAC169A15F800735A31 /* AudioFilesManager */,
 				D99F9CA7169A153900735A31 /* EKFilesLoader */,
 				D99F9C9F169A151800735A31 /* EKFilesCache */,
-				D99F9C96169A145800735A31 /* AudioFileLoader */,
 				D9DC64771699BFBC00E0D34B /* Audio Player */,
 				D98C5DEB16988DBB0084D92A /* Settings */,
 				D98C5DEA16988DA60084D92A /* Objects Mapping */,
@@ -505,13 +508,6 @@
 			name = Specs;
 			sourceTree = "<group>";
 		};
-		D99F9C96169A145800735A31 /* AudioFileLoader */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = AudioFileLoader;
-			sourceTree = "<group>";
-		};
 		D99F9C9F169A151800735A31 /* EKFilesCache */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +526,8 @@
 				D99F9CAA169A154E00735A31 /* EKFilesLoaderDelegate.h */,
 				D99F9CA8169A154E00735A31 /* EKFilesLoader.h */,
 				D99F9CA9169A154E00735A31 /* EKFilesLoader.m */,
+				D98C554416B45CB2002536EF /* EKFileManager.h */,
+				D98C554516B45CB2002536EF /* EKFileManager.m */,
 			);
 			name = EKFilesLoader;
 			sourceTree = "<group>";
@@ -807,6 +805,7 @@
 				D98C552216B4112C002536EF /* NSString+TimeFormatting.m in Sources */,
 				D98C552A16B4474B002536EF /* AudioCell.m in Sources */,
 				D98C553A16B4519F002536EF /* UITableView+CellCreation.m in Sources */,
+				D98C554616B45CB2002536EF /* EKFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,6 +849,7 @@
 				D98C552616B41168002536EF /* NSStringExtensionsSpec.mm in Sources */,
 				D98C552B16B4474B002536EF /* AudioCell.m in Sources */,
 				D98C553B16B4519F002536EF /* UITableView+CellCreation.m in Sources */,
+				D98C554716B45CB2002536EF /* EKFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

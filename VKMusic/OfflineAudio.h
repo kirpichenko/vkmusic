@@ -1,5 +1,5 @@
 //
-//  Audio.h
+//  OfflineAudio.h
 //  VKMusic
 //
 //  Created by Evgeniy Kirpichenko on 2/3/13.
@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Audio.h"
 
-@protocol Audio <NSObject>
+@class CachedAudio;
 
-- (NSInteger) audioID;
-- (NSString *) artist;
-- (NSString *) title;
-- (NSTimeInterval) duration;
-- (NSURL *) url;
+@interface OfflineAudio : NSObject <Audio>
+
+- (id) initWithCachedAudio:(CachedAudio *) cachedAudio;
 
 @end

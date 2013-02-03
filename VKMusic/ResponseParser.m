@@ -9,7 +9,7 @@
 #import "ResponseParser.h"
 #import "MappingManager.h"
 
-#import "Audio.h"
+#import "OnlineAudio.h"
 
 @implementation ResponseParser
 
@@ -19,7 +19,7 @@
     NSMutableArray *parsedAudioList = [NSMutableArray arrayWithCapacity:[audioList count]];
     Mapping *audioMapping = [[MappingManager sharedInstance] audioMapping];
     for (NSDictionary *audioProperties in audioList) {
-        Audio *audio = [[Audio alloc] init];
+        OnlineAudio *audio = [[OnlineAudio alloc] init];
         [audio setUrl:[NSURL URLWithString:[audioProperties objectForKey:@"url"]]];
         [audioMapping applyForObject:audio withResource:audioProperties];
         [parsedAudioList addObject:audio];

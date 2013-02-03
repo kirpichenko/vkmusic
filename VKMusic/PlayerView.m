@@ -63,7 +63,7 @@ static const float kHorizontalOffset = 7.f;
                          change:(NSDictionary *)change
                         context:(void *)context
 {
-    Audio *audio = (Audio *)[change objectForKey:@"new"];
+    OnlineAudio *audio = (OnlineAudio *)[change objectForKey:@"new"];
     NSString *title = [NSString stringWithFormat:@"%@ - %@",[audio artist], [audio title]];
     [audioTitle setAudioTitle:title];
 }

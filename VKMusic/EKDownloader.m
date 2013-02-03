@@ -6,17 +6,20 @@
 //  Copyright (c) 2012 MLS. All rights reserved.
 //
 
-#import "EKFilesLoader.h"
+#import "EKDownloader.h"
 
-@interface EKFilesLoader ()
+@interface EKDownloader ()
 @property (nonatomic, readwrite) BOOL executing;
 @property (nonatomic, readwrite) BOOL finished;
 @property (nonatomic, readwrite) BOOL cancelled;
-@property (nonatomic, retain, readwrite) NSURL *url;
-@property (nonatomic, retain) id<EKFilesCache> filesCache;
+
+@property (nonatomic, strong, readwrite) NSURL *url;
+@property (nonatomic, strong) NSURLConnection *connection;
+
+@property (nonatomic, strong) id<EKFilesCache> filesCache;
 @end
 
-@implementation EKFilesLoader
+@implementation EKDownloader
 
 #pragma mark -
 #pragma mark life cycle
@@ -32,8 +35,6 @@
         
         [self setExecuting:NO];
         [self setFinished:NO];
-        
-        [self createConnectionWithURL:url];
     }
     return self;
 }
@@ -54,10 +55,10 @@
 {
     [observers release];
     [receivedData release];
-    [connection release];
 
     [self setUrl:nil];
     [self setFilesCache:nil];
+    [self setConnection:nil];
     
     [super dealloc];
 }
@@ -68,9 +69,10 @@
 - (void) createConnectionWithURL:(NSURL *) url
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:[self url]];
-    connection = [[NSURLConnection alloc] initWithRequest:request
-                                                 delegate:self
-                                         startImmediately:NO];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request
+                                                                  delegate:self
+                                                          startImmediately:NO];
+    [self setConnection:connection];
 }
 
 #pragma mark -
@@ -80,16 +82,15 @@
 {
     if (![self executing]) {
         if (![self cancelled]) {
-            [self setExecuting:YES];
-            [self notifyObserversWithSelector:@selector(fileLoadingWillStartFromURL:)
-                                   withObject:[self url]
-                                   withObject:nil];
-            [connection start];
+            [self notifyObserversWithSelector:@selector(downloadingWillStart:)];
+            [self createConnectionWithURL:[self url]];
+
+            [self setExecuting:YES];            
+            [[self connection] start];
         }
     }
     else {
-//        [NSException raise:@"Exception:" format:@"Loading already started"];
-        NSLog(@"loading already started");
+        NSLog(@"Loading already in progress");
     }
 }
 
@@ -98,10 +99,8 @@
     [self setCancelled:YES];
     [self setExecuting:NO];
     
-    [connection cancel];
-    [self notifyObserversWithSelector:@selector(fileLoadingCancelledFromURL:)
-                           withObject:[self url]
-                           withObject:nil];
+    [[self connection] cancel];
+    [self notifyObserversWithSelector:@selector(downloadingCancelled:)];
 }
 
 #pragma mark -
@@ -110,19 +109,18 @@
 - (void) connection:(NSURLConnection *)aConnection didFailWithError:(NSError *)error
 {
     if (![self cancelled]) {
-        [self notifyObserversWithSelector:@selector(fileLoadingFailed:fromURL:)
-                               withObject:error
-                               withObject:[self url]];
+        [self setError:error];
         [self setFinished:YES];
-        connection = nil;
+        [self setConnection:nil];
+        
+        [self notifyObserversWithSelector:@selector(downloadingFailed:)];
     }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     if (![self cancelled]) {
-        [self notifyObserversWithSelector:@selector(fileLoadingDidStartFromURL:)
-                               withObject:[self url]
-                               withObject:nil];
+        [self notifyObserversWithSelector:@selector(downloadingStarted:)];
+
         expectedDataSize = [response expectedContentLength];
     }    
 }
@@ -131,37 +129,46 @@
 {
     if (![self cancelled]) {
         [receivedData appendData:data];
-        float progress = [receivedData length] / (float)expectedDataSize;
         
-        [self notifyObserversWithSelector:@selector(fileLoadingProgress:fromURL:)
-                               withObject:[NSNumber numberWithFloat:progress]
-                               withObject:[self url]];
+        float progress = [receivedData length] / (float)expectedDataSize;
+        [self notifyObserversWithProgress:progress];
     }
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)aConnection
 {
     if (![self cancelled]) {
-        [self notifyObserversWithSelector:@selector(fileLoaded:fromURL:)
-                               withObject:receivedData
-                               withObject:[self url]];
         [self setExecuting:NO];
         [self setFinished:YES];
-        connection = nil;
+
+        [self setConnection:nil];
+        [self setResponse:receivedData];
         
         [[self filesCache] cacheFileData:receivedData forKey:[[self url] absoluteString]];
+        [self notifyObserversWithSelector:@selector(downloadingFinished:)];
     }
 }
 
 #pragma mark -
 #pragma mark notify
 
-- (void) notifyObserversWithSelector:(SEL) selector withObject:(id) first withObject:(id) second
+- (void) notifyObserversWithSelector:(SEL) selector
 {
     @synchronized (self) {
-        for (id<EKFilesLoaderDelegate> observer in observers) {
+        for (id<EKDownloaderDelegate> observer in observers) {
             if ([observer respondsToSelector:selector]) {
-                [observer performSelector:selector withObject:first withObject:second];
+                [observer performSelector:selector withObject:self];
+            }
+        }
+    }
+}
+
+- (void) notifyObserversWithProgress:(NSInteger) progress
+{
+    @synchronized (self) {
+        for (id<EKDownloaderDelegate> observer in observers) {
+            if ([observer respondsToSelector:@selector(downloading:inProgress:)]) {
+                [observer downloading:self inProgress:progress];
             }
         }
     }
@@ -170,7 +177,7 @@
 #pragma mark -
 #pragma mark observers management
 
-- (void) registerObserver:(id<EKFilesLoaderDelegate>) observer
+- (void) registerObserver:(id<EKDownloaderDelegate>) observer
 {
     @synchronized (self) {
         if (![observers containsObject:observer] && observer != nil) {
@@ -179,7 +186,7 @@
     }
 }
 
-- (void) removeObserver:(id<EKFilesLoaderDelegate>) observer
+- (void) removeObserver:(id<EKDownloaderDelegate>) observer
 {
     @synchronized (self) {
         [observers removeObject:observer];

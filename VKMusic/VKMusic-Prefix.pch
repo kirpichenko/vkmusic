@@ -23,5 +23,6 @@
     #import "AudioPlayer.h"
 
     #import "NSObject+NotificationCenter.h"
+    #import "CoreData+MagicalRecord.h"
     #import <FrameAccessor/UIView+FrameAccessor.h>
 #endif

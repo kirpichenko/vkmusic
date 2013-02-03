@@ -8,16 +8,16 @@
 
 #import "UsersAudioViewController.h"
 
-#import "Audio.h"
+#import "OnlineAudio.h"
 #import "AudioCell.h"
 #import "UITableView+CellCreation.h"
 
-#import "AudioFilesManager.h"
+#import "OfflineAudioManager.h"
 
 @interface UsersAudioViewController ()
     <UITableViewDataSource,
     UITableViewDelegate,
-    AudioLoaderDelegate,
+    AudioDownloadingDelegate,
     AudioCellDelegate>
 @property (nonatomic, strong) NSArray *audioRecords;
 @end
@@ -103,7 +103,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Audio *audio = [[self audioRecords] objectAtIndex:indexPath.row];
+    OnlineAudio *audio = [[self audioRecords] objectAtIndex:indexPath.row];
 
     AudioCell *cell = [tableView cellForClass:[AudioCell class]];
     [cell setAudio:audio];
@@ -127,10 +127,10 @@
 #pragma mark -
 #pragma mark AudioLoaderDelegate
 
-- (void) saveAudio:(Audio *) audio
+- (void) saveAudio:(OnlineAudio *) audio
 {
-    [[AudioFilesManager sharedInstance] audioFileFromURL:[audio url]
-                                                delegate:self];
+//    [[OfflineAudioManager sharedInstance] audioFileFromURL:[audio url]
+//                                                delegate:self];
 }
 
 - (void) audioFileLoaded:(NSData *) data fromURL:(NSURL *) url

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Audio.h"
+#import "OnlineAudio.h"
 
 typedef enum {
     kAudioPlayerStateReady = 0, 
@@ -39,6 +39,6 @@ typedef enum {
 @property (nonatomic, readonly) AudioPlayerState state;
 @property (nonatomic, copy) NSArray *audioList;
 @property (nonatomic, readonly) NSInteger playingIndex;
-@property (nonatomic, readonly) Audio *playingAudio;
+@property (nonatomic, readonly) OnlineAudio *playingAudio;
 
 @end

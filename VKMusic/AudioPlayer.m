@@ -11,7 +11,6 @@
 #import <AVFoundation/AVFoundation.h>
 
 static NSString *kPlayingAudioKey = @"playingAudio";
-static NSString *kPlayingIndexKey = @"playingIndex";
 
 @interface AudioPlayer () <AVAudioPlayerDelegate>
 @property (nonatomic, strong) AVPlayer *currentPlayer;

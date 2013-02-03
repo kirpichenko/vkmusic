@@ -15,6 +15,6 @@
 
 - (id) initWithCacheSubpath:(NSString *) cacheSubpath;
 
-@property (nonatomic, readonly, readonly) NSString *cacheSubpath;
+@property (nonatomic, copy, readonly) NSString *cacheSubpath;
 
 @end

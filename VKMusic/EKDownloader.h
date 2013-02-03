@@ -7,18 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EKFilesLoaderDelegate.h"
 #import "EKFilesCache.h"
+#import "EKDownloaderDelegate.h"
 
-@interface EKFilesLoader : NSObject {
+@interface EKDownloader : NSObject {
     NSMutableArray *observers;
-    NSURLConnection *connection;
-    
     NSMutableData *receivedData;
     NSUInteger expectedDataSize;
 }
 
-@property (nonatomic, retain, readonly) NSURL *url;
+@property (nonatomic, strong, readonly) NSURL *url;
+
+@property (nonatomic, strong) NSData *response;
+@property (nonatomic, strong) NSError *error;
+@property (nonatomic, strong) id userData;
 
 @property (nonatomic, readonly) BOOL executing;
 @property (nonatomic, readonly) BOOL finished;
@@ -30,8 +32,8 @@
 - (void) start;
 - (void) cancel;
 
-- (void) registerObserver:(id<EKFilesLoaderDelegate>) observer;
-- (void) removeObserver:(id<EKFilesLoaderDelegate>) observer;
+- (void) registerObserver:(id<EKDownloaderDelegate>) observer;
+- (void) removeObserver:(id<EKDownloaderDelegate>) observer;
 - (void) removeObservers;
 
 @end

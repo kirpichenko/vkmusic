@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import "Audio.h"
+#import "OnlineAudio.h"
 
-@implementation Audio
+@implementation OnlineAudio
 
 @end

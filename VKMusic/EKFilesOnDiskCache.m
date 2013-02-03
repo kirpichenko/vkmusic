@@ -13,7 +13,7 @@ static NSString * const kDefaultSubdirectory = @"FilesCache";
 static EKFilesOnDiskCache *kFilesOnDiskCache = nil;
 
 @interface EKFilesOnDiskCache ()
-@property (nonatomic, readonly, readwrite) NSString *cacheSubpath;
+@property (nonatomic, copy, readwrite) NSString *cacheSubpath;
 @end
 
 @implementation EKFilesOnDiskCache

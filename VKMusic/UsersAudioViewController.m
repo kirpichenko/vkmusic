@@ -17,7 +17,7 @@
 @interface UsersAudioViewController ()
     <UITableViewDataSource,
     UITableViewDelegate,
-    AudioDownloadingDelegate,
+    AudioDownloaderDelegate,
     AudioCellDelegate>
 @property (nonatomic, strong) NSArray *audioRecords;
 @end
@@ -129,23 +129,22 @@
 
 - (void) saveAudio:(OnlineAudio *) audio
 {
-//    [[OfflineAudioManager sharedInstance] audioFileFromURL:[audio url]
-//                                                delegate:self];
+    [[OfflineAudioManager sharedInstance] loadAudio:audio delegate:self];
 }
 
-- (void) audioFileLoaded:(NSData *) data fromURL:(NSURL *) url
+- (void) audioFile:(OnlineAudio *) audio saved:(NSData *) audioData
 {
     NSLog(@"loaded");
 }
 
-- (void) audioFileLoadingProgress:(float) progress fromURL:(NSURL *) url
+- (void) audioFile:(OnlineAudio *) audio loadingInProgress:(float) progress
 {
     NSLog(@"progress = %f",progress);
 }
 
-- (void) audioFileLoadingFailed:(NSError *) error fromURL:(NSURL *) url
+- (void) audioFile:(OnlineAudio *) audio loadingFailed:(NSError *) error
 {
-    NSLog(@"error = %@",error);
+    NSLog(@"error = %@",[error localizedDescription]);
 }
 
     

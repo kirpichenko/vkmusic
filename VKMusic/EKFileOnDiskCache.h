@@ -7,11 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EKFilesCache.h"
+#import "EKFileCache.h"
 
-@interface EKFilesOnDiskCache : NSObject <EKFilesCache> {
-    
-}
+@interface EKFileOnDiskCache : NSObject <EKFileCache>
 
 - (id) initWithCacheSubpath:(NSString *) cacheSubpath;
 

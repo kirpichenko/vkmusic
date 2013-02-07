@@ -6,17 +6,17 @@
 //  Copyright (c) 2012 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import "EKFilesOnDiskCache.h"
+#import "EKFileOnDiskCache.h"
 #import "NSString+Hash.h"
 
 static NSString * const kDefaultSubdirectory = @"FilesCache";
-static EKFilesOnDiskCache *kFilesOnDiskCache = nil;
+static EKFileOnDiskCache *kFilesOnDiskCache = nil;
 
-@interface EKFilesOnDiskCache ()
-@property (nonatomic, copy, readwrite) NSString *cacheSubpath;
+@interface EKFileOnDiskCache ()
+@property (nonatomic,copy,readwrite) NSString *cacheSubpath;
 @end
 
-@implementation EKFilesOnDiskCache
+@implementation EKFileOnDiskCache
 
 #pragma mark -
 #pragma mark life cycle
@@ -26,12 +26,11 @@ static EKFilesOnDiskCache *kFilesOnDiskCache = nil;
     return kFilesOnDiskCache;
 }
 
-+ (void) setCurrentCache:(id<EKFilesCache>) cache
++ (void) setCurrentCache:(id<EKFileCache>) cache
 {
     if (cache != kFilesOnDiskCache) {
-        [cache retain];
         [kFilesOnDiskCache release];
-        kFilesOnDiskCache = cache;
+        kFilesOnDiskCache = [cache retain];
     }
 }
 
@@ -58,6 +57,9 @@ static EKFilesOnDiskCache *kFilesOnDiskCache = nil;
 
 - (void) dealloc
 {
+    if (self == kFilesOnDiskCache) {
+        kFilesOnDiskCache = nil;
+    }
     [self setCacheSubpath:nil];
     [super dealloc];
 }
@@ -93,6 +95,12 @@ static EKFilesOnDiskCache *kFilesOnDiskCache = nil;
 {
     NSString *filePath = [self cachePathForKey:key];
     return [NSData dataWithContentsOfFile:filePath];
+}
+
+- (BOOL) hasCachedFileForKey:(NSString *) key
+{
+    NSString *filePath = [self cachePathForKey:key];
+    return [[NSFileManager defaultManager] fileExistsAtPath:filePath];
 }
 
 #pragma mark -

@@ -8,13 +8,12 @@
 
 #import "OfflineAudioManager.h"
 
-#import "EKFilesOnDiskCache.h"
-#import "EKDownloader.h"
+#import "EKFileOnDiskCache.h"
+#import "EKFileManager.h"
 
-#import "AudioDownloadingObserver.h"
+#import "AudioDownloaderAdapter.h"
 
-
-@interface OfflineAudioManager () <AudioDownloadingDelegate>
+@interface OfflineAudioManager ()
 
 @end
 
@@ -23,6 +22,7 @@
 + (id) sharedInstance
 {
     static OfflineAudioManager *audioFilesManager;
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         audioFilesManager = [[OfflineAudioManager alloc] init];
@@ -33,8 +33,8 @@
 - (id) init
 {
     if (self = [super init]) {
-        filesCache = [[EKFilesOnDiskCache alloc] initWithCacheSubpath:@"Music"];
-        downloaders = [[NSMutableArray alloc] init];
+        fileCache = [[EKFileOnDiskCache alloc] initWithCacheSubpath:@"Music"];
+        fileManager = [[EKFileManager alloc] initWithCache:fileCache];
     }
     return self;
 }
@@ -42,28 +42,30 @@
 #pragma mark -
 #pragma mark instance methods
 
-- (void) saveAudio:(OnlineAudio *) audio
+- (void) loadAudio:(OnlineAudio *) audio
 {
-    [self saveAudio:audio delegate:nil];
+    [self loadAudio:audio delegate:nil];
 }
 
-- (void) saveAudio:(OnlineAudio *) audio delegate:(id<AudioDownloadingDelegate>) delegate
+- (void) loadAudio:(OnlineAudio *) audio delegate:(id<AudioDownloaderDelegate>) delegate
 {
-    AudioDownloadingObserver *observer = [[AudioDownloadingObserver alloc] initWithDelegate:delegate
-                                                                                      audio:audio];
-    EKDownloader *downloader = [[EKDownloader alloc] initWithURL:[audio url]];
-    [downloader registerObserver:observer];
-    [downloader start];
+    NSURL *audioURL = [audio url];
+    if ([fileCache hasCachedFileForKey:[audioURL absoluteString]]) {
+        if ([delegate respondsToSelector:@selector(audioFile:saved:)]) {
+            NSData *cachedData = [fileCache cachedFileDataForKey:[audioURL absoluteString]];
+            [delegate audioFile:audio saved:cachedData];
+        }
+    }
+    else {
+        AudioDownloaderAdapter *adapter = [[AudioDownloaderAdapter alloc] initWithOnlineAudio:audio
+                                                                                     delegate:delegate];
+        [fileManager loadFile:audioURL delegate:adapter];
+    }
 }
 
 - (void) deleteAudio:(OfflineAudio *) audio
 {
-    NSLog(@"delete");
+    [fileCache deleteFileForKey:[[audio url] absoluteString]];
 }
-
-#pragma mark -
-#pragma mark helpers
-
-
 
 @end

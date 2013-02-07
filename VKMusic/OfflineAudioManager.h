@@ -8,27 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AudioDownloadingDelegate.h"
+#import "AudioDownloaderDelegate.h"
 
 #import "OnlineAudio.h"
 #import "OfflineAudio.h"
 
-@class EKFilesOnDiskCache;
-@class EKFilesManager;
+@class EKFileOnDiskCache;
+@class EKFileManager;
 
 @interface OfflineAudioManager : NSObject {
-    EKFilesOnDiskCache *filesCache;
-    NSMutableArray *downloaders;
+    EKFileOnDiskCache *fileCache;
+    EKFileManager *fileManager;
 }
 
 + (id) sharedInstance;
 
-- (void) saveAudio:(OnlineAudio *) audio;
-- (void) saveAudio:(OnlineAudio *) audio delegate:(id<AudioDownloadingDelegate>) delegate;
+- (void) loadAudio:(OnlineAudio *) audio;
+- (void) loadAudio:(OnlineAudio *) audio delegate:(id<AudioDownloaderDelegate>) delegate;
 
 - (void) deleteAudio:(OfflineAudio *) audio;
 
-- (NSArray *) offlineAudioList;
-- (NSArray *) downloadingAudioList;
+//- (NSArray *) offlineAudioList;
+//- (NSArray *) downloadingAudioList;
 
 @end

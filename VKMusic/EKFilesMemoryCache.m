@@ -14,20 +14,14 @@ static EKFilesMemoryCache *kFilesMemoryCache;
 
 + (id) currentCache
 {
-    @synchronized (self) {
-        if (kFilesMemoryCache == nil) {
-            kFilesMemoryCache = [[self alloc] init];
-        }        
-    }
     return kFilesMemoryCache;
 }
 
-+ (void) setCurrentCache:(id<EKFilesCache>) cache
++ (void) setCurrentCache:(id<EKFileCache>) cache
 {
     if (cache != kFilesMemoryCache) {
-        [cache retain];
         [kFilesMemoryCache release];
-        kFilesMemoryCache = cache;
+        kFilesMemoryCache = [cache retain];
     }
 }
 
@@ -59,6 +53,11 @@ static EKFilesMemoryCache *kFilesMemoryCache;
 - (NSData *) cachedFileDataForKey:(NSString *) key
 {
     return [memoryCache objectForKey:key];
+}
+
+- (BOOL) hasCachedFileForKey:(NSString *) key
+{
+    return ([memoryCache objectForKey:key] != nil);
 }
 
 #pragma mark -

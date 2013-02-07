@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EKFilesCache.h"
+#import "EKFileCache.h"
 
-@interface EKFilesMemoryCache : NSObject <EKFilesCache> {
+@interface EKFilesMemoryCache : NSObject <EKFileCache>
+{
     NSMutableDictionary *memoryCache;
 }
 

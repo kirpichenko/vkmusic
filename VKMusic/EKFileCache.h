@@ -8,15 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol EKFilesCache <NSObject>
+@protocol EKFileCache <NSObject>
 
 + (id) currentCache;
-+ (void) setCurrentCache:(id<EKFilesCache>) cache;
++ (void) setCurrentCache:(id<EKFileCache>) cache;
+
+- (NSData *) cachedFileDataForKey:(NSString *) key;
+- (BOOL) hasCachedFileForKey:(NSString *) key;
 
 - (void) cacheFileData:(NSData *) fileData forKey:(NSString *) key;
-- (NSData *) cachedFileDataForKey:(NSString *) key;
 - (void) deleteFileForKey:(NSString *) key;
-
 - (void) cleanCache;
 
 @end

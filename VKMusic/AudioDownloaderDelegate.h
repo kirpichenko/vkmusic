@@ -10,11 +10,9 @@
 
 @class OnlineAudio;
 
-@protocol AudioDownloadingDelegate <NSObject>
-
+@protocol AudioDownloaderDelegate <NSObject>
 @optional
-- (void) audioFileLoaded:(OnlineAudio *) audio;
-- (void) audioFile:(OnlineAudio *) audio loadingInProgress:(NSInteger) progress;
+- (void) audioFile:(OnlineAudio *) audio saved:(NSData *) audioData;
+- (void) audioFile:(OnlineAudio *) audio loadingInProgress:(float) progress;
 - (void) audioFile:(OnlineAudio *) audio loadingFailed:(NSError *) error;
-
 @end

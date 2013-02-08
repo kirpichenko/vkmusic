@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AudioViewController.h"
 
-@interface SavedViewController : UIViewController
+@interface SavedViewController : AudioViewController
 
 @end

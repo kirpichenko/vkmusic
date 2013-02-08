@@ -11,7 +11,9 @@
 
 @interface EKFileOnDiskCache : NSObject <EKFileCache>
 
-- (id) initWithCacheSubpath:(NSString *) cacheSubpath;
+- (id) initWithCacheSubpath:(NSString *)cacheSubpath;
+
+- (NSString *) filePathForKey:(NSString *)key;
 
 @property (nonatomic, copy, readonly) NSString *cacheSubpath;
 

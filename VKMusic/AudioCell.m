@@ -13,7 +13,7 @@ static const float kHorizontalOffset = 8;
 
 @implementation AudioCell
 
-- (void) setAudio:(OnlineAudio *)audio
+- (void) setAudio:(id<Audio>)audio
 {
     if (_audio != audio) {
         _audio = audio;

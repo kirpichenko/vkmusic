@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class OnlineAudio;
+#import "Audio.h"
 
 @protocol AudioCellDelegate <NSObject>
-- (void) saveAudio:(OnlineAudio *) audio;
+- (void) saveAudio:(id<Audio>) audio;
 @end
 
 @interface AudioCell : UITableViewCell
@@ -22,7 +21,7 @@
     __weak IBOutlet UIButton *saveButton;
 }
 
-@property (nonatomic, strong) OnlineAudio *audio;
-@property (nonatomic, weak) id<AudioCellDelegate> delegate;
+@property (nonatomic,strong) id<Audio> audio;
+@property (nonatomic,weak) id<AudioCellDelegate> delegate;
 
 @end

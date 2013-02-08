@@ -12,8 +12,6 @@
 #import "AudioCell.h"
 #import "UITableView+CellCreation.h"
 
-#import "OfflineAudioManager.h"
-
 @interface UsersAudioViewController ()
     <UITableViewDataSource,
     UITableViewDelegate,

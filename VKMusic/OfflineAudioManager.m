@@ -13,7 +13,7 @@
 
 #import "AudioDownloaderAdapter.h"
 
-@interface OfflineAudioManager ()
+@interface OfflineAudioManager () <AudioDownloaderDelegate>
 
 @end
 
@@ -57,15 +57,56 @@
         }
     }
     else {
-        AudioDownloaderAdapter *adapter = [[AudioDownloaderAdapter alloc] initWithOnlineAudio:audio
-                                                                                     delegate:delegate];
-        [fileManager loadFile:audioURL delegate:adapter];
+        [fileManager loadFile:audioURL delegate:[self adapterForAudio:audio delegate:delegate]];
+        [fileManager loadFile:audioURL delegate:[self adapterForAudio:audio delegate:self]];
     }
 }
 
-- (void) deleteAudio:(OfflineAudio *) audio
+- (NSArray *) offlineAudioList
 {
-    [fileCache deleteFileForKey:[[audio url] absoluteString]];
+    return [OfflineAudio MR_findAllSortedBy:@"artist" ascending:YES];
+}
+
+- (NSArray *) offlineAudioListWithFilter:(NSString *) filter
+{
+    if ([filter length] == 0) {
+        return [self offlineAudioList];
+    }
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"artist contains[cd] %@ or title contains[cd] %@",filter,filter];
+    return [OfflineAudio MR_findAllSortedBy:@"artist" ascending:YES withPredicate:predicate];
+}
+
+#pragma mark -
+#pragma mark AudioDownloaderDelegate
+
+- (void) audioFile:(OnlineAudio *) audio saved:(NSData *) audioData
+{
+    [self saveAudio:audio];
+}
+
+#pragma mark -
+#pragma mark helpers
+
+- (AudioDownloaderAdapter *) adapterForAudio:(OnlineAudio *) audio
+                                    delegate:(id<AudioDownloaderDelegate>) delegate
+{
+    return [[AudioDownloaderAdapter alloc] initWithOnlineAudio:audio
+                                                      delegate:delegate];
+}
+
+- (void) saveAudio:(OnlineAudio *) audio
+{
+    OfflineAudio *offlineAudio = [OfflineAudio MR_createEntity];
+    
+    [offlineAudio setArtist:[audio artist]];
+    [offlineAudio setTitle:[audio title]];
+    [offlineAudio setAudioID:[audio audioID]];
+    [offlineAudio setAudioURL:[fileCache filePathForKey:[[audio url] absoluteString]]];
+    [offlineAudio setDuration:[audio duration]];
+
+    [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveOnlySelfAndWait];
 }
 
 @end

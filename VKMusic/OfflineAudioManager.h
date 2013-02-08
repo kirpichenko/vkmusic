@@ -26,9 +26,7 @@
 - (void) loadAudio:(OnlineAudio *) audio;
 - (void) loadAudio:(OnlineAudio *) audio delegate:(id<AudioDownloaderDelegate>) delegate;
 
-- (void) deleteAudio:(OfflineAudio *) audio;
-
-//- (NSArray *) offlineAudioList;
-//- (NSArray *) downloadingAudioList;
+- (NSArray *) offlineAudioList;
+- (NSArray *) offlineAudioListWithFilter:(NSString *) filter;
 
 @end

@@ -16,13 +16,15 @@
 
     #import "ApplicationConstants.h"
     #import "RequestConstants.h"
+
     #import "RequestSender.h"
+    #import "AudioPlayer.h"
+
     #import "RequestManager.h"
     #import "SettingsManager.h"
-
-    #import "AudioPlayer.h"
+    #import "OfflineAudioManager.h"
 
     #import "NSObject+NotificationCenter.h"
     #import "CoreData+MagicalRecord.h"
-    #import <FrameAccessor/UIView+FrameAccessor.h>
+    #import "UIView+FrameAccessor.h"
 #endif

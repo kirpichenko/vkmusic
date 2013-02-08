@@ -8,31 +8,49 @@
 
 #import "SavedViewController.h"
 
-@interface SavedViewController ()
+#import "OfflineAudio.h"
+#import "AudioCell.h"
 
+#import "UITableView+CellCreation.h"
+
+@interface SavedViewController () <UITableViewDataSource,UITabBarDelegate>
+@property (nonatomic,strong,readwrite) NSArray *audioRecords;
 @end
 
 @implementation SavedViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark -
+#pragma mark life cycle
+
+- (void) viewWillAppear:(BOOL)animated
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [super viewWillAppear:animated];
+    [self filterRecords:[searchField text]];
 }
 
-- (void)viewDidLoad
+- (void)dealloc
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self setAudioRecords:nil];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark -
+#pragma mark insatnce methods
+
+- (void)filterRecords:(NSString *)filter
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.audioRecords = [[OfflineAudioManager sharedInstance] offlineAudioListWithFilter:filter];
+    [audioList reloadData];
 }
+
+#pragma mark -
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range     replacementString:(NSString *)string
+{
+    NSString *text = [[textField text] stringByReplacingCharactersInRange:range withString:string];
+    [self filterRecords:text];
+    return YES;
+}
+
 
 @end

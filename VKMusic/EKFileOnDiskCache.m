@@ -74,9 +74,9 @@ static EKFileOnDiskCache *kFilesOnDiskCache = nil;
     return [[caches lastObject] stringByAppendingPathComponent:subpath];
 }
 
-- (NSString *) cachePathForKey:(NSString *)key
+- (NSString *) filePathForKey:(NSString *)key
 {
-    NSString *keyhash = [key md5];
+    NSString *keyhash = [NSString stringWithFormat:@"%@.%@",[key md5],[key pathExtension]];
     return [[self pathForCachesDirectory] stringByAppendingPathComponent:keyhash];
 }
 
@@ -85,7 +85,7 @@ static EKFileOnDiskCache *kFilesOnDiskCache = nil;
 
 - (void) cacheFileData:(NSData *) fileData forKey:(NSString *) key
 {
-    NSString *filePath = [self cachePathForKey:key];
+    NSString *filePath = [self filePathForKey:key];
     [[NSFileManager defaultManager] createFileAtPath:filePath
                                             contents:fileData
                                           attributes:nil];
@@ -93,13 +93,13 @@ static EKFileOnDiskCache *kFilesOnDiskCache = nil;
 
 - (NSData *) cachedFileDataForKey:(NSString *) key
 {
-    NSString *filePath = [self cachePathForKey:key];
+    NSString *filePath = [self filePathForKey:key];
     return [NSData dataWithContentsOfFile:filePath];
 }
 
 - (BOOL) hasCachedFileForKey:(NSString *) key
 {
-    NSString *filePath = [self cachePathForKey:key];
+    NSString *filePath = [self filePathForKey:key];
     return [[NSFileManager defaultManager] fileExistsAtPath:filePath];
 }
 
@@ -122,7 +122,7 @@ static EKFileOnDiskCache *kFilesOnDiskCache = nil;
 
 - (void) deleteFileForKey:(NSString *) key
 {
-    [[NSFileManager defaultManager] removeItemAtPath:[self cachePathForKey:key]
+    [[NSFileManager defaultManager] removeItemAtPath:[self filePathForKey:key]
                                                error:nil];
 }
 

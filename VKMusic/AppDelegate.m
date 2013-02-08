@@ -10,6 +10,8 @@
 #import "SignInViewController.h"
 #import "PlayerViewController.h"
 
+#import <AVFoundation/AVFoundation.h>
+
 @interface AppDelegate () <SignInViewControllerDelegate>
 @end
 
@@ -27,6 +29,15 @@
     [self checkIfUserAuthorized];
     [self registerForNotificationNamed:kUserSignedOut
                               selector:@selector(userSignedOut)];
+    
+    [MagicalRecord setupCoreDataStack];
+    
+    
+//    NSURL *url = [NSURL fileURLWithPath:@"file://localhost/Users/kirpichenko/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/CBC962A8-55B8-4E60-A4E5-2E49742727D9/Library/Caches/FilesCache/Music/c92fb4cc6e026a1eb16569fb82c3ddf1"];
+//    NSError *error = error;
+//    AVAudioPlayer *pl = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+//    [pl play];
+    
     return YES;
 }
 

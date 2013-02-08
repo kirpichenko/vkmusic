@@ -80,6 +80,7 @@ static NSString *kPlayingAudioKey = @"playingAudio";
         [self didChangeValueForKey:kPlayingAudioKey];
         
 #ifndef TEST
+//        NSData *data = [NSData dataWithContentsOfURL:[_playingAudio url]];
         AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:[_playingAudio url]];
         
         AVPlayer *player = [self currentPlayer];
@@ -90,6 +91,10 @@ static NSString *kPlayingAudioKey = @"playingAudio";
         
         [player replaceCurrentItemWithPlayerItem:playerItem];
         [player play];
+        
+        if ([player error] != nil) {
+            NSLog(@"playing error = %@",[[player error] localizedDescription]);
+        }
 #endif
     }
 }
@@ -155,5 +160,8 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 {
     [self playNextAudio];
 }
+
+#pragma mark -
+#pragma mark 
 
 @end

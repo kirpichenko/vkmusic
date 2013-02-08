@@ -40,7 +40,7 @@ static NSString *const kExecutingState = @"isExecuting";
 - (id) init
 {
     [NSException raise:@"Exception:"
-                format:@"Use initWithUrl:, initWithURL:filesCache: methods to create loader"];
+                format:@"Use initWithUrl: method to create downloader"];
     return nil;
 }
 
@@ -57,6 +57,19 @@ static NSString *const kExecutingState = @"isExecuting";
     [self cancelConnection];
     
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark base methods
+
+- (BOOL) isExecuting
+{
+    return [self executing];
+}
+
+- (BOOL) isFinished
+{
+    return [self finished];
 }
 
 #pragma mark -
@@ -109,6 +122,7 @@ static NSString *const kExecutingState = @"isExecuting";
 
 - (void) cancelConnection
 {
+    [connection unscheduleFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     [connection cancel];
     [connection release]; connection = nil;
 }
@@ -148,9 +162,9 @@ static NSString *const kExecutingState = @"isExecuting";
 {
     if (![self isCancelled]) {
         [self setResponse:receivedData];
-        [self stopDownloading];
-        
         [self notifyObserversWithSelector:@selector(downloadingFinished:)];
+        
+        [self stopDownloading];
     }
 }
 

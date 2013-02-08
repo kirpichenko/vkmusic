@@ -55,11 +55,13 @@ static NSOperationQueue *kOperationQueue;
 
 - (void)loadFile:(NSURL *)url delegate:(id<EKFileDownloaderDelegate>)delegate
 {
+        NSLog(@"operations = %d",[kOperationQueue operationCount]);
     EKFileDownloader *operation = [self executingOperationForURL:url];
     if (operation == nil) {
         operation = [[EKFileDownloader alloc] initWithURL:url];
         [operation registerObserver:self];
-        [kOperationQueue addOperation:[operation autorelease]];
+        [kOperationQueue addOperation:operation];
+        [operation release];
     }
     [operation registerObserver:delegate];
 }

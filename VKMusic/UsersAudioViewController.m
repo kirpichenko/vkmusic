@@ -80,11 +80,11 @@
 {
     NSInteger userID = [[SettingsManager sharedInstance] authorizedUserID];
     RequestSender *sender = [RequestSender sharedInstance];
+
     __weak UsersAudioViewController *selfController = self;
     [sender sendAudioGetRequestForUser:userID
-                               success:^(id response) {
-                                   [selfController setAudioRecords:response];
-                                   [audioList reloadData];
+                               success:^(id response){
+                                   [selfController audioHaveBeenLoaded:response];
                                }
                                failure:^(NSError *error) {
                                    NSLog(@"fail = %@",error);
@@ -92,35 +92,15 @@
 }
 
 #pragma mark -
-#pragma mark UITableViewDataSource methods
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [[self audioRecords] count];
-}
+#pragma mark UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    OnlineAudio *audio = [[self audioRecords] objectAtIndex:indexPath.row];
-
-    AudioCell *cell = [tableView cellForClass:[AudioCell class]];
-    [cell setAudio:audio];
-    [cell setDelegate:self];
-    
+    AudioCell *cell = (AudioCell *)[super tableView:tableView cellForRowAtIndexPath:indexPath];
+//    id<Audio> audio = [cell audio];
     return cell;
 }
 
-#pragma mark -
-#pragma mark UITableViewDelegate methods
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    AudioPlayer *player = [AudioPlayer sharedInstance];
-    [player setAudioList:[self audioRecords]];
-    [player playAudioAtIndex:indexPath.row];
-}
 
 #pragma mark -
 #pragma mark AudioLoaderDelegate

@@ -25,32 +25,9 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self filterRecords:[searchField text]];
+    
+    NSArray *audio = [[OfflineAudioManager sharedInstance] offlineAudioList];
+    [self audioHaveBeenLoaded:audio];
 }
-
-- (void)dealloc
-{
-    [self setAudioRecords:nil];
-}
-
-#pragma mark -
-#pragma mark insatnce methods
-
-- (void)filterRecords:(NSString *)filter
-{
-    self.audioRecords = [[OfflineAudioManager sharedInstance] offlineAudioListWithFilter:filter];
-    [audioList reloadData];
-}
-
-#pragma mark -
-#pragma mark UITextFieldDelegate
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range     replacementString:(NSString *)string
-{
-    NSString *text = [[textField text] stringByReplacingCharactersInRange:range withString:string];
-    [self filterRecords:text];
-    return YES;
-}
-
 
 @end

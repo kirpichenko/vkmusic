@@ -57,11 +57,15 @@ describe(@"ResponseParser", ^{
             it(@"Audio url should be"
                @"\"http://cs4617.userapi.com/u44378645/audios/065523adbe9c.mp3\"", ^{
                    NSString *expectedURL = @"http://cs4617.userapi.com/u44378645/audios/065523adbe9c.mp3";
-                   expect([audio url]).to(equal(expectedURL));
+                   expect([audio url]).to(equal([NSURL URLWithString:expectedURL]));
                });
             
             it(@"Audio lyrics ID should be 4423020",^{
                 expect([audio lyricsID]).to(equal(4423020));
+            });
+            
+            it(@"Audio url should be of NSURL class", ^{
+                expect([audio url]).to(be_instance_of([NSURL class]));
             });
         });
     });

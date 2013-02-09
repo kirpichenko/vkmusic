@@ -9,7 +9,7 @@
 #ifndef VKMusic_ApplicationConstants_h
 #define VKMusic_ApplicationConstants_h
 
-static NSString *kUserSignedIn = @"UserSignedIn";
-static NSString *kUserSignedOut = @"UserSignedOut";
+static NSString *const kUserSignedIn = @"UserSignedIn";
+static NSString *const kUserSignedOut = @"UserSignedOut";
 
 #endif

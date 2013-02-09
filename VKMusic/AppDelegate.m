@@ -8,13 +8,11 @@
 
 #import "AppDelegate.h"
 #import "SignInViewController.h"
-#import "UsersAudioViewController.h"
-#import "PlaylistsViewController.h"
-#import "SettingsViewController.h"
+#import "PlayerViewController.h"
 
-#import <NGTabBarController/NGTabBarController.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface AppDelegate () <SignInViewControllerDelegate, NGTabBarControllerDelegate>
+@interface AppDelegate () <SignInViewControllerDelegate>
 @end
 
 @implementation AppDelegate
@@ -23,14 +21,23 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-//    UsersAudioViewController *controller = [[UsersAudioViewController alloc] init];
-//    [self.window setRootViewController:controller];
-    [self displayTabBar];
+    AudioPlayer *player = [AudioPlayer sharedInstance];
+    PlayerViewController *controller = [[PlayerViewController alloc] initWithPlayer:player];
+    [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];
     
     [self checkIfUserAuthorized];
     [self registerForNotificationNamed:kUserSignedOut
                               selector:@selector(userSignedOut)];
+    
+    [MagicalRecord setupCoreDataStack];
+    
+    
+//    NSURL *url = [NSURL fileURLWithPath:@"file://localhost/Users/kirpichenko/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/CBC962A8-55B8-4E60-A4E5-2E49742727D9/Library/Caches/FilesCache/Music/c92fb4cc6e026a1eb16569fb82c3ddf1"];
+//    NSError *error = error;
+//    AVAudioPlayer *pl = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+//    [pl play];
+    
     return YES;
 }
 
@@ -98,29 +105,5 @@
 #pragma mark -
 #pragma mark test
 
-- (void) displayTabBar
-{
-    UsersAudioViewController *audioController = [[UsersAudioViewController alloc] init];
-    PlaylistsViewController *playlistController = [[PlaylistsViewController alloc] init];
-    SettingsViewController *settingsController = [[SettingsViewController alloc] init];
- 
-    audioController.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"Аудиозаписи" image:nil];
-    playlistController.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"Плейлисты" image:nil];
-    settingsController.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"Настр" image:nil];
-    
-    NGTabBarController *tabBarController = [[NGTabBarController alloc] initWithDelegate:self];
-    [tabBarController setViewControllers:@[audioController,playlistController,settingsController]];
-    
-    [[self window] setRootViewController:tabBarController];
-}
-
-
-- (CGSize)tabBarController:(NGTabBarController *)tabBarController
-sizeOfItemForViewController:(UIViewController *)viewController
-                   atIndex:(NSUInteger)index
-                  position:(NGTabBarPosition)position
-{
-    return CGSizeMake(45, 45);
-}
 
 @end

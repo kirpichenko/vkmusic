@@ -13,5 +13,17 @@
     #import <Foundation/Foundation.h>
 
     #import <Cedar-iOS/SpecHelper.h>
+    #import "NSDictionary+LoadFromJsonFile.h"
 
+    #import <MobileCoreServices/MobileCoreServices.h>
+    #import <SystemConfiguration/SystemConfiguration.h>
+
+    #import "ApplicationConstants.h"
+    #import "RequestConstants.h"
+    #import "RequestSender.h"
+    #import "RequestManager.h"
+    #import "SettingsManager.h"
+
+    #import "AudioPlayer.h"
+    #import "NSObject+NotificationCenter.h"
 #endif

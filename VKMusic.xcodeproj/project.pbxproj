@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		07F29BD556D94D2BBFDE0DC7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB5601261D84360B6711408 /* libPods.a */; };
+		D91750EB16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750EA16C6FD7100A00448 /* DownloadIndicatorView.m */; };
+		D91750EC16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750EA16C6FD7100A00448 /* DownloadIndicatorView.m */; };
 		D9258C261695F8F70072798B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C251695F8F70072798B /* UIKit.framework */; };
 		D9258C281695F8F70072798B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C271695F8F70072798B /* Foundation.framework */; };
 		D9258C2A1695F8F70072798B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C291695F8F70072798B /* CoreGraphics.framework */; };
@@ -19,6 +21,15 @@
 		D9258C3C1695F8F70072798B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9258C3B1695F8F70072798B /* Default-568h@2x.png */; };
 		D957D6CF16962BEE001F352B /* OAuthResponseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */; };
 		D957D6D116962FA2001F352B /* OAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538471696214000C8B6F4 /* OAuthResponse.m */; };
+		D98C552216B4112C002536EF /* NSString+TimeFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552116B4112C002536EF /* NSString+TimeFormatting.m */; };
+		D98C552316B4112C002536EF /* NSString+TimeFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552116B4112C002536EF /* NSString+TimeFormatting.m */; };
+		D98C552616B41168002536EF /* NSStringExtensionsSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */; };
+		D98C552A16B4474B002536EF /* AudioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552916B4474B002536EF /* AudioCell.m */; };
+		D98C552B16B4474B002536EF /* AudioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552916B4474B002536EF /* AudioCell.m */; };
+		D98C552D16B4476D002536EF /* AudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C552C16B4476D002536EF /* AudioCell.xib */; };
+		D98C552E16B4476D002536EF /* AudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C552C16B4476D002536EF /* AudioCell.xib */; };
+		D98C553A16B4519F002536EF /* UITableView+CellCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C553916B4519F002536EF /* UITableView+CellCreation.m */; };
+		D98C553B16B4519F002536EF /* UITableView+CellCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C553916B4519F002536EF /* UITableView+CellCreation.m */; };
 		D98C5DCF169864660084D92A /* RequestManagerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DCE169864660084D92A /* RequestManagerSpec.mm */; };
 		D98C5DD1169866120084D92A /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D995383B16960E7100C8B6F4 /* RequestManager.m */; };
 		D98C5DD4169883510084D92A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD2169883510084D92A /* MobileCoreServices.framework */; };
@@ -27,8 +38,8 @@
 		D98C5DD7169883510084D92A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD3169883510084D92A /* SystemConfiguration.framework */; };
 		D98C5DDA169885D30084D92A /* ResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DD9169885D30084D92A /* ResponseParser.m */; };
 		D98C5DDB169885D30084D92A /* ResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DD9169885D30084D92A /* ResponseParser.m */; };
-		D98C5DDE169886FA0084D92A /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DDD169886FA0084D92A /* Audio.m */; };
-		D98C5DDF169886FA0084D92A /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DDD169886FA0084D92A /* Audio.m */; };
+		D98C5DDE169886FA0084D92A /* OnlineAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DDD169886FA0084D92A /* OnlineAudio.m */; };
+		D98C5DDF169886FA0084D92A /* OnlineAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DDD169886FA0084D92A /* OnlineAudio.m */; };
 		D98C5DE8169888F10084D92A /* Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DE7169888F10084D92A /* Mapping.m */; };
 		D98C5DE9169888F10084D92A /* Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DE7169888F10084D92A /* Mapping.m */; };
 		D98C5E35169892D00084D92A /* MappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E34169892D00084D92A /* MappingManager.m */; };
@@ -40,6 +51,14 @@
 		D98C5EBA1698C9A30084D92A /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C5EB81698C9A30084D92A /* SettingsViewController.xib */; };
 		D98C5EBF1698C9D40084D92A /* PlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */; };
 		D98C5EC01698C9D40084D92A /* PlaylistsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C5EBE1698C9D40084D92A /* PlaylistsViewController.xib */; };
+		D98F931816A2E46100E7DD1B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98F931716A2E46100E7DD1B /* CoreMedia.framework */; };
+		D98F931916A2E46100E7DD1B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98F931716A2E46100E7DD1B /* CoreMedia.framework */; };
+		D98F931D16A3542A00E7DD1B /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F931C16A3542A00E7DD1B /* PlayerView.m */; };
+		D98F931E16A3542A00E7DD1B /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F931C16A3542A00E7DD1B /* PlayerView.m */; };
+		D98F932316A3556D00E7DD1B /* AudioProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F932216A3556D00E7DD1B /* AudioProgressView.m */; };
+		D98F932416A3556D00E7DD1B /* AudioProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F932216A3556D00E7DD1B /* AudioProgressView.m */; };
+		D98F932716A35A7200E7DD1B /* AudioTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F932616A35A7200E7DD1B /* AudioTitleView.m */; };
+		D98F932816A35A7200E7DD1B /* AudioTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F932616A35A7200E7DD1B /* AudioTitleView.m */; };
 		D99538331696003800C8B6F4 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538311696003800C8B6F4 /* SignInViewController.m */; };
 		D99538341696003800C8B6F4 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99538321696003800C8B6F4 /* SignInViewController.xib */; };
 		D99538381696013100C8B6F4 /* RequestSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538371696013100C8B6F4 /* RequestSender.m */; };
@@ -54,8 +73,48 @@
 		D995385F1696289F00C8B6F4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D995385E1696289F00C8B6F4 /* Default.png */; };
 		D99538611696289F00C8B6F4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D99538601696289F00C8B6F4 /* Default@2x.png */; };
 		D99538631696289F00C8B6F4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D99538621696289F00C8B6F4 /* Default-568h@2x.png */; };
+		D99F9CA5169A153300735A31 /* EKFilesMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CA2169A153300735A31 /* EKFilesMemoryCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D99F9CA6169A153300735A31 /* EKFileOnDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CA4169A153300735A31 /* EKFileOnDiskCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D99F9CAB169A154E00735A31 /* EKFileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CA9169A154E00735A31 /* EKFileDownloader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D99F9CAF169A16DA00735A31 /* OfflineAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CAE169A16DA00735A31 /* OfflineAudioManager.m */; };
+		D99F9CB3169A1D7200735A31 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CB2169A1D7200735A31 /* NSString+Hash.m */; };
+		D99F9CBD169A232800735A31 /* AudioDownloaderAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CBC169A232800735A31 /* AudioDownloaderAdapter.m */; };
+		D9AC6F8116BEC3F900432CC1 /* AudioStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9AC6F7F16BEC3F900432CC1 /* AudioStorage.xcdatamodeld */; };
+		D9AC6F8216BEC3F900432CC1 /* AudioStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9AC6F7F16BEC3F900432CC1 /* AudioStorage.xcdatamodeld */; };
+		D9AF649A16C43338000DCF26 /* EKFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF649916C43338000DCF26 /* EKFileManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D9AF64B016C5A287000DCF26 /* OfflineAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF64AF16C5A287000DCF26 /* OfflineAudio.m */; };
+		D9AF64B116C5A287000DCF26 /* OfflineAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF64AF16C5A287000DCF26 /* OfflineAudio.m */; };
+		D9AF64B416C5B21F000DCF26 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF64B316C5B21F000DCF26 /* AudioViewController.m */; };
+		D9AF64B516C5B21F000DCF26 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF64B316C5B21F000DCF26 /* AudioViewController.m */; };
 		D9B5F5BB16976C3B006E77D2 /* UsersAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B5F5B916976C3B006E77D2 /* UsersAudioViewController.m */; };
-		D9B5F5BC16976C3B006E77D2 /* UsersAudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B5F5BA16976C3B006E77D2 /* UsersAudioViewController.xib */; };
+		D9C4180616A20D770011F600 /* AudioPlayerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9C4180516A20D770011F600 /* AudioPlayerSpec.mm */; };
+		D9C4180916A20EB70011F600 /* NSObject+NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C4180816A20EB70011F600 /* NSObject+NotificationCenter.m */; };
+		D9C4180A16A212790011F600 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64791699BFF100E0D34B /* AudioPlayer.m */; };
+		D9C4180B16A2130E0011F600 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64701699AC5200E0D34B /* PlayerViewController.m */; };
+		D9C4180C16A2130E0011F600 /* SavedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC646A16999DDC00E0D34B /* SavedViewController.m */; };
+		D9C4180D16A2130E0011F600 /* UsersAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B5F5B916976C3B006E77D2 /* UsersAudioViewController.m */; };
+		D9C4180E16A2130E0011F600 /* PlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */; };
+		D9C4180F16A2130E0011F600 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC646416999D5A00E0D34B /* SearchViewController.m */; };
+		D9C4181016A2130E0011F600 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538311696003800C8B6F4 /* SignInViewController.m */; };
+		D9C4181116A2130E0011F600 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5EB71698C9A30084D92A /* SettingsViewController.m */; };
+		D9C4181216A2130E0011F600 /* RequestSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538371696013100C8B6F4 /* RequestSender.m */; };
+		D9C4181316A2130E0011F600 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CB2169A1D7200735A31 /* NSString+Hash.m */; };
+		D9C4181416A2130E0011F600 /* NSObject+NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C4180816A20EB70011F600 /* NSObject+NotificationCenter.m */; };
+		D9C4181516A2130E0011F600 /* OfflineAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CAE169A16DA00735A31 /* OfflineAudioManager.m */; };
+		D9C4181616A2130E0011F600 /* AudioDownloaderAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CBC169A232800735A31 /* AudioDownloaderAdapter.m */; };
+		D9C4181716A2130E0011F600 /* EKFileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CA9169A154E00735A31 /* EKFileDownloader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D9C4181816A2130E0011F600 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538401696194A00C8B6F4 /* SettingsManager.m */; };
+		D9C4181916A213630011F600 /* EKFilesMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CA2169A153300735A31 /* EKFilesMemoryCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D9C4181A16A213630011F600 /* EKFileOnDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CA4169A153300735A31 /* EKFileOnDiskCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D9C4181B16A213790011F600 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DC647B1699C0B800E0D34B /* AVFoundation.framework */; };
+		D9DC646616999D5A00E0D34B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC646416999D5A00E0D34B /* SearchViewController.m */; };
+		D9DC646716999D5A00E0D34B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9DC646516999D5A00E0D34B /* SearchViewController.xib */; };
+		D9DC646C16999DDC00E0D34B /* SavedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC646A16999DDC00E0D34B /* SavedViewController.m */; };
+		D9DC646D16999DDC00E0D34B /* AudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9DC646B16999DDC00E0D34B /* AudioViewController.xib */; };
+		D9DC64721699AC5200E0D34B /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64701699AC5200E0D34B /* PlayerViewController.m */; };
+		D9DC64731699AC5200E0D34B /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9DC64711699AC5200E0D34B /* PlayerViewController.xib */; };
+		D9DC647A1699BFF100E0D34B /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64791699BFF100E0D34B /* AudioPlayer.m */; };
+		D9DC647C1699C0B800E0D34B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DC647B1699C0B800E0D34B /* AVFoundation.framework */; };
 		F0F4C3590C1148909D9A7751 /* libPods-VKMusic-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 280EA9A2240043DB953DAF58 /* libPods-VKMusic-UnitTests.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +123,8 @@
 		2751EC8D6FBA4A1FA1E3AA2F /* Pods-VKMusic-UnitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKMusic-UnitTests.xcconfig"; path = "Pods/Pods-VKMusic-UnitTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		280EA9A2240043DB953DAF58 /* libPods-VKMusic-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VKMusic-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADA439328B2446EB6F522D5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		D91750E916C6FD7100A00448 /* DownloadIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadIndicatorView.h; sourceTree = "<group>"; };
+		D91750EA16C6FD7100A00448 /* DownloadIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadIndicatorView.m; sourceTree = "<group>"; };
 		D9258C211695F8F70072798B /* VKMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9258C251695F8F70072798B /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9258C271695F8F70072798B /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -78,13 +139,21 @@
 		D9258C391695F8F70072798B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D9258C3B1695F8F70072798B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OAuthResponseSpec.mm; sourceTree = "<group>"; };
+		D98C552016B4112C002536EF /* NSString+TimeFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeFormatting.h"; sourceTree = "<group>"; };
+		D98C552116B4112C002536EF /* NSString+TimeFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeFormatting.m"; sourceTree = "<group>"; };
+		D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSStringExtensionsSpec.mm; sourceTree = "<group>"; };
+		D98C552816B4474B002536EF /* AudioCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioCell.h; sourceTree = "<group>"; };
+		D98C552916B4474B002536EF /* AudioCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioCell.m; sourceTree = "<group>"; };
+		D98C552C16B4476D002536EF /* AudioCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioCell.xib; sourceTree = "<group>"; };
+		D98C553816B4519F002536EF /* UITableView+CellCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CellCreation.h"; sourceTree = "<group>"; };
+		D98C553916B4519F002536EF /* UITableView+CellCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CellCreation.m"; sourceTree = "<group>"; };
 		D98C5DCE169864660084D92A /* RequestManagerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RequestManagerSpec.mm; sourceTree = "<group>"; };
 		D98C5DD2169883510084D92A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D98C5DD3169883510084D92A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D98C5DD8169885D30084D92A /* ResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseParser.h; sourceTree = "<group>"; };
 		D98C5DD9169885D30084D92A /* ResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseParser.m; sourceTree = "<group>"; };
-		D98C5DDC169886FA0084D92A /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
-		D98C5DDD169886FA0084D92A /* Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Audio.m; sourceTree = "<group>"; };
+		D98C5DDC169886FA0084D92A /* OnlineAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineAudio.h; sourceTree = "<group>"; };
+		D98C5DDD169886FA0084D92A /* OnlineAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineAudio.m; sourceTree = "<group>"; };
 		D98C5DE6169888F10084D92A /* Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mapping.h; sourceTree = "<group>"; };
 		D98C5DE7169888F10084D92A /* Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mapping.m; sourceTree = "<group>"; };
 		D98C5E33169892D00084D92A /* MappingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingManager.h; sourceTree = "<group>"; };
@@ -99,6 +168,13 @@
 		D98C5EBC1698C9D40084D92A /* PlaylistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistsViewController.h; sourceTree = "<group>"; };
 		D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistsViewController.m; sourceTree = "<group>"; };
 		D98C5EBE1698C9D40084D92A /* PlaylistsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaylistsViewController.xib; sourceTree = "<group>"; };
+		D98F931716A2E46100E7DD1B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D98F931B16A3542A00E7DD1B /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		D98F931C16A3542A00E7DD1B /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		D98F932116A3556D00E7DD1B /* AudioProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProgressView.h; sourceTree = "<group>"; };
+		D98F932216A3556D00E7DD1B /* AudioProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProgressView.m; sourceTree = "<group>"; };
+		D98F932516A35A7200E7DD1B /* AudioTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioTitleView.h; sourceTree = "<group>"; };
+		D98F932616A35A7200E7DD1B /* AudioTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioTitleView.m; sourceTree = "<group>"; };
 		D99538301696003800C8B6F4 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		D99538311696003800C8B6F4 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		D99538321696003800C8B6F4 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
@@ -119,10 +195,47 @@
 		D995385E1696289F00C8B6F4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D99538601696289F00C8B6F4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D99538621696289F00C8B6F4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D99F9CA0169A153300735A31 /* EKFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKFileCache.h; sourceTree = "<group>"; };
+		D99F9CA1169A153300735A31 /* EKFilesMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKFilesMemoryCache.h; sourceTree = "<group>"; };
+		D99F9CA2169A153300735A31 /* EKFilesMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKFilesMemoryCache.m; sourceTree = "<group>"; };
+		D99F9CA3169A153300735A31 /* EKFileOnDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKFileOnDiskCache.h; sourceTree = "<group>"; };
+		D99F9CA4169A153300735A31 /* EKFileOnDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKFileOnDiskCache.m; sourceTree = "<group>"; };
+		D99F9CA8169A154E00735A31 /* EKFileDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKFileDownloader.h; sourceTree = "<group>"; };
+		D99F9CA9169A154E00735A31 /* EKFileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKFileDownloader.m; sourceTree = "<group>"; };
+		D99F9CAD169A16DA00735A31 /* OfflineAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineAudioManager.h; sourceTree = "<group>"; };
+		D99F9CAE169A16DA00735A31 /* OfflineAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfflineAudioManager.m; sourceTree = "<group>"; };
+		D99F9CB1169A1D7200735A31 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		D99F9CB2169A1D7200735A31 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		D99F9CBB169A232800735A31 /* AudioDownloaderAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDownloaderAdapter.h; sourceTree = "<group>"; };
+		D99F9CBC169A232800735A31 /* AudioDownloaderAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioDownloaderAdapter.m; sourceTree = "<group>"; };
+		D9AC6F8016BEC3F900432CC1 /* AudioStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AudioStorage.xcdatamodel; sourceTree = "<group>"; };
+		D9AC6F8816BEDE7F00432CC1 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
+		D9AC6F8E16BEFF1C00432CC1 /* EKFileDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKFileDownloaderDelegate.h; sourceTree = "<group>"; };
+		D9AC6F9316BF0CE500432CC1 /* AudioDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDownloaderDelegate.h; sourceTree = "<group>"; };
+		D9AF649816C43338000DCF26 /* EKFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKFileManager.h; sourceTree = "<group>"; };
+		D9AF649916C43338000DCF26 /* EKFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKFileManager.m; sourceTree = "<group>"; };
+		D9AF64AE16C5A287000DCF26 /* OfflineAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OfflineAudio.h; path = ../OfflineAudio.h; sourceTree = "<group>"; };
+		D9AF64AF16C5A287000DCF26 /* OfflineAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OfflineAudio.m; path = ../OfflineAudio.m; sourceTree = "<group>"; };
+		D9AF64B216C5B21F000DCF26 /* AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioViewController.h; sourceTree = "<group>"; };
+		D9AF64B316C5B21F000DCF26 /* AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioViewController.m; sourceTree = "<group>"; };
 		D9B5F5B816976C3B006E77D2 /* UsersAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersAudioViewController.h; sourceTree = "<group>"; };
 		D9B5F5B916976C3B006E77D2 /* UsersAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersAudioViewController.m; sourceTree = "<group>"; };
-		D9B5F5BA16976C3B006E77D2 /* UsersAudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersAudioViewController.xib; sourceTree = "<group>"; };
 		D9B5F5BD16976D75006E77D2 /* ApplicationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
+		D9C4180516A20D770011F600 /* AudioPlayerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioPlayerSpec.mm; sourceTree = "<group>"; };
+		D9C4180716A20EB70011F600 /* NSObject+NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NotificationCenter.h"; sourceTree = "<group>"; };
+		D9C4180816A20EB70011F600 /* NSObject+NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NotificationCenter.m"; sourceTree = "<group>"; };
+		D9DC646316999D5A00E0D34B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		D9DC646416999D5A00E0D34B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		D9DC646516999D5A00E0D34B /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		D9DC646916999DDC00E0D34B /* SavedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedViewController.h; sourceTree = "<group>"; };
+		D9DC646A16999DDC00E0D34B /* SavedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedViewController.m; sourceTree = "<group>"; };
+		D9DC646B16999DDC00E0D34B /* AudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioViewController.xib; sourceTree = "<group>"; };
+		D9DC646F1699AC5200E0D34B /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		D9DC64701699AC5200E0D34B /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		D9DC64711699AC5200E0D34B /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		D9DC64781699BFF100E0D34B /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
+		D9DC64791699BFF100E0D34B /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
+		D9DC647B1699C0B800E0D34B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +249,8 @@
 				07F29BD556D94D2BBFDE0DC7 /* libPods.a in Frameworks */,
 				D98C5DD4169883510084D92A /* MobileCoreServices.framework in Frameworks */,
 				D98C5DD6169883510084D92A /* SystemConfiguration.framework in Frameworks */,
+				D9DC647C1699C0B800E0D34B /* AVFoundation.framework in Frameworks */,
+				D98F931816A2E46100E7DD1B /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,12 +264,50 @@
 				F0F4C3590C1148909D9A7751 /* libPods-VKMusic-UnitTests.a in Frameworks */,
 				D98C5DD5169883510084D92A /* MobileCoreServices.framework in Frameworks */,
 				D98C5DD7169883510084D92A /* SystemConfiguration.framework in Frameworks */,
+				D9C4181B16A213790011F600 /* AVFoundation.framework in Frameworks */,
+				D98F931916A2E46100E7DD1B /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D91750ED16C6FD7700A00448 /* DownloadIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				D91750E916C6FD7100A00448 /* DownloadIndicatorView.h */,
+				D91750EA16C6FD7100A00448 /* DownloadIndicatorView.m */,
+			);
+			name = DownloadIndicatorView;
+			sourceTree = "<group>";
+		};
+		D91750EE16C6FD9700A00448 /* PlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				D98F931B16A3542A00E7DD1B /* PlayerView.h */,
+				D98F931C16A3542A00E7DD1B /* PlayerView.m */,
+			);
+			name = PlayerView;
+			sourceTree = "<group>";
+		};
+		D91750EF16C6FDA800A00448 /* AudioProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				D98F932116A3556D00E7DD1B /* AudioProgressView.h */,
+				D98F932216A3556D00E7DD1B /* AudioProgressView.m */,
+			);
+			name = AudioProgressView;
+			sourceTree = "<group>";
+		};
+		D91750F016C6FDB900A00448 /* AudioTitleView */ = {
+			isa = PBXGroup;
+			children = (
+				D98F932516A35A7200E7DD1B /* AudioTitleView.h */,
+				D98F932616A35A7200E7DD1B /* AudioTitleView.m */,
+			);
+			name = AudioTitleView;
+			sourceTree = "<group>";
+		};
 		D9258C161695F8F70072798B = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +332,8 @@
 		D9258C241695F8F70072798B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D98F931716A2E46100E7DD1B /* CoreMedia.framework */,
+				D9DC647B1699C0B800E0D34B /* AVFoundation.framework */,
 				D98C5DD2169883510084D92A /* MobileCoreServices.framework */,
 				D98C5DD3169883510084D92A /* SystemConfiguration.framework */,
 				D9258C251695F8F70072798B /* UIKit.framework */,
@@ -195,6 +350,7 @@
 			children = (
 				D995382D1695FFDE00C8B6F4 /* Application */,
 				D995382F1695FFEA00C8B6F4 /* Controllers */,
+				D98F931F16A3553600E7DD1B /* Views */,
 				D9953835169600E700C8B6F4 /* Network */,
 				D995383E1696193100C8B6F4 /* Helpers */,
 				D9953842169619CB00C8B6F4 /* Models */,
@@ -213,8 +369,29 @@
 				D9258C371695F8F70072798B /* Default.png */,
 				D9258C391695F8F70072798B /* Default@2x.png */,
 				D9258C3B1695F8F70072798B /* Default-568h@2x.png */,
+				D9AC6F7F16BEC3F900432CC1 /* AudioStorage.xcdatamodeld */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D98B559D16B58F8300E0452A /* AudioViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9AF64B216C5B21F000DCF26 /* AudioViewController.h */,
+				D9AF64B316C5B21F000DCF26 /* AudioViewController.m */,
+				D9DC646B16999DDC00E0D34B /* AudioViewController.xib */,
+			);
+			name = AudioViewController;
+			sourceTree = "<group>";
+		};
+		D98C552716B445E4002536EF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D98C552816B4474B002536EF /* AudioCell.h */,
+				D98C552916B4474B002536EF /* AudioCell.m */,
+				D98C552C16B4476D002536EF /* AudioCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		D98C5DEA16988DA60084D92A /* Objects Mapping */ = {
@@ -275,6 +452,26 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		D98F931F16A3553600E7DD1B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D98C552716B445E4002536EF /* Cells */,
+				D98F932016A3554B00E7DD1B /* Player */,
+				D91750ED16C6FD7700A00448 /* DownloadIndicatorView */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D98F932016A3554B00E7DD1B /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				D91750F016C6FDB900A00448 /* AudioTitleView */,
+				D91750EF16C6FDA800A00448 /* AudioProgressView */,
+				D91750EE16C6FD9700A00448 /* PlayerView */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
 		D995382D1695FFDE00C8B6F4 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,14 +485,14 @@
 		D995382F1695FFEA00C8B6F4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D98B559D16B58F8300E0452A /* AudioViewController */,
+				D9DC646E1699AA1500E0D34B /* PlayerController */,
+				D9DC646816999D6600E0D34B /* SavedViewController */,
 				D9B5F5B716976BF0006E77D2 /* UsersAudioViewController */,
+				D9DC646116999C1700E0D34B /* PlaylistsViewController */,
+				D9DC646216999C3500E0D34B /* SearchViewController */,
 				D9B5F5B516976BCF006E77D2 /* SignInViewController */,
-				D98C5EB61698C9A30084D92A /* SettingsViewController.h */,
-				D98C5EB71698C9A30084D92A /* SettingsViewController.m */,
-				D98C5EB81698C9A30084D92A /* SettingsViewController.xib */,
-				D98C5EBC1698C9D40084D92A /* PlaylistsViewController.h */,
-				D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */,
-				D98C5EBE1698C9D40084D92A /* PlaylistsViewController.xib */,
+				D9DC645F16999BFF00E0D34B /* SettingsViewController */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -312,6 +509,10 @@
 		D995383E1696193100C8B6F4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D99F9CB0169A1D4D00735A31 /* Extensions */,
+				D99F9CAC169A15F800735A31 /* AudioFilesManager */,
+				D99F9CA7169A153900735A31 /* EKFileManager */,
+				D9DC64771699BFBC00E0D34B /* Audio Player */,
 				D98C5DEB16988DBB0084D92A /* Settings */,
 				D98C5DEA16988DA60084D92A /* Objects Mapping */,
 			);
@@ -321,10 +522,10 @@
 		D9953842169619CB00C8B6F4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D9AC6F8916BEE03200432CC1 /* Database */,
+				D9AC6F8716BEDCF100432CC1 /* Audio */,
 				D99538461696214000C8B6F4 /* OAuthResponse.h */,
 				D99538471696214000C8B6F4 /* OAuthResponse.m */,
-				D98C5DDC169886FA0084D92A /* Audio.h */,
-				D98C5DDD169886FA0084D92A /* Audio.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -360,8 +561,129 @@
 				D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */,
 				D98C5DCE169864660084D92A /* RequestManagerSpec.mm */,
 				D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */,
+				D9C4180516A20D770011F600 /* AudioPlayerSpec.mm */,
+				D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */,
 			);
 			name = Specs;
+			sourceTree = "<group>";
+		};
+		D99F9C9F169A151800735A31 /* EKFileCache */ = {
+			isa = PBXGroup;
+			children = (
+				D99F9CA0169A153300735A31 /* EKFileCache.h */,
+				D9AF649E16C44D50000DCF26 /* EKFileOnDiskCache */,
+				D9AF649D16C44D43000DCF26 /* EKFileMemoryCache */,
+			);
+			name = EKFileCache;
+			sourceTree = "<group>";
+		};
+		D99F9CA7169A153900735A31 /* EKFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				D9AF649C16C44CDB000DCF26 /* EKFileManager */,
+				D9AF649B16C44CBA000DCF26 /* EKFileDownloader */,
+				D99F9C9F169A151800735A31 /* EKFileCache */,
+			);
+			name = EKFileManager;
+			sourceTree = "<group>";
+		};
+		D99F9CAC169A15F800735A31 /* AudioFilesManager */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC6F9516BF0D2300432CC1 /* OfflineAudioManager */,
+				D9AC6F9416BF0D0E00432CC1 /* AudioDownloadingObserver */,
+			);
+			name = AudioFilesManager;
+			sourceTree = "<group>";
+		};
+		D99F9CB0169A1D4D00735A31 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D99F9CB1169A1D7200735A31 /* NSString+Hash.h */,
+				D99F9CB2169A1D7200735A31 /* NSString+Hash.m */,
+				D98C552016B4112C002536EF /* NSString+TimeFormatting.h */,
+				D98C552116B4112C002536EF /* NSString+TimeFormatting.m */,
+				D9C4180716A20EB70011F600 /* NSObject+NotificationCenter.h */,
+				D9C4180816A20EB70011F600 /* NSObject+NotificationCenter.m */,
+				D98C553816B4519F002536EF /* UITableView+CellCreation.h */,
+				D98C553916B4519F002536EF /* UITableView+CellCreation.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D9AC6F8716BEDCF100432CC1 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC6F8816BEDE7F00432CC1 /* Audio.h */,
+				D98C5DDC169886FA0084D92A /* OnlineAudio.h */,
+				D98C5DDD169886FA0084D92A /* OnlineAudio.m */,
+				D9AF64AE16C5A287000DCF26 /* OfflineAudio.h */,
+				D9AF64AF16C5A287000DCF26 /* OfflineAudio.m */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		D9AC6F8916BEE03200432CC1 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		D9AC6F9416BF0D0E00432CC1 /* AudioDownloadingObserver */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC6F9316BF0CE500432CC1 /* AudioDownloaderDelegate.h */,
+				D99F9CBB169A232800735A31 /* AudioDownloaderAdapter.h */,
+				D99F9CBC169A232800735A31 /* AudioDownloaderAdapter.m */,
+			);
+			name = AudioDownloadingObserver;
+			sourceTree = "<group>";
+		};
+		D9AC6F9516BF0D2300432CC1 /* OfflineAudioManager */ = {
+			isa = PBXGroup;
+			children = (
+				D99F9CAD169A16DA00735A31 /* OfflineAudioManager.h */,
+				D99F9CAE169A16DA00735A31 /* OfflineAudioManager.m */,
+			);
+			name = OfflineAudioManager;
+			sourceTree = "<group>";
+		};
+		D9AF649B16C44CBA000DCF26 /* EKFileDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				D9AC6F8E16BEFF1C00432CC1 /* EKFileDownloaderDelegate.h */,
+				D99F9CA8169A154E00735A31 /* EKFileDownloader.h */,
+				D99F9CA9169A154E00735A31 /* EKFileDownloader.m */,
+			);
+			name = EKFileDownloader;
+			sourceTree = "<group>";
+		};
+		D9AF649C16C44CDB000DCF26 /* EKFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				D9AF649816C43338000DCF26 /* EKFileManager.h */,
+				D9AF649916C43338000DCF26 /* EKFileManager.m */,
+			);
+			name = EKFileManager;
+			sourceTree = "<group>";
+		};
+		D9AF649D16C44D43000DCF26 /* EKFileMemoryCache */ = {
+			isa = PBXGroup;
+			children = (
+				D99F9CA1169A153300735A31 /* EKFilesMemoryCache.h */,
+				D99F9CA2169A153300735A31 /* EKFilesMemoryCache.m */,
+			);
+			name = EKFileMemoryCache;
+			sourceTree = "<group>";
+		};
+		D9AF649E16C44D50000DCF26 /* EKFileOnDiskCache */ = {
+			isa = PBXGroup;
+			children = (
+				D99F9CA3169A153300735A31 /* EKFileOnDiskCache.h */,
+				D99F9CA4169A153300735A31 /* EKFileOnDiskCache.m */,
+			);
+			name = EKFileOnDiskCache;
 			sourceTree = "<group>";
 		};
 		D9B5F5B516976BCF006E77D2 /* SignInViewController */ = {
@@ -379,9 +701,66 @@
 			children = (
 				D9B5F5B816976C3B006E77D2 /* UsersAudioViewController.h */,
 				D9B5F5B916976C3B006E77D2 /* UsersAudioViewController.m */,
-				D9B5F5BA16976C3B006E77D2 /* UsersAudioViewController.xib */,
 			);
 			name = UsersAudioViewController;
+			sourceTree = "<group>";
+		};
+		D9DC645F16999BFF00E0D34B /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D98C5EB61698C9A30084D92A /* SettingsViewController.h */,
+				D98C5EB71698C9A30084D92A /* SettingsViewController.m */,
+				D98C5EB81698C9A30084D92A /* SettingsViewController.xib */,
+			);
+			name = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		D9DC646116999C1700E0D34B /* PlaylistsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D98C5EBC1698C9D40084D92A /* PlaylistsViewController.h */,
+				D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */,
+				D98C5EBE1698C9D40084D92A /* PlaylistsViewController.xib */,
+			);
+			name = PlaylistsViewController;
+			sourceTree = "<group>";
+		};
+		D9DC646216999C3500E0D34B /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9DC646316999D5A00E0D34B /* SearchViewController.h */,
+				D9DC646416999D5A00E0D34B /* SearchViewController.m */,
+				D9DC646516999D5A00E0D34B /* SearchViewController.xib */,
+			);
+			name = SearchViewController;
+			sourceTree = "<group>";
+		};
+		D9DC646816999D6600E0D34B /* SavedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9DC646916999DDC00E0D34B /* SavedViewController.h */,
+				D9DC646A16999DDC00E0D34B /* SavedViewController.m */,
+			);
+			name = SavedViewController;
+			sourceTree = "<group>";
+		};
+		D9DC646E1699AA1500E0D34B /* PlayerController */ = {
+			isa = PBXGroup;
+			children = (
+				D9DC646F1699AC5200E0D34B /* PlayerViewController.h */,
+				D9DC64701699AC5200E0D34B /* PlayerViewController.m */,
+				D9DC64711699AC5200E0D34B /* PlayerViewController.xib */,
+			);
+			name = PlayerController;
+			sourceTree = "<group>";
+		};
+		D9DC64771699BFBC00E0D34B /* Audio Player */ = {
+			isa = PBXGroup;
+			children = (
+				D9DC64781699BFF100E0D34B /* AudioPlayer.h */,
+				D9DC64791699BFF100E0D34B /* AudioPlayer.m */,
+			);
+			name = "Audio Player";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,9 +839,12 @@
 				D9258C3A1695F8F70072798B /* Default@2x.png in Resources */,
 				D9258C3C1695F8F70072798B /* Default-568h@2x.png in Resources */,
 				D99538341696003800C8B6F4 /* SignInViewController.xib in Resources */,
-				D9B5F5BC16976C3B006E77D2 /* UsersAudioViewController.xib in Resources */,
 				D98C5EBA1698C9A30084D92A /* SettingsViewController.xib in Resources */,
 				D98C5EC01698C9D40084D92A /* PlaylistsViewController.xib in Resources */,
+				D9DC646716999D5A00E0D34B /* SearchViewController.xib in Resources */,
+				D9DC646D16999DDC00E0D34B /* AudioViewController.xib in Resources */,
+				D9DC64731699AC5200E0D34B /* PlayerViewController.xib in Resources */,
+				D98C552D16B4476D002536EF /* AudioCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +857,7 @@
 				D99538611696289F00C8B6F4 /* Default@2x.png in Resources */,
 				D99538631696289F00C8B6F4 /* Default-568h@2x.png in Resources */,
 				D98C5E44169896A60084D92A /* GetAudioResponse in Resources */,
+				D98C552E16B4476D002536EF /* AudioCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,11 +908,33 @@
 				D99538481696214000C8B6F4 /* OAuthResponse.m in Sources */,
 				D9B5F5BB16976C3B006E77D2 /* UsersAudioViewController.m in Sources */,
 				D98C5DDA169885D30084D92A /* ResponseParser.m in Sources */,
-				D98C5DDE169886FA0084D92A /* Audio.m in Sources */,
+				D98C5DDE169886FA0084D92A /* OnlineAudio.m in Sources */,
 				D98C5DE8169888F10084D92A /* Mapping.m in Sources */,
 				D98C5E35169892D00084D92A /* MappingManager.m in Sources */,
 				D98C5EB91698C9A30084D92A /* SettingsViewController.m in Sources */,
 				D98C5EBF1698C9D40084D92A /* PlaylistsViewController.m in Sources */,
+				D9DC646616999D5A00E0D34B /* SearchViewController.m in Sources */,
+				D9DC646C16999DDC00E0D34B /* SavedViewController.m in Sources */,
+				D9DC64721699AC5200E0D34B /* PlayerViewController.m in Sources */,
+				D9DC647A1699BFF100E0D34B /* AudioPlayer.m in Sources */,
+				D99F9CA5169A153300735A31 /* EKFilesMemoryCache.m in Sources */,
+				D99F9CA6169A153300735A31 /* EKFileOnDiskCache.m in Sources */,
+				D99F9CAB169A154E00735A31 /* EKFileDownloader.m in Sources */,
+				D99F9CAF169A16DA00735A31 /* OfflineAudioManager.m in Sources */,
+				D99F9CB3169A1D7200735A31 /* NSString+Hash.m in Sources */,
+				D99F9CBD169A232800735A31 /* AudioDownloaderAdapter.m in Sources */,
+				D9C4180916A20EB70011F600 /* NSObject+NotificationCenter.m in Sources */,
+				D98F931D16A3542A00E7DD1B /* PlayerView.m in Sources */,
+				D98F932316A3556D00E7DD1B /* AudioProgressView.m in Sources */,
+				D98F932716A35A7200E7DD1B /* AudioTitleView.m in Sources */,
+				D98C552216B4112C002536EF /* NSString+TimeFormatting.m in Sources */,
+				D98C552A16B4474B002536EF /* AudioCell.m in Sources */,
+				D98C553A16B4519F002536EF /* UITableView+CellCreation.m in Sources */,
+				D9AC6F8116BEC3F900432CC1 /* AudioStorage.xcdatamodeld in Sources */,
+				D9AF649A16C43338000DCF26 /* EKFileManager.m in Sources */,
+				D9AF64B016C5A287000DCF26 /* OfflineAudio.m in Sources */,
+				D9AF64B416C5B21F000DCF26 /* AudioViewController.m in Sources */,
+				D91750EB16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,17 +942,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9C4181916A213630011F600 /* EKFilesMemoryCache.m in Sources */,
+				D9C4181A16A213630011F600 /* EKFileOnDiskCache.m in Sources */,
+				D9C4180B16A2130E0011F600 /* PlayerViewController.m in Sources */,
+				D9C4180C16A2130E0011F600 /* SavedViewController.m in Sources */,
+				D9C4180D16A2130E0011F600 /* UsersAudioViewController.m in Sources */,
+				D9C4180E16A2130E0011F600 /* PlaylistsViewController.m in Sources */,
+				D9C4180F16A2130E0011F600 /* SearchViewController.m in Sources */,
+				D9C4181016A2130E0011F600 /* SignInViewController.m in Sources */,
+				D9C4181116A2130E0011F600 /* SettingsViewController.m in Sources */,
+				D9C4181216A2130E0011F600 /* RequestSender.m in Sources */,
+				D9C4181316A2130E0011F600 /* NSString+Hash.m in Sources */,
+				D9C4181416A2130E0011F600 /* NSObject+NotificationCenter.m in Sources */,
+				D9C4181516A2130E0011F600 /* OfflineAudioManager.m in Sources */,
+				D9C4181616A2130E0011F600 /* AudioDownloaderAdapter.m in Sources */,
+				D9C4181716A2130E0011F600 /* EKFileDownloader.m in Sources */,
+				D9C4181816A2130E0011F600 /* SettingsManager.m in Sources */,
 				D99538591696289F00C8B6F4 /* main.m in Sources */,
 				D957D6CF16962BEE001F352B /* OAuthResponseSpec.mm in Sources */,
 				D957D6D116962FA2001F352B /* OAuthResponse.m in Sources */,
 				D98C5DCF169864660084D92A /* RequestManagerSpec.mm in Sources */,
 				D98C5DD1169866120084D92A /* RequestManager.m in Sources */,
 				D98C5DDB169885D30084D92A /* ResponseParser.m in Sources */,
-				D98C5DDF169886FA0084D92A /* Audio.m in Sources */,
+				D98C5DDF169886FA0084D92A /* OnlineAudio.m in Sources */,
 				D98C5DE9169888F10084D92A /* Mapping.m in Sources */,
 				D98C5E36169892D00084D92A /* MappingManager.m in Sources */,
 				D98C5E38169894ED0084D92A /* ResponseParserSpec.mm in Sources */,
 				D98C5E421698967C0084D92A /* NSDictionary+LoadFromJsonFile.m in Sources */,
+				D9C4180616A20D770011F600 /* AudioPlayerSpec.mm in Sources */,
+				D9C4180A16A212790011F600 /* AudioPlayer.m in Sources */,
+				D98F931E16A3542A00E7DD1B /* PlayerView.m in Sources */,
+				D98F932416A3556D00E7DD1B /* AudioProgressView.m in Sources */,
+				D98F932816A35A7200E7DD1B /* AudioTitleView.m in Sources */,
+				D98C552316B4112C002536EF /* NSString+TimeFormatting.m in Sources */,
+				D98C552616B41168002536EF /* NSStringExtensionsSpec.mm in Sources */,
+				D98C552B16B4474B002536EF /* AudioCell.m in Sources */,
+				D98C553B16B4519F002536EF /* UITableView+CellCreation.m in Sources */,
+				D9AC6F8216BEC3F900432CC1 /* AudioStorage.xcdatamodeld in Sources */,
+				D9AF64B116C5A287000DCF26 /* OfflineAudio.m in Sources */,
+				D9AF64B516C5B21F000DCF26 /* AudioViewController.m in Sources */,
+				D91750EC16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +1091,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VKMusic-UnitTests/VKMusic-UnitTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					TEST,
+				);
 				INFOPLIST_FILE = "VKMusic-UnitTests/VKMusic-UnitTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -708,6 +1147,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D9AC6F7F16BEC3F900432CC1 /* AudioStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D9AC6F8016BEC3F900432CC1 /* AudioStorage.xcdatamodel */,
+			);
+			currentVersion = D9AC6F8016BEC3F900432CC1 /* AudioStorage.xcdatamodel */;
+			path = AudioStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D9258C181695F8F70072798B /* Project object */;
 }

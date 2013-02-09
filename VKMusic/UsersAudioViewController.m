@@ -8,9 +8,15 @@
 
 #import "UsersAudioViewController.h"
 
-#import "Audio.h"
+#import "OnlineAudio.h"
+#import "AudioCell.h"
+#import "UITableView+CellCreation.h"
 
-@interface UsersAudioViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface UsersAudioViewController ()
+    <UITableViewDataSource,
+    UITableViewDelegate,
+    AudioDownloaderDelegate,
+    AudioCellDelegate>
 @property (nonatomic, strong) NSArray *audioRecords;
 @end
 
@@ -39,7 +45,9 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if ([[SettingsManager sharedInstance] isUserAuthorized]) {
+    if ([[SettingsManager sharedInstance] isUserAuthorized] &&
+        [[self audioRecords] count] == 0)
+    {
         [self loadAudio];
     }
 }
@@ -72,11 +80,11 @@
 {
     NSInteger userID = [[SettingsManager sharedInstance] authorizedUserID];
     RequestSender *sender = [RequestSender sharedInstance];
+
     __weak UsersAudioViewController *selfController = self;
     [sender sendAudioGetRequestForUser:userID
-                               success:^(id response) {
-                                   [selfController setAudioRecords:response];
-                                   [audioList reloadData];
+                               success:^(id response){
+                                   [selfController audioHaveBeenLoaded:response];
                                }
                                failure:^(NSError *error) {
                                    NSLog(@"fail = %@",error);
@@ -84,27 +92,38 @@
 }
 
 #pragma mark -
-#pragma mark UITableViewDataSource methods
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [[self audioRecords] count];
-}
+#pragma mark UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = @"AudioCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:identifier];
-    }
-    
-    Audio *audio = [[self audioRecords] objectAtIndex:indexPath.row];
-    [[cell textLabel] setText:[audio title]];
-    [[cell detailTextLabel] setText:[audio artist]];
-    
+    AudioCell *cell = (AudioCell *)[super tableView:tableView cellForRowAtIndexPath:indexPath];
+//    id<Audio> audio = [cell audio];
     return cell;
 }
+
+
+#pragma mark -
+#pragma mark AudioLoaderDelegate
+
+- (void) saveAudio:(OnlineAudio *) audio
+{
+    [[OfflineAudioManager sharedInstance] loadAudio:audio delegate:self];
+}
+
+- (void) audioFile:(OnlineAudio *) audio saved:(NSData *) audioData
+{
+    NSLog(@"loaded");
+}
+
+- (void) audioFile:(OnlineAudio *) audio loadingInProgress:(float) progress
+{
+    NSLog(@"progress = %f",progress);
+}
+
+- (void) audioFile:(OnlineAudio *) audio loadingFailed:(NSError *) error
+{
+    NSLog(@"error = %@",[error localizedDescription]);
+}
+
     
 @end

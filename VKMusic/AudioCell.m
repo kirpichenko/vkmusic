@@ -32,6 +32,31 @@ static const float kHorizontalOffset = 8;
     [self layoutSubviews];
 }
 
+- (void)setAudioCacheStatus:(AudioCacheStatus) status
+{
+    if (status == kAudioCacheStatusNotSaved) {
+        [saveButton setHidden:NO];
+        [savingProgress setHidden:YES];
+    }
+    else {
+        [saveButton setHidden:YES];
+        [savingProgress setHidden:NO];
+
+        if (status == kAudioCacheStatusSaved) {
+            [savingProgress setText:@"Saved"];
+        }
+    }
+}
+
+- (void)setProgress:(NSInteger)progress
+{
+    [self setAudioCacheStatus:kAudioCacheStatusSaveInProgress];
+    [savingProgress setText:[NSString stringWithFormat:@"%d%%",progress]];
+}
+
+#pragma mark -
+#pragma mark layout
+
 - (void) layoutSubviews
 {
     [super layoutSubviews];

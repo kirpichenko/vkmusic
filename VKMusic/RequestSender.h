@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AudioGetModel.h"
+
 @class ResponseParser;
 
 @interface RequestSender : NSObject
@@ -17,9 +19,9 @@
 
 + (id) sharedInstance;
 
-- (void) sendAudioGetRequestForUser:(NSInteger) userID
-                            success:(void(^)(id response)) success
-                            failure:(void(^)(NSError *error)) failure;
+- (void) sendAudioGetRequest:(AudioGetModel *) model
+                     success:(void(^)(id response)) success
+                     failure:(void(^)(NSError *error)) failure;
 
 
 @end

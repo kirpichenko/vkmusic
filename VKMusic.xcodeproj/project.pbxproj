@@ -10,6 +10,8 @@
 		07F29BD556D94D2BBFDE0DC7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB5601261D84360B6711408 /* libPods.a */; };
 		D91750EB16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750EA16C6FD7100A00448 /* DownloadIndicatorView.m */; };
 		D91750EC16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750EA16C6FD7100A00448 /* DownloadIndicatorView.m */; };
+		D91750F716C99D5E00A00448 /* AudioGetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750F616C99D5E00A00448 /* AudioGetModel.m */; };
+		D91750F816C99D5E00A00448 /* AudioGetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750F616C99D5E00A00448 /* AudioGetModel.m */; };
 		D9258C261695F8F70072798B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C251695F8F70072798B /* UIKit.framework */; };
 		D9258C281695F8F70072798B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C271695F8F70072798B /* Foundation.framework */; };
 		D9258C2A1695F8F70072798B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C291695F8F70072798B /* CoreGraphics.framework */; };
@@ -125,6 +127,8 @@
 		9ADA439328B2446EB6F522D5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		D91750E916C6FD7100A00448 /* DownloadIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadIndicatorView.h; sourceTree = "<group>"; };
 		D91750EA16C6FD7100A00448 /* DownloadIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadIndicatorView.m; sourceTree = "<group>"; };
+		D91750F516C99D5E00A00448 /* AudioGetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioGetModel.h; sourceTree = "<group>"; };
+		D91750F616C99D5E00A00448 /* AudioGetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioGetModel.m; sourceTree = "<group>"; };
 		D9258C211695F8F70072798B /* VKMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9258C251695F8F70072798B /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9258C271695F8F70072798B /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -308,6 +312,42 @@
 			name = AudioTitleView;
 			sourceTree = "<group>";
 		};
+		D91750F116C97B3C00A00448 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D99F9CAC169A15F800735A31 /* AudioFilesManager */,
+				D99F9CA7169A153900735A31 /* EKFileManager */,
+				D98C5DEB16988DBB0084D92A /* SettingsManager */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		D91750F216C99CD800A00448 /* OAuthResponse */ = {
+			isa = PBXGroup;
+			children = (
+				D99538461696214000C8B6F4 /* OAuthResponse.h */,
+				D99538471696214000C8B6F4 /* OAuthResponse.m */,
+			);
+			name = OAuthResponse;
+			sourceTree = "<group>";
+		};
+		D91750F316C99CEA00A00448 /* RequestModels */ = {
+			isa = PBXGroup;
+			children = (
+				D91750F416C99D3200A00448 /* AudioGetModel */,
+			);
+			name = RequestModels;
+			sourceTree = "<group>";
+		};
+		D91750F416C99D3200A00448 /* AudioGetModel */ = {
+			isa = PBXGroup;
+			children = (
+				D91750F516C99D5E00A00448 /* AudioGetModel.h */,
+				D91750F616C99D5E00A00448 /* AudioGetModel.m */,
+			);
+			name = AudioGetModel;
+			sourceTree = "<group>";
+		};
 		D9258C161695F8F70072798B = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +392,7 @@
 				D995382F1695FFEA00C8B6F4 /* Controllers */,
 				D98F931F16A3553600E7DD1B /* Views */,
 				D9953835169600E700C8B6F4 /* Network */,
+				D91750F116C97B3C00A00448 /* Managers */,
 				D995383E1696193100C8B6F4 /* Helpers */,
 				D9953842169619CB00C8B6F4 /* Models */,
 				D9258C2C1695F8F70072798B /* Supporting Files */,
@@ -405,13 +446,13 @@
 			name = "Objects Mapping";
 			sourceTree = "<group>";
 		};
-		D98C5DEB16988DBB0084D92A /* Settings */ = {
+		D98C5DEB16988DBB0084D92A /* SettingsManager */ = {
 			isa = PBXGroup;
 			children = (
 				D995383F1696194A00C8B6F4 /* SettingsManager.h */,
 				D99538401696194A00C8B6F4 /* SettingsManager.m */,
 			);
-			name = Settings;
+			name = SettingsManager;
 			sourceTree = "<group>";
 		};
 		D98C5DEC16988FE50084D92A /* Response Parser */ = {
@@ -510,10 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				D99F9CB0169A1D4D00735A31 /* Extensions */,
-				D99F9CAC169A15F800735A31 /* AudioFilesManager */,
-				D99F9CA7169A153900735A31 /* EKFileManager */,
 				D9DC64771699BFBC00E0D34B /* Audio Player */,
-				D98C5DEB16988DBB0084D92A /* Settings */,
 				D98C5DEA16988DA60084D92A /* Objects Mapping */,
 			);
 			name = Helpers;
@@ -522,10 +560,10 @@
 		D9953842169619CB00C8B6F4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D91750F316C99CEA00A00448 /* RequestModels */,
+				D91750F216C99CD800A00448 /* OAuthResponse */,
 				D9AC6F8916BEE03200432CC1 /* Database */,
 				D9AC6F8716BEDCF100432CC1 /* Audio */,
-				D99538461696214000C8B6F4 /* OAuthResponse.h */,
-				D99538471696214000C8B6F4 /* OAuthResponse.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -935,6 +973,7 @@
 				D9AF64B016C5A287000DCF26 /* OfflineAudio.m in Sources */,
 				D9AF64B416C5B21F000DCF26 /* AudioViewController.m in Sources */,
 				D91750EB16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */,
+				D91750F716C99D5E00A00448 /* AudioGetModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -982,6 +1021,7 @@
 				D9AF64B116C5A287000DCF26 /* OfflineAudio.m in Sources */,
 				D9AF64B516C5B21F000DCF26 /* AudioViewController.m in Sources */,
 				D91750EC16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */,
+				D91750F816C99D5E00A00448 /* AudioGetModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

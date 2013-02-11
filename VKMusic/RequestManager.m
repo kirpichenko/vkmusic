@@ -32,13 +32,15 @@
     return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
 }
 
-- (NSURLRequest *) audioGetRequestForUser:(NSInteger) userID
+- (NSURLRequest *) audioGetRequest:(AudioGetModel *) model
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@?uid=%d&access_token=%@",
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@?uid=%d&access_token=%@&count=%d&offset=%d",
                            kApiURL,
                            kAudioGetApiPath,
-                           userID,
-                           [self accessToken]];
+                           [model userID],
+                           [self accessToken],
+                           [model count],
+                           [model offset]];
     NSLog(@"url = %@",urlString);
     return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
 }

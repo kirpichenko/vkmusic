@@ -35,6 +35,7 @@
     if (self = [super init]) {
         fileCache = [[EKFileOnDiskCache alloc] initWithCacheSubpath:@"Music"];
         fileManager = [[EKFileManager alloc] initWithCache:fileCache];
+        loadingAudio = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -59,6 +60,8 @@
     else {
         [fileManager loadFile:audioURL delegate:[self adapterForAudio:audio delegate:delegate]];
         [fileManager loadFile:audioURL delegate:[self adapterForAudio:audio delegate:self]];
+        
+        [loadingAudio addObject:audio];
     }
 }
 
@@ -78,12 +81,28 @@
     return [OfflineAudio MR_findAllSortedBy:@"artist" ascending:YES withPredicate:predicate];
 }
 
+- (NSArray *) loadingAudioList
+{
+    return [NSArray arrayWithArray:loadingAudio];
+}
+
+- (BOOL)isAudioSaved:(NSInteger) audioID
+{
+    return [self doesList:[self offlineAudioList] containAudio:audioID];
+}
+
+- (BOOL)isAudioLoading:(NSInteger) audioID
+{
+    return [self doesList:[self loadingAudioList] containAudio:audioID];
+}
+
 #pragma mark -
 #pragma mark AudioDownloaderDelegate
 
 - (void) audioFile:(OnlineAudio *) audio saved:(NSData *) audioData
 {
     [self saveAudio:audio];
+    [loadingAudio removeObject:audio];
 }
 
 #pragma mark -
@@ -107,6 +126,18 @@
     [offlineAudio setDuration:[audio duration]];
 
     [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveOnlySelfAndWait];
+}
+
+- (BOOL)doesList:(NSArray *)audioList containAudio:(NSInteger) audioID
+{
+    NSArray *list = [NSArray arrayWithArray:audioList];
+    for (id<Audio> audio in list) {
+        if ([audio audioID] == audioID) {
+            return YES;
+        }
+    }
+    return NO;
+
 }
 
 @end

@@ -19,14 +19,21 @@
 @interface OfflineAudioManager : NSObject {
     EKFileOnDiskCache *fileCache;
     EKFileManager *fileManager;
+    
+    NSMutableArray *loadingAudio;
 }
 
-+ (id) sharedInstance;
++ (id)sharedInstance;
 
-- (void) loadAudio:(OnlineAudio *) audio;
-- (void) loadAudio:(OnlineAudio *) audio delegate:(id<AudioDownloaderDelegate>) delegate;
+- (void)loadAudio:(OnlineAudio *) audio;
+- (void)loadAudio:(OnlineAudio *) audio delegate:(id<AudioDownloaderDelegate>) delegate;
 
-- (NSArray *) offlineAudioList;
-- (NSArray *) offlineAudioListWithFilter:(NSString *) filter;
+- (NSArray *)offlineAudioList;
+- (NSArray *)offlineAudioListWithFilter:(NSString *) filter;
+
+- (NSArray *)loadingAudioList;
+
+- (BOOL)isAudioSaved:(NSInteger) audioID;
+- (BOOL)isAudioLoading:(NSInteger) audioID;
 
 @end

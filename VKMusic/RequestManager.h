@@ -14,7 +14,7 @@
 + (id) sharedInstance;
 
 - (NSURLRequest *) authorizationURLRequest;
-- (NSURLRequest *) audioGetRequestForUser:(NSInteger) userID;
+- (NSURLRequest *) audioGetRequest:(AudioGetModel *) model;
 
 @property (atomic,strong) NSString *accessToken;
 

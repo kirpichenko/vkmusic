@@ -68,6 +68,7 @@
     
     AudioCell *cell = [tableView cellForClass:[AudioCell class]];
     [cell setAudio:audio];
+    [cell setAudioCacheStatus:[self audioCacheStatus:audio]];    
     
     return cell;
 }
@@ -109,6 +110,23 @@
         [textField resignFirstResponder];
     }    
     return YES;
+}
+
+#pragma mark -
+#pragma mark helpers
+
+- (AudioCacheStatus)audioCacheStatus:(id<Audio>)audio
+{
+    OfflineAudioManager *manager = [OfflineAudioManager sharedInstance];
+    if ([manager isAudioSaved:[audio audioID]]) {
+        return kAudioCacheStatusSaved;
+    }
+    else {
+        if ([manager isAudioLoading:[audio audioID]]) {
+            return kAudioCacheStatusSaveInProgress;
+        }
+        return kAudioCacheStatusNotSaved;
+    }
 }
 
 @end

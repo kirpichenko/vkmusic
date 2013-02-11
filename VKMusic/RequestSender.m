@@ -33,9 +33,9 @@
     return self;
 }
 
-- (void) sendAudioGetRequestForUser:(NSInteger) userID
-                            success:(void(^)(id response)) success
-                            failure:(void(^)(NSError *error)) failure
+- (void) sendAudioGetRequest:(AudioGetModel *) model
+                     success:(void(^)(id response)) success
+                     failure:(void(^)(NSError *error)) failure;
 {
     void(^operationSuccess)(NSURLRequest *,NSHTTPURLResponse *,id) =
     ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -44,9 +44,8 @@
         }
     };
     
-    
     id operationFailure = [self defaultOperationFailureWithCallback:failure];
-    NSURLRequest *request = [[RequestManager sharedInstance] audioGetRequestForUser:userID];
+    NSURLRequest *request = [[RequestManager sharedInstance] audioGetRequest:model];
     
     [[AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                     success:operationSuccess

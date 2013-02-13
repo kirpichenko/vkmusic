@@ -31,6 +31,7 @@
     [self registerForNotificationNamed:kUserSignedOut selector:@selector(userSignedOut)]; 
     
     [MagicalRecord setupCoreDataStack];
+    [application beginReceivingRemoteControlEvents];
     
     return YES;
 }

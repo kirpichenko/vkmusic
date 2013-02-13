@@ -20,7 +20,7 @@ typedef enum {
 @class AVPlayer;
 @class AudioSessionConfigurator;
 
-@interface AudioPlayer : NSObject {
+@interface AudioPlayer : UIResponder {
     AVPlayer *player;
     AudioSessionConfigurator *sessionConfigurator;
 }

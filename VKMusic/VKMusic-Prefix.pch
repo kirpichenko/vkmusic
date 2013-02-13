@@ -23,6 +23,7 @@
     #import "RequestManager.h"
     #import "SettingsManager.h"
     #import "OfflineAudioManager.h"
+    #import "EKKeyboardAvoidingScrollViewManager.h"
 
     #import "NSObject+NotificationCenter.h"
     #import "CoreData+MagicalRecord.h"

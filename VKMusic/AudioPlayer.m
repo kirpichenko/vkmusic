@@ -157,7 +157,7 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 {
     switch (type) {
         case UIEventSubtypeRemoteControlTogglePlayPause:
-            ([self state] == kAudioPlayerStatePlaying) ? [self pause] : [self play];
+            (state == kAudioPlayerStatePaused) ? [self play] : [self pause];
             break;
         case UIEventSubtypeRemoteControlPreviousTrack:
             [self playPreviousAudio];
@@ -179,7 +179,7 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 }
 
 #pragma mark -
-#pragma mark helpers
+#pragma mark observe headphone disconnect
 
 - (void)headphoneDisconnected:(NSNotification *)notification
 {

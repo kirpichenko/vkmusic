@@ -26,8 +26,19 @@
 #pragma mark -
 #pragma mark life cycle
 
+- (void) viewDidLoad
+{
+    [super viewDidLoad];
+    
+    EKKeyboardAvoidingScrollViewManager *manager = [EKKeyboardAvoidingScrollViewManager sharedInstance];
+    [manager registerScrollViewForKeyboardAvoiding:audioList];
+}
+
 - (void) dealloc
 {
+    EKKeyboardAvoidingScrollViewManager *manager = [EKKeyboardAvoidingScrollViewManager sharedInstance];
+    [manager unregisterScrollViewFromKeyboardAvoiding:audioList];
+    
     [self setAudioRecords:nil];
     [self setFilteredRecords:nil];
 }
@@ -75,13 +86,6 @@
 
 #pragma mark -
 #pragma mark UITableViewDelegate methods
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    if ([searchField isFirstResponder]) {
-        [searchField resignFirstResponder];
-    }
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

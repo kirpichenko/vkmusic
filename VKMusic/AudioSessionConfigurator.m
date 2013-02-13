@@ -16,6 +16,14 @@ static NSString *const kOutputDeviceSpeaker = @"Speaker";
 
 @implementation AudioSessionConfigurator
 
+- (id) init
+{
+    if (self = [super init]) {
+        [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    }
+    return self;
+}
+
 #pragma mark -
 #pragma mark instance methods
 

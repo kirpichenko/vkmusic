@@ -3,6 +3,7 @@ platform :ios, '5.0'
     pod 'NGTabBarController'
     pod 'FrameAccessor'
     pod 'MagicalRecord'
+    pod 'EKKeyboardAvoidingScrollView'
 
 target :'VKMusic-UnitTests' do
     pod 'Cedar'

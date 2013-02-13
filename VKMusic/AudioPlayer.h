@@ -18,9 +18,11 @@ typedef enum {
 } AudioPlayerState;
 
 @class AVPlayer;
+@class AudioSessionConfigurator;
 
 @interface AudioPlayer : NSObject {
     AVPlayer *player;
+    AudioSessionConfigurator *sessionConfigurator;
 }
 
 + (id) sharedInstance;
@@ -35,6 +37,8 @@ typedef enum {
 - (void) stop;
 
 - (NSTimeInterval) currentTime;
+
+- (void) processAudioEvent:(UIEventSubtype)type;
 
 @property (nonatomic, readonly) AudioPlayerState state;
 @property (nonatomic, copy) NSArray *audioList;

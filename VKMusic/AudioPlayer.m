@@ -7,6 +7,7 @@
 //
 
 #import "AudioPlayer.h"
+#import "AudioSessionConfigurator.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -36,13 +37,18 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 {
     if (self = [super init]) {
         player = [[AVPlayer alloc] init];
+        
+        sessionConfigurator = [[AudioSessionConfigurator alloc] init];
+        [sessionConfigurator setAudioSessionCategory:AVAudioSessionCategoryPlayback];
+        [sessionConfigurator beginRouteChangeListening];
 
         state = kAudioPlayerStateUnconfigured;
         playingIndex = NSNotFound;
         
-        [self configureAudioSession];
         [self observeNotificationNamed:AVPlayerItemDidPlayToEndTimeNotification
                           withSelector:@selector(playingFinished)];
+        [self observeNotificationNamed:HeadphoneDisconnectedNotification
+                          withSelector:@selector(headphoneDisconnected:)];
     }
     return self;
 }
@@ -71,14 +77,13 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 
 - (void) play
 {
-    if (state != kAudioPlayerStatePlaying) {
-        [self playAudioAtIndex:0];
+    if (state == kAudioPlayerStatePaused) {
+        [self resume];
     }
 }
 
 - (void) playAudioAtIndex:(NSInteger) index
 {
-    NSLog(@"play at index %d",index);
     if ([audioList count] > 0 && index < [audioList count]) {
         state = kAudioPlayerStatePlaying;
         playingIndex = index;
@@ -148,31 +153,37 @@ static NSString *kPlayingAudioKey = @"playingAudio";
     return seconds;
 }
 
+- (void) processAudioEvent:(UIEventSubtype)type
+{
+    switch (type) {
+        case UIEventSubtypeRemoteControlTogglePlayPause:
+            ([self state] == kAudioPlayerStatePlaying) ? [self pause] : [self play];
+            break;
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            [self playPreviousAudio];
+            break;
+        case UIEventSubtypeRemoteControlNextTrack:
+            [self playNextAudio];
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark -
 #pragma mark AVPlayer handle notifications
 
 - (void) playingFinished
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self playNextAudio];
-	});
-    NSLog(@"playing finished");
-    
+    [self playNextAudio];
 }
 
 #pragma mark -
 #pragma mark helpers
 
-- (void)configureAudioSession
+- (void)headphoneDisconnected:(NSNotification *)notification
 {
-    NSError *error;
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
-    [[AVAudioSession sharedInstance] setActive:YES error:nil];
-    if (error != nil) {
-        NSLog(@"Set asudio session category error:%@",[error localizedDescription]);
-    }
-
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self pause];
 }
 
 @end

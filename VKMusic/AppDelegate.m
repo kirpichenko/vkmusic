@@ -23,20 +23,14 @@
     
     AudioPlayer *player = [AudioPlayer sharedInstance];
     PlayerViewController *controller = [[PlayerViewController alloc] initWithPlayer:player];
+    
     [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];
     
     [self checkIfUserAuthorized];
-    [self registerForNotificationNamed:kUserSignedOut
-                              selector:@selector(userSignedOut)];
+    [self registerForNotificationNamed:kUserSignedOut selector:@selector(userSignedOut)]; 
     
     [MagicalRecord setupCoreDataStack];
-    
-    
-//    NSURL *url = [NSURL fileURLWithPath:@"file://localhost/Users/kirpichenko/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/CBC962A8-55B8-4E60-A4E5-2E49742727D9/Library/Caches/FilesCache/Music/c92fb4cc6e026a1eb16569fb82c3ddf1"];
-//    NSError *error = error;
-//    AVAudioPlayer *pl = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-//    [pl play];
     
     return YES;
 }
@@ -105,5 +99,11 @@
 #pragma mark -
 #pragma mark test
 
+- (void) remoteControlReceivedWithEvent: (UIEvent *) receivedEvent
+{
+    if ([receivedEvent type] == UIEventTypeRemoteControl) {
+        [[AudioPlayer sharedInstance] processAudioEvent:[receivedEvent subtype]];
+    }
+}
 
 @end

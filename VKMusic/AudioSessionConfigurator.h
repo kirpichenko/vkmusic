@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *const HeadphoneConnectedNotification = @"HeadphoneConnected";
+static NSString *const HeadphoneDisconnectedNotification = @"HeadphoneDisconected";
+
 @interface AudioSessionConfigurator : NSObject
+
+- (void)setAudioSessionCategory:(NSString *)categoryName;
+
+- (void)beginRouteChangeListening;
+- (void)endRouteChangeListening;
 
 @end

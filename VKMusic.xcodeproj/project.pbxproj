@@ -121,6 +121,8 @@
 		D9DC647C1699C0B800E0D34B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DC647B1699C0B800E0D34B /* AVFoundation.framework */; };
 		D9EB732716CADF9A003413FC /* AudioSessionConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EB732616CADF9A003413FC /* AudioSessionConfigurator.m */; };
 		D9EB732816CADF9A003413FC /* AudioSessionConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EB732616CADF9A003413FC /* AudioSessionConfigurator.m */; };
+		D9EB732A16CC2FB7003413FC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9EB732916CC2FB7003413FC /* AudioToolbox.framework */; };
+		D9EB732B16CC2FB7003413FC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9EB732916CC2FB7003413FC /* AudioToolbox.framework */; };
 		F0F4C3590C1148909D9A7751 /* libPods-VKMusic-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 280EA9A2240043DB953DAF58 /* libPods-VKMusic-UnitTests.a */; };
 /* End PBXBuildFile section */
 
@@ -246,6 +248,7 @@
 		D9DC647B1699C0B800E0D34B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D9EB732516CADF9A003413FC /* AudioSessionConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSessionConfigurator.h; sourceTree = "<group>"; };
 		D9EB732616CADF9A003413FC /* AudioSessionConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSessionConfigurator.m; sourceTree = "<group>"; };
+		D9EB732916CC2FB7003413FC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +264,7 @@
 				D98C5DD6169883510084D92A /* SystemConfiguration.framework in Frameworks */,
 				D9DC647C1699C0B800E0D34B /* AVFoundation.framework in Frameworks */,
 				D98F931816A2E46100E7DD1B /* CoreMedia.framework in Frameworks */,
+				D9EB732A16CC2FB7003413FC /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +280,7 @@
 				D98C5DD7169883510084D92A /* SystemConfiguration.framework in Frameworks */,
 				D9C4181B16A213790011F600 /* AVFoundation.framework in Frameworks */,
 				D98F931916A2E46100E7DD1B /* CoreMedia.framework in Frameworks */,
+				D9EB732B16CC2FB7003413FC /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,8 +318,8 @@
 			isa = PBXGroup;
 			children = (
 				D99F9CAC169A15F800735A31 /* AudioFilesManager */,
-				D99F9CA7169A153900735A31 /* EKFileManager */,
 				D98C5DEB16988DBB0084D92A /* SettingsManager */,
+				D98C5DEA16988DA60084D92A /* MappingManager */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 		D9258C241695F8F70072798B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9EB732916CC2FB7003413FC /* AudioToolbox.framework */,
 				D98F931716A2E46100E7DD1B /* CoreMedia.framework */,
 				D9DC647B1699C0B800E0D34B /* AVFoundation.framework */,
 				D98C5DD2169883510084D92A /* MobileCoreServices.framework */,
@@ -432,15 +438,13 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		D98C5DEA16988DA60084D92A /* Objects Mapping */ = {
+		D98C5DEA16988DA60084D92A /* MappingManager */ = {
 			isa = PBXGroup;
 			children = (
 				D98C5E33169892D00084D92A /* MappingManager.h */,
 				D98C5E34169892D00084D92A /* MappingManager.m */,
-				D98C5DE6169888F10084D92A /* Mapping.h */,
-				D98C5DE7169888F10084D92A /* Mapping.m */,
 			);
-			name = "Objects Mapping";
+			name = MappingManager;
 			sourceTree = "<group>";
 		};
 		D98C5DEB16988DBB0084D92A /* SettingsManager */ = {
@@ -539,6 +543,7 @@
 			children = (
 				D98C5DED16988FF50084D92A /* Requests */,
 				D98C5DEC16988FE50084D92A /* Response Parser */,
+				D9EB732C16CC3416003413FC /* FilesDownloader */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -546,9 +551,10 @@
 		D995383E1696193100C8B6F4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D99F9C9F169A151800735A31 /* EKFileCache */,
 				D99F9CB0169A1D4D00735A31 /* Extensions */,
 				D9DC64771699BFBC00E0D34B /* Audio Player */,
-				D98C5DEA16988DA60084D92A /* Objects Mapping */,
+				D9EB732D16CC34AF003413FC /* AudioSessionConfigurator */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -558,8 +564,8 @@
 			children = (
 				D91750F316C99CEA00A00448 /* RequestModels */,
 				D91750F216C99CD800A00448 /* OAuthResponse */,
-				D9AC6F8916BEE03200432CC1 /* Database */,
 				D9AC6F8716BEDCF100432CC1 /* Audio */,
+				D9EB732E16CC34E7003413FC /* Mapping */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -611,21 +617,11 @@
 			name = EKFileCache;
 			sourceTree = "<group>";
 		};
-		D99F9CA7169A153900735A31 /* EKFileManager */ = {
-			isa = PBXGroup;
-			children = (
-				D9AF649C16C44CDB000DCF26 /* EKFileManager */,
-				D9AF649B16C44CBA000DCF26 /* EKFileDownloader */,
-				D99F9C9F169A151800735A31 /* EKFileCache */,
-			);
-			name = EKFileManager;
-			sourceTree = "<group>";
-		};
 		D99F9CAC169A15F800735A31 /* AudioFilesManager */ = {
 			isa = PBXGroup;
 			children = (
 				D9AC6F9516BF0D2300432CC1 /* OfflineAudioManager */,
-				D9AC6F9416BF0D0E00432CC1 /* AudioDownloadingObserver */,
+				D9AF649C16C44CDB000DCF26 /* EKFileManager */,
 			);
 			name = AudioFilesManager;
 			sourceTree = "<group>";
@@ -655,13 +651,6 @@
 				D9AF64AF16C5A287000DCF26 /* OfflineAudio.m */,
 			);
 			name = Audio;
-			sourceTree = "<group>";
-		};
-		D9AC6F8916BEE03200432CC1 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Database;
 			sourceTree = "<group>";
 		};
 		D9AC6F9416BF0D0E00432CC1 /* AudioDownloadingObserver */ = {
@@ -795,10 +784,35 @@
 			children = (
 				D9DC64781699BFF100E0D34B /* AudioPlayer.h */,
 				D9DC64791699BFF100E0D34B /* AudioPlayer.m */,
+			);
+			name = "Audio Player";
+			sourceTree = "<group>";
+		};
+		D9EB732C16CC3416003413FC /* FilesDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				D9AF649B16C44CBA000DCF26 /* EKFileDownloader */,
+				D9AC6F9416BF0D0E00432CC1 /* AudioDownloadingObserver */,
+			);
+			name = FilesDownloader;
+			sourceTree = "<group>";
+		};
+		D9EB732D16CC34AF003413FC /* AudioSessionConfigurator */ = {
+			isa = PBXGroup;
+			children = (
 				D9EB732516CADF9A003413FC /* AudioSessionConfigurator.h */,
 				D9EB732616CADF9A003413FC /* AudioSessionConfigurator.m */,
 			);
-			name = "Audio Player";
+			name = AudioSessionConfigurator;
+			sourceTree = "<group>";
+		};
+		D9EB732E16CC34E7003413FC /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				D98C5DE6169888F10084D92A /* Mapping.h */,
+				D98C5DE7169888F10084D92A /* Mapping.m */,
+			);
+			name = Mapping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1109,6 +1123,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VKMusic/VKMusic-Prefix.pch";
 				INFOPLIST_FILE = "VKMusic/VKMusic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1122,6 +1137,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VKMusic/VKMusic-Prefix.pch";
 				INFOPLIST_FILE = "VKMusic/VKMusic-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

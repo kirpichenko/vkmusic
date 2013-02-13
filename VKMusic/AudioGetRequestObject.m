@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import "AudioGetModel.h"
+#import "AudioGetRequestObject.h"
 
-@implementation AudioGetModel
+@implementation AudioGetRequestObject
 
 
 @end

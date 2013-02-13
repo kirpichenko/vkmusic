@@ -81,7 +81,7 @@ static const NSInteger kAudioCountPerRequest = 50;
 - (void) loadAudio
 {
     RequestSender *sender = [RequestSender sharedInstance];
-    AudioGetModel *model = [self nextRequestModel];
+    AudioGetRequestObject *model = [self nextRequestModel];
 
     __weak UsersAudioViewController *selfController = self;
     [sender sendAudioGetRequest:model
@@ -131,35 +131,32 @@ static const NSInteger kAudioCountPerRequest = 50;
 
 - (void) audioFile:(OnlineAudio *) audio saved:(NSData *) audioData
 {
-    [self reloadCellForAudio:audio];
-    NSLog(@"loaded");
+    AudioCell *cell = [self cellForAudio:audio];
+    [cell setAudioCacheStatus:kAudioCacheStatusSaved];
 }
 
 - (void) audioFile:(OnlineAudio *) audio loadingInProgress:(float) progress
 {
-    NSIndexPath *indexPath = [self cellIndexPathForAudio:audio];
-    if (indexPath != nil) {
-        AudioCell *cell = (AudioCell *)[audioList cellForRowAtIndexPath:indexPath];
-        [cell setProgress:progress * 100];
-    }
-    NSLog(@"progress = %f",progress);
+    AudioCell *cell = [self cellForAudio:audio];
+    [cell setProgress:progress * 100];
 }
 
 - (void) audioFile:(OnlineAudio *) audio loadingFailed:(NSError *) error
 {
-    [self reloadCellForAudio:audio];
-    NSLog(@"error = %@",[error localizedDescription]);
+    AudioCell *cell = [self cellForAudio:audio];
+    [cell setAudioCacheStatus:kAudioCacheStatusNotSaved];
 }
 
 #pragma mark -
 #pragma mark helpers
 
-- (void)reloadCellForAudio:(id<Audio>)audio
+- (AudioCell *)cellForAudio:(id<Audio>)audio
 {
     NSIndexPath *indexPath = [self cellIndexPathForAudio:audio];
     if (indexPath != nil) {
-        [audioList reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        return (AudioCell *)[audioList cellForRowAtIndexPath:indexPath];
     }
+    return nil;
 }
 
 - (NSIndexPath *)cellIndexPathForAudio:(id<Audio>)audio
@@ -171,11 +168,14 @@ static const NSInteger kAudioCountPerRequest = 50;
     return nil;
 }
 
-- (AudioGetModel *) nextRequestModel
+#pragma mark -
+#pragma mark requests
+
+- (AudioGetRequestObject *) nextRequestModel
 {
     NSInteger userID = [[SettingsManager sharedInstance] authorizedUserID];
     
-    AudioGetModel *model = [[AudioGetModel alloc] init];
+    AudioGetRequestObject *model = [[AudioGetRequestObject alloc] init];
     [model setUserID:userID];
     [model setCount:kAudioCountPerRequest];
     [model setOffset:[[self audioRecords] count]];

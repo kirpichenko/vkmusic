@@ -4,7 +4,7 @@
         <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="audioID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="audioURL" attributeType="String" syncable="YES"/>
-        <attribute name="duration" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>

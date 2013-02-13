@@ -17,10 +17,10 @@ typedef enum {
     kAudioPlayerStateUnconfigured
 } AudioPlayerState;
 
-@protocol AudioPlayerDelegate <NSObject>
-@end
+@class AVPlayer;
 
 @interface AudioPlayer : NSObject {
+    AVPlayer *player;
 }
 
 + (id) sharedInstance;

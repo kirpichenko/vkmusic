@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		07F29BD556D94D2BBFDE0DC7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB5601261D84360B6711408 /* libPods.a */; };
-		D91750EB16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750EA16C6FD7100A00448 /* DownloadIndicatorView.m */; };
-		D91750EC16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750EA16C6FD7100A00448 /* DownloadIndicatorView.m */; };
-		D91750F716C99D5E00A00448 /* AudioGetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750F616C99D5E00A00448 /* AudioGetModel.m */; };
-		D91750F816C99D5E00A00448 /* AudioGetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750F616C99D5E00A00448 /* AudioGetModel.m */; };
+		D91750F716C99D5E00A00448 /* AudioGetRequestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750F616C99D5E00A00448 /* AudioGetRequestObject.m */; };
+		D91750F816C99D5E00A00448 /* AudioGetRequestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750F616C99D5E00A00448 /* AudioGetRequestObject.m */; };
+		D91750FA16C9A5AE00A00448 /* UsersAudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91750F916C9A5AE00A00448 /* UsersAudioViewController.xib */; };
+		D91750FB16C9A5AE00A00448 /* UsersAudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91750F916C9A5AE00A00448 /* UsersAudioViewController.xib */; };
+		D91750FD16C9A65300A00448 /* SavedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91750FC16C9A65300A00448 /* SavedViewController.xib */; };
+		D91750FE16C9A65300A00448 /* SavedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91750FC16C9A65300A00448 /* SavedViewController.xib */; };
 		D9258C261695F8F70072798B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C251695F8F70072798B /* UIKit.framework */; };
 		D9258C281695F8F70072798B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C271695F8F70072798B /* Foundation.framework */; };
 		D9258C2A1695F8F70072798B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C291695F8F70072798B /* CoreGraphics.framework */; };
@@ -117,6 +119,8 @@
 		D9DC64731699AC5200E0D34B /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9DC64711699AC5200E0D34B /* PlayerViewController.xib */; };
 		D9DC647A1699BFF100E0D34B /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64791699BFF100E0D34B /* AudioPlayer.m */; };
 		D9DC647C1699C0B800E0D34B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DC647B1699C0B800E0D34B /* AVFoundation.framework */; };
+		D9EB732716CADF9A003413FC /* AudioSessionConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EB732616CADF9A003413FC /* AudioSessionConfigurator.m */; };
+		D9EB732816CADF9A003413FC /* AudioSessionConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EB732616CADF9A003413FC /* AudioSessionConfigurator.m */; };
 		F0F4C3590C1148909D9A7751 /* libPods-VKMusic-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 280EA9A2240043DB953DAF58 /* libPods-VKMusic-UnitTests.a */; };
 /* End PBXBuildFile section */
 
@@ -125,10 +129,10 @@
 		2751EC8D6FBA4A1FA1E3AA2F /* Pods-VKMusic-UnitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKMusic-UnitTests.xcconfig"; path = "Pods/Pods-VKMusic-UnitTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		280EA9A2240043DB953DAF58 /* libPods-VKMusic-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VKMusic-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADA439328B2446EB6F522D5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		D91750E916C6FD7100A00448 /* DownloadIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadIndicatorView.h; sourceTree = "<group>"; };
-		D91750EA16C6FD7100A00448 /* DownloadIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadIndicatorView.m; sourceTree = "<group>"; };
-		D91750F516C99D5E00A00448 /* AudioGetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioGetModel.h; sourceTree = "<group>"; };
-		D91750F616C99D5E00A00448 /* AudioGetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioGetModel.m; sourceTree = "<group>"; };
+		D91750F516C99D5E00A00448 /* AudioGetRequestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioGetRequestObject.h; sourceTree = "<group>"; };
+		D91750F616C99D5E00A00448 /* AudioGetRequestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioGetRequestObject.m; sourceTree = "<group>"; };
+		D91750F916C9A5AE00A00448 /* UsersAudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersAudioViewController.xib; sourceTree = "<group>"; };
+		D91750FC16C9A65300A00448 /* SavedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavedViewController.xib; sourceTree = "<group>"; };
 		D9258C211695F8F70072798B /* VKMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9258C251695F8F70072798B /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9258C271695F8F70072798B /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -240,6 +244,8 @@
 		D9DC64781699BFF100E0D34B /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
 		D9DC64791699BFF100E0D34B /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		D9DC647B1699C0B800E0D34B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D9EB732516CADF9A003413FC /* AudioSessionConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSessionConfigurator.h; sourceTree = "<group>"; };
+		D9EB732616CADF9A003413FC /* AudioSessionConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSessionConfigurator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,15 +282,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D91750ED16C6FD7700A00448 /* DownloadIndicatorView */ = {
-			isa = PBXGroup;
-			children = (
-				D91750E916C6FD7100A00448 /* DownloadIndicatorView.h */,
-				D91750EA16C6FD7100A00448 /* DownloadIndicatorView.m */,
-			);
-			name = DownloadIndicatorView;
-			sourceTree = "<group>";
-		};
 		D91750EE16C6FD9700A00448 /* PlayerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,8 +339,8 @@
 		D91750F416C99D3200A00448 /* AudioGetModel */ = {
 			isa = PBXGroup;
 			children = (
-				D91750F516C99D5E00A00448 /* AudioGetModel.h */,
-				D91750F616C99D5E00A00448 /* AudioGetModel.m */,
+				D91750F516C99D5E00A00448 /* AudioGetRequestObject.h */,
+				D91750F616C99D5E00A00448 /* AudioGetRequestObject.m */,
 			);
 			name = AudioGetModel;
 			sourceTree = "<group>";
@@ -498,7 +495,6 @@
 			children = (
 				D98C552716B445E4002536EF /* Cells */,
 				D98F932016A3554B00E7DD1B /* Player */,
-				D91750ED16C6FD7700A00448 /* DownloadIndicatorView */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -739,6 +735,7 @@
 			children = (
 				D9B5F5B816976C3B006E77D2 /* UsersAudioViewController.h */,
 				D9B5F5B916976C3B006E77D2 /* UsersAudioViewController.m */,
+				D91750F916C9A5AE00A00448 /* UsersAudioViewController.xib */,
 			);
 			name = UsersAudioViewController;
 			sourceTree = "<group>";
@@ -778,6 +775,7 @@
 			children = (
 				D9DC646916999DDC00E0D34B /* SavedViewController.h */,
 				D9DC646A16999DDC00E0D34B /* SavedViewController.m */,
+				D91750FC16C9A65300A00448 /* SavedViewController.xib */,
 			);
 			name = SavedViewController;
 			sourceTree = "<group>";
@@ -797,6 +795,8 @@
 			children = (
 				D9DC64781699BFF100E0D34B /* AudioPlayer.h */,
 				D9DC64791699BFF100E0D34B /* AudioPlayer.m */,
+				D9EB732516CADF9A003413FC /* AudioSessionConfigurator.h */,
+				D9EB732616CADF9A003413FC /* AudioSessionConfigurator.m */,
 			);
 			name = "Audio Player";
 			sourceTree = "<group>";
@@ -883,6 +883,8 @@
 				D9DC646D16999DDC00E0D34B /* AudioViewController.xib in Resources */,
 				D9DC64731699AC5200E0D34B /* PlayerViewController.xib in Resources */,
 				D98C552D16B4476D002536EF /* AudioCell.xib in Resources */,
+				D91750FA16C9A5AE00A00448 /* UsersAudioViewController.xib in Resources */,
+				D91750FD16C9A65300A00448 /* SavedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,6 +898,8 @@
 				D99538631696289F00C8B6F4 /* Default-568h@2x.png in Resources */,
 				D98C5E44169896A60084D92A /* GetAudioResponse in Resources */,
 				D98C552E16B4476D002536EF /* AudioCell.xib in Resources */,
+				D91750FB16C9A5AE00A00448 /* UsersAudioViewController.xib in Resources */,
+				D91750FE16C9A65300A00448 /* SavedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,8 +976,8 @@
 				D9AF649A16C43338000DCF26 /* EKFileManager.m in Sources */,
 				D9AF64B016C5A287000DCF26 /* OfflineAudio.m in Sources */,
 				D9AF64B416C5B21F000DCF26 /* AudioViewController.m in Sources */,
-				D91750EB16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */,
-				D91750F716C99D5E00A00448 /* AudioGetModel.m in Sources */,
+				D91750F716C99D5E00A00448 /* AudioGetRequestObject.m in Sources */,
+				D9EB732716CADF9A003413FC /* AudioSessionConfigurator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1020,8 +1024,8 @@
 				D9AC6F8216BEC3F900432CC1 /* AudioStorage.xcdatamodeld in Sources */,
 				D9AF64B116C5A287000DCF26 /* OfflineAudio.m in Sources */,
 				D9AF64B516C5B21F000DCF26 /* AudioViewController.m in Sources */,
-				D91750EC16C6FD7100A00448 /* DownloadIndicatorView.m in Sources */,
-				D91750F816C99D5E00A00448 /* AudioGetModel.m in Sources */,
+				D91750F816C99D5E00A00448 /* AudioGetRequestObject.m in Sources */,
+				D9EB732816CADF9A003413FC /* AudioSessionConfigurator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

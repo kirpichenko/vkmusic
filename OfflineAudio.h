@@ -14,7 +14,7 @@
 
 @property (nonatomic, retain) NSString *artist;
 @property (nonatomic) int32_t audioID;
-@property (nonatomic) float duration;
+@property (nonatomic) double duration;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *audioURL;
 

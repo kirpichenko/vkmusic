@@ -32,7 +32,7 @@
     return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
 }
 
-- (NSURLRequest *) audioGetRequest:(AudioGetModel *) model
+- (NSURLRequest *) audioGetRequest:(AudioGetRequestObject *) model
 {
     NSString *urlString = [NSString stringWithFormat:@"%@/%@?uid=%d&access_token=%@&count=%d&offset=%d",
                            kApiURL,

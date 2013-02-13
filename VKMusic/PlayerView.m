@@ -95,6 +95,10 @@ static const float kHorizontalOffset = 7.f;
 
 - (void) updateTimeIndicators
 {
+    if ([[self player] playingAudio] == nil) {
+        return;
+    }
+    
     NSTimeInterval elapsedTime = [[self player] currentTime];
     NSTimeInterval audioDuration = [[[self player] playingAudio] duration];
     NSTimeInterval remainingTime = audioDuration - elapsedTime;
@@ -109,10 +113,6 @@ static const float kHorizontalOffset = 7.f;
     
     [audioCurrentTime setText:[NSString stringWithFormat:@"%@",remainingTimeString]];
     [progressView setProgress:elapsedTime / audioDuration];
-    
-//    if (needLayout) {
-//        [self layoutSubviews];
-//    }
 }
 
 #pragma mark -

@@ -33,7 +33,7 @@
     return self;
 }
 
-- (void) sendAudioGetRequest:(AudioGetModel *) model
+- (void) sendAudioGetRequest:(AudioGetRequestObject *) model
                      success:(void(^)(id response)) success
                      failure:(void(^)(NSError *error)) failure;
 {

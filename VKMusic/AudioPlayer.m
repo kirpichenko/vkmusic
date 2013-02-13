@@ -13,10 +13,14 @@
 static NSString *kPlayingAudioKey = @"playingAudio";
 
 @interface AudioPlayer () <AVAudioPlayerDelegate>
-@property (nonatomic, strong) AVPlayer *currentPlayer;
 @end
 
 @implementation AudioPlayer
+
+@synthesize state;
+@synthesize playingIndex;
+@synthesize playingAudio;
+@synthesize audioList;
 
 + (id) sharedInstance
 {
@@ -31,9 +35,12 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 - (id) init
 {
     if (self = [super init]) {
-        _state = kAudioPlayerStateUnconfigured;
-        _playingIndex = NSNotFound;
+        player = [[AVPlayer alloc] init];
+
+        state = kAudioPlayerStateUnconfigured;
+        playingIndex = NSNotFound;
         
+        [self configureAudioSession];
         [self observeNotificationNamed:AVPlayerItemDidPlayToEndTimeNotification
                           withSelector:@selector(playingFinished)];
     }
@@ -48,15 +55,15 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 #pragma mark -
 #pragma mark set list
 
-- (void) setAudioList:(NSArray *)audioList
+- (void) setAudioList:(NSArray *)anAudioList
 {
-    if (_state != kAudioPlayerStateUnconfigured) {
+    if (state != kAudioPlayerStateUnconfigured) {
         [self stop];
     }    
     
-    _audioList = [audioList copy];
-    _playingIndex = NSNotFound;
-    _state = kAudioPlayerStateReady;
+    audioList = [anAudioList copy];
+    playingIndex = NSNotFound;
+    state = kAudioPlayerStateReady;
 }
 
 #pragma mark -
@@ -64,31 +71,24 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 
 - (void) play
 {
-    if (_state != kAudioPlayerStatePlaying) {
+    if (state != kAudioPlayerStatePlaying) {
         [self playAudioAtIndex:0];
     }
 }
 
 - (void) playAudioAtIndex:(NSInteger) index
 {
-    if ([_audioList count] > 0 && index < [_audioList count]) {
-        _state = kAudioPlayerStatePlaying;
-        _playingIndex = index;
+    NSLog(@"play at index %d",index);
+    if ([audioList count] > 0 && index < [audioList count]) {
+        state = kAudioPlayerStatePlaying;
+        playingIndex = index;
         
         [self willChangeValueForKey:kPlayingAudioKey];
-        _playingAudio = [[self audioList] objectAtIndex:index];
+        playingAudio = [[self audioList] objectAtIndex:index];
         [self didChangeValueForKey:kPlayingAudioKey];
         
 #ifndef TEST
-//        NSData *data = [NSData dataWithContentsOfURL:[_playingAudio url]];
-        AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:[_playingAudio url]];
-        
-        AVPlayer *player = [self currentPlayer];
-        if (player == nil) {
-            player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
-            [self setCurrentPlayer:player];
-        }
-        
+        AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:[playingAudio url]];
         [player replaceCurrentItemWithPlayerItem:playerItem];
         [player play];
         
@@ -101,56 +101,51 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 
 - (void) playNextAudio
 {
-    if (_playingIndex != NSNotFound) {
-        NSInteger nextAudioIndex = (_playingIndex + 1) % [[self audioList] count];
+    if (playingIndex != NSNotFound) {
+        NSInteger nextAudioIndex = (playingIndex + 1) % [[self audioList] count];
         [self playAudioAtIndex:nextAudioIndex];
     }    
 }
 
 - (void) playPreviousAudio
 {
-    if (_playingIndex != NSNotFound) {
+    if (playingIndex != NSNotFound) {
         NSInteger auidoCount = [[self audioList] count];
-        NSInteger previousAudioIndex = (_playingIndex + auidoCount - 1) % auidoCount;
+        NSInteger previousAudioIndex = (playingIndex + auidoCount - 1) % auidoCount;
         [self playAudioAtIndex:previousAudioIndex];
     }
 }
 
 - (void) resume
 {
-    if (_state == kAudioPlayerStatePaused) {
-        _state = kAudioPlayerStatePlaying;
-        [[self currentPlayer] play];
+    if (state == kAudioPlayerStatePaused) {
+        state = kAudioPlayerStatePlaying;
+        [player play];
     }
 }
 
 - (void) pause {
-    if (_state == kAudioPlayerStatePlaying) {
-        _state = kAudioPlayerStatePaused;
-        [[self currentPlayer] pause];
+    if (state == kAudioPlayerStatePlaying) {
+        state = kAudioPlayerStatePaused;
+        [player pause];
     }
 }
 
 - (void) stop
 {
-    [_currentPlayer pause];
-    _currentPlayer = nil;
+    [player pause];
 
-    _state = kAudioPlayerStateUnconfigured;
-    _audioList = nil;
-    _playingIndex = NSNotFound;
-    _playingAudio = nil;
+    state = kAudioPlayerStateUnconfigured;
+    audioList = nil;
+    playingIndex = NSNotFound;
+    playingAudio = nil;
 }
 
 - (NSTimeInterval) currentTime
 {
-    AVPlayer *player = [self currentPlayer];
-    if (player != nil) {
-        CMTime currentTime = [player currentTime];
-        NSTimeInterval seconds = currentTime.value / currentTime.timescale;
-        return seconds;
-    }
-    return 0;
+    CMTime currentTime = [player currentTime];
+    NSTimeInterval seconds = currentTime.value / currentTime.timescale;
+    return seconds;
 }
 
 #pragma mark -
@@ -158,10 +153,26 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 
 - (void) playingFinished
 {
-    [self playNextAudio];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self playNextAudio];
+	});
+    NSLog(@"playing finished");
+    
 }
 
 #pragma mark -
-#pragma mark 
+#pragma mark helpers
+
+- (void)configureAudioSession
+{
+    NSError *error;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    if (error != nil) {
+        NSLog(@"Set asudio session category error:%@",[error localizedDescription]);
+    }
+
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+}
 
 @end

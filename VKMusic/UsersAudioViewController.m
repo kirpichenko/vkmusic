@@ -80,20 +80,19 @@ static const NSInteger kAudioCountPerRequest = 50;
 
 - (void) loadAudio
 {
-    RequestSender *sender = [RequestSender sharedInstance];
-    AudioGetRequestObject *model = [self nextRequestModel];
+    ApiRequestSender *sender = [ApiRequestSender sharedInstance];
+    AudioGetApiRequest *model = [self nextRequestModel];
 
     __weak UsersAudioViewController *selfController = self;
-    [sender sendAudioGetRequest:model
-                        success:^(id response){
-                            NSMutableArray *audio = [NSMutableArray arrayWithArray:[self audioRecords]];
-                            [audio addObjectsFromArray:response];
-
-                            [selfController audioHaveBeenLoaded:audio];
-                        }
-                        failure:^(NSError *error) {
-                            NSLog(@"fail = %@",error);
-                        }];
+    [sender sendAudioGetApiRequest:model
+                           success:^(id response){
+                               NSMutableArray *audio = [NSMutableArray arrayWithArray:[self audioRecords]];
+                               [audio addObjectsFromArray:response];
+                               [selfController audioHaveBeenLoaded:audio];
+                           }
+                           failure:^(NSError *error) {
+                               NSLog(@"fail = %@",error);
+                           }];
 }
 
 #pragma mark -
@@ -171,11 +170,11 @@ static const NSInteger kAudioCountPerRequest = 50;
 #pragma mark -
 #pragma mark requests
 
-- (AudioGetRequestObject *) nextRequestModel
+- (AudioGetApiRequest *) nextRequestModel
 {
     NSInteger userID = [[SettingsManager sharedInstance] authorizedUserID];
     
-    AudioGetRequestObject *model = [[AudioGetRequestObject alloc] init];
+    AudioGetApiRequest *model = [[AudioGetApiRequest alloc] init];
     [model setUserID:userID];
     [model setCount:kAudioCountPerRequest];
     [model setOffset:[[self audioRecords] count]];

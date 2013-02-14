@@ -7,7 +7,7 @@
 //
 
 #import "SignInViewController.h"
-#import "RequestManager.h"
+#import "NSURLRequestManager.h"
 #import "OAuthResponse.h"
 
 @interface SignInViewController () <UIWebViewDelegate>
@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    NSURLRequest *request = [[RequestManager sharedInstance] authorizationURLRequest];
+    NSURLRequest *request = [[NSURLRequestManager sharedInstance] authorizationURLRequest];
     [webView setDelegate:self];
     [webView loadRequest:request];
 }

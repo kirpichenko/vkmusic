@@ -46,7 +46,7 @@
         [self showSignInViewControllerAnimated:NO];
     }
     else {
-        [[RequestManager sharedInstance] setAccessToken:[settings accessToken]];
+        [[NSURLRequestManager sharedInstance] setAccessToken:[settings accessToken]];
     }
 }
 
@@ -85,7 +85,7 @@
     [settings setAuthorizedUserID:userID];
     [settings saveSettings];
     
-    RequestManager *manager = [RequestManager sharedInstance];
+    NSURLRequestManager *manager = [NSURLRequestManager sharedInstance];
     [manager setAccessToken:token];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kUserSignedIn

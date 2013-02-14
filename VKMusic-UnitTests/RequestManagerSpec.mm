@@ -1,15 +1,15 @@
-#import "RequestManager.h"
+#import "NSURLRequestManager.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
 
-SPEC_BEGIN(RequestManagerSpec)
+SPEC_BEGIN(NSURLRequestManagerSpec)
 
-describe(@"RequestManager", ^{
-    __block RequestManager *manager;
+describe(@"NSURLRequestManager", ^{
+    __block NSURLRequestManager *manager;
 
     beforeEach(^{
-        manager = [RequestManager sharedInstance];
+        manager = [NSURLRequestManager sharedInstance];
         [manager setAccessToken:@"token"];
     });
     
@@ -27,8 +27,13 @@ describe(@"RequestManager", ^{
     
     it(@"Audio get request for user with id=1101 should be"
        @"https://api.vk.com/method/audio.get?uid=1101&access_token=token", ^{
-           NSString *receivedURLString = [[[manager audioGetRequestForUser:1101] URL] absoluteString];
-           NSString *expectedURLString = @"https://api.vk.com/method/audio.get?uid=1101&access_token=token";
+           AudioGetApiRequest *apiRequest = [[AudioGetApiRequest alloc] init];
+           [apiRequest setUserID:1101];
+           [apiRequest setCount:20];
+           [apiRequest setOffset:40];
+           
+           NSString *receivedURLString = [[[manager audioGetApiRequest:apiRequest] URL] absoluteString];
+           NSString *expectedURLString = @"https://api.vk.com/method/audio.get?uid=1101&access_token=token&count=20&offset=40";
            
            expect(receivedURLString).to(equal(expectedURLString));
     });

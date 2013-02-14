@@ -6,19 +6,19 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import "RequestManager.h"
+#import "NSURLRequestManager.h"
 
-@interface RequestManager ()
+@interface NSURLRequestManager ()
 @end
 
-@implementation RequestManager
+@implementation NSURLRequestManager
 
 + (id) sharedInstance
 {
-    static RequestManager *sharedInstance;
+    static NSURLRequestManager *sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[RequestManager alloc] init];
+        sharedInstance = [[NSURLRequestManager alloc] init];
     });
     return sharedInstance;
 }
@@ -32,16 +32,25 @@
     return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
 }
 
-- (NSURLRequest *) audioGetRequest:(AudioGetRequestObject *) model
+- (NSURLRequest *)audioGetApiRequest:(AudioGetApiRequest *)apiRequest
 {
     NSString *urlString = [NSString stringWithFormat:@"%@/%@?uid=%d&access_token=%@&count=%d&offset=%d",
                            kApiURL,
                            kAudioGetApiPath,
-                           [model userID],
+                           [apiRequest userID],
                            [self accessToken],
-                           [model count],
-                           [model offset]];
-    NSLog(@"url = %@",urlString);
+                           [apiRequest count],
+                           [apiRequest offset]];
+    return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+}
+
+- (NSURLRequest *)albumsGetApiRequest:(AlbumsGetApiRequest *)apiRequest
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@?uid=%d&access_token=%@",
+                           kApiURL,
+                           kAlbumsGetApiPath,
+                           /*[apiRequest userID]*/1,
+                           @""];
     return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
 }
 

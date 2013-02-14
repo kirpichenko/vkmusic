@@ -15,12 +15,12 @@
     #import <SystemConfiguration/SystemConfiguration.h>
 
     #import "ApplicationConstants.h"
-    #import "RequestConstants.h"
+    #import "VKApiRequestConstants.h"
 
-    #import "RequestSender.h"
+    #import "ApiRequestSender.h"
     #import "AudioPlayer.h"
 
-    #import "RequestManager.h"
+    #import "NSURLRequestManager.h"
     #import "SettingsManager.h"
     #import "OfflineAudioManager.h"
     #import "EKKeyboardAvoidingScrollViewManager.h"

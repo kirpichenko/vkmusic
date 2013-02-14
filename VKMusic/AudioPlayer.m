@@ -80,6 +80,9 @@ static NSString *kPlayingAudioKey = @"playingAudio";
     if (state == kAudioPlayerStatePaused) {
         [self resume];
     }
+    else {
+        [self playAudioAtIndex:0];
+    }
 }
 
 - (void) playAudioAtIndex:(NSInteger) index

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AudioGetRequestObject : UIView
+@interface AudioGetApiRequest : UIView
 
 @property (nonatomic,assign) NSInteger userID;
 @property (nonatomic,assign) NSInteger count;

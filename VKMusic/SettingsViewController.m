@@ -35,7 +35,7 @@
     [settings setAuthorizedUserID:NSNotFound];
     [settings saveSettings];
     
-    RequestManager *manager = [RequestManager sharedInstance];
+    NSURLRequestManager *manager = [NSURLRequestManager sharedInstance];
     [manager setAccessToken:nil];
 }
 

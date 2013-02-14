@@ -19,11 +19,17 @@
     #import <SystemConfiguration/SystemConfiguration.h>
 
     #import "ApplicationConstants.h"
-    #import "RequestConstants.h"
-    #import "RequestSender.h"
-    #import "RequestManager.h"
-    #import "SettingsManager.h"
+    #import "ApiRequestConstants.h"
 
+    #import "ApiRequestSender.h"
     #import "AudioPlayer.h"
+
+    #import "NSURLRequestManager.h"
+    #import "SettingsManager.h"
+    #import "OfflineAudioManager.h"
+    #import "EKKeyboardAvoidingScrollViewManager.h"
+
     #import "NSObject+NotificationCenter.h"
+    #import "CoreData+MagicalRecord.h"
+    #import "UIView+FrameAccessor.h"
 #endif

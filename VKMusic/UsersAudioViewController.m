@@ -178,6 +178,7 @@ static const NSInteger kAudioCountPerRequest = 50;
     [model setUserID:userID];
     [model setCount:kAudioCountPerRequest];
     [model setOffset:[[self audioRecords] count]];
+    [model setAlbumID:[self albumID]];
     
     return model;
 }

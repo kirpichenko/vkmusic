@@ -11,4 +11,6 @@
 
 @interface UsersAudioViewController : AudioViewController
 
+@property (nonatomic,assign) NSInteger albumID;
+
 @end

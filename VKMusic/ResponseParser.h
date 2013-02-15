@@ -10,6 +10,7 @@
 
 @interface ResponseParser : NSObject
 
-- (NSArray *) parseAudioListFromResponse:(id) response;
+- (NSArray *)parseAudioListFromResponse:(id)response;
+- (NSArray *)parseAlbumsListFromResponse:(id)response;
 
 @end

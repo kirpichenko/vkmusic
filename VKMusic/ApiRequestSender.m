@@ -56,7 +56,7 @@ typedef id(^ParsingBlock)(id);
 {
     NSURLRequest *request = [[NSURLRequestManager sharedInstance] albumsGetApiRequest:apiRequest];
     ParsingBlock parsingBlock = ^(id JSON){
-        return [parser parseAudioListFromResponse:JSON];
+        return [parser parseAlbumsListFromResponse:JSON];
     };
     
     [self sendNSURLRequest:request success:success failure:failure parsing:parsingBlock];
@@ -76,7 +76,6 @@ typedef id(^ParsingBlock)(id);
     [[AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                      success:successBlock
                                                      failure:failureBlock] start];
-    NSLog(@"start");
 }
 
 - (AFSuccessBlock)successBlockWithCallback:(ApiRequestSuccessBlock)success
@@ -85,7 +84,7 @@ typedef id(^ParsingBlock)(id);
     AFSuccessBlock successBlock =
     ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         if (success) {
-            NSLog(@"success JSON = %@",JSON);
+            NSLog(@"request = %@, response = %@",[[request URL] absoluteString],JSON);
             success(parsingBlock(JSON));
         }
     };

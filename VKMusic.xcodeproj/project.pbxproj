@@ -28,6 +28,9 @@
 		D94BD73016CD6A9D00CC9891 /* AlbumsGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD72F16CD6A9D00CC9891 /* AlbumsGetApiRequest.m */; };
 		D94BD73116CD6A9D00CC9891 /* AlbumsGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD72F16CD6A9D00CC9891 /* AlbumsGetApiRequest.m */; };
 		D94BD73416CD77EB00CC9891 /* EKFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF649916C43338000DCF26 /* EKFileManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D94BD73816CEBB7900CC9891 /* AlbumsGetApiRequestSenderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD73716CEBB7900CC9891 /* AlbumsGetApiRequestSenderSpec.m */; };
+		D94BD73C16CEBF6A00CC9891 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD73B16CEBF6A00CC9891 /* Album.m */; };
+		D94BD73D16CEBF6A00CC9891 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD73B16CEBF6A00CC9891 /* Album.m */; };
 		D957D6CF16962BEE001F352B /* OAuthResponseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */; };
 		D957D6D116962FA2001F352B /* OAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538471696214000C8B6F4 /* OAuthResponse.m */; };
 		D98C552216B4112C002536EF /* NSString+TimeFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552116B4112C002536EF /* NSString+TimeFormatting.m */; };
@@ -157,6 +160,10 @@
 		D9258C3B1695F8F70072798B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D94BD72E16CD6A9D00CC9891 /* AlbumsGetApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsGetApiRequest.h; sourceTree = "<group>"; };
 		D94BD72F16CD6A9D00CC9891 /* AlbumsGetApiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsGetApiRequest.m; sourceTree = "<group>"; };
+		D94BD73516CEB5F300CC9891 /* ApiRequestUtitlites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiRequestUtitlites.h; sourceTree = "<group>"; };
+		D94BD73716CEBB7900CC9891 /* AlbumsGetApiRequestSenderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsGetApiRequestSenderSpec.m; sourceTree = "<group>"; };
+		D94BD73A16CEBF6A00CC9891 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
+		D94BD73B16CEBF6A00CC9891 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OAuthResponseSpec.mm; sourceTree = "<group>"; };
 		D98C552016B4112C002536EF /* NSString+TimeFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeFormatting.h"; sourceTree = "<group>"; };
 		D98C552116B4112C002536EF /* NSString+TimeFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeFormatting.m"; sourceTree = "<group>"; };
@@ -299,10 +306,10 @@
 		D9174FEF16CE5B9E00E1D735 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D94BD73616CEB68900CC9891 /* ApiRequestSender */,
 				D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */,
 				D98C5DCE169864660084D92A /* NSURLRequestManagerSpec.mm */,
 				D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */,
-				D9174FF216CE647700E1D735 /* AudioGetApiRequestSenderSpec.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -369,13 +376,13 @@
 			name = OAuthResponse;
 			sourceTree = "<group>";
 		};
-		D91750F316C99CEA00A00448 /* VKApiRequest */ = {
+		D91750F316C99CEA00A00448 /* ApiRequest */ = {
 			isa = PBXGroup;
 			children = (
 				D91750F416C99D3200A00448 /* AudioGetApiRequest */,
 				D94BD72D16CD6A6C00CC9891 /* AlbumsGetApiRequest */,
 			);
-			name = VKApiRequest;
+			name = ApiRequest;
 			sourceTree = "<group>";
 		};
 		D91750F416C99D3200A00448 /* AudioGetApiRequest */ = {
@@ -481,6 +488,25 @@
 				D995383B16960E7100C8B6F4 /* NSURLRequestManager.m */,
 			);
 			name = NSURLRequestManager;
+			sourceTree = "<group>";
+		};
+		D94BD73616CEB68900CC9891 /* ApiRequestSender */ = {
+			isa = PBXGroup;
+			children = (
+				D94BD73516CEB5F300CC9891 /* ApiRequestUtitlites.h */,
+				D9174FF216CE647700E1D735 /* AudioGetApiRequestSenderSpec.m */,
+				D94BD73716CEBB7900CC9891 /* AlbumsGetApiRequestSenderSpec.m */,
+			);
+			name = ApiRequestSender;
+			sourceTree = "<group>";
+		};
+		D94BD73916CEBF4B00CC9891 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				D94BD73A16CEBF6A00CC9891 /* Album.h */,
+				D94BD73B16CEBF6A00CC9891 /* Album.m */,
+			);
+			name = Album;
 			sourceTree = "<group>";
 		};
 		D98B559D16B58F8300E0452A /* AudioViewController */ = {
@@ -625,9 +651,10 @@
 		D9953842169619CB00C8B6F4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D91750F316C99CEA00A00448 /* VKApiRequest */,
+				D91750F316C99CEA00A00448 /* ApiRequest */,
 				D91750F216C99CD800A00448 /* OAuthResponse */,
 				D9AC6F8716BEDCF100432CC1 /* Audio */,
+				D94BD73916CEBF4B00CC9891 /* Album */,
 				D9EB732E16CC34E7003413FC /* Mapping */,
 			);
 			name = Models;
@@ -1055,6 +1082,7 @@
 				D91750F716C99D5E00A00448 /* AudioGetApiRequest.m in Sources */,
 				D9EB732716CADF9A003413FC /* AudioSessionConfigurator.m in Sources */,
 				D94BD73016CD6A9D00CC9891 /* AlbumsGetApiRequest.m in Sources */,
+				D94BD73C16CEBF6A00CC9891 /* Album.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1106,6 +1134,8 @@
 				D94BD73116CD6A9D00CC9891 /* AlbumsGetApiRequest.m in Sources */,
 				D94BD73416CD77EB00CC9891 /* EKFileManager.m in Sources */,
 				D9174FF316CE647700E1D735 /* AudioGetApiRequestSenderSpec.m in Sources */,
+				D94BD73816CEBB7900CC9891 /* AlbumsGetApiRequestSenderSpec.m in Sources */,
+				D94BD73D16CEBF6A00CC9891 /* Album.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

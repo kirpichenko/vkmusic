@@ -34,11 +34,12 @@
 
 - (NSURLRequest *)audioGetApiRequest:(AudioGetApiRequest *)apiRequest
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@&uid=%d&count=%d&offset=%d",
+    NSString *urlString = [NSString stringWithFormat:@"%@&uid=%d&count=%d&offset=%d&album_id=%d",
                            [self baseUrlStringWithApiPath:kAudioGetApiPath],
                            [apiRequest userID],
                            [apiRequest count],
-                           [apiRequest offset]];
+                           [apiRequest offset],
+                           [apiRequest albumID]];
     return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
 }
 

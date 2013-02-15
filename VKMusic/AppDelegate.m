@@ -19,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self configureApllication];
+    [application beginReceivingRemoteControlEvents];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     AudioPlayer *player = [AudioPlayer sharedInstance];
@@ -27,17 +30,18 @@
     [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];
     
-    [self checkIfUserAuthorized];
-    [self registerForNotificationNamed:kUserSignedOut selector:@selector(userSignedOut)]; 
-    
-    [MagicalRecord setupCoreDataStack];
-    [application beginReceivingRemoteControlEvents];
-    
     return YES;
 }
 
 #pragma mark -
 #pragma mark helpers
+
+- (void)configureApllication
+{
+    [self checkIfUserAuthorized];
+    [self registerForNotificationNamed:kUserSignedOut selector:@selector(userSignedOut)];
+    [MagicalRecord setupCoreDataStack];
+}
 
 - (void) checkIfUserAuthorized
 {

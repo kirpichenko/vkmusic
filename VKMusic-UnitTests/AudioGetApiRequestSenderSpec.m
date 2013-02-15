@@ -1,8 +1,6 @@
 #import "ApiRequestSender.h"
+#import "ApiRequestUtitlites.h"
 #import "NSURLRequestManager.h"
-
-//using namespace Cedar::Matchers;
-//using namespace Cedar::Doubles;
 
 #define EXP_SHORTHAND
 
@@ -10,33 +8,21 @@
 
 SPEC_BEGIN(AudioGetApiRequestSenderSpec)
 
-describe(@"AudioGetApiRequestSender", ^{
+beforeEach(^{
     [[NSURLRequestManager sharedInstance] setAccessToken:@"token"];
-    __block ApiRequestSender *sender;
-    AudioGetApiRequest *apiRequest = [[AudioGetApiRequest alloc] init];
-    [apiRequest setUserID:1101];
-    [apiRequest setCount:20];
-    [apiRequest setOffset:40];
-    __block NSArray *audioList;
+});
 
+describe(@"AudioGetApiRequestSender", ^{    
+    __block ApiRequestSender *sender;
+    __block NSArray *audioList;
+    
     beforeEach(^{
-        
+        addRequestHandler(kAudioGetApiPath, @"AudioGetResponse");
+
         sender = [[ApiRequestSender alloc] init];
-        
-        
-        
-        
-        [OHHTTPStubs addRequestHandler:^OHHTTPStubsResponse *(NSURLRequest *request, BOOL onlyCheck) {
-            if([[[request URL] path] isEqualToString:kAudioGetApiPath])
-            {
-                return [OHHTTPStubsResponse responseWithFile:@"AudioGetResponse"
-                                                 contentType:@"text/json" responseTime:0];
-            }
-            return nil;
-        }];
-        
-        [sender sendAudioGetApiRequest:apiRequest
+        [sender sendAudioGetApiRequest:audioGetApiRequest(12, 10, 20)
                                success:^(id response){
+                                   NSLog(@"audio = %@",response);
                                    audioList = response;
                                }
                                failure:nil];
@@ -50,9 +36,41 @@ describe(@"AudioGetApiRequestSender", ^{
         expect([audioList count]).will.equal(3);
     });
     
-//    context(@"",^{
-//        
-//    });
+    context(@"First audio validation",^{
+        __block OnlineAudio *audio;
+        beforeEach(^{
+            audio = [audioList objectAtIndex:0];
+        });
+        
+        it(@"audioID should be 154329402", ^{
+            expect([audio audioID]).will.equal(154329402);
+        });
+        
+        it(@"artist should be \"The Rasmus\"", ^{
+            expect([audio artist]).will.equal(@"The Rasmus");
+        });
+        
+        it(@"duration should be 227", ^{
+            expect([audio duration]).will.beCloseTo(227);
+        });
+        
+        it(@"lyrics_id should be 4423020", ^{
+            expect([audio lyricsID]).will.equal(4423020);
+        });
+        
+        it(@"ownerID should be equal 67339882", ^{
+            expect([audio ownerID]).will.equal(67339882);
+        });
+        
+        it(@"title should be \"Livin in a world without you\"", ^{
+            expect([audio title]).will.equal(@"Livin in a world without you");
+        });
+        
+        it(@"url should be http://cs4617.userapi.com/u44378645/audios/065523adbe9c.mp3", ^{
+            NSString *url = @"http://cs4617.userapi.com/u44378645/audios/065523adbe9c.mp3";
+            expect([[audio url] absoluteString]).will.equal(url);
+        });
+    });
 });
 
 SPEC_END

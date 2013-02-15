@@ -11,8 +11,9 @@
 
 @interface MappingManager : NSObject
 
-+ (id) sharedInstance;
++ (id)sharedInstance;
 
-- (Mapping *) audioMapping;
+- (Mapping *)audioMapping;
+- (Mapping *)albumMapping;
 
 @end

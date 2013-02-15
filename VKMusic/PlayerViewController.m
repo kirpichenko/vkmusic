@@ -70,10 +70,12 @@
                                    image:(UIImage *) image
 {
     UIViewController *controller = [[ControllerClass alloc] init];
-    controller.ng_tabBarItem = [NGTabBarItem itemWithTitle:title image:image];
-    return controller;
+    UINavigationController *navigation = [[UINavigationController alloc]
+                                          initWithRootViewController:controller];
+    [navigation setNavigationBarHidden:YES];
+    navigation.ng_tabBarItem = [NGTabBarItem itemWithTitle:title image:image];
+    return navigation;
 }
-
 
 #pragma mark -
 #pragma mark NGTabBarControllerDelegate

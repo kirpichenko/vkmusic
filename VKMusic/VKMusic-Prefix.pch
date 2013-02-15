@@ -15,7 +15,7 @@
     #import <SystemConfiguration/SystemConfiguration.h>
 
     #import "ApplicationConstants.h"
-    #import "VKApiRequestConstants.h"
+    #import "ApiRequestConstants.h"
 
     #import "ApiRequestSender.h"
     #import "AudioPlayer.h"

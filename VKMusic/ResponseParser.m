@@ -10,21 +10,55 @@
 #import "MappingManager.h"
 
 #import "OnlineAudio.h"
+#import "Album.h"
+
+typedef id(^ParsingBlock)(NSDictionary *properties);
 
 @implementation ResponseParser
 
 - (NSArray *) parseAudioListFromResponse:(id) response
 {
-    NSArray *audioList = [response objectForKey:@"response"];
-    NSMutableArray *parsedAudioList = [NSMutableArray arrayWithCapacity:[audioList count]];
     Mapping *audioMapping = [[MappingManager sharedInstance] audioMapping];
-    for (NSDictionary *audioProperties in audioList) {
+    ParsingBlock parsingBlock = ^(NSDictionary *properties) {
         OnlineAudio *audio = [[OnlineAudio alloc] init];
-        [audio setUrl:[NSURL URLWithString:[audioProperties objectForKey:@"url"]]];
-        [audioMapping applyForObject:audio withResource:audioProperties];
-        [parsedAudioList addObject:audio];
-    }
-    return parsedAudioList;
+        [audio setUrl:[NSURL URLWithString:[properties objectForKey:@"url"]]];
+        [audioMapping applyForObject:audio withResource:properties];
+        return audio;
+    };
+    
+    return [self parseArrayFromResponse:response objectParsing:parsingBlock];
 }
 
+- (NSArray *)parseAlbumsListFromResponse:(id)response
+{
+    Mapping *albumMapping = [[MappingManager sharedInstance] albumMapping];
+    ParsingBlock parsingBlock = ^(NSDictionary *properties) {
+        Album *album = [[Album alloc] init];
+        [albumMapping applyForObject:album withResource:properties];
+        return album;
+    };
+    
+    return [self parseArrayFromResponse:response objectParsing:parsingBlock];
+}
+
+#pragma mark -
+#pragma mark helpers
+
+- (NSArray *)parseArrayFromResponse:(id)response objectParsing:(id(^)(NSDictionary *))parse
+{
+    NSArray *responseList = [response objectForKey:@"response"];
+    NSMutableArray *parsedList = [NSMutableArray arrayWithCapacity:[responseList count]];
+
+    for (NSDictionary *properties in responseList) {
+        if ([properties isKindOfClass:[NSDictionary class]]) {
+            id object = parse(properties);
+            [parsedList addObject:object];
+        }
+    }
+    
+    return parsedList;
+}
+
+    
+    
 @end

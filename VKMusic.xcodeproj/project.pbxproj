@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		07F29BD556D94D2BBFDE0DC7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB5601261D84360B6711408 /* libPods.a */; };
+		D9174FEE16CE5AAB00E1D735 /* GetAlbumsResponse in Resources */ = {isa = PBXBuildFile; fileRef = D9174FED16CE5AAB00E1D735 /* GetAlbumsResponse */; };
+		D9174FF316CE647700E1D735 /* AudioGetApiRequestSenderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D9174FF216CE647700E1D735 /* AudioGetApiRequestSenderSpec.m */; };
 		D91750F716C99D5E00A00448 /* AudioGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750F616C99D5E00A00448 /* AudioGetApiRequest.m */; };
 		D91750F816C99D5E00A00448 /* AudioGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750F616C99D5E00A00448 /* AudioGetApiRequest.m */; };
 		D91750FA16C9A5AE00A00448 /* UsersAudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91750F916C9A5AE00A00448 /* UsersAudioViewController.xib */; };
@@ -37,7 +39,7 @@
 		D98C552E16B4476D002536EF /* AudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C552C16B4476D002536EF /* AudioCell.xib */; };
 		D98C553A16B4519F002536EF /* UITableView+CellCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C553916B4519F002536EF /* UITableView+CellCreation.m */; };
 		D98C553B16B4519F002536EF /* UITableView+CellCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C553916B4519F002536EF /* UITableView+CellCreation.m */; };
-		D98C5DCF169864660084D92A /* RequestManagerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DCE169864660084D92A /* RequestManagerSpec.mm */; };
+		D98C5DCF169864660084D92A /* NSURLRequestManagerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DCE169864660084D92A /* NSURLRequestManagerSpec.mm */; };
 		D98C5DD1169866120084D92A /* NSURLRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D995383B16960E7100C8B6F4 /* NSURLRequestManager.m */; };
 		D98C5DD4169883510084D92A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD2169883510084D92A /* MobileCoreServices.framework */; };
 		D98C5DD5169883510084D92A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD2169883510084D92A /* MobileCoreServices.framework */; };
@@ -53,7 +55,7 @@
 		D98C5E36169892D00084D92A /* MappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E34169892D00084D92A /* MappingManager.m */; };
 		D98C5E38169894ED0084D92A /* ResponseParserSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */; };
 		D98C5E421698967C0084D92A /* NSDictionary+LoadFromJsonFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E411698967C0084D92A /* NSDictionary+LoadFromJsonFile.m */; };
-		D98C5E44169896A60084D92A /* GetAudioResponse in Resources */ = {isa = PBXBuildFile; fileRef = D98C5E43169896A60084D92A /* GetAudioResponse */; };
+		D98C5E44169896A60084D92A /* AudioGetResponse in Resources */ = {isa = PBXBuildFile; fileRef = D98C5E43169896A60084D92A /* AudioGetResponse */; };
 		D98C5EB91698C9A30084D92A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5EB71698C9A30084D92A /* SettingsViewController.m */; };
 		D98C5EBA1698C9A30084D92A /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C5EB81698C9A30084D92A /* SettingsViewController.xib */; };
 		D98C5EBF1698C9D40084D92A /* PlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */; };
@@ -134,6 +136,8 @@
 		2751EC8D6FBA4A1FA1E3AA2F /* Pods-VKMusic-UnitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKMusic-UnitTests.xcconfig"; path = "Pods/Pods-VKMusic-UnitTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		280EA9A2240043DB953DAF58 /* libPods-VKMusic-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VKMusic-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADA439328B2446EB6F522D5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		D9174FED16CE5AAB00E1D735 /* GetAlbumsResponse */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetAlbumsResponse; sourceTree = "<group>"; };
+		D9174FF216CE647700E1D735 /* AudioGetApiRequestSenderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioGetApiRequestSenderSpec.m; sourceTree = "<group>"; };
 		D91750F516C99D5E00A00448 /* AudioGetApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioGetApiRequest.h; sourceTree = "<group>"; };
 		D91750F616C99D5E00A00448 /* AudioGetApiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioGetApiRequest.m; sourceTree = "<group>"; };
 		D91750F916C9A5AE00A00448 /* UsersAudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersAudioViewController.xib; sourceTree = "<group>"; };
@@ -162,7 +166,7 @@
 		D98C552C16B4476D002536EF /* AudioCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioCell.xib; sourceTree = "<group>"; };
 		D98C553816B4519F002536EF /* UITableView+CellCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CellCreation.h"; sourceTree = "<group>"; };
 		D98C553916B4519F002536EF /* UITableView+CellCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CellCreation.m"; sourceTree = "<group>"; };
-		D98C5DCE169864660084D92A /* RequestManagerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RequestManagerSpec.mm; sourceTree = "<group>"; };
+		D98C5DCE169864660084D92A /* NSURLRequestManagerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSURLRequestManagerSpec.mm; sourceTree = "<group>"; };
 		D98C5DD2169883510084D92A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D98C5DD3169883510084D92A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D98C5DD8169885D30084D92A /* ResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseParser.h; sourceTree = "<group>"; };
@@ -176,7 +180,7 @@
 		D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResponseParserSpec.mm; sourceTree = "<group>"; };
 		D98C5E401698967C0084D92A /* NSDictionary+LoadFromJsonFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LoadFromJsonFile.h"; sourceTree = "<group>"; };
 		D98C5E411698967C0084D92A /* NSDictionary+LoadFromJsonFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LoadFromJsonFile.m"; sourceTree = "<group>"; };
-		D98C5E43169896A60084D92A /* GetAudioResponse */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetAudioResponse; sourceTree = "<group>"; };
+		D98C5E43169896A60084D92A /* AudioGetResponse */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AudioGetResponse; sourceTree = "<group>"; };
 		D98C5EB61698C9A30084D92A /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		D98C5EB71698C9A30084D92A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		D98C5EB81698C9A30084D92A /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -292,6 +296,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D9174FEF16CE5B9E00E1D735 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */,
+				D98C5DCE169864660084D92A /* NSURLRequestManagerSpec.mm */,
+				D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */,
+				D9174FF216CE647700E1D735 /* AudioGetApiRequestSenderSpec.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		D9174FF016CE5BAF00E1D735 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		D9174FF116CE5BBB00E1D735 /* Audio Player */ = {
+			isa = PBXGroup;
+			children = (
+				D9C4180516A20D770011F600 /* AudioPlayerSpec.mm */,
+			);
+			name = "Audio Player";
+			sourceTree = "<group>";
+		};
 		D91750EE16C6FD9700A00448 /* PlayerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,12 +539,13 @@
 			name = Requests;
 			sourceTree = "<group>";
 		};
-		D98C5E391698951C0084D92A /* Responses */ = {
+		D98C5E391698951C0084D92A /* FakeResponses */ = {
 			isa = PBXGroup;
 			children = (
-				D98C5E43169896A60084D92A /* GetAudioResponse */,
+				D98C5E43169896A60084D92A /* AudioGetResponse */,
+				D9174FED16CE5AAB00E1D735 /* GetAlbumsResponse */,
 			);
-			name = Responses;
+			name = FakeResponses;
 			sourceTree = "<group>";
 		};
 		D98C5E3F1698966D0084D92A /* Extensions */ = {
@@ -605,7 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				D98C5E3F1698966D0084D92A /* Extensions */,
-				D98C5E391698951C0084D92A /* Responses */,
+				D98C5E391698951C0084D92A /* FakeResponses */,
 				D995387016962A2700C8B6F4 /* Specs */,
 				D99538531696289F00C8B6F4 /* Supporting Files */,
 			);
@@ -629,11 +661,9 @@
 		D995387016962A2700C8B6F4 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
-				D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */,
-				D98C5DCE169864660084D92A /* RequestManagerSpec.mm */,
-				D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */,
-				D9C4180516A20D770011F600 /* AudioPlayerSpec.mm */,
-				D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */,
+				D9174FF116CE5BBB00E1D735 /* Audio Player */,
+				D9174FF016CE5BAF00E1D735 /* Extension */,
+				D9174FEF16CE5B9E00E1D735 /* Network */,
 			);
 			name = Specs;
 			sourceTree = "<group>";
@@ -941,10 +971,11 @@
 				D995385F1696289F00C8B6F4 /* Default.png in Resources */,
 				D99538611696289F00C8B6F4 /* Default@2x.png in Resources */,
 				D99538631696289F00C8B6F4 /* Default-568h@2x.png in Resources */,
-				D98C5E44169896A60084D92A /* GetAudioResponse in Resources */,
+				D98C5E44169896A60084D92A /* AudioGetResponse in Resources */,
 				D98C552E16B4476D002536EF /* AudioCell.xib in Resources */,
 				D91750FB16C9A5AE00A00448 /* UsersAudioViewController.xib in Resources */,
 				D91750FE16C9A65300A00448 /* SavedViewController.xib in Resources */,
+				D9174FEE16CE5AAB00E1D735 /* GetAlbumsResponse in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1050,7 +1081,7 @@
 				D99538591696289F00C8B6F4 /* main.m in Sources */,
 				D957D6CF16962BEE001F352B /* OAuthResponseSpec.mm in Sources */,
 				D957D6D116962FA2001F352B /* OAuthResponse.m in Sources */,
-				D98C5DCF169864660084D92A /* RequestManagerSpec.mm in Sources */,
+				D98C5DCF169864660084D92A /* NSURLRequestManagerSpec.mm in Sources */,
 				D98C5DD1169866120084D92A /* NSURLRequestManager.m in Sources */,
 				D98C5DDB169885D30084D92A /* ResponseParser.m in Sources */,
 				D98C5DDF169886FA0084D92A /* OnlineAudio.m in Sources */,
@@ -1074,6 +1105,7 @@
 				D9EB732816CADF9A003413FC /* AudioSessionConfigurator.m in Sources */,
 				D94BD73116CD6A9D00CC9891 /* AlbumsGetApiRequest.m in Sources */,
 				D94BD73416CD77EB00CC9891 /* EKFileManager.m in Sources */,
+				D9174FF316CE647700E1D735 /* AudioGetApiRequestSenderSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

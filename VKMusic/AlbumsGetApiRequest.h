@@ -10,4 +10,6 @@
 
 @interface AlbumsGetApiRequest : NSObject
 
+@property (nonatomic,assign) NSInteger userID;
+
 @end

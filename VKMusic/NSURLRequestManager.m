@@ -34,11 +34,9 @@
 
 - (NSURLRequest *)audioGetApiRequest:(AudioGetApiRequest *)apiRequest
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@?uid=%d&access_token=%@&count=%d&offset=%d",
-                           kApiURL,
-                           kAudioGetApiPath,
+    NSString *urlString = [NSString stringWithFormat:@"%@&uid=%d&count=%d&offset=%d",
+                           [self baseUrlStringWithApiPath:kAudioGetApiPath],
                            [apiRequest userID],
-                           [self accessToken],
                            [apiRequest count],
                            [apiRequest offset]];
     return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
@@ -46,12 +44,18 @@
 
 - (NSURLRequest *)albumsGetApiRequest:(AlbumsGetApiRequest *)apiRequest
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@?uid=%d&access_token=%@",
-                           kApiURL,
-                           kAlbumsGetApiPath,
-                           /*[apiRequest userID]*/1,
-                           @""];
+    NSString *urlString = [NSString stringWithFormat:@"%@&uid=%d",
+                           [self baseUrlStringWithApiPath:kAlbumsGetApiPath],
+                           [apiRequest userID]];
     return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+}
+
+#pragma mark -
+#pragma mark helpers
+
+- (NSString *)baseUrlStringWithApiPath:(NSString *)apiPath
+{
+    return [NSString stringWithFormat:@"%@%@?access_token=%@",kApiBaseURL,apiPath,[self accessToken]];
 }
 
 @end

@@ -76,6 +76,7 @@ typedef id(^ParsingBlock)(id);
     [[AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                      success:successBlock
                                                      failure:failureBlock] start];
+    NSLog(@"start");
 }
 
 - (AFSuccessBlock)successBlockWithCallback:(ApiRequestSuccessBlock)success
@@ -84,6 +85,7 @@ typedef id(^ParsingBlock)(id);
     AFSuccessBlock successBlock =
     ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         if (success) {
+            NSLog(@"success JSON = %@",JSON);
             success(parsingBlock(JSON));
         }
     };

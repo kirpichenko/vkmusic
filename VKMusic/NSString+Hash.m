@@ -34,7 +34,7 @@
     for (int i = 0; i < CC_MD5_DIGEST_LENGTH; ++i) {
         [md5String appendFormat:@"%02x",result[i]];
     }
-    return md5String;  
+    return md5String;
 }
 
 @end

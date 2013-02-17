@@ -17,12 +17,12 @@ describe(@"AlbumsGetApiRequest", ^{
         addRequestHandler(kAlbumsGetApiPath, @"GetAlbumsResponse");
 
         sender = [[ApiRequestSender alloc] init];
-        [sender sendAlbumsGetApiRequest:albumsGetApiRequest(16)
-                                success:^(id response) {
-                                    NSLog(@"albums = %@",response);
-                                    albums = response;
-                                }
-                                failure:nil];
+        [sender sendApiRequest:albumsGetApiRequest(16)
+                       success:^(id response) {
+                           NSLog(@"albums = %@",response);
+                           albums = response;
+                       }
+                       failure:nil];
     });
     
     it(@"albums count should be 2",^{

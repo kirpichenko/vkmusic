@@ -17,7 +17,8 @@
 
 static AudioGetApiRequest *audioGetApiRequest (int userID, int count, int offset)
 {
-    AudioGetApiRequest *apiRequest = [[AudioGetApiRequest alloc] init];
+    ApiRequestManager *manager = [[ApiRequestManager alloc] init];
+    AudioGetApiRequest *apiRequest = [manager apiRequestTemplateOfClass:[AudioGetApiRequest class]];
 
     [apiRequest setUserID:userID];
     [apiRequest setCount:count];
@@ -28,8 +29,9 @@ static AudioGetApiRequest *audioGetApiRequest (int userID, int count, int offset
 
 static AlbumsGetApiRequest *albumsGetApiRequest(int userID)
 {
-    AlbumsGetApiRequest *apiRequest = [[AlbumsGetApiRequest alloc] init];
-    
+    ApiRequestManager *manager = [[ApiRequestManager alloc] init];
+    AlbumsGetApiRequest *apiRequest = [manager apiRequestTemplateOfClass:[AlbumsGetApiRequest class]];
+
     [apiRequest setUserID:userID];
     
     return apiRequest;

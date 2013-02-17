@@ -34,9 +34,6 @@
     [settings setAccessToken:nil];
     [settings setAuthorizedUserID:NSNotFound];
     [settings saveSettings];
-    
-    NSURLRequestManager *manager = [NSURLRequestManager sharedInstance];
-    [manager setAccessToken:nil];
 }
 
 - (void) deleteCookies

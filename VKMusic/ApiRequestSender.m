@@ -8,7 +8,7 @@
 
 #import "ApiRequestSender.h"
 #import "ApiRequestConstants.h"
-#import "NSURLRequestManager.h"
+
 #import "ResponseParser.h"
 
 #import <AFNetworking/AFNetworking.h>
@@ -16,7 +16,6 @@
 
 typedef void(^AFSuccessBlock)(NSURLRequest *,NSHTTPURLResponse *,id);
 typedef void(^AFFailureBlock)(NSURLRequest *,NSHTTPURLResponse *, NSError *, id JSON);
-typedef id(^ParsingBlock)(id);
 
 @implementation ApiRequestSender
 
@@ -38,54 +37,30 @@ typedef id(^ParsingBlock)(id);
     return self;
 }
 
-- (void)sendAudioGetApiRequest:(AudioGetApiRequest *)apiRequest
-                       success:(ApiRequestSuccessBlock)success
-                       failure:(ApiRequestFailureBlock)failure
+- (void)sendApiRequest:(BaseApiRequest *)apiRequest
+               success:(ApiRequestSuccessBlock)success
+               failure:(ApiRequestFailureBlock)failure
 {
-    NSURLRequest *request = [[NSURLRequestManager sharedInstance] audioGetApiRequest:apiRequest];
-    ParsingBlock parsingBlock = ^(id JSON){
-        return [parser parseAudioListFromResponse:JSON];
-    };
+    AFSuccessBlock successBlock = [self successBlockWithCallback:success
+                                                    parsingBlock:[apiRequest apiResponseParsingBlock]];
+    AFFailureBlock failureBlock = [self failureBlockWithCallback:failure];
     
-    [self sendNSURLRequest:request success:success failure:failure parsing:parsingBlock];
-}
-
-- (void)sendAlbumsGetApiRequest:(AlbumsGetApiRequest *)apiRequest
-                        success:(ApiRequestSuccessBlock)success
-                        failure:(ApiRequestFailureBlock)failure
-{
-    NSURLRequest *request = [[NSURLRequestManager sharedInstance] albumsGetApiRequest:apiRequest];
-    ParsingBlock parsingBlock = ^(id JSON){
-        return [parser parseAlbumsListFromResponse:JSON];
-    };
-    
-    [self sendNSURLRequest:request success:success failure:failure parsing:parsingBlock];
+    [[AFJSONRequestOperation JSONRequestOperationWithRequest:[apiRequest apiURLRequest]
+                                                     success:successBlock
+                                                     failure:failureBlock] start];
 }
 
 #pragma mark -
 #pragma mark helpers
 
-- (void)sendNSURLRequest:(NSURLRequest *)request
-                 success:(ApiRequestSuccessBlock)success
-                 failure:(ApiRequestFailureBlock)failure
-                 parsing:(ParsingBlock)parsing
-{
-    AFSuccessBlock successBlock = [self successBlockWithCallback:success parsingBlock:parsing];
-    AFFailureBlock failureBlock = [self failureBlockWithCallback:failure];
-    
-    [[AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                     success:successBlock
-                                                     failure:failureBlock] start];
-}
-
 - (AFSuccessBlock)successBlockWithCallback:(ApiRequestSuccessBlock)success
-                              parsingBlock:(id(^)(id))parsingBlock
+                              parsingBlock:(id(^)(ResponseParser *,id))parsingBlock
 {
     AFSuccessBlock successBlock =
     ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         if (success) {
             NSLog(@"request = %@, response = %@",[[request URL] absoluteString],JSON);
-            success(parsingBlock(JSON));
+            success(parsingBlock(parser,JSON));
         }
     };
     return successBlock;

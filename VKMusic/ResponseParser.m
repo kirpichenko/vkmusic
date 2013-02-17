@@ -12,14 +12,14 @@
 #import "OnlineAudio.h"
 #import "Album.h"
 
-typedef id(^ParsingBlock)(NSDictionary *properties);
+typedef id(^ParseModelBlock)(NSDictionary *properties);
 
 @implementation ResponseParser
 
 - (NSArray *) parseAudioListFromResponse:(id) response
 {
     Mapping *audioMapping = [[MappingManager sharedInstance] audioMapping];
-    ParsingBlock parsingBlock = ^(NSDictionary *properties) {
+    ParseModelBlock parsingBlock = ^(NSDictionary *properties) {
         OnlineAudio *audio = [[OnlineAudio alloc] init];
         [audio setUrl:[NSURL URLWithString:[properties objectForKey:@"url"]]];
         [audioMapping applyForObject:audio withResource:properties];
@@ -32,7 +32,7 @@ typedef id(^ParsingBlock)(NSDictionary *properties);
 - (NSArray *)parseAlbumsListFromResponse:(id)response
 {
     Mapping *albumMapping = [[MappingManager sharedInstance] albumMapping];
-    ParsingBlock parsingBlock = ^(NSDictionary *properties) {
+    ParseModelBlock parsingBlock = ^(NSDictionary *properties) {
         Album *album = [[Album alloc] init];
         [albumMapping applyForObject:album withResource:properties];
         return album;

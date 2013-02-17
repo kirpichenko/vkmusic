@@ -1,25 +1,32 @@
 //
-//  AudioGetModel.m
+//  AudioSearchApiRequest.m
 //  VKMusic
 //
-//  Created by Evgeniy Kirpichenko on 2/11/13.
+//  Created by Evgeniy Kirpichenko on 2/17/13.
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import "AudioGetApiRequest.h"
+#import "AudioSearchApiRequest.h"
 
-@implementation AudioGetApiRequest
+@implementation AudioSearchApiRequest
+
+#pragma mark -
+#pragma mark life cycle
+
+- (void)dealloc
+{
+    [self setQuery:nil];
+}
 
 #pragma mark -
 #pragma marl instance methods
 
 - (NSString *)apiQuery
 {
-    return [NSString stringWithFormat:@"uid=%d&count=%d&offset=%d&album_id=%d",
-            [self userID],
+    return [NSString stringWithFormat:@"q=%@&count=%d&offset=%d",
+            [self query],
             [self count],
-            [self offset],
-            [self albumID]];
+            [self offset]];
 }
 
 - (ParsingBlock)apiResponseParsingBlock
@@ -29,5 +36,6 @@
     };
     return parsingBlock;
 }
+
 
 @end

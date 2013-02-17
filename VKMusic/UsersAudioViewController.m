@@ -81,18 +81,17 @@ static const NSInteger kAudioCountPerRequest = 50;
 - (void) loadAudio
 {
     ApiRequestSender *sender = [ApiRequestSender sharedInstance];
-    AudioGetApiRequest *model = [self nextRequestModel];
-
     __weak UsersAudioViewController *selfController = self;
-    [sender sendAudioGetApiRequest:model
-                           success:^(id response){
-                               NSMutableArray *audio = [NSMutableArray arrayWithArray:[self audioRecords]];
-                               [audio addObjectsFromArray:response];
-                               [selfController audioHaveBeenLoaded:audio];
-                           }
-                           failure:^(NSError *error) {
-                               NSLog(@"fail = %@",error);
-                           }];
+    
+    [sender sendApiRequest:[self audioApiRequest]
+                   success:^(id response){
+                       NSMutableArray *audio = [NSMutableArray arrayWithArray:[self audioRecords]];
+                       [audio addObjectsFromArray:response];
+                       [selfController audioHaveBeenLoaded:audio];
+                   }
+                   failure:^(NSError *error) {
+                       NSLog(@"fail = %@",error);
+                   }];
 }
 
 #pragma mark -
@@ -170,12 +169,14 @@ static const NSInteger kAudioCountPerRequest = 50;
 #pragma mark -
 #pragma mark requests
 
-- (AudioGetApiRequest *) nextRequestModel
+- (AudioGetApiRequest *)audioApiRequest
 {
-    NSInteger userID = [[SettingsManager sharedInstance] authorizedUserID];
-    
-    AudioGetApiRequest *model = [[AudioGetApiRequest alloc] init];
-    [model setUserID:userID];
+    ApiRequestManager *manager = [[ApiRequestManager alloc] init];
+
+    Class ApiRequestClass = [AudioGetApiRequest class];
+    AudioGetApiRequest *model = [manager apiRequestTemplateOfClass:ApiRequestClass];
+
+    [model setUserID:[[SettingsManager sharedInstance] authorizedUserID]];
     [model setCount:kAudioCountPerRequest];
     [model setOffset:[[self audioRecords] count]];
     [model setAlbumID:[self albumID]];

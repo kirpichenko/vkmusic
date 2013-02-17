@@ -47,16 +47,14 @@
 
 - (void)loadAlbums
 {
-    AlbumsGetApiRequest *apiRequest = [[AlbumsGetApiRequest alloc] init];
-    
     __weak PlaylistsViewController *playlist = self;
-    [[ApiRequestSender sharedInstance] sendAlbumsGetApiRequest:apiRequest
-                                                       success:^(id response) {
-                                                           [playlist albumsAreLoaded:response];
-                                                       }
-                                                       failure:^(NSError *error) {
-                                                           [playlist albumsLoadingFailed:error];
-                                                       }];
+    [[ApiRequestSender sharedInstance] sendApiRequest:[self albumsGetApiRequest]
+                                              success:^(id response) {
+                                                  [playlist albumsAreLoaded:response];
+                                              }
+                                              failure:^(NSError *error) {
+                                                  [playlist albumsLoadingFailed:error];
+                                              }];
 }
 
 - (void)albumsAreLoaded:(NSArray *)theAlbums
@@ -103,6 +101,20 @@
     UsersAudioViewController *controller = [[UsersAudioViewController alloc] init];
     [controller setAlbumID:[album albumID]];
     [[self navigationController] pushViewController:controller animated:YES];
+}
+
+#pragma mark -
+#pragma mark helpers
+
+- (AlbumsGetApiRequest *)albumsGetApiRequest
+{
+    Class ApiRequestClass = [AlbumsGetApiRequest class];
+
+    ApiRequestManager *requestManager = [[ApiRequestManager alloc] init];
+    AlbumsGetApiRequest *apiRequest = [requestManager apiRequestTemplateOfClass:ApiRequestClass];
+    [apiRequest setUserID:[[SettingsManager sharedInstance] authorizedUserID]];
+
+    return apiRequest;
 }
 
 @end

@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseApiRequest.h"
 
-@interface AlbumsGetApiRequest : NSObject
+@interface AlbumsGetApiRequest : BaseApiRequest
 
 @property (nonatomic,assign) NSInteger userID;
+@property (nonatomic,assign) NSInteger count;
+@property (nonatomic,assign) NSInteger offset;
 
 @end

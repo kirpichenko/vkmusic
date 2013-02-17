@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AudioGetApiRequest.h"
-#import "AlbumsGetApiRequest.h"
+#import "BaseApiRequest.h"
 
 typedef void(^ApiRequestSuccessBlock)(id response);
 typedef void(^ApiRequestFailureBlock)(NSError *error);
@@ -23,11 +22,8 @@ typedef void(^ApiRequestFailureBlock)(NSError *error);
 
 + (id)sharedInstance;
 
-- (void)sendAudioGetApiRequest:(AudioGetApiRequest *)apiRequest
-                       success:(ApiRequestSuccessBlock)success
-                       failure:(ApiRequestFailureBlock)failure;
-- (void)sendAlbumsGetApiRequest:(AlbumsGetApiRequest *)apiRequest
-                        success:(ApiRequestSuccessBlock)success
-                        failure:(ApiRequestFailureBlock)failure;
+- (void)sendApiRequest:(BaseApiRequest *)apiRequest
+               success:(ApiRequestSuccessBlock)success
+               failure:(ApiRequestFailureBlock)failure;
 
 @end

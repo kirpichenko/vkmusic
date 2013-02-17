@@ -52,6 +52,11 @@
     [self filterRecords:[searchField text]];
 }
 
+- (void)audioLoadingFailed:(NSError *)error
+{
+
+}
+
 - (void) filterRecords:(NSString *) filter
 {
     if ([filter length] > 0) {

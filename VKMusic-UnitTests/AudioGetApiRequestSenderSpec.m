@@ -1,6 +1,5 @@
 #import "ApiRequestSender.h"
 #import "ApiRequestUtitlites.h"
-#import "NSURLRequestManager.h"
 
 #define EXP_SHORTHAND
 
@@ -9,7 +8,7 @@
 SPEC_BEGIN(AudioGetApiRequestSenderSpec)
 
 beforeEach(^{
-    [[NSURLRequestManager sharedInstance] setAccessToken:@"token"];
+//    [[NSURLRequestManager sharedInstance] setAccessToken:@"token"];
 });
 
 describe(@"AudioGetApiRequestSender", ^{    
@@ -20,12 +19,12 @@ describe(@"AudioGetApiRequestSender", ^{
         addRequestHandler(kAudioGetApiPath, @"AudioGetResponse");
 
         sender = [[ApiRequestSender alloc] init];
-        [sender sendAudioGetApiRequest:audioGetApiRequest(12, 10, 20)
-                               success:^(id response){
-                                   NSLog(@"audio = %@",response);
-                                   audioList = response;
-                               }
-                               failure:nil];
+        [sender sendApiRequest:audioGetApiRequest(12, 10, 20)
+                       success:^(id response){
+                           NSLog(@"audio = %@",response);
+                           audioList = response;
+                       }
+                       failure:nil];
     });
     
     it(@"Audio List shouldn't be nil ", ^{

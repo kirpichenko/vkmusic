@@ -14,6 +14,7 @@ static NSString *const kApiBaseURL = @"https://api.vk.com";
 
 static NSString *const kAudioGetApiPath = @"/method/audio.get";
 static NSString *const kAlbumsGetApiPath = @"/method/audio.getAlbums";
+static NSString *const kAudioSearchApiPath = @"/method/audio.search";
 
 static NSString *const kApplicationID = @"3335254";
 static NSString *const kRedirectUri = @"vkmusic.com";

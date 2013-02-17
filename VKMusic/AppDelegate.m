@@ -49,9 +49,6 @@
     if (![settings isUserAuthorized]) {
         [self showSignInViewControllerAnimated:NO];
     }
-    else {
-        [[NSURLRequestManager sharedInstance] setAccessToken:[settings accessToken]];
-    }
 }
 
 - (void) showSignInViewControllerAnimated:(BOOL) animated
@@ -88,9 +85,6 @@
     [settings setAccessToken:token];
     [settings setAuthorizedUserID:userID];
     [settings saveSettings];
-    
-    NSURLRequestManager *manager = [NSURLRequestManager sharedInstance];
-    [manager setAccessToken:token];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kUserSignedIn
                                                         object:nil];

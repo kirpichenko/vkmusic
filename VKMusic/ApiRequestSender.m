@@ -12,7 +12,7 @@
 #import "ResponseParser.h"
 
 #import <AFNetworking/AFNetworking.h>
-#import <objc/objc-runtime.h>
+//#import <objc/objc-runtime.h>
 
 typedef void(^AFSuccessBlock)(NSURLRequest *,NSHTTPURLResponse *,id);
 typedef void(^AFFailureBlock)(NSURLRequest *,NSHTTPURLResponse *, NSError *, id JSON);

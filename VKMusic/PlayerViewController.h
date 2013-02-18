@@ -15,6 +15,7 @@
 {
     __weak IBOutlet UIView *contentView;
     __weak IBOutlet PlayerView *playerView;
+    __weak IBOutlet UILabel *titleLabel;
     
     NGTabBarController *tabBarController;
 }

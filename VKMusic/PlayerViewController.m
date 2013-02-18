@@ -33,10 +33,10 @@
     if (self = [super initWithNibName:nil bundle:nil]) {
         NSArray *controllers = @[
             [self controllerOfClass:[UsersAudioViewController class] itemTitle:@"Аудиозаписи" image:nil],
-            [self controllerOfClass:[PlaylistsViewController class] itemTitle:@"Плейлисты" image:nil],
+            [self controllerOfClass:[PlaylistsViewController class] itemTitle:@"Альбомы" image:nil],
             [self controllerOfClass:[SavedViewController class] itemTitle:@"Сохраненные" image:nil],
             [self controllerOfClass:[SearchViewController class] itemTitle:@"Поиск" image:nil],
-            [self controllerOfClass:[SettingsViewController class] itemTitle:@"Настрjqrb" image:nil],
+            [self controllerOfClass:[SettingsViewController class] itemTitle:@"Настройки" image:nil],
         ];
         
         tabBarController = [[NGTabBarController alloc] initWithDelegate:self];
@@ -50,11 +50,16 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+
     [playerView setPlayer:[self player]];
     [contentView addSubview:[tabBarController view]];
+    [titleLabel setText:[tabBarController selectedViewController].ng_tabBarItem.title];
+    
     [[tabBarController view] setFrame:[contentView bounds]];
     [[tabBarController view] setAutoresizingMask:(UIViewAutoresizingFlexibleHeight |
                                                   UIViewAutoresizingFlexibleWidth)];
+
+    [self addSwipeToPopController];
 }
 
 - (void) dealloc
@@ -88,6 +93,37 @@ sizeOfItemForViewController:(UIViewController *)viewController
     return CGSizeMake(45, 45);
 }
 
+- (void)tabBarController:(NGTabBarController *)tabBarController
+ didSelectViewController:(UIViewController *)viewController
+                 atIndex:(NSUInteger)index
+{
+    [titleLabel setText:viewController.ng_tabBarItem.title];
+}
+
+- (void)verticalTabBarController:(NGTabBarController *)tabBarController
+         didSelectViewController:(UIViewController *)viewController
+                        atIndex:(NSInteger)index
+{
+    NSLog(@"just fixes bug when delegate method isn't called");
+}
+
+#pragma mark -
+#pragma mark swipe callback
+
+- (void)addSwipeToPopController
+{
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self
+                                                                                action:@selector(userSwiped)];
+    [[self view] addGestureRecognizer:swipe];
+}
+
+- (void)userSwiped
+{
+    UINavigationController *navigationController = (UINavigationController *)
+    [tabBarController selectedViewController];    
+    [navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark -
 #pragma mark actions
 
@@ -112,4 +148,8 @@ sizeOfItemForViewController:(UIViewController *)viewController
     [[self player] playPreviousAudio];
 }
 
+- (void)viewDidUnload {
+    titleLabel = nil;
+    [super viewDidUnload];
+}
 @end

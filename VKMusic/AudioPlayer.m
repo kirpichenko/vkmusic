@@ -96,13 +96,15 @@ static NSString *kPlayingAudioKey = @"playingAudio";
         [self didChangeValueForKey:kPlayingAudioKey];
         
 #ifndef TEST
-        AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:[playingAudio url]];
-        [player replaceCurrentItemWithPlayerItem:playerItem];
-        [player play];
-        
-        if ([player error] != nil) {
-            NSLog(@"playing error = %@",[[player error] localizedDescription]);
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:[playingAudio url]];
+            [player replaceCurrentItemWithPlayerItem:playerItem];
+            [player play];
+            
+            if ([player error] != nil) {
+                NSLog(@"playing error = %@",[[player error] localizedDescription]);
+            }
+        });
 #endif
     }
 }

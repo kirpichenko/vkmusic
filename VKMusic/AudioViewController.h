@@ -14,8 +14,9 @@
     __weak IBOutlet UITextField *searchField;
 }
 
-- (void) audioHaveBeenLoaded:(NSArray *) audio;
-- (void) filterRecords:(NSString *) filter;
+- (void)audioHaveBeenLoaded:(NSArray *)audio;
+- (void)audioLoadingFailed:(NSError *)error;
+- (void)filterRecords:(NSString *)filter;
 
 @property (nonatomic,strong,readonly) NSArray *audioRecords;
 @property (nonatomic,strong,readonly) NSArray *filteredRecords;

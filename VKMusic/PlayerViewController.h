@@ -8,15 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@class NGTabBarController;
+@class MenuTabBarController;
 @class PlayerView;
 
 @interface PlayerViewController : UIViewController
 {
     __weak IBOutlet UIView *contentView;
     __weak IBOutlet PlayerView *playerView;
+    __weak IBOutlet UILabel *titleLabel;
+    __weak IBOutlet UITextView *lyricsTextView;
     
-    NGTabBarController *tabBarController;
+    MenuTabBarController *tabBarController;
 }
 
 - (id) initWithPlayer:(AudioPlayer *) player;

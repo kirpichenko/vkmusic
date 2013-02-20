@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseApiRequest.h"
 
-@interface AudioGetRequestObject : UIView
+@interface AudioGetApiRequest : BaseApiRequest
 
 @property (nonatomic,assign) NSInteger userID;
 @property (nonatomic,assign) NSInteger count;
 @property (nonatomic,assign) NSInteger offset;
+@property (nonatomic,assign) NSInteger albumID;
 
 @end

@@ -76,8 +76,8 @@ describe(@"AudioPlayer", ^{
             });
             
             it(@"playing audio id should be equal to audio id from the set list", ^{
-                Audio *firstAudio = [audioList objectAtIndex:0];
-                Audio *playingAudio = [player playingAudio];
+                id<Audio> firstAudio = [audioList objectAtIndex:0];
+                id<Audio> playingAudio = [player playingAudio];
                 expect([playingAudio audioID]).to(equal([firstAudio audioID]));
             });
         });
@@ -96,8 +96,8 @@ describe(@"AudioPlayer", ^{
             });
             
             it(@"playing audio id should be equal to audio id from the set list", ^{
-                Audio *secondAudio = [audioList objectAtIndex:1];
-                Audio *playingAudio = [player playingAudio];
+                id<Audio> secondAudio = [audioList objectAtIndex:1];
+                id<Audio> playingAudio = [player playingAudio];
                 expect([playingAudio audioID]).to(equal([secondAudio audioID]));
             });
         });
@@ -135,8 +135,8 @@ describe(@"AudioPlayer", ^{
             });
             
             it(@"playing audio id should be equal to audio id from the set list", ^{
-                Audio *secondAudio = [audioList objectAtIndex:1];
-                Audio *playingAudio = [player playingAudio];
+                id<Audio> secondAudio = [audioList objectAtIndex:1];
+                id<Audio> playingAudio = [player playingAudio];
                 expect([playingAudio audioID]).to(equal([secondAudio audioID]));
             });
         });
@@ -157,8 +157,8 @@ describe(@"AudioPlayer", ^{
             });
             
             it(@"playing audio id should be equal to audio id from the set list", ^{
-                Audio *firstAudio = [audioList objectAtIndex:0];
-                Audio *playingAudio = [player playingAudio];
+                id<Audio> firstAudio = [audioList objectAtIndex:0];
+                id<Audio> playingAudio = [player playingAudio];
                 expect([playingAudio audioID]).to(equal([firstAudio audioID]));
             });
         });

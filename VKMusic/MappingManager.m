@@ -30,4 +30,13 @@
     return mapping;
 }
 
+- (Mapping *)albumMapping
+{
+    Mapping *mapping = [[Mapping alloc] init];
+    [mapping mapProperty:@"ownerID" withKey:@"owner_id"];
+    [mapping mapProperty:@"albumID" withKey:@"album_id"];
+    [mapping mapProperties:@[@"title"]];
+    return mapping;
+}
+
 @end

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface PlaylistsViewController : UIViewController
+{
+    __weak IBOutlet UITableView *albumsList;
+}
 
 @end

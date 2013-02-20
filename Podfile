@@ -8,5 +8,7 @@ platform :ios, '5.0'
 target :'VKMusic-UnitTests' do
     pod 'Cedar'
     pod 'OCMock'
+    pod 'Expecta'
+    pod 'OHHTTPStubs'
     pod 'SBJson'
 end

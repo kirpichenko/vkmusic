@@ -1,6 +1,6 @@
 #import "ResponseParser.h"
 #import "NSDictionary+LoadFromJsonFile.h"
-#import "Audio.h"
+#import "OnlineAudio.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
@@ -28,7 +28,7 @@ describe(@"ResponseParser", ^{
         });
         
         context (@"Audio file parsing",^{
-            __block Audio *audio;
+            __block OnlineAudio *audio;
             
             beforeEach(^{
                 audio = [audioList objectAtIndex:0];

@@ -34,9 +34,6 @@
     [settings setAccessToken:nil];
     [settings setAuthorizedUserID:NSNotFound];
     [settings saveSettings];
-    
-    RequestManager *manager = [RequestManager sharedInstance];
-    [manager setAccessToken:nil];
 }
 
 - (void) deleteCookies

@@ -14,9 +14,11 @@
 
 static NSString *kPlayingAudioKey = @"playingAudio";
 static const float kHorizontalOffset = 7.f;
+static const NSTimeInterval kAnimationDuration = 0.5;
 
 @interface PlayerView ()
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, readwrite) BOOL lyricsDisplayed;
 @end
 
 @implementation PlayerView
@@ -36,6 +38,19 @@ static const float kHorizontalOffset = 7.f;
 {
     [self stopTimer];
     [self setPlayer:nil];
+}
+
+#pragma mark -
+#pragma mark instance methods
+
+- (void)setLyricsHidden:(BOOL)hidden
+{
+    [self setLyricsDisplayed:!hidden];
+    
+    [UIView animateWithDuration:kAnimationDuration
+                     animations:^{
+                         [self layoutSubviews];
+                     }];
 }
 
 #pragma mark -
@@ -124,6 +139,7 @@ static const float kHorizontalOffset = 7.f;
     [audioCurrentTime setX:CGRectGetMaxX([progressView frame]) - audioCurrentTime.width];
     
     [audioTitle setWidth:audioCurrentTime.x - audioTitle.x - kHorizontalOffset];
+    [lyricTextView setY:[self lyricsDisplayed] ? 0 : CGRectGetMaxY([contentView frame])];
 }
 
 @end

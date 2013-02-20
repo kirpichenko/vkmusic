@@ -116,6 +116,8 @@
 		D9C4181916A213630011F600 /* EKFilesMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CA2169A153300735A31 /* EKFilesMemoryCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D9C4181A16A213630011F600 /* EKFileOnDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CA4169A153300735A31 /* EKFileOnDiskCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D9C4181B16A213790011F600 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DC647B1699C0B800E0D34B /* AVFoundation.framework */; };
+		D9C9B95516D55C670054BB2B /* MenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C9B95416D55C670054BB2B /* MenuTabBarController.m */; };
+		D9C9B95616D55C670054BB2B /* MenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C9B95416D55C670054BB2B /* MenuTabBarController.m */; };
 		D9CB7BE816D17039006E7A08 /* AudioSearchApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CB7BE716D17039006E7A08 /* AudioSearchApiRequest.m */; };
 		D9CB7BE916D17039006E7A08 /* AudioSearchApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CB7BE716D17039006E7A08 /* AudioSearchApiRequest.m */; };
 		D9CB7BF516D172AD006E7A08 /* UIAlertView+Displaying.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CB7BF416D172AD006E7A08 /* UIAlertView+Displaying.m */; };
@@ -252,6 +254,8 @@
 		D9C4180516A20D770011F600 /* AudioPlayerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioPlayerSpec.mm; sourceTree = "<group>"; };
 		D9C4180716A20EB70011F600 /* NSObject+NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NotificationCenter.h"; sourceTree = "<group>"; };
 		D9C4180816A20EB70011F600 /* NSObject+NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NotificationCenter.m"; sourceTree = "<group>"; };
+		D9C9B95316D55C670054BB2B /* MenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTabBarController.h; sourceTree = "<group>"; };
+		D9C9B95416D55C670054BB2B /* MenuTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTabBarController.m; sourceTree = "<group>"; };
 		D9CB7BE616D17039006E7A08 /* AudioSearchApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSearchApiRequest.h; sourceTree = "<group>"; };
 		D9CB7BE716D17039006E7A08 /* AudioSearchApiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSearchApiRequest.m; sourceTree = "<group>"; };
 		D9CB7BF316D172AD006E7A08 /* UIAlertView+Displaying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Displaying.h"; sourceTree = "<group>"; };
@@ -610,6 +614,7 @@
 			children = (
 				D98B559D16B58F8300E0452A /* AudioViewController */,
 				D9DC646E1699AA1500E0D34B /* PlayerController */,
+				D9C9B95216D55BFC0054BB2B /* MenuTabBarController */,
 				D9DC646816999D6600E0D34B /* SavedViewController */,
 				D9B5F5B716976BF0006E77D2 /* UsersAudioViewController */,
 				D9DC646116999C1700E0D34B /* PlaylistsViewController */,
@@ -810,6 +815,15 @@
 				D91750F916C9A5AE00A00448 /* UsersAudioViewController.xib */,
 			);
 			name = UsersAudioViewController;
+			sourceTree = "<group>";
+		};
+		D9C9B95216D55BFC0054BB2B /* MenuTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				D9C9B95316D55C670054BB2B /* MenuTabBarController.h */,
+				D9C9B95416D55C670054BB2B /* MenuTabBarController.m */,
+			);
+			name = MenuTabBarController;
 			sourceTree = "<group>";
 		};
 		D9CB7BE516D17017006E7A08 /* AudioSearchApiRequest */ = {
@@ -1109,6 +1123,7 @@
 				D9CB7BF516D172AD006E7A08 /* UIAlertView+Displaying.m in Sources */,
 				D9CB7BFA16D176B7006E7A08 /* BaseApiRequest.m in Sources */,
 				D9CB7BFF16D17D84006E7A08 /* ApiRequestManager.m in Sources */,
+				D9C9B95516D55C670054BB2B /* MenuTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1164,6 +1179,7 @@
 				D9CB7BF616D172AD006E7A08 /* UIAlertView+Displaying.m in Sources */,
 				D9CB7BFB16D176B7006E7A08 /* BaseApiRequest.m in Sources */,
 				D9CB7C0016D17D84006E7A08 /* ApiRequestManager.m in Sources */,
+				D9C9B95616D55C670054BB2B /* MenuTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

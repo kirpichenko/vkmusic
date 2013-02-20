@@ -7,19 +7,12 @@
 //
 
 #import "PlayerViewController.h"
-
-#import "UsersAudioViewController.h"
-#import "PlaylistsViewController.h"
-#import "SavedViewController.h"
-#import "SearchViewController.h"
-#import "SettingsViewController.h"
+#import "MenuTabBarController.h"
 
 #import "PlayerView.h"
 #import "AudioPlayer.h"
 
-#import <NGTabBarController/NGTabBarController.h>
-
-@interface PlayerViewController () <NGTabBarControllerDelegate>
+@interface PlayerViewController () <MenuTabBarControllerDelegate>
 @property (nonatomic, strong) AudioPlayer *player;
 @end
 
@@ -31,17 +24,8 @@
 - (id) initWithPlayer:(AudioPlayer *) player
 {
     if (self = [super initWithNibName:nil bundle:nil]) {
-        NSArray *controllers = @[
-            [self controllerOfClass:[UsersAudioViewController class] itemTitle:@"Аудиозаписи" image:nil],
-            [self controllerOfClass:[PlaylistsViewController class] itemTitle:@"Альбомы" image:nil],
-            [self controllerOfClass:[SavedViewController class] itemTitle:@"Сохраненные" image:nil],
-            [self controllerOfClass:[SearchViewController class] itemTitle:@"Поиск" image:nil],
-            [self controllerOfClass:[SettingsViewController class] itemTitle:@"Настройки" image:nil],
-        ];
-        
-        tabBarController = [[NGTabBarController alloc] initWithDelegate:self];
-        [tabBarController setViewControllers:controllers];
-
+        tabBarController = [[MenuTabBarController alloc] init];
+        [tabBarController setMenuDelegate:self];
         [self setPlayer:player];
     }
     return self;
@@ -50,16 +34,26 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-
-    [playerView setPlayer:[self player]];
-    [contentView addSubview:[tabBarController view]];
+    
+    [playerView setPlayer:[self player]];    
     [titleLabel setText:[tabBarController selectedViewController].ng_tabBarItem.title];
     
-    [[tabBarController view] setFrame:[contentView bounds]];
-    [[tabBarController view] setAutoresizingMask:(UIViewAutoresizingFlexibleHeight |
-                                                  UIViewAutoresizingFlexibleWidth)];
+    UIView *tabBarView = [tabBarController view];
+    [contentView addSubview:tabBarView];
+    [tabBarView setFrame:[contentView bounds]];
+    [tabBarView setAutoresizingMask:(UIViewAutoresizingFlexibleHeight |
+                                     UIViewAutoresizingFlexibleWidth)];
 
     [self addSwipeToPopController];
+}
+
+- (void)viewDidUnload {
+    titleLabel = nil;
+    lyricsTextView = nil;
+    contentView = nil;
+    playerView = nil;
+    
+    [super viewDidUnload];
 }
 
 - (void) dealloc
@@ -68,43 +62,11 @@
 }
 
 #pragma mark -
-#pragma mark helpers
+#pragma mark MenuTabBarControllerDelegate
 
-- (UIViewController *) controllerOfClass:(Class) ControllerClass
-                               itemTitle:(NSString *) title
-                                   image:(UIImage *) image
+- (void)tabBar:(MenuTabBarController *)tabBar didSelectController:(UIViewController *)controller
 {
-    UIViewController *controller = [[ControllerClass alloc] init];
-    UINavigationController *navigation = [[UINavigationController alloc]
-                                          initWithRootViewController:controller];
-    [navigation setNavigationBarHidden:YES];
-    navigation.ng_tabBarItem = [NGTabBarItem itemWithTitle:title image:image];
-    return navigation;
-}
-
-#pragma mark -
-#pragma mark NGTabBarControllerDelegate
-
-- (CGSize)tabBarController:(NGTabBarController *)tabBarController
-sizeOfItemForViewController:(UIViewController *)viewController
-                   atIndex:(NSUInteger)index
-                  position:(NGTabBarPosition)position
-{
-    return CGSizeMake(45, 45);
-}
-
-- (void)tabBarController:(NGTabBarController *)tabBarController
- didSelectViewController:(UIViewController *)viewController
-                 atIndex:(NSUInteger)index
-{
-    [titleLabel setText:viewController.ng_tabBarItem.title];
-}
-
-- (void)verticalTabBarController:(NGTabBarController *)tabBarController
-         didSelectViewController:(UIViewController *)viewController
-                        atIndex:(NSInteger)index
-{
-    NSLog(@"just fixes bug when delegate method isn't called");
+    [titleLabel setText:[controller.ng_tabBarItem title]];
 }
 
 #pragma mark -
@@ -127,7 +89,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
 #pragma mark -
 #pragma mark actions
 
-- (IBAction) playPause
+- (IBAction)playPause
 {
     AudioPlayer *player = [self player];
     if ([player state] == kAudioPlayerStatePaused) {
@@ -138,18 +100,19 @@ sizeOfItemForViewController:(UIViewController *)viewController
     }
 }
 
-- (IBAction) playNextAudio
+- (IBAction)playNextAudio
 {
     [[self player] playNextAudio];
 }
 
-- (IBAction) playPreviousAudio
+- (IBAction)playPreviousAudio
 {
     [[self player] playPreviousAudio];
 }
 
-- (void)viewDidUnload {
-    titleLabel = nil;
-    [super viewDidUnload];
+- (IBAction)showHideLyricsView
+{
+    [playerView setLyricsHidden:[playerView lyricsDisplayed]];
 }
+
 @end

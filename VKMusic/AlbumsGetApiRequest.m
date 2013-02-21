@@ -7,6 +7,7 @@
 //
 
 #import "AlbumsGetApiRequest.h"
+#import "MappingManager.h"
 
 @implementation AlbumsGetApiRequest
 
@@ -21,13 +22,9 @@
             [self offset]];
 }
 
-- (ParsingBlock)apiResponseParsingBlock
+- (ObjectMapping *)responseObjectsMapping
 {
-    ParsingBlock parsingBlock =  ^(ResponseParser *parser,id JSON){
-        return [parser parseAlbumsListFromResponse:JSON];
-    };
-    return parsingBlock;
+    return [[MappingManager sharedInstance] albumMapping];
 }
-
 
 @end

@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Mapping.h"
+#import "ObjectMapping.h"
 
 @interface MappingManager : NSObject
 
 + (id)sharedInstance;
 
-- (Mapping *)audioMapping;
-- (Mapping *)albumMapping;
+- (ObjectMapping *)audioMapping;
+- (ObjectMapping *)albumMapping;
 
 @end

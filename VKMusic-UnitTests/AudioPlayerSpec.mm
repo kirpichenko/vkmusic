@@ -1,5 +1,5 @@
 #import "AudioPlayer.h"
-#import "ResponseParser.h"
+#import "AudioGetApiRequest.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
@@ -19,8 +19,6 @@ describe(@"AudioPlayer", ^{
         });
         
         it(@"audio list should be nil", ^{
-            //equal record doesn't work by unknown reason
-            //expect([player audioList]).to(be_nil);
             expect([player audioList] == nil).to(be_truthy);
         });
         
@@ -29,8 +27,6 @@ describe(@"AudioPlayer", ^{
         });
         
         it(@"playing audio should be nil", ^{
-            //equal record doesn't work by unknown reason
-            //expect([player playingAudio]).to(be_nil);
             expect([player playingAudio] == nil).to(be_truthy);
         });
     });
@@ -39,9 +35,9 @@ describe(@"AudioPlayer", ^{
         __block NSArray *audioList;
         
         beforeEach(^{
-            ResponseParser *parser = [[ResponseParser alloc] init];
-            NSDictionary *response = [NSDictionary dictionaryFromJsonFileNamed:@"GetAudioResponse"];
-            audioList = [parser parseAudioListFromResponse:response];
+            AudioGetApiRequest *apiRequest = [[AudioGetApiRequest alloc] init];
+            NSDictionary *response = [NSDictionary dictionaryFromJsonFileNamed:@"AudioGetResponse"];
+            audioList = [apiRequest parseJSONResponse:response];
             
             [player setAudioList:audioList];
         });

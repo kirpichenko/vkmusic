@@ -7,6 +7,7 @@
 //
 
 #import "BaseApiRequest.h"
+#import "ObjectMapping.h"
 
 @implementation BaseApiRequest
 
@@ -40,13 +41,49 @@
 
 - (NSString *)apiQuery
 {
-    [NSException raise:@"Exception:" format:@"Implement query method in subclass"];
+    [NSException raise:@"Exception:" format:@"Implement - (NSString *)apiQuery method in subclass"];
     return nil;
 }
 
-- (ParsingBlock)apiResponseParsingBlock
+- (ObjectMapping *)responseObjectsMapping
 {
-    [NSException raise:@"Exception:" format:@"Implement apiResponseParsingBlock method in subclass"];
+    [NSException raise:@"Exception" format:@"Implement - (ObjectMapping *)responseObjectsMapping method in subclass"];
+    return nil;
+}
+
+- (id)parseJSONResponse:(id)JSON
+{
+    id responseData = [JSON objectForKey:@"response"];
+    if (responseData == nil) {
+        return nil;
+    }
+    
+    ObjectMapping *objectMapping = [self responseObjectsMapping];
+    if ([responseData isKindOfClass:[NSArray class]]) {
+        return [self parseArray:responseData withObjectMapping:objectMapping];
+    }
+    else {
+        return [objectMapping mappedObjectWithProperties:responseData];
+    }
+}
+
+- (id)parseArray:(id)JSON withObjectMapping:(ObjectMapping *)objectMapping
+{
+    NSMutableArray *parsedList = [NSMutableArray arrayWithCapacity:[JSON count]];
+    for (NSDictionary *objectProperties in JSON) {
+        id object = [self parseObject:objectProperties withObjectMapping:objectMapping];
+        if (object != nil) {
+            [parsedList addObject:object];
+        }
+    }
+    return parsedList;
+}
+
+- (id)parseObject:(id)JSON withObjectMapping:(ObjectMapping *)objectMapping
+{
+    if ([JSON isKindOfClass:[NSDictionary class]]) {
+        return [objectMapping mappedObjectWithProperties:JSON];
+    }
     return nil;
 }
 

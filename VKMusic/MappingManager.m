@@ -8,6 +8,9 @@
 
 #import "MappingManager.h"
 
+#import "Album.h"
+#import "OnlineAudio.h"
+
 @implementation MappingManager
 
 + (id) sharedInstance
@@ -20,22 +23,22 @@
     return manager;
 }
 
-- (Mapping *) audioMapping
+- (ObjectMapping *) audioMapping
 {
-    Mapping *mapping = [[Mapping alloc] init];
-    [mapping mapProperties:@[@"artist",@"duration",@"title"]];
-    [mapping mapProperty:@"audioID" withKey:@"aid"];
-    [mapping mapProperty:@"lyricsID" withKey:@"lyrics_id"];
-    [mapping mapProperty:@"ownerID" withKey:@"owner_id"];
+    ObjectMapping *mapping = [[ObjectMapping alloc] initWithObjectClass:[OnlineAudio class]];
+    [mapping mapPropertyNames:@[@"artist",@"duration",@"title",@"url"]];
+    [mapping mapResourceName:@"audioID" forPropertyName:@"aid"];
+    [mapping mapResourceName:@"lyricsID" forPropertyName:@"lyrics_id"];
+    [mapping mapResourceName:@"ownerID" forPropertyName:@"owner_id"];
     return mapping;
 }
 
-- (Mapping *)albumMapping
+- (ObjectMapping *)albumMapping
 {
-    Mapping *mapping = [[Mapping alloc] init];
-    [mapping mapProperty:@"ownerID" withKey:@"owner_id"];
-    [mapping mapProperty:@"albumID" withKey:@"album_id"];
-    [mapping mapProperties:@[@"title"]];
+    ObjectMapping *mapping = [[ObjectMapping alloc] initWithObjectClass:[Album class]];
+    [mapping mapResourceName:@"ownerID" forPropertyName:@"owner_id"];
+    [mapping mapResourceName:@"albumID" forPropertyName:@"album_id"];
+    [mapping mapPropertyNames:@[@"title"]];
     return mapping;
 }
 

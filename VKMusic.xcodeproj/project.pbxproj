@@ -46,15 +46,12 @@
 		D98C5DD5169883510084D92A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD2169883510084D92A /* MobileCoreServices.framework */; };
 		D98C5DD6169883510084D92A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD3169883510084D92A /* SystemConfiguration.framework */; };
 		D98C5DD7169883510084D92A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98C5DD3169883510084D92A /* SystemConfiguration.framework */; };
-		D98C5DDA169885D30084D92A /* ResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DD9169885D30084D92A /* ResponseParser.m */; };
-		D98C5DDB169885D30084D92A /* ResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DD9169885D30084D92A /* ResponseParser.m */; };
 		D98C5DDE169886FA0084D92A /* OnlineAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DDD169886FA0084D92A /* OnlineAudio.m */; };
 		D98C5DDF169886FA0084D92A /* OnlineAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DDD169886FA0084D92A /* OnlineAudio.m */; };
-		D98C5DE8169888F10084D92A /* Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DE7169888F10084D92A /* Mapping.m */; };
-		D98C5DE9169888F10084D92A /* Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DE7169888F10084D92A /* Mapping.m */; };
+		D98C5DE8169888F10084D92A /* ObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DE7169888F10084D92A /* ObjectMapping.m */; };
+		D98C5DE9169888F10084D92A /* ObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DE7169888F10084D92A /* ObjectMapping.m */; };
 		D98C5E35169892D00084D92A /* MappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E34169892D00084D92A /* MappingManager.m */; };
 		D98C5E36169892D00084D92A /* MappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E34169892D00084D92A /* MappingManager.m */; };
-		D98C5E38169894ED0084D92A /* ResponseParserSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */; };
 		D98C5E421698967C0084D92A /* NSDictionary+LoadFromJsonFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E411698967C0084D92A /* NSDictionary+LoadFromJsonFile.m */; };
 		D98C5E44169896A60084D92A /* AudioGetResponse in Resources */ = {isa = PBXBuildFile; fileRef = D98C5E43169896A60084D92A /* AudioGetResponse */; };
 		D98C5EB91698C9A30084D92A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5EB71698C9A30084D92A /* SettingsViewController.m */; };
@@ -182,15 +179,12 @@
 		D98C553916B4519F002536EF /* UITableView+CellCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CellCreation.m"; sourceTree = "<group>"; };
 		D98C5DD2169883510084D92A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D98C5DD3169883510084D92A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D98C5DD8169885D30084D92A /* ResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseParser.h; sourceTree = "<group>"; };
-		D98C5DD9169885D30084D92A /* ResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseParser.m; sourceTree = "<group>"; };
 		D98C5DDC169886FA0084D92A /* OnlineAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineAudio.h; sourceTree = "<group>"; };
 		D98C5DDD169886FA0084D92A /* OnlineAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineAudio.m; sourceTree = "<group>"; };
-		D98C5DE6169888F10084D92A /* Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mapping.h; sourceTree = "<group>"; };
-		D98C5DE7169888F10084D92A /* Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mapping.m; sourceTree = "<group>"; };
+		D98C5DE6169888F10084D92A /* ObjectMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectMapping.h; sourceTree = "<group>"; };
+		D98C5DE7169888F10084D92A /* ObjectMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectMapping.m; sourceTree = "<group>"; };
 		D98C5E33169892D00084D92A /* MappingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingManager.h; sourceTree = "<group>"; };
 		D98C5E34169892D00084D92A /* MappingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingManager.m; sourceTree = "<group>"; };
-		D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResponseParserSpec.mm; sourceTree = "<group>"; };
 		D98C5E401698967C0084D92A /* NSDictionary+LoadFromJsonFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LoadFromJsonFile.h"; sourceTree = "<group>"; };
 		D98C5E411698967C0084D92A /* NSDictionary+LoadFromJsonFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LoadFromJsonFile.m"; sourceTree = "<group>"; };
 		D98C5E43169896A60084D92A /* AudioGetResponse */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AudioGetResponse; sourceTree = "<group>"; };
@@ -322,7 +316,6 @@
 			children = (
 				D94BD73616CEB68900CC9891 /* ApiRequestSender */,
 				D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */,
-				D98C5E37169894ED0084D92A /* ResponseParserSpec.mm */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -553,13 +546,11 @@
 			name = SettingsManager;
 			sourceTree = "<group>";
 		};
-		D98C5DEC16988FE50084D92A /* Response Parser */ = {
+		D98C5DEC16988FE50084D92A /* ApiRequestParser */ = {
 			isa = PBXGroup;
 			children = (
-				D98C5DD8169885D30084D92A /* ResponseParser.h */,
-				D98C5DD9169885D30084D92A /* ResponseParser.m */,
 			);
-			name = "Response Parser";
+			name = ApiRequestParser;
 			sourceTree = "<group>";
 		};
 		D98C5E391698951C0084D92A /* FakeResponses */ = {
@@ -630,7 +621,7 @@
 			children = (
 				D91750F316C99CEA00A00448 /* ApiRequest */,
 				D94BD73216CD751C00CC9891 /* ApiRequestSender */,
-				D98C5DEC16988FE50084D92A /* Response Parser */,
+				D98C5DEC16988FE50084D92A /* ApiRequestParser */,
 				D9EB732C16CC3416003413FC /* FilesDownloader */,
 			);
 			name = Network;
@@ -934,8 +925,8 @@
 		D9EB732E16CC34E7003413FC /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
-				D98C5DE6169888F10084D92A /* Mapping.h */,
-				D98C5DE7169888F10084D92A /* Mapping.m */,
+				D98C5DE6169888F10084D92A /* ObjectMapping.h */,
+				D98C5DE7169888F10084D92A /* ObjectMapping.m */,
 			);
 			name = Mapping;
 			sourceTree = "<group>";
@@ -1088,9 +1079,8 @@
 				D99538411696194A00C8B6F4 /* SettingsManager.m in Sources */,
 				D99538481696214000C8B6F4 /* OAuthResponse.m in Sources */,
 				D9B5F5BB16976C3B006E77D2 /* UsersAudioViewController.m in Sources */,
-				D98C5DDA169885D30084D92A /* ResponseParser.m in Sources */,
 				D98C5DDE169886FA0084D92A /* OnlineAudio.m in Sources */,
-				D98C5DE8169888F10084D92A /* Mapping.m in Sources */,
+				D98C5DE8169888F10084D92A /* ObjectMapping.m in Sources */,
 				D98C5E35169892D00084D92A /* MappingManager.m in Sources */,
 				D98C5EB91698C9A30084D92A /* SettingsViewController.m in Sources */,
 				D98C5EBF1698C9D40084D92A /* PlaylistsViewController.m in Sources */,
@@ -1150,11 +1140,9 @@
 				D99538591696289F00C8B6F4 /* main.m in Sources */,
 				D957D6CF16962BEE001F352B /* OAuthResponseSpec.mm in Sources */,
 				D957D6D116962FA2001F352B /* OAuthResponse.m in Sources */,
-				D98C5DDB169885D30084D92A /* ResponseParser.m in Sources */,
 				D98C5DDF169886FA0084D92A /* OnlineAudio.m in Sources */,
-				D98C5DE9169888F10084D92A /* Mapping.m in Sources */,
+				D98C5DE9169888F10084D92A /* ObjectMapping.m in Sources */,
 				D98C5E36169892D00084D92A /* MappingManager.m in Sources */,
-				D98C5E38169894ED0084D92A /* ResponseParserSpec.mm in Sources */,
 				D98C5E421698967C0084D92A /* NSDictionary+LoadFromJsonFile.m in Sources */,
 				D9C4180616A20D770011F600 /* AudioPlayerSpec.mm in Sources */,
 				D9C4180A16A212790011F600 /* AudioPlayer.m in Sources */,

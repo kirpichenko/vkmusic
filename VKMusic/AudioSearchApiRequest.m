@@ -7,6 +7,7 @@
 //
 
 #import "AudioSearchApiRequest.h"
+#import "MappingManager.h"
 
 @implementation AudioSearchApiRequest
 
@@ -29,13 +30,9 @@
             [self offset]];
 }
 
-- (ParsingBlock)apiResponseParsingBlock
+- (ObjectMapping *)responseObjectsMapping
 {
-    ParsingBlock parsingBlock =  ^(ResponseParser *parser,id JSON){
-        return [parser parseAudioListFromResponse:JSON];
-    };
-    return parsingBlock;
+    return [[MappingManager sharedInstance] audioMapping];
 }
-
 
 @end

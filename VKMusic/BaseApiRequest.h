@@ -7,15 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ResponseParser.h"
-
-typedef id(^ParsingBlock)(ResponseParser *parser,id JSON);
 
 @interface BaseApiRequest : NSObject
 
 - (NSURLRequest *)apiURLRequest;
-- (NSString *)apiQuery;
-- (ParsingBlock)apiResponseParsingBlock;
+- (id)parseJSONResponse:(id)JSON;
 
 @property (nonatomic,copy) NSString *baseURL;
 @property (nonatomic,copy) NSString *apiPath;

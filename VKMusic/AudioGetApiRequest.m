@@ -7,6 +7,7 @@
 //
 
 #import "AudioGetApiRequest.h"
+#import "MappingManager.h"
 
 @implementation AudioGetApiRequest
 
@@ -22,12 +23,9 @@
             [self albumID]];
 }
 
-- (ParsingBlock)apiResponseParsingBlock
+- (ObjectMapping *)responseObjectsMapping
 {
-    ParsingBlock parsingBlock =  ^(ResponseParser *parser,id JSON){
-        return [parser parseAudioListFromResponse:JSON];
-    };
-    return parsingBlock;
+    return [[MappingManager sharedInstance] audioMapping];
 }
 
 @end

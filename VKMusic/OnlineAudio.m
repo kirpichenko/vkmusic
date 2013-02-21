@@ -10,5 +10,14 @@
 
 @implementation OnlineAudio
 
+- (void)setValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqualToString:@"url"]) {
+        [self setUrl:[NSURL URLWithString:value]];
+    }
+    else {
+        [super setValue:value forKey:key];
+    }
+}
 
 @end

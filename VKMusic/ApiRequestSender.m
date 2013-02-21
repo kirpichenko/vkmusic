@@ -9,10 +9,7 @@
 #import "ApiRequestSender.h"
 #import "ApiRequestConstants.h"
 
-#import "ResponseParser.h"
-
 #import <AFNetworking/AFNetworking.h>
-//#import <objc/objc-runtime.h>
 
 typedef void(^AFSuccessBlock)(NSURLRequest *,NSHTTPURLResponse *,id);
 typedef void(^AFFailureBlock)(NSURLRequest *,NSHTTPURLResponse *, NSError *, id JSON);
@@ -29,20 +26,14 @@ typedef void(^AFFailureBlock)(NSURLRequest *,NSHTTPURLResponse *, NSError *, id 
     return sharedInstance;
 }
 
-- (id) init
-{
-    if (self = [super init]) {
-        parser = [[ResponseParser alloc] init];
-    }
-    return self;
-}
+#pragma mark -
+#pragma mark instance methods
 
 - (void)sendApiRequest:(BaseApiRequest *)apiRequest
                success:(ApiRequestSuccessBlock)success
                failure:(ApiRequestFailureBlock)failure
 {
-    AFSuccessBlock successBlock = [self successBlockWithCallback:success
-                                                    parsingBlock:[apiRequest apiResponseParsingBlock]];
+    AFSuccessBlock successBlock = [self successBlockWithCallback:success apiRequest:apiRequest];
     AFFailureBlock failureBlock = [self failureBlockWithCallback:failure];
     
     [[AFJSONRequestOperation JSONRequestOperationWithRequest:[apiRequest apiURLRequest]
@@ -54,13 +45,13 @@ typedef void(^AFFailureBlock)(NSURLRequest *,NSHTTPURLResponse *, NSError *, id 
 #pragma mark helpers
 
 - (AFSuccessBlock)successBlockWithCallback:(ApiRequestSuccessBlock)success
-                              parsingBlock:(id(^)(ResponseParser *,id))parsingBlock
+                                apiRequest:(BaseApiRequest *)apiRequest
 {
     AFSuccessBlock successBlock =
     ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         if (success) {
             NSLog(@"request = %@, response = %@",[[request URL] absoluteString],JSON);
-            success(parsingBlock(parser,JSON));
+            success([apiRequest parseJSONResponse:JSON]);
         }
     };
     return successBlock;
@@ -73,8 +64,7 @@ typedef void(^AFFailureBlock)(NSURLRequest *,NSHTTPURLResponse *, NSError *, id 
         if (failure) {
             failure(error);
         }
-    };
-    
+    };    
     return operationFailure;
 }
 

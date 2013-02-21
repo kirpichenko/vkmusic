@@ -13,11 +13,11 @@
 typedef void(^ApiRequestSuccessBlock)(id response);
 typedef void(^ApiRequestFailureBlock)(NSError *error);
 
-@class ResponseParser;
+@class ApiRequestParser;
 
 @interface ApiRequestSender : NSObject
 {
-    ResponseParser *parser;
+    ApiRequestParser *parser;
 }
 
 + (id)sharedInstance;

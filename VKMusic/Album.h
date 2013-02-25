@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ApiModel.h"
 
-@interface Album : NSObject
+@interface Album : NSObject <ApiModel>
 
 @property (nonatomic,assign) NSInteger ownerID;
 @property (nonatomic,assign) NSInteger albumID;

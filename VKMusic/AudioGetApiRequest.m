@@ -7,9 +7,19 @@
 //
 
 #import "AudioGetApiRequest.h"
-#import "MappingManager.h"
 
 @implementation AudioGetApiRequest
+
+#pragma mark -
+#pragma mark life cycle
+
+- (id)init
+{
+    if (self = [super init]) {
+        [self setApiPath:kAudioGetApiPath];
+    }
+    return self;
+}
 
 #pragma mark -
 #pragma marl instance methods
@@ -25,7 +35,7 @@
 
 - (ObjectMapping *)responseObjectsMapping
 {
-    return [[MappingManager sharedInstance] audioMapping];
+    return [OnlineAudio apiResponseMapping];
 }
 
 @end

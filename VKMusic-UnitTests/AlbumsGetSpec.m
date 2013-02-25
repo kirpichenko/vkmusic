@@ -19,10 +19,14 @@ describe(@"AlbumsGetApiRequest", ^{
         sender = [[ApiRequestSender alloc] init];
         [sender sendApiRequest:albumsGetApiRequest(16)
                        success:^(id response) {
-                           NSLog(@"albums = %@",response);
-                           albums = response;
+                           if (albums == nil) {
+                               NSLog(@"albums = %@",response);
+                               albums = response;
+                           }                           
                        }
-                       failure:nil];
+                       failure:^(NSError *error){
+                           NSLog(@"alerror = %@",error);
+                       }];
     });
     
     it(@"albums count should be 2",^{

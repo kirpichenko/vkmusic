@@ -8,7 +8,7 @@
 
 #import "UsersAudioViewController.h"
 
-#import "OnlineAudio.h"
+#import "AudioGetApiRequest.h"
 #import "AudioCell.h"
 #import "UITableView+CellCreation.h"
 
@@ -171,10 +171,7 @@ static const NSInteger kAudioCountPerRequest = 50;
 
 - (AudioGetApiRequest *)audioApiRequest
 {
-    ApiRequestManager *manager = [[ApiRequestManager alloc] init];
-
-    Class ApiRequestClass = [AudioGetApiRequest class];
-    AudioGetApiRequest *model = [manager apiRequestTemplateOfClass:ApiRequestClass];
+    AudioGetApiRequest *model = [[AudioGetApiRequest alloc] init];
 
     [model setUserID:[[SettingsManager sharedInstance] authorizedUserID]];
     [model setCount:kAudioCountPerRequest];

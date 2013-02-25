@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseApiRequest.h"
+#import "OnlineAudio.h"
 
 @interface AudioGetApiRequest : BaseApiRequest
 

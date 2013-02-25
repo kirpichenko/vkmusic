@@ -8,13 +8,17 @@
 #warning "This project uses features only available in iOS SDK 3.0 and later."
 #endif
 
+#define CEDAR_MATCHERS_COMPATIBILITY_MODE
+#define EXP_SHORTHAND
+
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 
     #import <Cedar-iOS/SpecHelper.h>
-#import <OHHTTPStubs/OHHTTPStubs.h>
+    #import <OHHTTPStubs/OHHTTPStubs.h>
     #import "NSDictionary+LoadFromJsonFile.h"
+    #import "Expecta.h"
 
     #import <MobileCoreServices/MobileCoreServices.h>
     #import <SystemConfiguration/SystemConfiguration.h>
@@ -25,7 +29,6 @@
     #import "ApiRequestSender.h"
     #import "AudioPlayer.h"
 
-    #import "ApiRequestManager.h"
     #import "SettingsManager.h"
     #import "OfflineAudioManager.h"
     #import "EKKeyboardAvoidingScrollViewManager.h"

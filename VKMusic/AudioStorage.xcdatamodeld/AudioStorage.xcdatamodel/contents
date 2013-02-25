@@ -5,9 +5,10 @@
         <attribute name="audioID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="audioURL" attributeType="String" syncable="YES"/>
         <attribute name="duration" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lyricsID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="OfflineAudio" positionX="0" positionY="0" width="128" height="118"/>
+        <element name="OfflineAudio" positionX="0" positionY="0" width="128" height="133"/>
     </elements>
 </model>

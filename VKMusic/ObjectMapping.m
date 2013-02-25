@@ -31,12 +31,12 @@
 #pragma mark -
 #pragma mark instance methods
 
-- (void)mapResourceName:(NSString *)name forPropertyName:(NSString *)key
+- (void)mapObjectProperty:(NSString *)name forResource:(NSString *)key
 {
     [mappingProperties setObject:key forKey:name];
 }
 
-- (void)mapPropertyNames:(NSArray *)properties
+- (void)mapObjectProperties:(NSArray *)properties
 {
     for (NSString *propertyName in properties) {
         [mappingProperties setObject:propertyName forKey:propertyName];

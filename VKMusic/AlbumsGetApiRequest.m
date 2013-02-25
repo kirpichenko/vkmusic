@@ -7,9 +7,16 @@
 //
 
 #import "AlbumsGetApiRequest.h"
-#import "MappingManager.h"
 
 @implementation AlbumsGetApiRequest
+
+- (id)init
+{
+    if (self = [super init]) {
+        [self setApiPath:kAlbumsGetApiPath];
+    }
+    return self;
+}
 
 #pragma mark -
 #pragma marl instance methods
@@ -24,7 +31,7 @@
 
 - (ObjectMapping *)responseObjectsMapping
 {
-    return [[MappingManager sharedInstance] albumMapping];
+    return [Album apiResponseMapping];
 }
 
 @end

@@ -20,7 +20,7 @@
 
 @implementation MenuTabBarController 
 
-- (id)init
+- (id)initWithDelegate:(id<MenuTabBarControllerDelegate>)delegate
 {
     if (self = [super initWithDelegate:self]) {
         NSArray *controllers = @[
@@ -31,8 +31,14 @@
             [self pageOfClass:[SettingsViewController class] itemTitle:@"Настройки" image:nil]
         ];
         [self setViewControllers:controllers];
+        [self setMenuDelegate:delegate];
     }
     return self;
+}
+
+- (id)init
+{
+    return [self initWithDelegate:nil];
 }
 
 #pragma mark -

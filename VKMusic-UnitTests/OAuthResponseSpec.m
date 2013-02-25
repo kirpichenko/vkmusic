@@ -1,8 +1,5 @@
 #import "OAuthResponse.h"
 
-using namespace Cedar::Matchers;
-using namespace Cedar::Doubles;
-
 SPEC_BEGIN(OAuthResponseSpec)
 
 describe(@"OAuthResponse", ^{
@@ -25,15 +22,15 @@ describe(@"OAuthResponse", ^{
         
         it(@"accessToken should be \"533bacf01e11f55b536a565b57531ad114461ae8736d6506a3\"", ^{
             NSLog(@"resp = %@",oauthResponse);
-            expect([oauthResponse accessToken]).to(equal(@"533bacf01e11f55b536a565b57531ad114461ae8736d6506a3"));
+            expect([oauthResponse accessToken]).to.equal(@"533bacf01e11f55b536a565b57531ad114461ae8736d6506a3");
         });
         
         it(@"expirationDate should be close to 86400", ^{
-            expect([oauthResponse expirationDate]).to(be_close_to(86400));
+            expect([oauthResponse expirationDate]).to.beCloseTo(86400);
         });
         
         it(@"user_id should be 8492", ^{
-            expect([oauthResponse userID]).to(equal(8492));
+            expect([oauthResponse userID]).to.equal(8492);
         });
     });
     
@@ -51,7 +48,7 @@ describe(@"OAuthResponse", ^{
         });
         
         it(@"error should be \"Authorization+failed\"", ^{
-            expect([oauthResponse error]).to(equal(@"Authorization+failed"));
+            expect([oauthResponse error]).to.equal(@"Authorization+failed");
         });
     });
 });

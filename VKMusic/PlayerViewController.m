@@ -12,6 +12,11 @@
 #import "PlayerView.h"
 #import "AudioPlayer.h"
 
+#import "LyricsGetApiRequest.h"
+#import "ApiRequestSender.h"
+
+static NSString *kPlayingAudioKey = @"playingAudio";
+
 @interface PlayerViewController () <MenuTabBarControllerDelegate>
 @property (nonatomic, strong) AudioPlayer *player;
 @end
@@ -24,9 +29,13 @@
 - (id) initWithPlayer:(AudioPlayer *) player
 {
     if (self = [super initWithNibName:nil bundle:nil]) {
-        tabBarController = [[MenuTabBarController alloc] init];
-        [tabBarController setMenuDelegate:self];
-        [self setPlayer:player];
+        tabBarController = [[MenuTabBarController alloc] initWithDelegate:self];
+
+        [self setPlayer:player];        
+        [player addObserver:self
+                 forKeyPath:kPlayingAudioKey
+                    options:NSKeyValueObservingOptionNew
+                    context:nil];
     }
     return self;
 }
@@ -58,6 +67,7 @@
 
 - (void) dealloc
 {
+    [[self player] removeObserver:self forKeyPath:kPlayingAudioKey];
     [self setPlayer:nil];
 }
 
@@ -84,6 +94,44 @@
     UINavigationController *navigationController = (UINavigationController *)
     [tabBarController selectedViewController];    
     [navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark load lyrics
+
+- (LyricsGetApiRequest *)lyricsGetApiRequest
+{
+    LyricsGetApiRequest *apiRequest = [[LyricsGetApiRequest alloc] init];
+    [apiRequest setLyricsID:[[[self player] playingAudio] lyricsID]];
+    return apiRequest;
+}
+
+- (void)loadLyrics
+{
+    [[ApiRequestSender sharedInstance] sendApiRequest:[self lyricsGetApiRequest]
+                                              success:^(id response) {
+                                                  [self lyricsLoaded:response];
+                                              }
+                                              failure:^(NSError *error) {
+                                                  NSLog(@"lyrics error %@",error);
+                                              }];
+}
+
+- (void)lyricsLoaded:(Lyrics *)lyrics
+{
+    [lyricsTextView setText:[lyrics text]];
+}
+
+#pragma mark -
+#pragma mark observe audio change
+
+- (void) observeValueForKeyPath:(NSString *)keyPath
+                       ofObject:(id)object
+                         change:(NSDictionary *)change
+                        context:(void *)context
+{
+    [lyricsTextView setText:nil];
+    [self loadLyrics];
 }
 
 #pragma mark -

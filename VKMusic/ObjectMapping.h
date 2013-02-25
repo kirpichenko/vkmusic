@@ -15,8 +15,8 @@
 
 - (id)initWithObjectClass:(Class)ObjectClass;
 
-- (void)mapResourceName:(NSString *) name forPropertyName:(NSString *) key;
-- (void)mapPropertyNames:(NSArray *) properties;
+- (void)mapObjectProperty:(NSString *) name forResource:(NSString *) key;
+- (void)mapObjectProperties:(NSArray *) properties;
 
 - (id)mappedObjectWithProperties:(NSDictionary *) resource;
 

@@ -14,6 +14,15 @@
 #pragma mark -
 #pragma mark life cycle
 
+- (id)init
+{
+    if (self = [super init]) {
+        [self setBaseURL:kApiBaseURL];
+        [self setAccessToken:[[SettingsManager sharedInstance] accessToken]];
+    }
+    return self;
+}
+
 - (void)dealloc
 {
     [self setBaseURL:nil];

@@ -13,6 +13,7 @@
 
 @dynamic artist;
 @dynamic audioID;
+@dynamic lyricsID;
 @dynamic duration;
 @dynamic title;
 @dynamic audioURL;

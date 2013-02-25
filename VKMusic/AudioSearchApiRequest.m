@@ -7,12 +7,19 @@
 //
 
 #import "AudioSearchApiRequest.h"
-#import "MappingManager.h"
 
 @implementation AudioSearchApiRequest
 
 #pragma mark -
 #pragma mark life cycle
+
+- (id)init
+{
+    if (self = [super init]) {
+        [self setApiPath:kAudioSearchApiPath];
+    }
+    return self;
+}
 
 - (void)dealloc
 {
@@ -32,7 +39,7 @@
 
 - (ObjectMapping *)responseObjectsMapping
 {
-    return [[MappingManager sharedInstance] audioMapping];
+    return [OnlineAudio apiResponseMapping];
 }
 
 @end

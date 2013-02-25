@@ -53,7 +53,7 @@ describe(@"AudioGetApiRequestSender", ^{
             expect([audio duration]).will.beCloseTo(227);
         });
         
-        it(@"lyrics_id should be 4423020", ^{
+        it(@"lyricsID should be 4423020", ^{
             expect([audio lyricsID]).will.equal(4423020);
         });
         

@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Audio.h"
+#import "ApiModel.h"
 
-@interface OnlineAudio : NSObject <Audio>
+@interface OnlineAudio : NSObject <Audio,ApiModel>
 
 @property (nonatomic) NSInteger audioID;
 @property (nonatomic, strong) NSString *artist;

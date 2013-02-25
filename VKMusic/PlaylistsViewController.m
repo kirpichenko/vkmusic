@@ -108,10 +108,7 @@
 
 - (AlbumsGetApiRequest *)albumsGetApiRequest
 {
-    Class ApiRequestClass = [AlbumsGetApiRequest class];
-
-    ApiRequestManager *requestManager = [[ApiRequestManager alloc] init];
-    AlbumsGetApiRequest *apiRequest = [requestManager apiRequestTemplateOfClass:ApiRequestClass];
+    AlbumsGetApiRequest *apiRequest = [[AlbumsGetApiRequest alloc] init];
     [apiRequest setUserID:[[SettingsManager sharedInstance] authorizedUserID]];
 
     return apiRequest;

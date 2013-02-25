@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseApiRequest.h"
+#import "Audio.h"
 
-@interface AudioSearchApiRequest : NSObject
+@interface AudioSearchApiRequest : BaseApiRequest
 
 @property (nonatomic,copy) NSString *query;
 @property (nonatomic) NSInteger count;

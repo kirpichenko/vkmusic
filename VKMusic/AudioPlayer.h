@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "OnlineAudio.h"
+#import "Audio.h"
 
 typedef enum {
     kAudioPlayerStateReady = 0, 
@@ -25,24 +25,24 @@ typedef enum {
     AudioSessionConfigurator *sessionConfigurator;
 }
 
-+ (id) sharedInstance;
++ (id)sharedInstance;
 
-- (void) play;
-- (void) playAudioAtIndex:(NSInteger) index;
-- (void) playNextAudio;
-- (void) playPreviousAudio;
+- (void)play;
+- (void)playAudioAtIndex:(NSInteger) index;
+- (void)playNextAudio;
+- (void)playPreviousAudio;
 
-- (void) resume;
-- (void) pause;
-- (void) stop;
+- (void)resume;
+- (void)pause;
+- (void)stop;
 
-- (NSTimeInterval) currentTime;
+- (NSTimeInterval)currentTime;
 
-- (void) processAudioEvent:(UIEventSubtype)type;
+- (void)processAudioEvent:(UIEventSubtype)type;
 
 @property (nonatomic, readonly) AudioPlayerState state;
 @property (nonatomic, copy) NSArray *audioList;
 @property (nonatomic, readonly) NSInteger playingIndex;
-@property (nonatomic, readonly) OnlineAudio *playingAudio;
+@property (nonatomic, readonly) id<Audio> playingAudio;
 
 @end

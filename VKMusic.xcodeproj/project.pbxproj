@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		07F29BD556D94D2BBFDE0DC7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB5601261D84360B6711408 /* libPods.a */; };
 		D9174FEE16CE5AAB00E1D735 /* GetAlbumsResponse in Resources */ = {isa = PBXBuildFile; fileRef = D9174FED16CE5AAB00E1D735 /* GetAlbumsResponse */; };
-		D9174FF316CE647700E1D735 /* AudioGetApiRequestSenderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D9174FF216CE647700E1D735 /* AudioGetApiRequestSenderSpec.m */; };
+		D9174FF316CE647700E1D735 /* AudioGetSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D9174FF216CE647700E1D735 /* AudioGetSpec.m */; };
 		D91750F716C99D5E00A00448 /* AudioGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750F616C99D5E00A00448 /* AudioGetApiRequest.m */; };
 		D91750F816C99D5E00A00448 /* AudioGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D91750F616C99D5E00A00448 /* AudioGetApiRequest.m */; };
 		D91750FA16C9A5AE00A00448 /* UsersAudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91750F916C9A5AE00A00448 /* UsersAudioViewController.xib */; };
@@ -25,17 +25,23 @@
 		D9258C381695F8F70072798B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D9258C371695F8F70072798B /* Default.png */; };
 		D9258C3A1695F8F70072798B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9258C391695F8F70072798B /* Default@2x.png */; };
 		D9258C3C1695F8F70072798B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9258C3B1695F8F70072798B /* Default-568h@2x.png */; };
+		D9269F5616DBF87D007A42B6 /* LyricsGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9269F5516DBF87D007A42B6 /* LyricsGetApiRequest.m */; };
+		D9269F5716DBF87D007A42B6 /* LyricsGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9269F5516DBF87D007A42B6 /* LyricsGetApiRequest.m */; };
+		D9269F5B16DBF971007A42B6 /* Lyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = D9269F5A16DBF971007A42B6 /* Lyrics.m */; };
+		D9269F5C16DBF971007A42B6 /* Lyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = D9269F5A16DBF971007A42B6 /* Lyrics.m */; };
+		D9269F6216DC0941007A42B6 /* LyricsGetResponse in Resources */ = {isa = PBXBuildFile; fileRef = D9269F6016DC0941007A42B6 /* LyricsGetResponse */; };
+		D9269F6516DC09DD007A42B6 /* LyricsGetSpecSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D9269F6316DC09DD007A42B6 /* LyricsGetSpecSpec.m */; };
 		D94BD73016CD6A9D00CC9891 /* AlbumsGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD72F16CD6A9D00CC9891 /* AlbumsGetApiRequest.m */; };
 		D94BD73116CD6A9D00CC9891 /* AlbumsGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD72F16CD6A9D00CC9891 /* AlbumsGetApiRequest.m */; };
 		D94BD73416CD77EB00CC9891 /* EKFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF649916C43338000DCF26 /* EKFileManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		D94BD73816CEBB7900CC9891 /* AlbumsGetApiRequestSenderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD73716CEBB7900CC9891 /* AlbumsGetApiRequestSenderSpec.m */; };
+		D94BD73816CEBB7900CC9891 /* AlbumsGetSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD73716CEBB7900CC9891 /* AlbumsGetSpec.m */; };
 		D94BD73C16CEBF6A00CC9891 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD73B16CEBF6A00CC9891 /* Album.m */; };
 		D94BD73D16CEBF6A00CC9891 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD73B16CEBF6A00CC9891 /* Album.m */; };
-		D957D6CF16962BEE001F352B /* OAuthResponseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */; };
+		D957D6CF16962BEE001F352B /* OAuthResponseSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D957D6CE16962BEE001F352B /* OAuthResponseSpec.m */; };
 		D957D6D116962FA2001F352B /* OAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538471696214000C8B6F4 /* OAuthResponse.m */; };
 		D98C552216B4112C002536EF /* NSString+TimeFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552116B4112C002536EF /* NSString+TimeFormatting.m */; };
 		D98C552316B4112C002536EF /* NSString+TimeFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552116B4112C002536EF /* NSString+TimeFormatting.m */; };
-		D98C552616B41168002536EF /* NSStringExtensionsSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */; };
+		D98C552616B41168002536EF /* NSStringExtensionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552516B41168002536EF /* NSStringExtensionsSpec.m */; };
 		D98C552A16B4474B002536EF /* AudioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552916B4474B002536EF /* AudioCell.m */; };
 		D98C552B16B4474B002536EF /* AudioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C552916B4474B002536EF /* AudioCell.m */; };
 		D98C552D16B4476D002536EF /* AudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D98C552C16B4476D002536EF /* AudioCell.xib */; };
@@ -50,8 +56,6 @@
 		D98C5DDF169886FA0084D92A /* OnlineAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DDD169886FA0084D92A /* OnlineAudio.m */; };
 		D98C5DE8169888F10084D92A /* ObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DE7169888F10084D92A /* ObjectMapping.m */; };
 		D98C5DE9169888F10084D92A /* ObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5DE7169888F10084D92A /* ObjectMapping.m */; };
-		D98C5E35169892D00084D92A /* MappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E34169892D00084D92A /* MappingManager.m */; };
-		D98C5E36169892D00084D92A /* MappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E34169892D00084D92A /* MappingManager.m */; };
 		D98C5E421698967C0084D92A /* NSDictionary+LoadFromJsonFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5E411698967C0084D92A /* NSDictionary+LoadFromJsonFile.m */; };
 		D98C5E44169896A60084D92A /* AudioGetResponse in Resources */ = {isa = PBXBuildFile; fileRef = D98C5E43169896A60084D92A /* AudioGetResponse */; };
 		D98C5EB91698C9A30084D92A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5EB71698C9A30084D92A /* SettingsViewController.m */; };
@@ -75,7 +79,7 @@
 		D99538501696289F00C8B6F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C271695F8F70072798B /* Foundation.framework */; };
 		D99538511696289F00C8B6F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9258C291695F8F70072798B /* CoreGraphics.framework */; };
 		D99538571696289F00C8B6F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D99538551696289F00C8B6F4 /* InfoPlist.strings */; };
-		D99538591696289F00C8B6F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D99538581696289F00C8B6F4 /* main.m */; };
+		D99538591696289F00C8B6F4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = D99538581696289F00C8B6F4 /* main.mm */; };
 		D995385F1696289F00C8B6F4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D995385E1696289F00C8B6F4 /* Default.png */; };
 		D99538611696289F00C8B6F4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D99538601696289F00C8B6F4 /* Default@2x.png */; };
 		D99538631696289F00C8B6F4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D99538621696289F00C8B6F4 /* Default-568h@2x.png */; };
@@ -93,7 +97,7 @@
 		D9AF64B416C5B21F000DCF26 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF64B316C5B21F000DCF26 /* AudioViewController.m */; };
 		D9AF64B516C5B21F000DCF26 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF64B316C5B21F000DCF26 /* AudioViewController.m */; };
 		D9B5F5BB16976C3B006E77D2 /* UsersAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B5F5B916976C3B006E77D2 /* UsersAudioViewController.m */; };
-		D9C4180616A20D770011F600 /* AudioPlayerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9C4180516A20D770011F600 /* AudioPlayerSpec.mm */; };
+		D9C4180616A20D770011F600 /* AudioPlayerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C4180516A20D770011F600 /* AudioPlayerSpec.m */; };
 		D9C4180916A20EB70011F600 /* NSObject+NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C4180816A20EB70011F600 /* NSObject+NotificationCenter.m */; };
 		D9C4180A16A212790011F600 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64791699BFF100E0D34B /* AudioPlayer.m */; };
 		D9C4180B16A2130E0011F600 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64701699AC5200E0D34B /* PlayerViewController.m */; };
@@ -121,8 +125,6 @@
 		D9CB7BF616D172AD006E7A08 /* UIAlertView+Displaying.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CB7BF416D172AD006E7A08 /* UIAlertView+Displaying.m */; };
 		D9CB7BFA16D176B7006E7A08 /* BaseApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CB7BF916D176B7006E7A08 /* BaseApiRequest.m */; };
 		D9CB7BFB16D176B7006E7A08 /* BaseApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CB7BF916D176B7006E7A08 /* BaseApiRequest.m */; };
-		D9CB7BFF16D17D84006E7A08 /* ApiRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CB7BFE16D17D84006E7A08 /* ApiRequestManager.m */; };
-		D9CB7C0016D17D84006E7A08 /* ApiRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CB7BFE16D17D84006E7A08 /* ApiRequestManager.m */; };
 		D9DC646616999D5A00E0D34B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC646416999D5A00E0D34B /* SearchViewController.m */; };
 		D9DC646716999D5A00E0D34B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9DC646516999D5A00E0D34B /* SearchViewController.xib */; };
 		D9DC646C16999DDC00E0D34B /* SavedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC646A16999DDC00E0D34B /* SavedViewController.m */; };
@@ -144,7 +146,7 @@
 		280EA9A2240043DB953DAF58 /* libPods-VKMusic-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VKMusic-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADA439328B2446EB6F522D5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		D9174FED16CE5AAB00E1D735 /* GetAlbumsResponse */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetAlbumsResponse; sourceTree = "<group>"; };
-		D9174FF216CE647700E1D735 /* AudioGetApiRequestSenderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioGetApiRequestSenderSpec.m; sourceTree = "<group>"; };
+		D9174FF216CE647700E1D735 /* AudioGetSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioGetSpec.m; sourceTree = "<group>"; };
 		D91750F516C99D5E00A00448 /* AudioGetApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioGetApiRequest.h; sourceTree = "<group>"; };
 		D91750F616C99D5E00A00448 /* AudioGetApiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioGetApiRequest.m; sourceTree = "<group>"; };
 		D91750F916C9A5AE00A00448 /* UsersAudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersAudioViewController.xib; sourceTree = "<group>"; };
@@ -162,16 +164,23 @@
 		D9258C371695F8F70072798B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D9258C391695F8F70072798B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D9258C3B1695F8F70072798B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D9269F5416DBF87D007A42B6 /* LyricsGetApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricsGetApiRequest.h; sourceTree = "<group>"; };
+		D9269F5516DBF87D007A42B6 /* LyricsGetApiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricsGetApiRequest.m; sourceTree = "<group>"; };
+		D9269F5916DBF971007A42B6 /* Lyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lyrics.h; sourceTree = "<group>"; };
+		D9269F5A16DBF971007A42B6 /* Lyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lyrics.m; sourceTree = "<group>"; };
+		D9269F5F16DBFC01007A42B6 /* ApiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiModel.h; sourceTree = "<group>"; };
+		D9269F6016DC0941007A42B6 /* LyricsGetResponse */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LyricsGetResponse; sourceTree = "<group>"; };
+		D9269F6316DC09DD007A42B6 /* LyricsGetSpecSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricsGetSpecSpec.m; sourceTree = "<group>"; };
 		D94BD72E16CD6A9D00CC9891 /* AlbumsGetApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsGetApiRequest.h; sourceTree = "<group>"; };
 		D94BD72F16CD6A9D00CC9891 /* AlbumsGetApiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsGetApiRequest.m; sourceTree = "<group>"; };
 		D94BD73516CEB5F300CC9891 /* ApiRequestUtitlites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiRequestUtitlites.h; sourceTree = "<group>"; };
-		D94BD73716CEBB7900CC9891 /* AlbumsGetApiRequestSenderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsGetApiRequestSenderSpec.m; sourceTree = "<group>"; };
+		D94BD73716CEBB7900CC9891 /* AlbumsGetSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsGetSpec.m; sourceTree = "<group>"; };
 		D94BD73A16CEBF6A00CC9891 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
 		D94BD73B16CEBF6A00CC9891 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
-		D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OAuthResponseSpec.mm; sourceTree = "<group>"; };
+		D957D6CE16962BEE001F352B /* OAuthResponseSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthResponseSpec.m; sourceTree = "<group>"; };
 		D98C552016B4112C002536EF /* NSString+TimeFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeFormatting.h"; sourceTree = "<group>"; };
 		D98C552116B4112C002536EF /* NSString+TimeFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeFormatting.m"; sourceTree = "<group>"; };
-		D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSStringExtensionsSpec.mm; sourceTree = "<group>"; };
+		D98C552516B41168002536EF /* NSStringExtensionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringExtensionsSpec.m; sourceTree = "<group>"; };
 		D98C552816B4474B002536EF /* AudioCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioCell.h; sourceTree = "<group>"; };
 		D98C552916B4474B002536EF /* AudioCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioCell.m; sourceTree = "<group>"; };
 		D98C552C16B4476D002536EF /* AudioCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioCell.xib; sourceTree = "<group>"; };
@@ -183,8 +192,6 @@
 		D98C5DDD169886FA0084D92A /* OnlineAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineAudio.m; sourceTree = "<group>"; };
 		D98C5DE6169888F10084D92A /* ObjectMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectMapping.h; sourceTree = "<group>"; };
 		D98C5DE7169888F10084D92A /* ObjectMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectMapping.m; sourceTree = "<group>"; };
-		D98C5E33169892D00084D92A /* MappingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingManager.h; sourceTree = "<group>"; };
-		D98C5E34169892D00084D92A /* MappingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingManager.m; sourceTree = "<group>"; };
 		D98C5E401698967C0084D92A /* NSDictionary+LoadFromJsonFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LoadFromJsonFile.h"; sourceTree = "<group>"; };
 		D98C5E411698967C0084D92A /* NSDictionary+LoadFromJsonFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LoadFromJsonFile.m"; sourceTree = "<group>"; };
 		D98C5E43169896A60084D92A /* AudioGetResponse */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AudioGetResponse; sourceTree = "<group>"; };
@@ -214,7 +221,7 @@
 		D995384D1696289F00C8B6F4 /* VKMusic-UnitTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VKMusic-UnitTests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99538541696289F00C8B6F4 /* VKMusic-UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VKMusic-UnitTests-Info.plist"; sourceTree = "<group>"; };
 		D99538561696289F00C8B6F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D99538581696289F00C8B6F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D99538581696289F00C8B6F4 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		D995385A1696289F00C8B6F4 /* VKMusic-UnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VKMusic-UnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		D995385E1696289F00C8B6F4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D99538601696289F00C8B6F4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -245,7 +252,7 @@
 		D9B5F5B816976C3B006E77D2 /* UsersAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersAudioViewController.h; sourceTree = "<group>"; };
 		D9B5F5B916976C3B006E77D2 /* UsersAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersAudioViewController.m; sourceTree = "<group>"; };
 		D9B5F5BD16976D75006E77D2 /* ApplicationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
-		D9C4180516A20D770011F600 /* AudioPlayerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioPlayerSpec.mm; sourceTree = "<group>"; };
+		D9C4180516A20D770011F600 /* AudioPlayerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerSpec.m; sourceTree = "<group>"; };
 		D9C4180716A20EB70011F600 /* NSObject+NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NotificationCenter.h"; sourceTree = "<group>"; };
 		D9C4180816A20EB70011F600 /* NSObject+NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NotificationCenter.m"; sourceTree = "<group>"; };
 		D9C9B95316D55C670054BB2B /* MenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTabBarController.h; sourceTree = "<group>"; };
@@ -256,8 +263,6 @@
 		D9CB7BF416D172AD006E7A08 /* UIAlertView+Displaying.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Displaying.m"; sourceTree = "<group>"; };
 		D9CB7BF816D176B7006E7A08 /* BaseApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseApiRequest.h; sourceTree = "<group>"; };
 		D9CB7BF916D176B7006E7A08 /* BaseApiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseApiRequest.m; sourceTree = "<group>"; };
-		D9CB7BFD16D17D84006E7A08 /* ApiRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiRequestManager.h; sourceTree = "<group>"; };
-		D9CB7BFE16D17D84006E7A08 /* ApiRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiRequestManager.m; sourceTree = "<group>"; };
 		D9DC646316999D5A00E0D34B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		D9DC646416999D5A00E0D34B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		D9DC646516999D5A00E0D34B /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -315,7 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				D94BD73616CEB68900CC9891 /* ApiRequestSender */,
-				D957D6CE16962BEE001F352B /* OAuthResponseSpec.mm */,
+				D957D6CE16962BEE001F352B /* OAuthResponseSpec.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -323,7 +328,7 @@
 		D9174FF016CE5BAF00E1D735 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D98C552516B41168002536EF /* NSStringExtensionsSpec.mm */,
+				D98C552516B41168002536EF /* NSStringExtensionsSpec.m */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -331,7 +336,7 @@
 		D9174FF116CE5BBB00E1D735 /* Audio Player */ = {
 			isa = PBXGroup;
 			children = (
-				D9C4180516A20D770011F600 /* AudioPlayerSpec.mm */,
+				D9C4180516A20D770011F600 /* AudioPlayerSpec.m */,
 			);
 			name = "Audio Player";
 			sourceTree = "<group>";
@@ -368,7 +373,6 @@
 			children = (
 				D99F9CAC169A15F800735A31 /* AudioFilesManager */,
 				D98C5DEB16988DBB0084D92A /* SettingsManager */,
-				D98C5DEA16988DA60084D92A /* MappingManager */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -390,6 +394,7 @@
 				D9CB7BE516D17017006E7A08 /* AudioSearchApiRequest */,
 				D91750F416C99D3200A00448 /* AudioGetApiRequest */,
 				D94BD72D16CD6A6C00CC9891 /* AlbumsGetApiRequest */,
+				D9269F5316DBF83E007A42B6 /* LyricsGetApiRequest */,
 			);
 			name = ApiRequest;
 			sourceTree = "<group>";
@@ -450,6 +455,7 @@
 				D9953835169600E700C8B6F4 /* Network */,
 				D91750F116C97B3C00A00448 /* Managers */,
 				D995383E1696193100C8B6F4 /* Helpers */,
+				D9269F5E16DBFBE0007A42B6 /* Protocols */,
 				D9953842169619CB00C8B6F4 /* Models */,
 				D9258C2C1695F8F70072798B /* Supporting Files */,
 			);
@@ -469,6 +475,33 @@
 				D9AC6F7F16BEC3F900432CC1 /* AudioStorage.xcdatamodeld */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9269F5316DBF83E007A42B6 /* LyricsGetApiRequest */ = {
+			isa = PBXGroup;
+			children = (
+				D9269F5416DBF87D007A42B6 /* LyricsGetApiRequest.h */,
+				D9269F5516DBF87D007A42B6 /* LyricsGetApiRequest.m */,
+			);
+			name = LyricsGetApiRequest;
+			sourceTree = "<group>";
+		};
+		D9269F5816DBF957007A42B6 /* Lyrics */ = {
+			isa = PBXGroup;
+			children = (
+				D9269F5916DBF971007A42B6 /* Lyrics.h */,
+				D9269F5A16DBF971007A42B6 /* Lyrics.m */,
+			);
+			name = Lyrics;
+			sourceTree = "<group>";
+		};
+		D9269F5E16DBFBE0007A42B6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D9269F5F16DBFC01007A42B6 /* ApiModel.h */,
+				D9AC6F8816BEDE7F00432CC1 /* Audio.h */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		D94BD72D16CD6A6C00CC9891 /* AlbumsGetApiRequest */ = {
@@ -493,8 +526,9 @@
 			isa = PBXGroup;
 			children = (
 				D94BD73516CEB5F300CC9891 /* ApiRequestUtitlites.h */,
-				D9174FF216CE647700E1D735 /* AudioGetApiRequestSenderSpec.m */,
-				D94BD73716CEBB7900CC9891 /* AlbumsGetApiRequestSenderSpec.m */,
+				D9174FF216CE647700E1D735 /* AudioGetSpec.m */,
+				D94BD73716CEBB7900CC9891 /* AlbumsGetSpec.m */,
+				D9269F6316DC09DD007A42B6 /* LyricsGetSpecSpec.m */,
 			);
 			name = ApiRequestSender;
 			sourceTree = "<group>";
@@ -528,15 +562,6 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		D98C5DEA16988DA60084D92A /* MappingManager */ = {
-			isa = PBXGroup;
-			children = (
-				D98C5E33169892D00084D92A /* MappingManager.h */,
-				D98C5E34169892D00084D92A /* MappingManager.m */,
-			);
-			name = MappingManager;
-			sourceTree = "<group>";
-		};
 		D98C5DEB16988DBB0084D92A /* SettingsManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +583,7 @@
 			children = (
 				D98C5E43169896A60084D92A /* AudioGetResponse */,
 				D9174FED16CE5AAB00E1D735 /* GetAlbumsResponse */,
+				D9269F6016DC0941007A42B6 /* LyricsGetResponse */,
 			);
 			name = FakeResponses;
 			sourceTree = "<group>";
@@ -644,6 +670,7 @@
 				D91750F216C99CD800A00448 /* OAuthResponse */,
 				D9AC6F8716BEDCF100432CC1 /* Audio */,
 				D94BD73916CEBF4B00CC9891 /* Album */,
+				D9269F5816DBF957007A42B6 /* Lyrics */,
 				D9EB732E16CC34E7003413FC /* Mapping */,
 			);
 			name = Models;
@@ -665,7 +692,7 @@
 			children = (
 				D99538541696289F00C8B6F4 /* VKMusic-UnitTests-Info.plist */,
 				D99538551696289F00C8B6F4 /* InfoPlist.strings */,
-				D99538581696289F00C8B6F4 /* main.m */,
+				D99538581696289F00C8B6F4 /* main.mm */,
 				D995385A1696289F00C8B6F4 /* VKMusic-UnitTests-Prefix.pch */,
 				D995385E1696289F00C8B6F4 /* Default.png */,
 				D99538601696289F00C8B6F4 /* Default@2x.png */,
@@ -723,7 +750,6 @@
 		D9AC6F8716BEDCF100432CC1 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				D9AC6F8816BEDE7F00432CC1 /* Audio.h */,
 				D98C5DDC169886FA0084D92A /* OnlineAudio.h */,
 				D98C5DDD169886FA0084D92A /* OnlineAudio.m */,
 				D9AF64AE16C5A287000DCF26 /* OfflineAudio.h */,
@@ -839,8 +865,6 @@
 			isa = PBXGroup;
 			children = (
 				D99538391696046100C8B6F4 /* ApiRequestConstants.h */,
-				D9CB7BFD16D17D84006E7A08 /* ApiRequestManager.h */,
-				D9CB7BFE16D17D84006E7A08 /* ApiRequestManager.m */,
 			);
 			name = ApiRequestBuilder;
 			sourceTree = "<group>";
@@ -1031,6 +1055,7 @@
 				D91750FB16C9A5AE00A00448 /* UsersAudioViewController.xib in Resources */,
 				D91750FE16C9A65300A00448 /* SavedViewController.xib in Resources */,
 				D9174FEE16CE5AAB00E1D735 /* GetAlbumsResponse in Resources */,
+				D9269F6216DC0941007A42B6 /* LyricsGetResponse in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1081,7 +1106,6 @@
 				D9B5F5BB16976C3B006E77D2 /* UsersAudioViewController.m in Sources */,
 				D98C5DDE169886FA0084D92A /* OnlineAudio.m in Sources */,
 				D98C5DE8169888F10084D92A /* ObjectMapping.m in Sources */,
-				D98C5E35169892D00084D92A /* MappingManager.m in Sources */,
 				D98C5EB91698C9A30084D92A /* SettingsViewController.m in Sources */,
 				D98C5EBF1698C9D40084D92A /* PlaylistsViewController.m in Sources */,
 				D9DC646616999D5A00E0D34B /* SearchViewController.m in Sources */,
@@ -1112,8 +1136,9 @@
 				D9CB7BE816D17039006E7A08 /* AudioSearchApiRequest.m in Sources */,
 				D9CB7BF516D172AD006E7A08 /* UIAlertView+Displaying.m in Sources */,
 				D9CB7BFA16D176B7006E7A08 /* BaseApiRequest.m in Sources */,
-				D9CB7BFF16D17D84006E7A08 /* ApiRequestManager.m in Sources */,
 				D9C9B95516D55C670054BB2B /* MenuTabBarController.m in Sources */,
+				D9269F5616DBF87D007A42B6 /* LyricsGetApiRequest.m in Sources */,
+				D9269F5B16DBF971007A42B6 /* Lyrics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,20 +1162,19 @@
 				D9C4181616A2130E0011F600 /* AudioDownloaderAdapter.m in Sources */,
 				D9C4181716A2130E0011F600 /* EKFileDownloader.m in Sources */,
 				D9C4181816A2130E0011F600 /* SettingsManager.m in Sources */,
-				D99538591696289F00C8B6F4 /* main.m in Sources */,
-				D957D6CF16962BEE001F352B /* OAuthResponseSpec.mm in Sources */,
+				D99538591696289F00C8B6F4 /* main.mm in Sources */,
+				D957D6CF16962BEE001F352B /* OAuthResponseSpec.m in Sources */,
 				D957D6D116962FA2001F352B /* OAuthResponse.m in Sources */,
 				D98C5DDF169886FA0084D92A /* OnlineAudio.m in Sources */,
 				D98C5DE9169888F10084D92A /* ObjectMapping.m in Sources */,
-				D98C5E36169892D00084D92A /* MappingManager.m in Sources */,
 				D98C5E421698967C0084D92A /* NSDictionary+LoadFromJsonFile.m in Sources */,
-				D9C4180616A20D770011F600 /* AudioPlayerSpec.mm in Sources */,
+				D9C4180616A20D770011F600 /* AudioPlayerSpec.m in Sources */,
 				D9C4180A16A212790011F600 /* AudioPlayer.m in Sources */,
 				D98F931E16A3542A00E7DD1B /* PlayerView.m in Sources */,
 				D98F932416A3556D00E7DD1B /* AudioProgressView.m in Sources */,
 				D98F932816A35A7200E7DD1B /* AudioTitleView.m in Sources */,
 				D98C552316B4112C002536EF /* NSString+TimeFormatting.m in Sources */,
-				D98C552616B41168002536EF /* NSStringExtensionsSpec.mm in Sources */,
+				D98C552616B41168002536EF /* NSStringExtensionsSpec.m in Sources */,
 				D98C552B16B4474B002536EF /* AudioCell.m in Sources */,
 				D98C553B16B4519F002536EF /* UITableView+CellCreation.m in Sources */,
 				D9AC6F8216BEC3F900432CC1 /* AudioStorage.xcdatamodeld in Sources */,
@@ -1160,14 +1184,16 @@
 				D9EB732816CADF9A003413FC /* AudioSessionConfigurator.m in Sources */,
 				D94BD73116CD6A9D00CC9891 /* AlbumsGetApiRequest.m in Sources */,
 				D94BD73416CD77EB00CC9891 /* EKFileManager.m in Sources */,
-				D9174FF316CE647700E1D735 /* AudioGetApiRequestSenderSpec.m in Sources */,
-				D94BD73816CEBB7900CC9891 /* AlbumsGetApiRequestSenderSpec.m in Sources */,
+				D9174FF316CE647700E1D735 /* AudioGetSpec.m in Sources */,
+				D94BD73816CEBB7900CC9891 /* AlbumsGetSpec.m in Sources */,
 				D94BD73D16CEBF6A00CC9891 /* Album.m in Sources */,
 				D9CB7BE916D17039006E7A08 /* AudioSearchApiRequest.m in Sources */,
 				D9CB7BF616D172AD006E7A08 /* UIAlertView+Displaying.m in Sources */,
 				D9CB7BFB16D176B7006E7A08 /* BaseApiRequest.m in Sources */,
-				D9CB7C0016D17D84006E7A08 /* ApiRequestManager.m in Sources */,
 				D9C9B95616D55C670054BB2B /* MenuTabBarController.m in Sources */,
+				D9269F5716DBF87D007A42B6 /* LyricsGetApiRequest.m in Sources */,
+				D9269F5C16DBF971007A42B6 /* Lyrics.m in Sources */,
+				D9269F6516DC09DD007A42B6 /* LyricsGetSpecSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

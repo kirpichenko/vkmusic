@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseApiRequest.h"
+#import "Album.h"
 
 @interface AlbumsGetApiRequest : BaseApiRequest
 

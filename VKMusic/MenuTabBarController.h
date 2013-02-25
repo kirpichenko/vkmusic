@@ -16,6 +16,8 @@
 
 @interface MenuTabBarController : NGTabBarController
 
+- (id)initWithDelegate:(id<MenuTabBarControllerDelegate>)delegate;
+
 @property (nonatomic,assign) id<MenuTabBarControllerDelegate>menuDelegate;
 
 @end

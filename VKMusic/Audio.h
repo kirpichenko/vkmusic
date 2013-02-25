@@ -11,6 +11,7 @@
 @protocol Audio <NSObject>
 
 - (NSInteger) audioID;
+- (NSInteger) lyricsID;
 - (NSString *) artist;
 - (NSString *) title;
 - (NSTimeInterval) duration;

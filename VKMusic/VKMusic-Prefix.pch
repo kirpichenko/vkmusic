@@ -20,7 +20,6 @@
     #import "ApiRequestSender.h"
     #import "AudioPlayer.h"
 
-    #import "ApiRequestManager.h"
     #import "SettingsManager.h"
     #import "OfflineAudioManager.h"
     #import "EKKeyboardAvoidingScrollViewManager.h"

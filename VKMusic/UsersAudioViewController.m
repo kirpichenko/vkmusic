@@ -13,9 +13,7 @@
 #import "UITableView+CellCreation.h"
 
 @interface UsersAudioViewController ()
-    <UITableViewDataSource,
-    UITableViewDelegate,
-    AudioDownloaderDelegate,
+    <AudioDownloaderDelegate,
     AudioCellDelegate>
 @property (nonatomic, strong) NSArray *audioRecords;
 @end
@@ -27,9 +25,15 @@ static const NSInteger kAudioCountPerRequest = 50;
 #pragma mark -
 #pragma mark life cycle
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+    if (self = [super init]) {
+//
+//    }
+//}
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         [self registerForNotificationNamed:kUserSignedIn selector:@selector(userSignedIn)];
         [self registerForNotificationNamed:kUserSignedOut selector:@selector(userSignedOut)];
     }
@@ -47,11 +51,12 @@ static const NSInteger kAudioCountPerRequest = 50;
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if ([[SettingsManager sharedInstance] isUserAuthorized] &&
-        [[self audioRecords] count] == 0)
-    {
-        [self loadAudio];
-    }
+//    if ([[SettingsManager sharedInstance] isUserAuthorized] &&
+//        [[self audioRecordsFull] count] == 0)
+//    {
+//        [self loadAudio];
+//    }
+    [self loadAudio];
 }
 
 #pragma mark -
@@ -159,7 +164,7 @@ static const NSInteger kAudioCountPerRequest = 50;
 
 - (NSIndexPath *)cellIndexPathForAudio:(id<Audio>)audio
 {
-    NSInteger index = [[self filteredRecords] indexOfObject:audio];
+    NSInteger index = [[self audioRecords] indexOfObject:audio];
     if (index != NSNotFound) {
         return [NSIndexPath indexPathForRow:index inSection:0];
     }

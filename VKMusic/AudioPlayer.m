@@ -153,9 +153,12 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 
 - (NSTimeInterval) currentTime
 {
-    CMTime currentTime = [player currentTime];
-    NSTimeInterval seconds = currentTime.value / currentTime.timescale;
-    return seconds;
+    if ([player status] == AVPlayerStatusReadyToPlay) {
+        CMTime currentTime = [player currentTime];
+        NSTimeInterval seconds = currentTime.value / currentTime.timescale;
+        return seconds;
+    }
+    return 0;
 }
 
 - (void) processAudioEvent:(UIEventSubtype)type
@@ -173,6 +176,14 @@ static NSString *kPlayingAudioKey = @"playingAudio";
         default:
             break;
     }
+}
+
+- (void)setProgress:(float)progress
+{
+    NSTimeInterval duration = CMTimeGetSeconds([[player currentItem] duration]);
+    NSTimeInterval time = duration * progress;
+
+    [player seekToTime:CMTimeMakeWithSeconds(time, NSEC_PER_SEC)];
 }
 
 #pragma mark -

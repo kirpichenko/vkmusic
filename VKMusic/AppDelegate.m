@@ -19,7 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self configureApllication];
     [application beginReceivingRemoteControlEvents];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -29,6 +28,8 @@
     
     [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];
+    
+    [self configureApllication];
     
     return YES;
 }
@@ -40,7 +41,10 @@
 {
     [self checkIfUserAuthorized];
     [self registerForNotificationNamed:kUserSignedOut selector:@selector(userSignedOut)];
-    [MagicalRecord setupCoreDataStack];
+    
+    dispatch_async(dispatch_get_current_queue(), ^{
+        [MagicalRecord setupCoreDataStack];
+    });    
 }
 
 - (void) checkIfUserAuthorized

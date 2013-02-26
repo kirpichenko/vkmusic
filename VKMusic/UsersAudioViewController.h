@@ -6,10 +6,9 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "AudioViewController.h"
+#import "AudioFilteringViewController.h"
 
-@interface UsersAudioViewController : AudioViewController
+@interface UsersAudioViewController : AudioFilteringViewController
 
 @property (nonatomic,assign) NSInteger albumID;
 

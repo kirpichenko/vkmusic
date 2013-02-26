@@ -36,6 +36,8 @@ typedef enum {
 - (void)pause;
 - (void)stop;
 
+- (void)setProgress:(float)progress;
+
 - (NSTimeInterval)currentTime;
 
 - (void)processAudioEvent:(UIEventSubtype)type;

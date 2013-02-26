@@ -6,22 +6,19 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import "AudioViewController.h"
+#import "AudioListViewController.h"
 
 #import "AudioCell.h"
 
 #import "UITableView+CellCreation.h"
 
 
-@interface AudioViewController () <UISearchBarDelegate>
-@property (nonatomic,strong,readwrite) NSArray *audioRecords;
-@property (nonatomic,strong,readwrite) NSArray *filteredRecords;
+@interface AudioListViewController () <UITableViewDelegate>
 @end
 
-@implementation AudioViewController
+@implementation AudioListViewController
 
 @synthesize audioRecords;
-@synthesize filteredRecords;
 
 #pragma mark -
 #pragma mark life cycle
@@ -40,7 +37,6 @@
     [manager unregisterScrollViewFromKeyboardAvoiding:audioList];
     
     [self setAudioRecords:nil];
-    [self setFilteredRecords:nil];
 }
 
 #pragma mark -
@@ -49,25 +45,12 @@
 - (void) audioHaveBeenLoaded:(NSArray *) audio
 {
     [self setAudioRecords:audio];
-    [self filterRecords:[searchField text]];
+    [audioList reloadData];
 }
 
 - (void)audioLoadingFailed:(NSError *)error
 {
-
-}
-
-- (void) filterRecords:(NSString *) filter
-{
-    if ([filter length] > 0) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:
-                                  @"artist contains[cd] %@ or title contains[cd] %@",filter,filter];
-        [self setFilteredRecords:[audioRecords filteredArrayUsingPredicate:predicate]];
-    }
-    else {
-        [self setFilteredRecords:audioRecords];
-    }
-    [audioList reloadData];
+    NSLog(@"audio loading failed %@",error);
 }
 
 #pragma mark -
@@ -75,12 +58,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [filteredRecords count];
+    NSLog(@"count");
+    return [audioRecords count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id<Audio> audio = [filteredRecords objectAtIndex:indexPath.row];
+    NSLog(@"create cell");
+    id<Audio> audio = [audioRecords objectAtIndex:indexPath.row];
     
     AudioCell *cell = [tableView cellForClass:[AudioCell class]];
     [cell setAudio:audio];
@@ -96,29 +81,11 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    id<Audio> audio = [filteredRecords objectAtIndex:indexPath.row];
+    id<Audio> audio = [audioRecords objectAtIndex:indexPath.row];
 
     AudioPlayer *player = [AudioPlayer sharedInstance];
     [player setAudioList:audioRecords];
     [player playAudioAtIndex:[audioRecords indexOfObject:audio]];
-}
-
-#pragma mark -
-#pragma mark UITextFieldDelegate
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range     replacementString:(NSString *)string
-{
-    NSString *text = [[textField text] stringByReplacingCharactersInRange:range withString:string];
-    [self filterRecords:text];
-    return YES;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if ([textField isFirstResponder]) {
-        [textField resignFirstResponder];
-    }    
-    return YES;
 }
 
 #pragma mark -

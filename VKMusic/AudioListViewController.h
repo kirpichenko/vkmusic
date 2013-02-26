@@ -8,17 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AudioViewController : UIViewController <UITableViewDataSource>
+@interface AudioListViewController : UIViewController <UITableViewDataSource>
 {
     __weak IBOutlet UITableView *audioList;
-    __weak IBOutlet UITextField *searchField;
 }
 
 - (void)audioHaveBeenLoaded:(NSArray *)audio;
 - (void)audioLoadingFailed:(NSError *)error;
-- (void)filterRecords:(NSString *)filter;
 
-@property (nonatomic,strong,readonly) NSArray *audioRecords;
-@property (nonatomic,strong,readonly) NSArray *filteredRecords;
+@property (nonatomic,strong) NSArray *audioRecords;
 
 @end

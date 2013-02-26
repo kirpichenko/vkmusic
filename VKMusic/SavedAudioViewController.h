@@ -6,9 +6,8 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "AudioViewController.h"
+#import "AudioFilteringViewController.h"
 
-@interface SavedViewController : AudioViewController
+@interface SavedAudioViewController : AudioFilteringViewController
 
 @end

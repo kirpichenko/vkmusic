@@ -31,10 +31,8 @@
 
 - (NSString *)apiQuery
 {
-    return [NSString stringWithFormat:@"q=%@&count=%d&offset=%d",
-            [self query],
-            [self count],
-            [self offset]];
+    return [NSString stringWithFormat:@"q=%@&count=%d&offset=%d&auto_complete=%d",
+            [self query],[self count],[self offset],[self autoComplete]];
 }
 
 - (ObjectMapping *)responseObjectsMapping

@@ -30,10 +30,11 @@
 {
     [super viewDidLoad];
     
-    NSURL *autorizationURL = [NSURL URLWithString:kAuthorizationURL];
-//    NSURLRequest *request = [[NSURLRequestManager sharedInstance] authorizationURLRequest];
+    NSString *authorizationLink = [self authotizationLink];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:authorizationLink]];
+
     [webView setDelegate:self];
-    [webView loadRequest:[NSURLRequest requestWithURL:autorizationURL]];
+    [webView loadRequest:urlRequest];
 }
 
 - (void) dealloc
@@ -66,6 +67,18 @@
     if (![[openingURL host] isEqualToString:kRedirectUri]) {
         [[self delegate] userSignInFailed:error];
     }    
+}
+
+#pragma mark -
+#pragma mark helpers
+
+- (NSString *)authotizationLink
+{
+    return [NSString stringWithFormat:@"%@?client_id=%@&scope=audio,offline&"
+            @"redirect_uri=%@&display=mobile&response_type=token",
+            kAuthorizationURL,
+            kApplicationID,
+            kRedirectUri];
 }
 
 @end

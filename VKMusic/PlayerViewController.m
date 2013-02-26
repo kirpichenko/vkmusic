@@ -131,7 +131,10 @@ static NSString *kPlayingAudioKey = @"playingAudio";
                         context:(void *)context
 {
     [lyricsTextView setText:nil];
-    [self loadLyrics];
+
+    if ([[_player playingAudio] lyricsID] != 0) {
+        [self loadLyrics];
+    }
 }
 
 #pragma mark -
@@ -161,6 +164,12 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 - (IBAction)showHideLyricsView
 {
     [playerView setLyricsHidden:[playerView lyricsDisplayed]];
+}
+
+- (IBAction)progressChanged:(id)sender
+{
+    float progress = [(UISlider *)sender value];
+    [[self player] setProgress:progress];
 }
 
 @end

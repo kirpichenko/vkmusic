@@ -127,7 +127,10 @@ static const NSTimeInterval kAnimationDuration = 0.5;
     }
     
     [audioCurrentTime setText:[NSString stringWithFormat:@"%@",remainingTimeString]];
-    [progressView setProgress:elapsedTime / audioDuration];
+    
+    if (![progressSlider isHighlighted]) {
+        [progressSlider setValue:elapsedTime / audioDuration animated:YES];
+    }
 }
 
 #pragma mark -
@@ -136,7 +139,7 @@ static const NSTimeInterval kAnimationDuration = 0.5;
 - (void) layoutSubviews
 {
     [audioCurrentTime sizeToFit];
-    [audioCurrentTime setX:CGRectGetMaxX([progressView frame]) - audioCurrentTime.width];
+    [audioCurrentTime setX:CGRectGetMaxX([progressSlider frame]) - audioCurrentTime.width];
     
     [audioTitle setWidth:audioCurrentTime.x - audioTitle.x - kHorizontalOffset];
     [lyricTextView setY:[self lyricsDisplayed] ? 0 : CGRectGetMaxY([contentView frame])];

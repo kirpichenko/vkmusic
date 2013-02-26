@@ -10,7 +10,7 @@
 
 #import "UsersAudioViewController.h"
 #import "PlaylistsViewController.h"
-#import "SavedViewController.h"
+#import "SavedAudioViewController.h"
 #import "SearchViewController.h"
 #import "SettingsViewController.h"
 
@@ -26,7 +26,7 @@
         NSArray *controllers = @[
             [self pageOfClass:[UsersAudioViewController class] itemTitle:@"Аудиозаписи" image:nil],
             [self pageOfClass:[PlaylistsViewController class] itemTitle:@"Альбомы" image:nil],
-            [self pageOfClass:[SavedViewController class] itemTitle:@"Сохраненные" image:nil],
+            [self pageOfClass:[SavedAudioViewController class] itemTitle:@"Сохраненные" image:nil],
             [self pageOfClass:[SearchViewController class] itemTitle:@"Поиск" image:nil],
             [self pageOfClass:[SettingsViewController class] itemTitle:@"Настройки" image:nil]
         ];

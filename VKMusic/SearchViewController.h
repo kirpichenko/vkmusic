@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AudioListViewController.h"
 
-@interface SearchViewController : UIViewController
+@interface SearchViewController : AudioListViewController
 
 @end

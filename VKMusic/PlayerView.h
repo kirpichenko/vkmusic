@@ -16,7 +16,7 @@
     __weak IBOutlet UILabel *titleLable;
     __weak IBOutlet UIButton *playPauseButton;
     __weak IBOutlet AudioTitleView *audioTitle;
-    __weak IBOutlet AudioProgressView *progressView;
+    __weak IBOutlet UISlider *progressSlider;
     __weak IBOutlet UITextView *lyricTextView;
     __weak IBOutlet UIView *contentView;
 }

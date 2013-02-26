@@ -13,6 +13,8 @@
 @interface AudioSearchApiRequest : BaseApiRequest
 
 @property (nonatomic,copy) NSString *query;
+@property (nonatomic,assign) BOOL autoComplete;
+@property (nonatomic,assign) BOOL hasLyrics;
 @property (nonatomic) NSInteger count;
 @property (nonatomic) NSInteger offset;
 

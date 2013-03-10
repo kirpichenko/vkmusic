@@ -10,6 +10,7 @@
 #import "AudioSessionConfigurator.h"
 
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 static NSString *kPlayingAudioKey = @"playingAudio";
 
@@ -93,6 +94,7 @@ static NSString *kPlayingAudioKey = @"playingAudio";
         
         [self willChangeValueForKey:kPlayingAudioKey];
         playingAudio = [[self audioList] objectAtIndex:index];
+        [self updatePlayingInfoCenter];
         [self didChangeValueForKey:kPlayingAudioKey];
         
 #ifndef TEST
@@ -200,6 +202,19 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 - (void)headphoneDisconnected:(NSNotification *)notification
 {
     [self pause];
+}
+
+#pragma mark -
+#pragma mark update playing info
+
+- (void)updatePlayingInfoCenter
+{
+    MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
+    [center setNowPlayingInfo:@{
+        MPMediaItemPropertyArtist : [[self playingAudio] artist],
+        MPMediaItemPropertyTitle: [[self playingAudio] title]
+     }];
+    
 }
 
 @end

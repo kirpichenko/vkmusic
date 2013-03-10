@@ -99,6 +99,8 @@
 		D99F9CAF169A16DA00735A31 /* OfflineAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CAE169A16DA00735A31 /* OfflineAudioManager.m */; };
 		D99F9CB3169A1D7200735A31 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CB2169A1D7200735A31 /* NSString+Hash.m */; };
 		D99F9CBD169A232800735A31 /* AudioDownloaderAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CBC169A232800735A31 /* AudioDownloaderAdapter.m */; };
+		D9A9D60416ED2C44006EC919 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9D60316ED2C44006EC919 /* MediaPlayer.framework */; };
+		D9A9D60516ED2C44006EC919 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9D60316ED2C44006EC919 /* MediaPlayer.framework */; };
 		D9AC6F8116BEC3F900432CC1 /* AudioStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9AC6F7F16BEC3F900432CC1 /* AudioStorage.xcdatamodeld */; };
 		D9AC6F8216BEC3F900432CC1 /* AudioStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9AC6F7F16BEC3F900432CC1 /* AudioStorage.xcdatamodeld */; };
 		D9AF649A16C43338000DCF26 /* EKFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF649916C43338000DCF26 /* EKFileManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -258,6 +260,7 @@
 		D99F9CB2169A1D7200735A31 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 		D99F9CBB169A232800735A31 /* AudioDownloaderAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDownloaderAdapter.h; sourceTree = "<group>"; };
 		D99F9CBC169A232800735A31 /* AudioDownloaderAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioDownloaderAdapter.m; sourceTree = "<group>"; };
+		D9A9D60316ED2C44006EC919 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		D9AC6F8016BEC3F900432CC1 /* AudioStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AudioStorage.xcdatamodel; sourceTree = "<group>"; };
 		D9AC6F8816BEDE7F00432CC1 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		D9AC6F8E16BEFF1C00432CC1 /* EKFileDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKFileDownloaderDelegate.h; sourceTree = "<group>"; };
@@ -312,6 +315,7 @@
 				D9DC647C1699C0B800E0D34B /* AVFoundation.framework in Frameworks */,
 				D98F931816A2E46100E7DD1B /* CoreMedia.framework in Frameworks */,
 				D9EB732A16CC2FB7003413FC /* AudioToolbox.framework in Frameworks */,
+				D9A9D60416ED2C44006EC919 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +332,7 @@
 				D9C4181B16A213790011F600 /* AVFoundation.framework in Frameworks */,
 				D98F931916A2E46100E7DD1B /* CoreMedia.framework in Frameworks */,
 				D9EB732B16CC2FB7003413FC /* AudioToolbox.framework in Frameworks */,
+				D9A9D60516ED2C44006EC919 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +457,7 @@
 		D9258C241695F8F70072798B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9A9D60316ED2C44006EC919 /* MediaPlayer.framework */,
 				D9EB732916CC2FB7003413FC /* AudioToolbox.framework */,
 				D98F931716A2E46100E7DD1B /* CoreMedia.framework */,
 				D9DC647B1699C0B800E0D34B /* AVFoundation.framework */,

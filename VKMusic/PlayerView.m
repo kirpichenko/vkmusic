@@ -15,6 +15,7 @@
 static NSString *kPlayingAudioKey = @"playingAudio";
 static const float kHorizontalOffset = 7.f;
 static const NSTimeInterval kAnimationDuration = 0.5;
+static const NSTimeInterval kProgressUnlockDelay = 0.5;
 
 @interface PlayerView ()
 @property (nonatomic, strong) NSTimer *timer;
@@ -124,20 +125,6 @@ static const NSTimeInterval kAnimationDuration = 0.5;
         return;
     }
     
-//    NSTimeInterval elapsedTime = [[self player] currentTime];
-//    NSTimeInterval audioDuration = [[[self player] playingAudio] duration];
-//    NSTimeInterval remainingTime = audioDuration - elapsedTime;
-//
-//    NSString *remainingTimeString = [NSString stringWithTimeInterval:remainingTime];
-//    
-//    //need to test it
-//    BOOL needLayout = [[audioCurrentTime text] length] != [remainingTimeString length];
-//    if (needLayout) {
-//        [self setNeedsLayout];
-//    }
-//
-//    [audioCurrentTime setText:[NSString stringWithFormat:@"%@",remainingTimeString]];
-    
     NSTimeInterval elapsedTime = [[self player] currentTime];
     NSTimeInterval audioDuration = [[[self player] playingAudio] duration];
 
@@ -155,7 +142,7 @@ static const NSTimeInterval kAnimationDuration = 0.5;
         [self setProgressLocked:lock];
     }
     else {
-        [self performSelector:@selector(unlock) withObject:nil afterDelay:0.5];
+        [self performSelector:@selector(unlock) withObject:nil afterDelay:kProgressUnlockDelay];
     }
 }
 

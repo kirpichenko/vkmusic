@@ -10,6 +10,7 @@
 #import "NSObject+NotificationCenter.h"
 
 static NSInteger kObjectsPerRequest = 10;
+static NSTimeInterval kLoadMoreDelay = 0.3;
 
 @interface PaginationViewController () <UITableViewDataSource>
 @property (nonatomic,strong) NSArray *objects;
@@ -116,7 +117,7 @@ static NSInteger kObjectsPerRequest = 10;
     if ((indexPath.row + 1) == ([[self objects] count]) &&
         (indexPath.row + 1) % kObjectsPerRequest == 0)
     {
-        [self loadObjects];
+        [self performSelector:@selector(loadObjects) withObject:nil afterDelay:kLoadMoreDelay];
     }
 }
 

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-
 @interface OfflineAudio : NSManagedObject <Audio>
 
 @property (nonatomic, retain) NSString *artist;

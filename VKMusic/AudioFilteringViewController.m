@@ -9,6 +9,8 @@
 #import "AudioFilteringViewController.h"
 
 @interface AudioFilteringViewController ()
+@property (nonatomic,strong) NSArray *objects;
+@property (nonatomic,strong) NSArray *audioRecordsFull;
 @end
 
 @implementation AudioFilteringViewController
@@ -42,12 +44,25 @@
 }
 
 #pragma mark -
-#pragma mark public methods
+#pragma mark instance methods
 
-- (void) audioHaveBeenLoaded:(NSArray *) audio
+- (void) objectsHaveBeenLoaded:(NSArray *)loadedObjects
 {
-    [self setAudioRecordsFull:audio];
+    if ([self audioRecordsFull] == nil)
+    {
+        [self setAudioRecordsFull:loadedObjects];
+    }
+    else
+    {
+        [self setAudioRecordsFull:[audioRecordsFull arrayByAddingObjectsFromArray:loadedObjects]];
+    }    
     [self filterRecords:[searchField text]];
+}
+
+- (void)clean
+{
+    [self setAudioRecordsFull:nil];
+    [super clean];
 }
 
 - (void) filterRecords:(NSString *) filter
@@ -55,12 +70,23 @@
     if ([filter length] > 0) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:
                                   @"artist contains[cd] %@ or title contains[cd] %@",filter,filter];
-        [self setAudioRecords:[audioRecordsFull filteredArrayUsingPredicate:predicate]];
+        [self setObjects:[audioRecordsFull filteredArrayUsingPredicate:predicate]];
     }
     else {
-        [self setAudioRecords:audioRecordsFull];
+        [self setObjects:audioRecordsFull];
     }
-    [audioList reloadData];
+    [objectsList reloadData];
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[searchField text] length] == 0)
+    {
+        [super tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
+    }
 }
 
 @end

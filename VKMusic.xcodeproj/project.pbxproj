@@ -31,6 +31,14 @@
 		D9269F5C16DBF971007A42B6 /* Lyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = D9269F5A16DBF971007A42B6 /* Lyrics.m */; };
 		D9269F6216DC0941007A42B6 /* LyricsGetResponse in Resources */ = {isa = PBXBuildFile; fileRef = D9269F6016DC0941007A42B6 /* LyricsGetResponse */; };
 		D9269F6516DC09DD007A42B6 /* LyricsGetSpecSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D9269F6316DC09DD007A42B6 /* LyricsGetSpecSpec.m */; };
+		D944443716ECD0740059DB64 /* BasePaginatedApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D944443616ECD0740059DB64 /* BasePaginatedApiRequest.m */; };
+		D944443816ECD0740059DB64 /* BasePaginatedApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D944443616ECD0740059DB64 /* BasePaginatedApiRequest.m */; };
+		D944443C16ECD5A50059DB64 /* PaginationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D944443B16ECD5A50059DB64 /* PaginationViewController.m */; };
+		D944443D16ECD5A50059DB64 /* PaginationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D944443B16ECD5A50059DB64 /* PaginationViewController.m */; };
+		D944444016ECF5C90059DB64 /* NetworkActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D944443F16ECF5C90059DB64 /* NetworkActivityManager.m */; };
+		D944444116ECF5C90059DB64 /* NetworkActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D944443F16ECF5C90059DB64 /* NetworkActivityManager.m */; };
+		D944445216ECFC5A0059DB64 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D944445116ECFC5A0059DB64 /* User.m */; };
+		D944445316ECFC5A0059DB64 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D944445116ECFC5A0059DB64 /* User.m */; };
 		D94BD73016CD6A9D00CC9891 /* AlbumsGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD72F16CD6A9D00CC9891 /* AlbumsGetApiRequest.m */; };
 		D94BD73116CD6A9D00CC9891 /* AlbumsGetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D94BD72F16CD6A9D00CC9891 /* AlbumsGetApiRequest.m */; };
 		D94BD73416CD77EB00CC9891 /* EKFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF649916C43338000DCF26 /* EKFileManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -172,6 +180,14 @@
 		D9269F5F16DBFC01007A42B6 /* ApiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiModel.h; sourceTree = "<group>"; };
 		D9269F6016DC0941007A42B6 /* LyricsGetResponse */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LyricsGetResponse; sourceTree = "<group>"; };
 		D9269F6316DC09DD007A42B6 /* LyricsGetSpecSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricsGetSpecSpec.m; sourceTree = "<group>"; };
+		D944443516ECD0740059DB64 /* BasePaginatedApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePaginatedApiRequest.h; sourceTree = "<group>"; };
+		D944443616ECD0740059DB64 /* BasePaginatedApiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePaginatedApiRequest.m; sourceTree = "<group>"; };
+		D944443A16ECD5A50059DB64 /* PaginationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaginationViewController.h; sourceTree = "<group>"; };
+		D944443B16ECD5A50059DB64 /* PaginationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaginationViewController.m; sourceTree = "<group>"; };
+		D944443E16ECF5C90059DB64 /* NetworkActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkActivityManager.h; sourceTree = "<group>"; };
+		D944443F16ECF5C90059DB64 /* NetworkActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkActivityManager.m; sourceTree = "<group>"; };
+		D944445016ECFC5A0059DB64 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D944445116ECFC5A0059DB64 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D94BD72E16CD6A9D00CC9891 /* AlbumsGetApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsGetApiRequest.h; sourceTree = "<group>"; };
 		D94BD72F16CD6A9D00CC9891 /* AlbumsGetApiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsGetApiRequest.m; sourceTree = "<group>"; };
 		D94BD73516CEB5F300CC9891 /* ApiRequestUtitlites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiRequestUtitlites.h; sourceTree = "<group>"; };
@@ -373,6 +389,7 @@
 		D91750F116C97B3C00A00448 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D944444216ECF5D10059DB64 /* NetworkActivityManager */,
 				D99F9CAC169A15F800735A31 /* AudioFilesManager */,
 				D98C5DEB16988DBB0084D92A /* SettingsManager */,
 			);
@@ -393,6 +410,7 @@
 			children = (
 				D9CB7BFC16D17D4C006E7A08 /* ApiRequestBuilder */,
 				D9CB7BF716D1769C006E7A08 /* BaseApiRequest */,
+				D944443416ECD03D0059DB64 /* BasePaginatedApiRequest */,
 				D9CB7BE516D17017006E7A08 /* AudioSearchApiRequest */,
 				D91750F416C99D3200A00448 /* AudioGetApiRequest */,
 				D94BD72D16CD6A6C00CC9891 /* AlbumsGetApiRequest */,
@@ -504,6 +522,42 @@
 				D9AC6F8816BEDE7F00432CC1 /* Audio.h */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		D944443416ECD03D0059DB64 /* BasePaginatedApiRequest */ = {
+			isa = PBXGroup;
+			children = (
+				D944443516ECD0740059DB64 /* BasePaginatedApiRequest.h */,
+				D944443616ECD0740059DB64 /* BasePaginatedApiRequest.m */,
+			);
+			name = BasePaginatedApiRequest;
+			sourceTree = "<group>";
+		};
+		D944443916ECD4310059DB64 /* PaginationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D944443A16ECD5A50059DB64 /* PaginationViewController.h */,
+				D944443B16ECD5A50059DB64 /* PaginationViewController.m */,
+			);
+			name = PaginationViewController;
+			sourceTree = "<group>";
+		};
+		D944444216ECF5D10059DB64 /* NetworkActivityManager */ = {
+			isa = PBXGroup;
+			children = (
+				D944443E16ECF5C90059DB64 /* NetworkActivityManager.h */,
+				D944443F16ECF5C90059DB64 /* NetworkActivityManager.m */,
+			);
+			name = NetworkActivityManager;
+			sourceTree = "<group>";
+		};
+		D944444716ECF9600059DB64 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D944445016ECFC5A0059DB64 /* User.h */,
+				D944445116ECFC5A0059DB64 /* User.m */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		D94BD72D16CD6A6C00CC9891 /* AlbumsGetApiRequest */ = {
@@ -639,11 +693,12 @@
 		D995382F1695FFEA00C8B6F4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D9DC646E1699AA1500E0D34B /* PlayerController */,
+				D944443916ECD4310059DB64 /* PaginationViewController */,
 				D98B559D16B58F8300E0452A /* AudioListViewController */,
 				D9529C9D16DD516A00FBF06B /* AudioFilteringListViewController */,
 				D9B5F5B716976BF0006E77D2 /* UsersAudioViewController */,
 				D9DC646816999D6600E0D34B /* SavedAudioViewController */,
-				D9DC646E1699AA1500E0D34B /* PlayerController */,
 				D9C9B95216D55BFC0054BB2B /* MenuTabBarController */,
 				D9DC646116999C1700E0D34B /* PlaylistsViewController */,
 				D9DC646216999C3500E0D34B /* SearchViewController */,
@@ -682,6 +737,7 @@
 				D9AC6F8716BEDCF100432CC1 /* Audio */,
 				D94BD73916CEBF4B00CC9891 /* Album */,
 				D9269F5816DBF957007A42B6 /* Lyrics */,
+				D944444716ECF9600059DB64 /* User */,
 				D9EB732E16CC34E7003413FC /* Mapping */,
 			);
 			name = Models;
@@ -1150,6 +1206,10 @@
 				D9269F5616DBF87D007A42B6 /* LyricsGetApiRequest.m in Sources */,
 				D9269F5B16DBF971007A42B6 /* Lyrics.m in Sources */,
 				D9529CA116DD51C800FBF06B /* AudioFilteringViewController.m in Sources */,
+				D944443716ECD0740059DB64 /* BasePaginatedApiRequest.m in Sources */,
+				D944443C16ECD5A50059DB64 /* PaginationViewController.m in Sources */,
+				D944444016ECF5C90059DB64 /* NetworkActivityManager.m in Sources */,
+				D944445216ECFC5A0059DB64 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1206,6 +1266,10 @@
 				D9269F5C16DBF971007A42B6 /* Lyrics.m in Sources */,
 				D9269F6516DC09DD007A42B6 /* LyricsGetSpecSpec.m in Sources */,
 				D9529CA216DD51C800FBF06B /* AudioFilteringViewController.m in Sources */,
+				D944443816ECD0740059DB64 /* BasePaginatedApiRequest.m in Sources */,
+				D944443D16ECD5A50059DB64 /* PaginationViewController.m in Sources */,
+				D944444116ECF5C90059DB64 /* NetworkActivityManager.m in Sources */,
+				D944445316ECFC5A0059DB64 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

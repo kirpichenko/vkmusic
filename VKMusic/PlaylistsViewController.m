@@ -10,63 +10,30 @@
 #import "UsersAudioViewController.h"
 #import "AlbumsGetApiRequest.h"
 
-#import "Album.h"
-
 #import "UITableView+CellCreation.h"
 
 @interface PlaylistsViewController () <UITableViewDataSource,UITabBarDelegate>
-@property (nonatomic,strong) NSArray *albums;
+@property (nonatomic,strong) NSArray *objects;
 @end
 
 @implementation PlaylistsViewController
 
-@synthesize albums;
+@synthesize objects;
 
 #pragma mark -
 #pragma mark life cycle
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    [self loadAlbums];
+    [super viewWillAppear:animated];
+    if ([objects count] == 0)
+    {
+        [self loadObjects];
+    }
 }
 
 - (void)viewDidUnload {
-    albumsList = nil;
     [super viewDidUnload];
-}
-
-
-- (void)dealloc
-{
-    [self setAlbums:nil];
-}
-
-#pragma mark -
-#pragma mark load albums
-
-- (void)loadAlbums
-{
-    __weak PlaylistsViewController *playlist = self;
-    [[ApiRequestSender sharedInstance] sendApiRequest:[self albumsGetApiRequest]
-                                              success:^(id response) {
-                                                  [playlist albumsAreLoaded:response];
-                                              }
-                                              failure:^(NSError *error) {
-                                                  [playlist albumsLoadingFailed:error];
-                                              }];
-}
-
-- (void)albumsAreLoaded:(NSArray *)theAlbums
-{
-    albums = theAlbums;
-    [albumsList reloadData];
-    
-}
-
-- (void)albumsLoadingFailed:(NSError *)error
-{
-    NSLog(@"error = %@",error);
 }
 
 #pragma mark -
@@ -74,7 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [albums count];
+    return [objects count];
     
 }
 
@@ -83,7 +50,7 @@
     NSString *identifier = @"albumCell";
     UITableViewCell *cell = [tableView baseCellWithIdentifier:identifier];
     
-    Album *album = [albums objectAtIndex:indexPath.row];
+    Album *album = [objects objectAtIndex:indexPath.row];
     [[cell textLabel] setText:[album title]];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 
@@ -97,7 +64,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    Album *album = [[self albums] objectAtIndex:indexPath.row];
+    Album *album = [objects objectAtIndex:indexPath.row];
     UsersAudioViewController *controller = [[UsersAudioViewController alloc] init];
     [controller setAlbumID:[album albumID]];
     [[self navigationController] pushViewController:controller animated:YES];
@@ -106,10 +73,10 @@
 #pragma mark -
 #pragma mark helpers
 
-- (AlbumsGetApiRequest *)albumsGetApiRequest
+- (BasePaginatedApiRequest *)objectsApiRequest
 {
     AlbumsGetApiRequest *apiRequest = [[AlbumsGetApiRequest alloc] init];
-    [apiRequest setUserID:[[SettingsManager sharedInstance] authorizedUserID]];
+    [apiRequest setUserID:[[[SettingsManager sharedInstance] signedUser] userID]];
 
     return apiRequest;
 }

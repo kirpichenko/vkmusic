@@ -39,6 +39,8 @@ typedef void(^AFFailureBlock)(NSURLRequest *,NSHTTPURLResponse *, NSError *, id 
     [[AFJSONRequestOperation JSONRequestOperationWithRequest:[apiRequest apiURLRequest]
                                                      success:successBlock
                                                      failure:failureBlock] start];
+    
+    [[NetworkActivityManager sharedInstance] showNetworkActivityIndicator];
 }
 
 #pragma mark -
@@ -51,6 +53,7 @@ typedef void(^AFFailureBlock)(NSURLRequest *,NSHTTPURLResponse *, NSError *, id 
     ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         if (success) {
             NSLog(@"request = %@, response = %@",[[request URL] absoluteString],JSON);
+            [[NetworkActivityManager sharedInstance] stopNetworkActivityIndicator];
             success([apiRequest parseJSONResponse:JSON]);
         }
     };
@@ -61,6 +64,7 @@ typedef void(^AFFailureBlock)(NSURLRequest *,NSHTTPURLResponse *, NSError *, id 
 {
     AFFailureBlock operationFailure =
     ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [[NetworkActivityManager sharedInstance] stopNetworkActivityIndicator];
         if (failure) {
             failure(error);
         }

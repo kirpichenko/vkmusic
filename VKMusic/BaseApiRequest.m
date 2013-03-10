@@ -18,7 +18,7 @@
 {
     if (self = [super init]) {
         [self setBaseURL:kApiBaseURL];
-        [self setAccessToken:[[SettingsManager sharedInstance] accessToken]];
+        [self setAccessToken:[[[SettingsManager sharedInstance] signedUser] accessToken]];
     }
     return self;
 }
@@ -45,7 +45,8 @@
         [urlString appendFormat:@"&%@",query];
     }
 
-    return [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSString *encodedString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    return [NSURLRequest requestWithURL:[NSURL URLWithString:encodedString]];
 }
 
 - (NSString *)apiQuery

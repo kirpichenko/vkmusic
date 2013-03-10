@@ -13,7 +13,7 @@
 
 #import "UITableView+CellCreation.h"
 
-@interface SavedAudioViewController () <UITableViewDataSource,UITabBarDelegate>
+@interface SavedAudioViewController ()
 @end
 
 @implementation SavedAudioViewController
@@ -25,8 +25,14 @@
 {
     [super viewWillAppear:animated];
     
-    NSArray *audio = [[OfflineAudioManager sharedInstance] offlineAudioList];
-    [self audioHaveBeenLoaded:audio];
+    [self clean];
+    [self objectsHaveBeenLoaded:[self userAudio]];
+}
+
+- (NSArray *)userAudio
+{
+    User *user = [[SettingsManager sharedInstance] signedUser];
+    return [[user audioList] allObjects];
 }
 
 @end

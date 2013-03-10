@@ -15,6 +15,8 @@
 #import "LyricsGetApiRequest.h"
 #import "ApiRequestSender.h"
 
+#import "NSObject+NotificationCenter.h"
+
 static NSString *kPlayingAudioKey = @"playingAudio";
 
 @interface PlayerViewController () <MenuTabBarControllerDelegate>
@@ -36,6 +38,8 @@ static NSString *kPlayingAudioKey = @"playingAudio";
                  forKeyPath:kPlayingAudioKey
                     options:NSKeyValueObservingOptionNew
                     context:nil];
+        
+        [self observeNotificationNamed:kUserSignedOut withSelector:@selector(userSignedOut)];
     }
     return self;
 }
@@ -138,6 +142,14 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 }
 
 #pragma mark -
+#pragma mark notifications
+
+- (void)userSignedOut
+{
+    [playerView reset];
+}
+
+#pragma mark -
 #pragma mark actions
 
 - (IBAction)playPause
@@ -169,7 +181,14 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 - (IBAction)progressChanged:(id)sender
 {
     float progress = [(UISlider *)sender value];
+    [playerView setProgress:progress lock:YES];
+}
+
+- (IBAction)progressSet:(id)sender
+{
+    float progress = [(UISlider *)sender value];
     [[self player] setProgress:progress];
+    [playerView setProgress:progress lock:NO];
 }
 
 @end

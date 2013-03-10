@@ -10,6 +10,8 @@
 #import "SignInViewController.h"
 #import "PlayerViewController.h"
 
+#import "NSObject+NotificationCenter.h"
+
 #import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate () <SignInViewControllerDelegate>
@@ -20,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [application beginReceivingRemoteControlEvents];
+    [MagicalRecord setupCoreDataStack];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -29,23 +32,14 @@
     [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];
     
-    [self configureApllication];
+    [self observeNotificationNamed:kUserSignedOut withSelector:@selector(userSignedOut)];
+    [self checkIfUserAuthorized];
     
     return YES;
 }
 
 #pragma mark -
 #pragma mark helpers
-
-- (void)configureApllication
-{
-    [self checkIfUserAuthorized];
-    [self registerForNotificationNamed:kUserSignedOut selector:@selector(userSignedOut)];
-    
-    dispatch_async(dispatch_get_current_queue(), ^{
-        [MagicalRecord setupCoreDataStack];
-    });    
-}
 
 - (void) checkIfUserAuthorized
 {
@@ -67,27 +61,19 @@
 #pragma mark -
 #pragma mark notifications
 
-- (void) registerForNotificationNamed:(NSString *) name selector:(SEL) selector
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:selector
-                                                 name:name
-                                               object:nil];
-}
-
 - (void) userSignedOut
 {
-    [self showSignInViewControllerAnimated:YES];
+    [self showSignInViewControllerAnimated:NO];
+    [[AudioPlayer sharedInstance] stop];
 }
 
 #pragma mark -
 #pragma mark SignInViewControllerDelegate methods
 
-- (void) userSignedIn:(NSInteger)userID accessToken:(NSString *)token
+- (void) userSignedIn:(User *)user
 {
     SettingsManager *settings = [SettingsManager sharedInstance];
-    [settings setAccessToken:token];
-    [settings setAuthorizedUserID:userID];
+    [settings setSignedUser:user];
     [settings saveSettings];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kUserSignedIn

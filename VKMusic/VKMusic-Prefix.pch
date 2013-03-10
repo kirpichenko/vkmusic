@@ -22,6 +22,7 @@
 
     #import "SettingsManager.h"
     #import "OfflineAudioManager.h"
+    #import "NetworkActivityManager.h"
     #import "EKKeyboardAvoidingScrollViewManager.h"
 
     #import "NSObject+NotificationCenter.h"

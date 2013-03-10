@@ -31,8 +31,7 @@
 - (void) forgetAuthorizedUser
 {
     SettingsManager *settings = [SettingsManager sharedInstance];
-    [settings setAccessToken:nil];
-    [settings setAuthorizedUserID:NSNotFound];
+    [settings setSignedUser:nil];
     [settings saveSettings];
 }
 

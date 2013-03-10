@@ -36,4 +36,6 @@
 - (BOOL)isAudioSaved:(NSInteger) audioID;
 - (BOOL)isAudioLoading:(NSInteger) audioID;
 
+- (void)deleteAudio:(OfflineAudio *)audio;
+
 @end

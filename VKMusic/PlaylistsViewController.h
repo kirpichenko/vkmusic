@@ -6,11 +6,8 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PaginationViewController.h"
 
-@interface PlaylistsViewController : UIViewController
-{
-    __weak IBOutlet UITableView *albumsList;
-}
+@interface PlaylistsViewController : PaginationViewController
 
 @end

@@ -12,12 +12,12 @@
 
 - (id) initWithRedirectURL:(NSURL *) url;
 
-@property (nonatomic, strong, readonly) NSURL *redirectURL;
+@property (nonatomic,readonly) NSURL *redirectURL;
 
-@property (nonatomic, strong, readonly) NSString *accessToken;
-@property (nonatomic, readonly) NSInteger userID;
-@property (nonatomic, readonly) NSTimeInterval expirationDate;
+@property (nonatomic,readonly) NSString *accessToken;
+@property (nonatomic,readonly) NSInteger userID;
+@property (nonatomic,readonly) NSTimeInterval expirationDate;
 
-@property (nonatomic, strong, readonly) NSString *error;
+@property (nonatomic,readonly) NSString *error;
 
 @end

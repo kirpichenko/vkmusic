@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol SignInViewControllerDelegate <NSObject>
-- (void) userSignedIn:(NSInteger) userID accessToken:(NSString *) token;
+- (void) userSignedIn:(User *)user;
 - (void) userSignInFailed:(NSError *) error;
 @end
 

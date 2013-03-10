@@ -6,14 +6,11 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "BaseApiRequest.h"
+#import "BasePaginatedApiRequest.h"
 #import "Album.h"
 
-@interface AlbumsGetApiRequest : BaseApiRequest
+@interface AlbumsGetApiRequest : BasePaginatedApiRequest
 
 @property (nonatomic,assign) NSInteger userID;
-@property (nonatomic,assign) NSInteger count;
-@property (nonatomic,assign) NSInteger offset;
 
 @end

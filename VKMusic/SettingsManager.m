@@ -8,7 +8,6 @@
 
 #import "SettingsManager.h"
 
-static NSString *kAccessTokenKey = @"AccessTokenKey";
 static NSString *kAuthorizedUserIDKey = @"AuthorizedUserKey";
 
 @implementation SettingsManager
@@ -25,8 +24,11 @@ static NSString *kAuthorizedUserIDKey = @"AuthorizedUserKey";
 
 - (id) init
 {
-    if (self = [super init]) {
+    if (self = [super init])
+    {
+#ifndef TEST
         [self loadSettings];
+#endif
     }
     return self;
 }
@@ -36,7 +38,7 @@ static NSString *kAuthorizedUserIDKey = @"AuthorizedUserKey";
 
 - (BOOL) isUserAuthorized
 {
-    return ([[self accessToken] length] > 0 && [self authorizedUserID] != NSNotFound);
+    return ([self signedUser] != nil);
 }
 
 #pragma mark -
@@ -45,16 +47,17 @@ static NSString *kAuthorizedUserIDKey = @"AuthorizedUserKey";
 - (void) saveSettings
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[self accessToken] forKey:kAccessTokenKey];
-    [defaults setInteger:[self authorizedUserID] forKey:kAuthorizedUserIDKey];
+    [defaults setInteger:[[self signedUser] userID] forKey:kAuthorizedUserIDKey];
     [defaults synchronize];
 }
 
 - (void) loadSettings
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [self setAccessToken:[defaults objectForKey:kAccessTokenKey]];
-    [self setAuthorizedUserID:[defaults integerForKey:kAuthorizedUserIDKey]];
+    NSInteger userID = [defaults integerForKey:kAuthorizedUserIDKey];
+
+    User *user = [User MR_findFirstByAttribute:@"userID" withValue:@(userID)];
+    [self setSignedUser:user];
 }
 
 @end

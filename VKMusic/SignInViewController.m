@@ -10,7 +10,6 @@
 #import "OAuthResponse.h"
 
 @interface SignInViewController () <UIWebViewDelegate>
-
 @end
 
 @implementation SignInViewController
@@ -39,6 +38,7 @@
 
 - (void) dealloc
 {
+    NSLog(@"dealloc ");
     [self setDelegate:nil];
     [webView setDelegate:nil];
 }
@@ -49,11 +49,11 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSURL *url = [request URL];
+    NSLog(@"url = %@",url);
     if ([[url host] isEqualToString:kRedirectUri]) {
         OAuthResponse *response = [[OAuthResponse alloc] initWithRedirectURL:url];
         if ([[response accessToken] length] != 0) {
-            [[self delegate] userSignedIn:[response userID]
-                              accessToken:[response accessToken]];
+            [self userSignedInWithOAuthResponse:response];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         return NO;
@@ -79,6 +79,27 @@
             kAuthorizationURL,
             kApplicationID,
             kRedirectUri];
+}
+
+- (void)userSignedInWithOAuthResponse:(OAuthResponse *)response
+{
+    User *user = [User MR_findFirstByAttribute:@"userID" withValue:@([response userID])];
+    if (user == nil) {
+        user = [User MR_createEntity];
+        [user setUserID:[response userID]];
+    }
+    [user setAccessToken:[response accessToken]];
+    
+    [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveOnlySelfAndWait];
+    [self notifyDelegateUserSigned:user];
+}
+
+- (void)notifyDelegateUserSigned:(User *)user
+{
+    if ([[self delegate] respondsToSelector:@selector(userSignedIn:)])
+    {
+        [[self delegate] userSignedIn:user];
+    }
 }
 
 @end

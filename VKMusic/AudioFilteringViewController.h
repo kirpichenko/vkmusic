@@ -15,6 +15,6 @@
 
 - (void)filterRecords:(NSString *)filter;
 
-@property (nonatomic,strong) NSArray *audioRecordsFull;
+@property (nonatomic,readonly) NSArray *audioRecordsFull;
 
 @end

@@ -6,16 +6,14 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PaginationViewController.h"
+#import "AudioCell.h"
 
-@interface AudioListViewController : UIViewController <UITableViewDataSource>
-{
-    __weak IBOutlet UITableView *audioList;
-}
+@interface AudioListViewController : PaginationViewController
+    <UITableViewDataSource,
+    AudioCellDelegate>
 
-- (void)audioHaveBeenLoaded:(NSArray *)audio;
-- (void)audioLoadingFailed:(NSError *)error;
-
-@property (nonatomic,strong) NSArray *audioRecords;
+- (BasePaginatedApiRequest *)audioApiRequest;
+- (void)loadAudio;
 
 @end

@@ -19,6 +19,7 @@ static const NSTimeInterval kAnimationDuration = 0.5;
 @interface PlayerView ()
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, readwrite) BOOL lyricsDisplayed;
+@property (nonatomic, assign) BOOL progressLocked;
 @end
 
 @implementation PlayerView
@@ -51,6 +52,14 @@ static const NSTimeInterval kAnimationDuration = 0.5;
                      animations:^{
                          [self layoutSubviews];
                      }];
+}
+
+- (void)reset
+{
+    [audioCurrentTime setText:nil];
+    [audioTitle setAudioTitle:nil];
+    [progressSlider setValue:0];
+    [lyricTextView setText:nil];
 }
 
 #pragma mark -
@@ -110,26 +119,43 @@ static const NSTimeInterval kAnimationDuration = 0.5;
 
 - (void) updateTimeIndicators
 {
-    if ([[self player] playingAudio] == nil) {
+    if ([[self player] playingAudio] == nil || [self progressLocked])
+    {
         return;
     }
     
+//    NSTimeInterval elapsedTime = [[self player] currentTime];
+//    NSTimeInterval audioDuration = [[[self player] playingAudio] duration];
+//    NSTimeInterval remainingTime = audioDuration - elapsedTime;
+//
+//    NSString *remainingTimeString = [NSString stringWithTimeInterval:remainingTime];
+//    
+//    //need to test it
+//    BOOL needLayout = [[audioCurrentTime text] length] != [remainingTimeString length];
+//    if (needLayout) {
+//        [self setNeedsLayout];
+//    }
+//
+//    [audioCurrentTime setText:[NSString stringWithFormat:@"%@",remainingTimeString]];
+    
     NSTimeInterval elapsedTime = [[self player] currentTime];
     NSTimeInterval audioDuration = [[[self player] playingAudio] duration];
-    NSTimeInterval remainingTime = audioDuration - elapsedTime;
 
-    NSString *remainingTimeString = [NSString stringWithTimeInterval:remainingTime];
-    
-    //need to test it
-    BOOL needLayout = [[audioCurrentTime text] length] != [remainingTimeString length];
-    if (needLayout) {
-        [self setNeedsLayout];
-    }
-    
-    [audioCurrentTime setText:[NSString stringWithFormat:@"%@",remainingTimeString]];
+    [self updateTimeLabel:elapsedTime / audioDuration];
     
     if (![progressSlider isHighlighted]) {
-        [progressSlider setValue:elapsedTime / audioDuration animated:YES];
+        [progressSlider setValue:elapsedTime / audioDuration animated:NO];
+    }
+}
+
+- (void)setProgress:(float)progress lock:(BOOL)lock
+{
+    [self updateTimeLabel:progress];
+    if (lock) {
+        [self setProgressLocked:lock];
+    }
+    else {
+        [self performSelector:@selector(unlock) withObject:nil afterDelay:0.5];
     }
 }
 
@@ -143,6 +169,29 @@ static const NSTimeInterval kAnimationDuration = 0.5;
     
     [audioTitle setWidth:audioCurrentTime.x - audioTitle.x - kHorizontalOffset];
     [lyricTextView setY:[self lyricsDisplayed] ? 0 : CGRectGetMaxY([contentView frame])];
+}
+
+#pragma mark -
+#pragma mark helpers
+
+- (void)updateTimeLabel:(double)progress
+{
+    NSTimeInterval audioDuration = [[[self player] playingAudio] duration];
+    NSTimeInterval slideDuration = audioDuration * (1. - progress);
+    
+    NSString *remainingTimeString = [NSString stringWithTimeInterval:slideDuration];
+    
+    BOOL needLayout = [[audioCurrentTime text] length] != [remainingTimeString length];
+    if (needLayout) {
+        [self setNeedsLayout];
+    }
+    
+    [audioCurrentTime setText:[NSString stringWithFormat:@"%@",remainingTimeString]];
+}
+
+- (void)unlock
+{
+    [self setProgressLocked:NO];
 }
 
 @end

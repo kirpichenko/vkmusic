@@ -14,7 +14,7 @@
 #import "AudioDownloaderAdapter.h"
 
 @interface OfflineAudioManager () <AudioDownloaderDelegate>
-
+@property (nonatomic,strong) User *signedUser;
 @end
 
 @implementation OfflineAudioManager
@@ -125,6 +125,7 @@
     [offlineAudio setAudioURL:[fileCache filePathForKey:[[audio url] absoluteString]]];
     [offlineAudio setDuration:[audio duration]];
 
+    [[[SettingsManager sharedInstance] signedUser] addAudioListObject:offlineAudio];
     [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveOnlySelfAndWait];
 }
 
@@ -138,6 +139,14 @@
     }
     return NO;
 
+}
+
+#pragma mark -
+#pragma mark delete audio
+
+- (void)deleteAudio:(OfflineAudio *)audio
+{
+    NSLog(@"delete");
 }
 
 @end

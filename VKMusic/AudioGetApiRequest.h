@@ -6,15 +6,12 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "BaseApiRequest.h"
+#import "BasePaginatedApiRequest.h"
 #import "OnlineAudio.h"
 
-@interface AudioGetApiRequest : BaseApiRequest
+@interface AudioGetApiRequest : BasePaginatedApiRequest
 
 @property (nonatomic,assign) NSInteger userID;
-@property (nonatomic,assign) NSInteger count;
-@property (nonatomic,assign) NSInteger offset;
 @property (nonatomic,assign) NSInteger albumID;
 
 @end

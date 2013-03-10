@@ -9,13 +9,13 @@
 #import "OAuthResponse.h"
 
 @interface OAuthResponse ()
-@property (nonatomic, strong, readwrite) NSURL *redirectURL;
+@property (nonatomic,strong) NSURL *redirectURL;
 
-@property (nonatomic, strong, readwrite) NSString *accessToken;
-@property (nonatomic, readwrite) NSInteger userID;
-@property (nonatomic, readwrite) NSTimeInterval expirationDate;
+@property (nonatomic,strong) NSString *accessToken;
+@property (nonatomic,assign) NSInteger userID;
+@property (nonatomic,assign) NSTimeInterval expirationDate;
 
-@property (nonatomic, strong, readwrite) NSString *error;
+@property (nonatomic,strong) NSString *error;
 @end
 
 @implementation OAuthResponse

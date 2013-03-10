@@ -22,6 +22,8 @@
 }
 
 - (void)setLyricsHidden:(BOOL)hidden;
+- (void)setProgress:(float)progress lock:(BOOL)lock;
+- (void)reset;
 
 @property (nonatomic, strong) AudioPlayer *player;
 @property (nonatomic, readonly) BOOL lyricsDisplayed;

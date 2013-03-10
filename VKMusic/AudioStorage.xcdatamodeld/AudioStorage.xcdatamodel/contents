@@ -7,8 +7,15 @@
         <attribute name="duration" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="lyricsID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="audioList" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="audioList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OfflineAudio" inverseName="user" inverseEntity="OfflineAudio" syncable="YES"/>
     </entity>
     <elements>
-        <element name="OfflineAudio" positionX="0" positionY="0" width="128" height="133"/>
+        <element name="OfflineAudio" positionX="16" positionY="27" width="128" height="148"/>
+        <element name="User" positionX="-164" positionY="-0" width="128" height="88"/>
     </elements>
 </model>

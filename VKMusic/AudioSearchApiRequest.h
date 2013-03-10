@@ -6,16 +6,13 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "BaseApiRequest.h"
+#import "BasePaginatedApiRequest.h"
+
 #import "Audio.h"
 
-@interface AudioSearchApiRequest : BaseApiRequest
+@interface AudioSearchApiRequest : BasePaginatedApiRequest
 
 @property (nonatomic,copy) NSString *query;
 @property (nonatomic,assign) BOOL autoComplete;
-@property (nonatomic,assign) BOOL hasLyrics;
-@property (nonatomic) NSInteger count;
-@property (nonatomic) NSInteger offset;
 
 @end

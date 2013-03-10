@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OAuthResponse.h"
+#import "User.h"
 
 @interface SettingsManager : NSObject
 
@@ -16,7 +16,6 @@
 - (BOOL) isUserAuthorized;
 - (void) saveSettings;
 
-@property (nonatomic, strong) NSString *accessToken;
-@property (nonatomic) NSInteger authorizedUserID;
+@property(nonatomic,strong) User *signedUser;
 
 @end

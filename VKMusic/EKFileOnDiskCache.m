@@ -13,7 +13,7 @@ static NSString * const kDefaultSubdirectory = @"FilesCache";
 static EKFileOnDiskCache *kFilesOnDiskCache = nil;
 
 @interface EKFileOnDiskCache ()
-@property (nonatomic,copy,readwrite) NSString *cacheSubpath;
+@property (nonatomic,copy) NSString *cachePath;
 @end
 
 @implementation EKFileOnDiskCache
@@ -34,14 +34,13 @@ static EKFileOnDiskCache *kFilesOnDiskCache = nil;
     }
 }
 
-- (id) initWithCacheSubpath:(NSString *) cacheSubpath
+- (id) initWithCachePath:(NSString *)cachePath
 {
     if (self = [super init]) {
-        [self setCacheSubpath:cacheSubpath];
+        [self setCachePath:cachePath];
         
-        NSString *cachesDirectory = [self pathForCachesDirectory];
-        if (![[NSFileManager defaultManager] fileExistsAtPath:cachesDirectory]) {
-            [[NSFileManager defaultManager] createDirectoryAtPath:cachesDirectory
+        if (![[NSFileManager defaultManager] fileExistsAtPath:cachePath]) {
+            [[NSFileManager defaultManager] createDirectoryAtPath:cachePath
                                       withIntermediateDirectories:YES
                                                        attributes:nil
                                                             error:nil];
@@ -52,7 +51,7 @@ static EKFileOnDiskCache *kFilesOnDiskCache = nil;
 
 - (id) init
 {
-    return [self initWithCacheSubpath:nil];
+    return [self initWithCachePath:[[self class] pathForCachesDirectory]];
 }
 
 - (void) dealloc
@@ -60,24 +59,27 @@ static EKFileOnDiskCache *kFilesOnDiskCache = nil;
     if (self == kFilesOnDiskCache) {
         kFilesOnDiskCache = nil;
     }
-    [self setCacheSubpath:nil];
+    [self setCachePath:nil];
     [super dealloc];
 }
 
 #pragma mark -
 #pragma mark paths
 
-- (NSString *) pathForCachesDirectory
++ (NSString *) pathForCachesDirectory
 {
-    NSArray* caches = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *subpath = [kDefaultSubdirectory stringByAppendingPathComponent:[self cacheSubpath]];
-    return [[caches lastObject] stringByAppendingPathComponent:subpath];
+    return [self pathForDirectory:NSCachesDirectory];
+}
+
++ (NSString *)pathForDocumentsDirectory
+{
+    return [self pathForDirectory:NSDocumentDirectory];
 }
 
 - (NSString *) filePathForKey:(NSString *)key
 {
     NSString *keyhash = [NSString stringWithFormat:@"%@.%@",[key md5],[key pathExtension]];
-    return [[self pathForCachesDirectory] stringByAppendingPathComponent:keyhash];
+    return [[self cachePath] stringByAppendingPathComponent:keyhash];
 }
 
 #pragma mark -
@@ -86,9 +88,8 @@ static EKFileOnDiskCache *kFilesOnDiskCache = nil;
 - (void) cacheFileData:(NSData *) fileData forKey:(NSString *) key
 {
     NSString *filePath = [self filePathForKey:key];
-    [[NSFileManager defaultManager] createFileAtPath:filePath
-                                            contents:fileData
-                                          attributes:nil];
+    [[NSFileManager defaultManager] createFileAtPath:filePath contents:fileData attributes:nil];
+    [self addSkipBackupAttributeToFileAtPath:filePath];
 }
 
 - (NSData *) cachedFileDataForKey:(NSString *) key
@@ -109,7 +110,7 @@ static EKFileOnDiskCache *kFilesOnDiskCache = nil;
 - (void) cleanCache
 {
     NSError *error = nil;
-    NSString *cacheDirectory = [self pathForCachesDirectory];
+    NSString *cacheDirectory = [self cachePath];
     NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:cacheDirectory
                                                                          error:&error];
     if (error == nil && [files count] > 0) {
@@ -124,6 +125,30 @@ static EKFileOnDiskCache *kFilesOnDiskCache = nil;
 {
     [[NSFileManager defaultManager] removeItemAtPath:[self filePathForKey:key]
                                                error:nil];
+}
+
+#pragma mark -
+#pragma mark helpers
+
++ (NSString *)pathForDirectory:(NSSearchPathDirectory)directory
+{
+    NSArray* caches = NSSearchPathForDirectoriesInDomains(directory, NSUserDomainMask, YES);
+    return [caches lastObject];
+}
+
+- (void)addSkipBackupAttributeToFileAtPath:(NSString *)filePath
+{
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+    {
+        NSError *error;
+        NSURL *fileURL = [NSURL URLWithString:filePath];
+        BOOL success = [fileURL setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey
+                                           error:&error];
+        if (!success)
+        {
+            NSLog(@"Error excluding %@ from backup %@", fileURL, error);
+        }
+    }
 }
 
 @end

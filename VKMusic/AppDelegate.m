@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SignInViewController.h"
-#import "PlayerViewController.h"
+#import "MainPlayerViewController.h"
 
 #import "NSObject+NotificationCenter.h"
 
@@ -27,7 +27,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     AudioPlayer *player = [AudioPlayer sharedInstance];
-    PlayerViewController *controller = [[PlayerViewController alloc] initWithPlayer:player];
+    MainPlayerViewController *controller = [[MainPlayerViewController alloc] initWithPlayer:player];
     
     [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];

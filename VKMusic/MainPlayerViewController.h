@@ -9,16 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @class MenuTabBarController;
+@class SecondaryPlayerViewController;
 @class PlayerView;
+@class MenuView;
 
-@interface PlayerViewController : UIViewController
+@interface MainPlayerViewController : UIViewController
 {
-    __weak IBOutlet UIView *contentView;
     __weak IBOutlet PlayerView *playerView;
-    __weak IBOutlet UILabel *titleLabel;
-    __weak IBOutlet UITextView *lyricsTextView;
+    __strong IBOutlet MenuView *menuView;
     
     MenuTabBarController *tabBarController;
+    SecondaryPlayerViewController *secondaryController;
 }
 
 - (id) initWithPlayer:(AudioPlayer *) player;

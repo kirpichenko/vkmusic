@@ -41,6 +41,11 @@
     return [self initWithDelegate:nil];
 }
 
+- (void)dealloc
+{
+    NSLog(@"dealloc tab bar");
+}
+
 #pragma mark -
 #pragma mark helpers
 

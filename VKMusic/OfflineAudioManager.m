@@ -33,7 +33,10 @@
 - (id) init
 {
     if (self = [super init]) {
-        fileCache = [[EKFileOnDiskCache alloc] initWithCacheSubpath:@"Music"];
+        NSString *directory = [EKFileOnDiskCache pathForDocumentsDirectory];
+        directory = [directory stringByAppendingPathComponent:@"Music"];
+        
+        fileCache = [[EKFileOnDiskCache alloc] initWithCachePath:directory];
         fileManager = [[EKFileManager alloc] initWithCache:fileCache];
         loadingAudio = [[NSMutableArray alloc] init];
     }

@@ -101,6 +101,12 @@
 		D99F9CBD169A232800735A31 /* AudioDownloaderAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F9CBC169A232800735A31 /* AudioDownloaderAdapter.m */; };
 		D9A9D60416ED2C44006EC919 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9D60316ED2C44006EC919 /* MediaPlayer.framework */; };
 		D9A9D60516ED2C44006EC919 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A9D60316ED2C44006EC919 /* MediaPlayer.framework */; };
+		D9AB863716F4EF0C000A764C /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AB863616F4EF0C000A764C /* MenuView.m */; };
+		D9AB863816F4EF0C000A764C /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AB863616F4EF0C000A764C /* MenuView.m */; };
+		D9AB863E16F4FA20000A764C /* SecondaryPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AB863C16F4FA20000A764C /* SecondaryPlayerViewController.m */; };
+		D9AB863F16F4FA20000A764C /* SecondaryPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AB863C16F4FA20000A764C /* SecondaryPlayerViewController.m */; };
+		D9AB864016F4FA20000A764C /* SecondaryPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9AB863D16F4FA20000A764C /* SecondaryPlayerViewController.xib */; };
+		D9AB864116F4FA20000A764C /* SecondaryPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9AB863D16F4FA20000A764C /* SecondaryPlayerViewController.xib */; };
 		D9AC6F8116BEC3F900432CC1 /* AudioStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9AC6F7F16BEC3F900432CC1 /* AudioStorage.xcdatamodeld */; };
 		D9AC6F8216BEC3F900432CC1 /* AudioStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9AC6F7F16BEC3F900432CC1 /* AudioStorage.xcdatamodeld */; };
 		D9AF649A16C43338000DCF26 /* EKFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF649916C43338000DCF26 /* EKFileManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -112,7 +118,7 @@
 		D9C4180616A20D770011F600 /* AudioPlayerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C4180516A20D770011F600 /* AudioPlayerSpec.m */; };
 		D9C4180916A20EB70011F600 /* NSObject+NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C4180816A20EB70011F600 /* NSObject+NotificationCenter.m */; };
 		D9C4180A16A212790011F600 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64791699BFF100E0D34B /* AudioPlayer.m */; };
-		D9C4180B16A2130E0011F600 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64701699AC5200E0D34B /* PlayerViewController.m */; };
+		D9C4180B16A2130E0011F600 /* MainPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64701699AC5200E0D34B /* MainPlayerViewController.m */; };
 		D9C4180C16A2130E0011F600 /* SavedAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC646A16999DDC00E0D34B /* SavedAudioViewController.m */; };
 		D9C4180D16A2130E0011F600 /* UsersAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B5F5B916976C3B006E77D2 /* UsersAudioViewController.m */; };
 		D9C4180E16A2130E0011F600 /* PlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98C5EBD1698C9D40084D92A /* PlaylistsViewController.m */; };
@@ -140,8 +146,8 @@
 		D9DC646616999D5A00E0D34B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC646416999D5A00E0D34B /* SearchViewController.m */; };
 		D9DC646716999D5A00E0D34B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9DC646516999D5A00E0D34B /* SearchViewController.xib */; };
 		D9DC646C16999DDC00E0D34B /* SavedAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC646A16999DDC00E0D34B /* SavedAudioViewController.m */; };
-		D9DC64721699AC5200E0D34B /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64701699AC5200E0D34B /* PlayerViewController.m */; };
-		D9DC64731699AC5200E0D34B /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9DC64711699AC5200E0D34B /* PlayerViewController.xib */; };
+		D9DC64721699AC5200E0D34B /* MainPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64701699AC5200E0D34B /* MainPlayerViewController.m */; };
+		D9DC64731699AC5200E0D34B /* MainPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9DC64711699AC5200E0D34B /* MainPlayerViewController.xib */; };
 		D9DC647A1699BFF100E0D34B /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC64791699BFF100E0D34B /* AudioPlayer.m */; };
 		D9DC647C1699C0B800E0D34B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DC647B1699C0B800E0D34B /* AVFoundation.framework */; };
 		D9EB732716CADF9A003413FC /* AudioSessionConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EB732616CADF9A003413FC /* AudioSessionConfigurator.m */; };
@@ -261,6 +267,11 @@
 		D99F9CBB169A232800735A31 /* AudioDownloaderAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDownloaderAdapter.h; sourceTree = "<group>"; };
 		D99F9CBC169A232800735A31 /* AudioDownloaderAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioDownloaderAdapter.m; sourceTree = "<group>"; };
 		D9A9D60316ED2C44006EC919 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		D9AB863516F4EF0C000A764C /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
+		D9AB863616F4EF0C000A764C /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
+		D9AB863B16F4FA20000A764C /* SecondaryPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondaryPlayerViewController.h; sourceTree = "<group>"; };
+		D9AB863C16F4FA20000A764C /* SecondaryPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondaryPlayerViewController.m; sourceTree = "<group>"; };
+		D9AB863D16F4FA20000A764C /* SecondaryPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondaryPlayerViewController.xib; sourceTree = "<group>"; };
 		D9AC6F8016BEC3F900432CC1 /* AudioStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AudioStorage.xcdatamodel; sourceTree = "<group>"; };
 		D9AC6F8816BEDE7F00432CC1 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		D9AC6F8E16BEFF1C00432CC1 /* EKFileDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKFileDownloaderDelegate.h; sourceTree = "<group>"; };
@@ -290,9 +301,9 @@
 		D9DC646516999D5A00E0D34B /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		D9DC646916999DDC00E0D34B /* SavedAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedAudioViewController.h; sourceTree = "<group>"; };
 		D9DC646A16999DDC00E0D34B /* SavedAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedAudioViewController.m; sourceTree = "<group>"; };
-		D9DC646F1699AC5200E0D34B /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
-		D9DC64701699AC5200E0D34B /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
-		D9DC64711699AC5200E0D34B /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		D9DC646F1699AC5200E0D34B /* MainPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPlayerViewController.h; sourceTree = "<group>"; };
+		D9DC64701699AC5200E0D34B /* MainPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPlayerViewController.m; sourceTree = "<group>"; };
+		D9DC64711699AC5200E0D34B /* MainPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainPlayerViewController.xib; sourceTree = "<group>"; };
 		D9DC64781699BFF100E0D34B /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
 		D9DC64791699BFF100E0D34B /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		D9DC647B1699C0B800E0D34B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -670,6 +681,7 @@
 		D98F931F16A3553600E7DD1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D9AB863416F4EEE4000A764C /* MenuView */,
 				D98C552716B445E4002536EF /* Cells */,
 				D98F932016A3554B00E7DD1B /* Player */,
 			);
@@ -699,7 +711,8 @@
 		D995382F1695FFEA00C8B6F4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D9DC646E1699AA1500E0D34B /* PlayerController */,
+				D9DC646E1699AA1500E0D34B /* MainPlayerViewController */,
+				D9AB863A16F4F9DF000A764C /* SecondaryPlayerViewController */,
 				D944443916ECD4310059DB64 /* PaginationViewController */,
 				D98B559D16B58F8300E0452A /* AudioListViewController */,
 				D9529C9D16DD516A00FBF06B /* AudioFilteringListViewController */,
@@ -818,6 +831,25 @@
 				D9CB7BF416D172AD006E7A08 /* UIAlertView+Displaying.m */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D9AB863416F4EEE4000A764C /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				D9AB863516F4EF0C000A764C /* MenuView.h */,
+				D9AB863616F4EF0C000A764C /* MenuView.m */,
+			);
+			name = MenuView;
+			sourceTree = "<group>";
+		};
+		D9AB863A16F4F9DF000A764C /* SecondaryPlayerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9AB863B16F4FA20000A764C /* SecondaryPlayerViewController.h */,
+				D9AB863C16F4FA20000A764C /* SecondaryPlayerViewController.m */,
+				D9AB863D16F4FA20000A764C /* SecondaryPlayerViewController.xib */,
+			);
+			name = SecondaryPlayerViewController;
 			sourceTree = "<group>";
 		};
 		D9AC6F8716BEDCF100432CC1 /* Audio */ = {
@@ -982,14 +1014,14 @@
 			name = SavedAudioViewController;
 			sourceTree = "<group>";
 		};
-		D9DC646E1699AA1500E0D34B /* PlayerController */ = {
+		D9DC646E1699AA1500E0D34B /* MainPlayerViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D9DC646F1699AC5200E0D34B /* PlayerViewController.h */,
-				D9DC64701699AC5200E0D34B /* PlayerViewController.m */,
-				D9DC64711699AC5200E0D34B /* PlayerViewController.xib */,
+				D9DC646F1699AC5200E0D34B /* MainPlayerViewController.h */,
+				D9DC64701699AC5200E0D34B /* MainPlayerViewController.m */,
+				D9DC64711699AC5200E0D34B /* MainPlayerViewController.xib */,
 			);
-			name = PlayerController;
+			name = MainPlayerViewController;
 			sourceTree = "<group>";
 		};
 		D9DC64771699BFBC00E0D34B /* Audio Player */ = {
@@ -1107,10 +1139,11 @@
 				D98C5EBA1698C9A30084D92A /* SettingsViewController.xib in Resources */,
 				D98C5EC01698C9D40084D92A /* PlaylistsViewController.xib in Resources */,
 				D9DC646716999D5A00E0D34B /* SearchViewController.xib in Resources */,
-				D9DC64731699AC5200E0D34B /* PlayerViewController.xib in Resources */,
+				D9DC64731699AC5200E0D34B /* MainPlayerViewController.xib in Resources */,
 				D98C552D16B4476D002536EF /* AudioCell.xib in Resources */,
 				D91750FA16C9A5AE00A00448 /* UsersAudioViewController.xib in Resources */,
 				D91750FD16C9A65300A00448 /* SavedAudioViewController.xib in Resources */,
+				D9AB864016F4FA20000A764C /* SecondaryPlayerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1128,6 +1161,7 @@
 				D91750FE16C9A65300A00448 /* SavedAudioViewController.xib in Resources */,
 				D9174FEE16CE5AAB00E1D735 /* GetAlbumsResponse in Resources */,
 				D9269F6216DC0941007A42B6 /* LyricsGetResponse in Resources */,
+				D9AB864116F4FA20000A764C /* SecondaryPlayerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1182,7 +1216,7 @@
 				D98C5EBF1698C9D40084D92A /* PlaylistsViewController.m in Sources */,
 				D9DC646616999D5A00E0D34B /* SearchViewController.m in Sources */,
 				D9DC646C16999DDC00E0D34B /* SavedAudioViewController.m in Sources */,
-				D9DC64721699AC5200E0D34B /* PlayerViewController.m in Sources */,
+				D9DC64721699AC5200E0D34B /* MainPlayerViewController.m in Sources */,
 				D9DC647A1699BFF100E0D34B /* AudioPlayer.m in Sources */,
 				D99F9CA5169A153300735A31 /* EKFilesMemoryCache.m in Sources */,
 				D99F9CA6169A153300735A31 /* EKFileOnDiskCache.m in Sources */,
@@ -1216,6 +1250,8 @@
 				D944443C16ECD5A50059DB64 /* PaginationViewController.m in Sources */,
 				D944444016ECF5C90059DB64 /* NetworkActivityManager.m in Sources */,
 				D944445216ECFC5A0059DB64 /* User.m in Sources */,
+				D9AB863716F4EF0C000A764C /* MenuView.m in Sources */,
+				D9AB863E16F4FA20000A764C /* SecondaryPlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1225,7 +1261,7 @@
 			files = (
 				D9C4181916A213630011F600 /* EKFilesMemoryCache.m in Sources */,
 				D9C4181A16A213630011F600 /* EKFileOnDiskCache.m in Sources */,
-				D9C4180B16A2130E0011F600 /* PlayerViewController.m in Sources */,
+				D9C4180B16A2130E0011F600 /* MainPlayerViewController.m in Sources */,
 				D9C4180C16A2130E0011F600 /* SavedAudioViewController.m in Sources */,
 				D9C4180D16A2130E0011F600 /* UsersAudioViewController.m in Sources */,
 				D9C4180E16A2130E0011F600 /* PlaylistsViewController.m in Sources */,
@@ -1276,6 +1312,8 @@
 				D944443D16ECD5A50059DB64 /* PaginationViewController.m in Sources */,
 				D944444116ECF5C90059DB64 /* NetworkActivityManager.m in Sources */,
 				D944445316ECFC5A0059DB64 /* User.m in Sources */,
+				D9AB863816F4EF0C000A764C /* MenuView.m in Sources */,
+				D9AB863F16F4FA20000A764C /* SecondaryPlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1359,7 +1397,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VKMusic/VKMusic-Prefix.pch";
 				INFOPLIST_FILE = "VKMusic/VKMusic-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1373,7 +1411,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VKMusic/VKMusic-Prefix.pch";
 				INFOPLIST_FILE = "VKMusic/VKMusic-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

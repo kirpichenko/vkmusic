@@ -19,7 +19,6 @@ static const NSTimeInterval kProgressUnlockDelay = 0.5;
 
 @interface PlayerView ()
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, readwrite) BOOL lyricsDisplayed;
 @property (nonatomic, assign) BOOL progressLocked;
 @end
 
@@ -45,22 +44,11 @@ static const NSTimeInterval kProgressUnlockDelay = 0.5;
 #pragma mark -
 #pragma mark instance methods
 
-- (void)setLyricsHidden:(BOOL)hidden
-{
-    [self setLyricsDisplayed:!hidden];
-    
-    [UIView animateWithDuration:kAnimationDuration
-                     animations:^{
-                         [self layoutSubviews];
-                     }];
-}
-
 - (void)reset
 {
     [audioCurrentTime setText:nil];
     [audioTitle setAudioTitle:nil];
     [progressSlider setValue:0];
-    [lyricTextView setText:nil];
 }
 
 #pragma mark -
@@ -155,7 +143,6 @@ static const NSTimeInterval kProgressUnlockDelay = 0.5;
     [audioCurrentTime setX:CGRectGetMaxX([progressSlider frame]) - audioCurrentTime.width];
     
     [audioTitle setWidth:audioCurrentTime.x - audioTitle.x - kHorizontalOffset];
-    [lyricTextView setY:[self lyricsDisplayed] ? 0 : CGRectGetMaxY([contentView frame])];
 }
 
 #pragma mark -

@@ -6,10 +6,12 @@
 //  Copyright (c) 2013 Evgeniy Kirpichenko. All rights reserved.
 //
 
-#import "PlayerViewController.h"
+#import "MainPlayerViewController.h"
 #import "MenuTabBarController.h"
+#import "SecondaryPlayerViewController.h"
 
 #import "PlayerView.h"
+#import "MenuView.h"
 #import "AudioPlayer.h"
 
 #import "LyricsGetApiRequest.h"
@@ -18,12 +20,14 @@
 #import "NSObject+NotificationCenter.h"
 
 static NSString *kPlayingAudioKey = @"playingAudio";
+static const float kAnimationDuration = 1;
 
-@interface PlayerViewController () <MenuTabBarControllerDelegate>
-@property (nonatomic, strong) AudioPlayer *player;
+@interface MainPlayerViewController () <MenuTabBarControllerDelegate>
+@property (nonatomic,strong) AudioPlayer *player;
+@property (nonatomic,strong) UIView *visibleView;
 @end
 
-@implementation PlayerViewController
+@implementation MainPlayerViewController
 
 #pragma mark -
 #pragma mark life cycle
@@ -32,6 +36,7 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 {
     if (self = [super initWithNibName:nil bundle:nil]) {
         tabBarController = [[MenuTabBarController alloc] initWithDelegate:self];
+        secondaryController = [[SecondaryPlayerViewController alloc] init];
 
         [self setPlayer:player];        
         [player addObserver:self
@@ -48,23 +53,19 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 {
     [super viewDidLoad];
     
-    [playerView setPlayer:[self player]];    
-    [titleLabel setText:[tabBarController selectedViewController].ng_tabBarItem.title];
+    [playerView setPlayer:[self player]];
     
-    UIView *tabBarView = [tabBarController view];
-    [contentView addSubview:tabBarView];
-    [tabBarView setFrame:[contentView bounds]];
-    [tabBarView setAutoresizingMask:(UIViewAutoresizingFlexibleHeight |
-                                     UIViewAutoresizingFlexibleWidth)];
+    [menuView setContentView:[tabBarController view]];
+    [menuView setTitle:[tabBarController selectedViewController].ng_tabBarItem.title];
 
+    [self setVisibleView:menuView];
     [self addSwipeToPopController];
 }
 
-- (void)viewDidUnload {
-    titleLabel = nil;
-    lyricsTextView = nil;
-    contentView = nil;
+- (void)viewDidUnload
+{
     playerView = nil;
+    menuView = nil;
     
     [super viewDidUnload];
 }
@@ -73,6 +74,7 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 {
     [[self player] removeObserver:self forKeyPath:kPlayingAudioKey];
     [self setPlayer:nil];
+    [self setVisibleView:nil];
 }
 
 #pragma mark -
@@ -80,7 +82,7 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 
 - (void)tabBar:(MenuTabBarController *)tabBar didSelectController:(UIViewController *)controller
 {
-    [titleLabel setText:[controller.ng_tabBarItem title]];
+    [menuView setTitle:[controller.ng_tabBarItem title]];
 }
 
 #pragma mark -
@@ -123,7 +125,7 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 
 - (void)lyricsLoaded:(Lyrics *)lyrics
 {
-    [lyricsTextView setText:[lyrics text]];
+//    [lyricsTextView setText:[lyrics text]];
 }
 
 #pragma mark -
@@ -134,8 +136,6 @@ static NSString *kPlayingAudioKey = @"playingAudio";
                          change:(NSDictionary *)change
                         context:(void *)context
 {
-    [lyricsTextView setText:nil];
-
     if ([[_player playingAudio] lyricsID] != 0) {
         [self loadLyrics];
     }
@@ -173,9 +173,21 @@ static NSString *kPlayingAudioKey = @"playingAudio";
     [[self player] playPreviousAudio];
 }
 
-- (IBAction)showHideLyricsView
+- (IBAction)showHideMenu
 {
-    [playerView setLyricsHidden:[playerView lyricsDisplayed]];
+    UIView *newVisibleView = ([self visibleView] == menuView) ? [secondaryController view] : menuView;
+    UIView *contentView = [playerView contentView];
+    
+    [UIView transitionWithView:contentView
+                      duration:kAnimationDuration
+                       options:UIViewAnimationOptionTransitionFlipFromRight
+                    animations:^{
+                        [[self visibleView] removeFromSuperview];
+                        [newVisibleView setFrame:[contentView bounds]];
+                        [self setVisibleView:newVisibleView];
+                        [contentView addSubview:newVisibleView];
+                    }
+                    completion:nil];
 }
 
 - (IBAction)progressChanged:(id)sender

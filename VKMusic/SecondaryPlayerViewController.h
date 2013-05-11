@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class AudioPlayer;
+@class SecondaryPlayerView;
+
 @interface SecondaryPlayerViewController : UIViewController
+{
+    IBOutlet SecondaryPlayerView *playerView;
+}
+
+- (id)initWithAudioPlayer:(AudioPlayer *)audioPlayer;
 
 @end

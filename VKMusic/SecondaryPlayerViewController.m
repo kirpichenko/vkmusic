@@ -7,32 +7,47 @@
 //
 
 #import "SecondaryPlayerViewController.h"
+#import "SecondaryPlayerView.h"
 
-@interface SecondaryPlayerViewController ()
-
+@interface SecondaryPlayerViewController () <TonarmDelegate>
+@property (nonatomic,strong) AudioPlayer *audioPlayer;
 @end
 
 @implementation SecondaryPlayerViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark - life cycle
+
+- (id)initWithAudioPlayer:(AudioPlayer *)audioPlayer
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self = [super init]) {
+        [self setAudioPlayer:audioPlayer];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [self setAudioPlayer:nil];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [playerView setPlayer:[self audioPlayer]];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidUnload
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    playerView = nil;
+
+    [super viewDidUnload];
+}
+
+#pragma mark - tonarm delegate
+
+- (void)userChangedTonarmProgress:(float)progress
+{
+    [[self audioPlayer] setProgress:progress];    
 }
 
 @end

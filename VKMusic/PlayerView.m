@@ -13,36 +13,47 @@
 #import "NSString+TimeFormatting.h"
 
 static NSString *kPlayingAudioKey = @"playingAudio";
+static NSString *kPlayingAudioTimeKey = @"playingAudioTime";
+
 static const float kHorizontalOffset = 7.f;
-static const NSTimeInterval kAnimationDuration = 0.5;
 static const NSTimeInterval kProgressUnlockDelay = 0.5;
 
 @interface PlayerView ()
-@property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) BOOL progressLocked;
 @end
 
 @implementation PlayerView
 
+@synthesize contentView;
+
 #pragma mark -
 #pragma mark life cycle
 
-- (void) awakeFromNib
+- (void)awakeFromNib
 {
     [audioTitle setAudioTitle:nil];
     [audioCurrentTime setText:nil];
-    
-    [self startTimer];
 }
 
-- (void) dealloc
+- (void)dealloc
 {
-    [self stopTimer];
     [self setPlayer:nil];
 }
 
 #pragma mark -
 #pragma mark instance methods
+
+- (void)setProgress:(float)progress lock:(BOOL)lock
+{
+    [self updateTimeLabel:[[[self player] playingAudio] duration] * (1 - progress)];
+    
+    if (lock) {
+        [self setProgressLocked:lock];
+    }
+    else {
+        [self performSelector:@selector(unlock) withObject:nil afterDelay:kProgressUnlockDelay];
+    }
+}
 
 - (void)reset
 {
@@ -54,88 +65,59 @@ static const NSTimeInterval kProgressUnlockDelay = 0.5;
 #pragma mark -
 #pragma mark setters
 
-- (void) setPlayer:(AudioPlayer *)player
+- (void)setPlayer:(AudioPlayer *)player
 {
-    [_player removeObserver:self forKeyPath:kPlayingAudioKey];
-
-    if (player) {
+    if (_player != player) {
+        [_player removeObserver:self forKeyPath:kPlayingAudioKey];
+        [_player removeObserver:self forKeyPath:kPlayingAudioTimeKey];
+        
         _player = player;
-        [_player addObserver:self
-                  forKeyPath:kPlayingAudioKey
-                     options:NSKeyValueObservingOptionNew
+
+        [_player addObserver:self forKeyPath:kPlayingAudioKey options:NSKeyValueObservingOptionNew
+                     context:nil];
+        [_player addObserver:self forKeyPath:kPlayingAudioTimeKey options:NSKeyValueObservingOptionNew
                      context:nil];
     }    
 }
 
 
-#pragma mark -
-#pragma mark observing
+#pragma mark - observing
 
-- (void) observeValueForKeyPath:(NSString *)keyPath
-                       ofObject:(id)object
-                         change:(NSDictionary *)change
-                        context:(void *)context
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change
+                       context:(void *)context
 {
-    OnlineAudio *audio = (OnlineAudio *)[change objectForKey:@"new"];
+    if ([keyPath isEqualToString:kPlayingAudioKey]) {
+        [self updatePlayingAudioTitle];
+    }
+
+    [self updatePlayingAudioTime];
+}
+
+- (void)updatePlayingAudioTitle
+{
+    id<Audio> audio = [[self player] playingAudio];
     NSString *title = [NSString stringWithFormat:@"%@ - %@",[audio artist], [audio title]];
+    
     [audioTitle setAudioTitle:title];
 }
 
-#pragma mark -
-#pragma mark playing timer updates
-
-- (void) startTimer
+- (void)updatePlayingAudioTime
 {
-    if ([self timer] != nil) {
-        [self stopTimer];
-    }
-    
-    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1
-                                             target:self
-                                           selector:@selector(updateTimeIndicators)
-                                           userInfo:nil
-                                            repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    [self setTimer:timer];
-    
-}
-
-- (void) stopTimer
-{
-    [[self timer] invalidate];
-    [self setTimer:nil];
-}
-
-- (void) updateTimeIndicators
-{
-    if ([[self player] playingAudio] == nil || [self progressLocked])
+    if ([[self player] playingAudio] == nil || [self progressLocked] ||
+        [progressSlider isHighlighted])
     {
         return;
     }
     
-    NSTimeInterval elapsedTime = [[self player] currentTime];
+    NSTimeInterval elapsedTime = [[self player] playingAudioTime];
     NSTimeInterval audioDuration = [[[self player] playingAudio] duration];
-
-    [self updateTimeLabel:elapsedTime / audioDuration];
+    NSTimeInterval remainingTime = audioDuration - elapsedTime;
     
-    if (![progressSlider isHighlighted]) {
-        [progressSlider setValue:elapsedTime / audioDuration animated:NO];
-    }
+    [self updateTimeLabel:remainingTime];
+    [progressSlider setValue:elapsedTime / audioDuration animated:NO];
 }
 
-- (void)setProgress:(float)progress lock:(BOOL)lock
-{
-    [self updateTimeLabel:progress];
-    if (lock) {
-        [self setProgressLocked:lock];
-    }
-    else {
-        [self performSelector:@selector(unlock) withObject:nil afterDelay:kProgressUnlockDelay];
-    }
-}
-
-#pragma mark -
-#pragma mark layout
+#pragma mark - layout
 
 - (void) layoutSubviews
 {
@@ -145,22 +127,22 @@ static const NSTimeInterval kProgressUnlockDelay = 0.5;
     [audioTitle setWidth:audioCurrentTime.x - audioTitle.x - kHorizontalOffset];
 }
 
-#pragma mark -
-#pragma mark helpers
+#pragma mark - helpers
 
-- (void)updateTimeLabel:(double)progress
+- (void)updateTimeLabel:(NSTimeInterval)remainingTime
 {
-    NSTimeInterval audioDuration = [[[self player] playingAudio] duration];
-    NSTimeInterval slideDuration = audioDuration * (1. - progress);
+    if (remainingTime < 0) {
+        return;
+    }
     
-    NSString *remainingTimeString = [NSString stringWithTimeInterval:slideDuration];
-    
+    NSString *remainingTimeString = [NSString stringWithTimeInterval:remainingTime];
+
     BOOL needLayout = [[audioCurrentTime text] length] != [remainingTimeString length];
+    [audioCurrentTime setText:remainingTimeString];
+    
     if (needLayout) {
         [self setNeedsLayout];
     }
-    
-    [audioCurrentTime setText:[NSString stringWithFormat:@"%@",remainingTimeString]];
 }
 
 - (void)unlock

@@ -36,7 +36,7 @@ static const float kAnimationDuration = 1;
 {
     if (self = [super initWithNibName:nil bundle:nil]) {
         tabBarController = [[MenuTabBarController alloc] initWithDelegate:self];
-        secondaryController = [[SecondaryPlayerViewController alloc] init];
+        secondaryController = [[SecondaryPlayerViewController alloc] initWithAudioPlayer:player];
 
         [self setPlayer:player];        
         [player addObserver:self

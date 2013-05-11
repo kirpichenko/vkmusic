@@ -11,6 +11,7 @@
 #import "MainPlayerViewController.h"
 
 #import "NSObject+NotificationCenter.h"
+#import "AudioRouteChangeListener.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -27,6 +28,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     AudioPlayer *player = [AudioPlayer sharedInstance];
+    
+    AudioRouteChangeListener *listener = [[AudioRouteChangeListener alloc] initWithAudioPlayer:player];
+    [listener beginRouteChangeListening];
+    
     MainPlayerViewController *controller = [[MainPlayerViewController alloc] initWithPlayer:player];
     
     [self.window setRootViewController:controller];

@@ -7,14 +7,17 @@
 //
 
 #import "AudioPlayer.h"
-#import "AudioSessionConfigurator.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-static NSString *kPlayingAudioKey = @"playingAudio";
+static NSString *const kPlayingAudioKey = @"playingAudio";
+static NSString *const kPlayingAudioTimeKey = @"playingAudioTime";
+
+static NSTimeInterval const kTimeUpdateInterval = 1 / 30.;
 
 @interface AudioPlayer () <AVAudioPlayerDelegate>
+@property (nonatomic,assign) NSTimeInterval playingAudioTime;
 @end
 
 @implementation AudioPlayer
@@ -38,18 +41,17 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 {
     if (self = [super init]) {
         player = [[AVPlayer alloc] init];
-        
-        sessionConfigurator = [[AudioSessionConfigurator alloc] init];
-        [sessionConfigurator setAudioSessionCategory:AVAudioSessionCategoryPlayback];
-        [sessionConfigurator beginRouteChangeListening];
-
         state = kAudioPlayerStateUnconfigured;
         playingIndex = NSNotFound;
         
         [self observeNotificationNamed:AVPlayerItemDidPlayToEndTimeNotification
                           withSelector:@selector(playingFinished)];
-        [self observeNotificationNamed:HeadphoneDisconnectedNotification
-                          withSelector:@selector(headphoneDisconnected:)];
+        
+        [NSTimer scheduledTimerWithTimeInterval:kTimeUpdateInterval
+                                         target:self
+                                       selector:@selector(updateAudioPlayingTime:)
+                                       userInfo:nil
+                                        repeats:YES];
     }
     return self;
 }
@@ -153,16 +155,6 @@ static NSString *kPlayingAudioKey = @"playingAudio";
     playingAudio = nil;
 }
 
-- (NSTimeInterval) currentTime
-{
-    if ([player status] == AVPlayerStatusReadyToPlay) {
-        CMTime currentTime = [player currentTime];
-        NSTimeInterval seconds = currentTime.value / currentTime.timescale;
-        return seconds;
-    }
-    return 0;
-}
-
 - (void) processAudioEvent:(UIEventSubtype)type
 {
     switch (type) {
@@ -197,14 +189,6 @@ static NSString *kPlayingAudioKey = @"playingAudio";
 }
 
 #pragma mark -
-#pragma mark observe headphone disconnect
-
-- (void)headphoneDisconnected:(NSNotification *)notification
-{
-    [self pause];
-}
-
-#pragma mark -
 #pragma mark update playing info
 
 - (void)updatePlayingInfoCenter
@@ -215,6 +199,20 @@ static NSString *kPlayingAudioKey = @"playingAudio";
         MPMediaItemPropertyTitle: [[self playingAudio] title]
      }];
     
+}
+
+#pragma mark - audio playing time
+
+- (void)updateAudioPlayingTime:(NSTimer *)timer
+{
+    if ([player status] == AVPlayerStatusReadyToPlay) {
+        CMTime currentTime = [player currentTime];
+        NSTimeInterval currentTimeSeconds = currentTime.value / currentTime.timescale;
+        
+        if ([self playingAudioTime] != currentTimeSeconds) {
+            [self setPlayingAudioTime:currentTimeSeconds];
+        }    
+    }
 }
 
 @end

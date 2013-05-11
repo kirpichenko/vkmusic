@@ -11,11 +11,15 @@
 static NSString *const HeadphoneConnectedNotification = @"HeadphoneConnected";
 static NSString *const HeadphoneDisconnectedNotification = @"HeadphoneDisconected";
 
-@interface AudioSessionConfigurator : NSObject
+@interface AudioRouteChangeListener : NSObject
+
+- (id)initWithAudioPlayer:(AudioPlayer *)audioPlayer;
 
 - (void)setAudioSessionCategory:(NSString *)categoryName;
 
 - (void)beginRouteChangeListening;
 - (void)endRouteChangeListening;
+
+@property (nonatomic,readonly) AudioPlayer *audioPlayer;
 
 @end

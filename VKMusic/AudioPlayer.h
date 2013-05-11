@@ -18,11 +18,10 @@ typedef enum {
 } AudioPlayerState;
 
 @class AVPlayer;
-@class AudioSessionConfigurator;
+@class AudioRouteChangeListener;
 
 @interface AudioPlayer : UIResponder {
     AVPlayer *player;
-    AudioSessionConfigurator *sessionConfigurator;
 }
 
 + (id)sharedInstance;
@@ -38,13 +37,13 @@ typedef enum {
 
 - (void)setProgress:(float)progress;
 
-- (NSTimeInterval)currentTime;
-
 - (void)processAudioEvent:(UIEventSubtype)type;
 
-@property (nonatomic, readonly) AudioPlayerState state;
 @property (nonatomic, copy) NSArray *audioList;
-@property (nonatomic, readonly) NSInteger playingIndex;
-@property (nonatomic, readonly) id<Audio> playingAudio;
+
+@property (nonatomic,readonly) AudioPlayerState state;
+@property (nonatomic,readonly) NSInteger playingIndex;
+@property (nonatomic,readonly) id<Audio> playingAudio;
+@property (nonatomic,readonly) NSTimeInterval playingAudioTime;
 
 @end

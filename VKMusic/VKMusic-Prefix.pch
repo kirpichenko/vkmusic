@@ -23,10 +23,11 @@
     #import "SettingsManager.h"
     #import "OfflineAudioManager.h"
     #import "NetworkActivityManager.h"
-    #import "EKKeyboardAvoidingScrollViewManager.h"
+    #import "UIScrollView+EKKeyboardAvoiding.h"
 
     #import "NSObject+NotificationCenter.h"
     #import "CoreData+MagicalRecord.h"
-    #import "UIView+FrameAccessor.h"
+
+    #import "FrameAccessor.h"
     #import "UIAlertView+Displaying.h"
 #endif

@@ -7,7 +7,7 @@
 //
 
 #import "AudioTitleView.h"
-#import <FrameAccessor/UIView+FrameAccessor.h>
+#import "FrameAccessor.h"
 
 static const float kUpdatingInterval = 0.05;
 static const float kDefaultMovingStep = 0.5;

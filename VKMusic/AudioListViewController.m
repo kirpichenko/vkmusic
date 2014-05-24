@@ -9,6 +9,7 @@
 #import "AudioListViewController.h"
 
 #import "UITableView+CellCreation.h"
+//#import "UIScrollView+EKKeyboardAvoiding.h"
 
 @interface AudioListViewController () <UITableViewDelegate,AudioDownloaderDelegate>
 @property (nonatomic,strong) NSArray *objects;
@@ -25,16 +26,8 @@
 {
     [super viewDidLoad];
     
-    EKKeyboardAvoidingScrollViewManager *manager = [EKKeyboardAvoidingScrollViewManager sharedInstance];
-    [manager registerScrollViewForKeyboardAvoiding:objectsList];
+    [objectsList setKeyboardAvoidingEnabled:YES];
 }
-
-- (void) dealloc
-{
-    EKKeyboardAvoidingScrollViewManager *manager = [EKKeyboardAvoidingScrollViewManager sharedInstance];
-    [manager unregisterScrollViewFromKeyboardAvoiding:objectsList];
-}
-
 
 #pragma mark -
 #pragma mark template methods
